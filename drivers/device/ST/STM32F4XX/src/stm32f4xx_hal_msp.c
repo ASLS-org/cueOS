@@ -20,8 +20,9 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+
 /* USER CODE BEGIN Includes */
+#include "stm32f4xx_hal.h"
 
 /* USER CODE END Includes */
 extern DMA_HandleTypeDef hdma_sdio_rx;
@@ -141,7 +142,7 @@ void HAL_SD_MspInit(SD_HandleTypeDef* hsd)
     hdma_sdio_rx.Init.PeriphBurst = DMA_PBURST_INC4;
     if (HAL_DMA_Init(&hdma_sdio_rx) != HAL_OK)
     {
-      Error_Handler();
+      //Error_Handler();
     }
 
     __HAL_LINKDMA(hsd,hdmarx,hdma_sdio_rx);
@@ -162,7 +163,7 @@ void HAL_SD_MspInit(SD_HandleTypeDef* hsd)
     hdma_sdio_tx.Init.PeriphBurst = DMA_PBURST_INC4;
     if (HAL_DMA_Init(&hdma_sdio_tx) != HAL_OK)
     {
-      Error_Handler();
+      //Error_Handler();
     }
 
     __HAL_LINKDMA(hsd,hdmatx,hdma_sdio_tx);

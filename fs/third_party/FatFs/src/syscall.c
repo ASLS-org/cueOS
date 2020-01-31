@@ -47,7 +47,7 @@
 
 
 
-#include "../ff.h"
+#include "ff.h"
 
 
 #if _FS_REENTRANT

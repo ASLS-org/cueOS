@@ -16,7 +16,7 @@
   ******************************************************************************
   */
 
-#include "fatfs.h"
+#include "fs.h"
 
 uint8_t retSD;    /* Return value for SD */
 char SDPath[4];   /* SD logical drive path */
@@ -50,7 +50,7 @@ void MX_FATFS_Init(void)
 	  }
 	  FATFS_UnLinkDriver(SDPath);
   }else{
-	  HAL_GPIO_WritePin(LED_ERROR_GPIO_Port, LED_ERROR_Pin, 1);
+
   }
 
   /* USER CODE END Init */
