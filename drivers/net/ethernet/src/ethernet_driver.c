@@ -18,20 +18,16 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 #include "lwip/opt.h"
-
 #include "lwip/timeouts.h"
 #include "netif/ethernet.h"
 #include "netif/etharp.h"
 #include "lwip/ethip6.h"
-#include "ethernetif.h"
 #include <string.h>
 #include "cmsis_os.h"
-/* Within 'USER CODE' section, code will be kept by default at each generation */
-/* USER CODE BEGIN 0 */
+#include "stm32f4xx_hal.h"
+#include "ethernet_driver.h"
 
-/* USER CODE END 0 */
 
 /* Private define ------------------------------------------------------------*/
 /* The time to block waiting for input. */

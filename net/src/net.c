@@ -7,8 +7,8 @@
 
 #include "lwip/init.h"
 #include "lwip/netif.h"
-#include "ethernetif.h"
-#include "ASLS_ntw_interface.h"
+#include "ethernet_driver.h"
+#include "net.h"
 
 static ASLS_ntw_iface *this;
 osSemaphoreId Netif_LinkSemaphore = NULL;

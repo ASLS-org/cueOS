@@ -16,15 +16,12 @@
 #include "lwip/dhcp.h"
 #include "lwip/netif.h"
 #include "lwip/timeouts.h"
-#include "ethernetif.h"
+#include "ethernet_driver.h"
 
 /* Includes for RTOS ---------------------------------------------------------*/
 #if WITH_RTOS
 #include "lwip/tcpip.h"
 #endif /* WITH_RTOS */
-
-/* Global Variables ----------------------------------------------------------*/
-extern ETH_HandleTypeDef heth;
 
 typedef enum{
 	IFACE_UP,
