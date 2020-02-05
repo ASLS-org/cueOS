@@ -13,6 +13,8 @@ typedef struct{
 	void(*getFixtureInstance)();
 }DMX512_patcher_s;
 
-DMX512_patcher_s *DMX512_patcher_init(void);
+DMX512_engine_err_e DMX512_patcher_patch(DMX512_fixture_s *fixture);
+DMX512_engine_err_e DMX512_patcher_unpatch(uint16_t fixtureId);
+DMX512_engine_err_e DMX512_patcher_getFixtureInstance(DMX512_fixture_s *fixture, uint16_t fixtureId);
 
 #endif

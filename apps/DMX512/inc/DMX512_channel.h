@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "DMX512_defs.h"
 
+
 typedef struct{
 	uint16_t address;
 	uint8_t value;
