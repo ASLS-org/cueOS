@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cdtprojectproperties>
 <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
-<language name="S">
-<includepath>cueos/app/inc/</includepath>
+<language name="C Source File">
 <includepath>cueos/device/ST/STM32F4XX/inc/</includepath>
 <includepath>cueos/device/ST/STM32F4XX/STM32F407XX/inc/</includepath>
 <includepath>cueos/drivers/device/ST/STM32F4XX/inc/</includepath>
@@ -31,10 +30,11 @@
 <includepath>cueos/net/third_party/LwIP/src/include/compat/posix/net/</includepath>
 <includepath>cueos/net/third_party/LwIP/src/include/compat/posix/sys/</includepath>
 <includepath>cueos/net/third_party/LwIP/src/include/compat/stdc/</includepath>
+<includepath>cueos/system/inc/</includepath>
+<includepath>cueos/apps/inc</includepath>
 
 </language>
-<language name="C Source File">
-<includepath>cueos/app/inc/</includepath>
+<language name="S">
 <includepath>cueos/device/ST/STM32F4XX/inc/</includepath>
 <includepath>cueos/device/ST/STM32F4XX/STM32F407XX/inc/</includepath>
 <includepath>cueos/drivers/device/ST/STM32F4XX/inc/</includepath>
@@ -63,6 +63,8 @@
 <includepath>cueos/net/third_party/LwIP/src/include/compat/posix/net/</includepath>
 <includepath>cueos/net/third_party/LwIP/src/include/compat/posix/sys/</includepath>
 <includepath>cueos/net/third_party/LwIP/src/include/compat/stdc/</includepath>
+<includepath>cueos/system/inc/</includepath>
+<includepath>cueos/apps/inc</includepath>
 
 </language>
 <language name="Object File">
