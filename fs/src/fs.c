@@ -16,60 +16,35 @@
   ******************************************************************************
   */
 
+#include <stdio.h>
 #include "fs.h"
 
-uint8_t retSD;    /* Return value for SD */
-char SDPath[4];   /* SD logical drive path */
-FATFS SDFatFS;    /* File system object for SD logical drive */
-FIL SDFile;       /* File object for SD */
+static fs_s *this;
 
-/* USER CODE BEGIN Variables */
+fs_err_e fs_mountSD(void){
 
-/* USER CODE END Variables */    
+	fs_err_e err = FS_OK;
 
-void MX_FATFS_Init(void) 
-{
-  /*## FatFS: Link the SD driver ###########################*/
-  retSD = FATFS_LinkDriver(&SD_Driver, SDPath);
+	this->SDValue =  FATFS_LinkDriver(&SD_Driver, this->SDPath);
 
-  /* USER CODE BEGIN Init */
-
-  FIL MyFile;
-  uint32_t wbytes;
-  uint8_t wtext[] = "text to write logical disk"; /* File write buffer */
-
-  if(retSD == 0){
-	  if(f_mount(&SDFatFS, (TCHAR const*)SDPath, 0) == FR_OK){
-		  if(f_open(&MyFile, "STM32.TXT", FA_CREATE_ALWAYS | FA_WRITE) == FR_OK)
-		  {
-			if(f_write(&MyFile, wtext, sizeof(wtext), (void *)&wbytes) == FR_OK)
-			{
-			  f_close(&MyFile);
+	if(this->SDMountState == FS_SD_MOUNTED){
+		if(this->SDValue == 0){
+			if(f_mount(&this->SDFatFs, this->SDPath, 0) != FR_OK){
+				err = FS_MOUNT_ERR;
 			}
-		  }
-	  }
-	  FATFS_UnLinkDriver(SDPath);
-  }else{
+		}else{
+			err = FS_DRIVER_ERR;
+		}
+	}else{
+		err = FS_MOUNT_ERR;
+	}
 
-  }
+	this->SDMountState = FS_SD_MOUNTED;
 
-  /* USER CODE END Init */
+	return err;
 }
 
-/**
-  * @brief  Gets Time from RTC 
-  * @param  None
-  * @retval Time in DWORD
-  */
-DWORD get_fattime(void)
-{
-  /* USER CODE BEGIN get_fattime */
+
+DWORD get_fattime(void) {
   return 0;
-  /* USER CODE END get_fattime */  
 }
-
-/* USER CODE BEGIN Application */
-     
-/* USER CODE END Application */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

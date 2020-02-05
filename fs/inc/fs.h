@@ -17,33 +17,38 @@
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __fatfs_H
-#define __fatfs_H
-#ifdef __cplusplus
- extern "C" {
-#endif
+#ifndef __fs_H
+#define __fs_H
 
 #include "ff.h"
 #include "ff_gen_drv.h"
 #include "sd_diskio.h" /* defines SD_Driver as external */
 
-/* USER CODE BEGIN Includes */
+typedef enum{
+	FS_OK,
+	FS_DRIVER_ERR,
+	FS_MOUNT_ERR,
+	FS_WRITE_ERR,
+	FS_READ_ERR,
+	FS_FILE_NOT_FOUND
+}fs_err_e;
 
-/* USER CODE END Includes */
+typedef enum{
+	FS_SD_UNMOUNTED,
+	FS_SD_MOUNTED
+}fs_sd_state_e;
 
-extern uint8_t retSD; /* Return value for SD */
-extern char SDPath[4]; /* SD logical drive path */
-extern FATFS SDFatFS; /* File system object for SD logical drive */
-extern FIL SDFile; /* File object for SD */
+typedef struct{
+	FATFS SDFatFs;
+	uint8_t SDValue;
+	TCHAR SDPath[4];
+	fs_sd_state_e SDMountState;
+}fs_s;
 
-void MX_FATFS_Init(void);
 
-/* USER CODE BEGIN Prototypes */
+fs_err_e fs_mountSD(void);
+fs_err_e fs_readFile(const TCHAR* path, uint8_t *data);
+fs_err_e fs_writeFile(char *data, char *path, char *name);
 
-/* USER CODE END Prototypes */
-#ifdef __cplusplus
-}
-#endif
+
 #endif /*__fatfs_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

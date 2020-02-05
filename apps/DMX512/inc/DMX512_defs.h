@@ -1,0 +1,17 @@
+#ifndef __DMX512_defs_H
+#define __DMX512_defs_H
+
+#define DMX512_MIN_CHANNEL 1
+#define DMX512_MAX_CHANNEL 512
+#define DMX512_MIN_VALUE   0
+#define DMX512_MAX_VALUE   255
+
+typedef enum{
+	DMX512_ENGINE_OK,
+	DMX512_CHN_OUT_OF_BOUNDS,
+	DMX512_CHN_IN_USE,
+	DMX512_VAL_OUT_OF_BOUNDS,
+	DMX512_FIXTURE_NOT_FOUND
+}DMX512_engine_err_e;
+
+#endif
