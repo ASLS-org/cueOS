@@ -3,20 +3,29 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-#include "DMX512_fixture.h"
-#include "DMX512_patcher.h"
+#include "DMX512_preset.h"
 #include "DMX512_defs.h"
 
-typedef struct{
-	uint16_t fixtureId;
-	uint16_t *channels;
-	uint8_t *values;
-}DMX512_scene_fSetting_s;
+#define DMX512_PRESET_NOT_FOUND -1
 
-typedef struct{
+typedef struct DMX512_scene DMX512_scene_s;
+
+typedef DMX512_engine_err_e (*addPresetFunc)(DMX512_scene_s *, uint16_t, uint8_t *);
+typedef DMX512_engine_err_e (*updPresetFunc)(DMX512_scene_s *, uint16_t, uint8_t *);
+typedef DMX512_engine_err_e (*clrPresetFunc)(DMX512_scene_s *, uint16_t);
+typedef void  (*triggerFunc)(DMX512_scene_s *);
+
+typedef struct DMX512_scene{
 	uint16_t id;
-	uint16_t fCount;
-	DMX512_scene_fSetting_s **fSettings;
+	uint16_t presetCount;
+	DMX512_preset_s **presets;
+	addPresetFunc addPreset;
+	updPresetFunc updPreset;
+	clrPresetFunc clrPreset;
+	triggerFunc trigger;
 }DMX512_scene_s;
+
+
+DMX512_scene_s *DMX512_scene_init(uint16_t id);
 
 #endif
