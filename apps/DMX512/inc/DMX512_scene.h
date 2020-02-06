@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 #include "DMX512_preset.h"
 #include "DMX512_defs.h"
 
@@ -10,8 +11,8 @@
 
 typedef struct DMX512_scene DMX512_scene_s;
 
-typedef DMX512_engine_err_e (*addPresetFunc)(DMX512_scene_s *, uint16_t, uint8_t *);
-typedef DMX512_engine_err_e (*updPresetFunc)(DMX512_scene_s *, uint16_t, uint8_t *);
+typedef DMX512_engine_err_e (*addPresetFunc)(DMX512_scene_s *, uint16_t, uint16_t *, uint8_t *);
+typedef DMX512_engine_err_e (*updPresetFunc)(DMX512_scene_s *, uint16_t, uint16_t *, uint8_t *);
 typedef DMX512_engine_err_e (*clrPresetFunc)(DMX512_scene_s *, uint16_t);
 typedef void  (*triggerFunc)(DMX512_scene_s *);
 
