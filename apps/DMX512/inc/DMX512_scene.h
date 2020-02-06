@@ -11,19 +11,19 @@
 
 typedef struct DMX512_scene DMX512_scene_s;
 
-typedef DMX512_engine_err_e (*addPresetFunc)(DMX512_scene_s *, uint16_t, uint16_t *, uint8_t *);
-typedef DMX512_engine_err_e (*updPresetFunc)(DMX512_scene_s *, uint16_t, uint16_t *, uint8_t *);
-typedef DMX512_engine_err_e (*clrPresetFunc)(DMX512_scene_s *, uint16_t);
-typedef void  (*triggerFunc)(DMX512_scene_s *);
+typedef DMX512_engine_err_e (*sceneAddPresetFunc)(DMX512_scene_s *, uint16_t, uint16_t *, uint8_t *);
+typedef DMX512_engine_err_e (*sceneUpdFunc)(DMX512_scene_s *, uint16_t, uint16_t *, uint8_t *);
+typedef DMX512_engine_err_e (*sceneClrFunc)(DMX512_scene_s *, uint16_t);
+typedef void  (*sceneTriggerFunc)(DMX512_scene_s *);
 
 typedef struct DMX512_scene{
 	uint16_t id;
 	uint16_t presetCount;
 	DMX512_preset_s **presets;
-	addPresetFunc addPreset;
-	updPresetFunc updPreset;
-	clrPresetFunc clrPreset;
-	triggerFunc trigger;
+	sceneAddPresetFunc add;
+	sceneUpdFunc upd;
+	sceneClrFunc clr;
+	sceneTriggerFunc trigger;
 }DMX512_scene_s;
 
 

@@ -15,10 +15,10 @@ DMX512_scene_s *DMX512_scene_init(uint16_t id){
 	scene->presetCount = 0;
 	scene->presets = NULL;
 
-	scene->addPreset = DMX512_scene_addPreset;
-	scene->updPreset = DMX512_scene_updPreset;
-	scene->clrPreset = DMX512_scene_clrPreset;
-	scene->trigger	 = DMX512_scene_trigger;
+	scene->add 		= DMX512_scene_addPreset;
+	scene->upd		= DMX512_scene_updPreset;
+	scene->clr		= DMX512_scene_clrPreset;
+	scene->trigger	= DMX512_scene_trigger;
 
 	return scene;
 
@@ -49,7 +49,7 @@ static DMX512_engine_err_e DMX512_scene_updPreset(DMX512_scene_s *this, uint16_t
 	uint16_t index = DMX512_scene_getPresetIndex(this, id);
 
 	if(id != DMX512_PRESET_NOT_FOUND){
-		err = this->presets[index]->update(this->presets[index], channels, values);
+		err = this->presets[index]->upd(this->presets[index], channels, values);
 	}else{
 		err = DMX512_PRESET_UNKNW;
 	}
@@ -91,7 +91,7 @@ static DMX512_engine_err_e DMX512_scene_clrPreset(DMX512_scene_s *this, uint16_t
 static void DMX512_scene_trigger(DMX512_scene_s *this){
 	for(uint16_t i = 0; i< this->presetCount; i++){
 		for(uint16_t j = 0; j< this->presets[i]->fixture->chCount; j++){
-			this->presets[i]->apply(this->presets[i]);
+			this->presets[i]->set(this->presets[i]);
 		}
 	}
 }

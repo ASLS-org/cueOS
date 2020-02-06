@@ -8,8 +8,8 @@
 
 
 typedef struct DMX512_fixture DMX512_fixture_s;
-typedef DMX512_engine_err_e (*setValueFunc)(DMX512_fixture_s *, uint16_t, uint8_t);
-typedef DMX512_engine_err_e (*freeFunc)(DMX512_fixture_s *);
+typedef DMX512_engine_err_e (*fixtureSetFunc)(DMX512_fixture_s *, uint16_t, uint8_t);
+typedef void (*freeFunc)(DMX512_fixture_s *);
 
 typedef struct DMX512_fixture{
 	uint16_t id;
@@ -17,7 +17,7 @@ typedef struct DMX512_fixture{
 	uint16_t chStop;
 	uint16_t chCount;
 	DMX512_channel_s **channels;
-	setValueFunc setValue;
+	fixtureSetFunc set;
 	freeFunc free;
 }DMX512_fixture_s;
 

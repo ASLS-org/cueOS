@@ -10,8 +10,8 @@ DMX512_chaser_s *DMX512_chaser_init(DMX512_chaser_s *this, uint16_t id){
 	this = malloc(sizeof(DMX512_chaser_s));
 	this->id 			= id;
 	this->sceneCount	= 0;
-	this->addScene 		= DMX512_chaser_addScene;
-	this->clrScene 		= DMX512_chaser_clrScene;
+	this->add	 		= DMX512_chaser_addScene;
+	this->clr	 		= DMX512_chaser_clrScene;
 	this->trigger 		= DMX512_chaser_trigger;
 
 	return this;
