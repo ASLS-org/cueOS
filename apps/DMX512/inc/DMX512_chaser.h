@@ -9,16 +9,16 @@
 
 typedef struct DMX512_chaser DMX512_chaser_s;
 
-typedef DMX512_engine_err_e (*addSceneFunc)(DMX512_chaser_s *, DMX512_scene_s *);
-typedef DMX512_engine_err_e (*clrSceneFunc)(DMX512_chaser_s *, uint16_t);
+typedef DMX512_engine_err_e (*chaserAddFunc)(DMX512_chaser_s *, DMX512_scene_s *);
+typedef DMX512_engine_err_e (*chaserClrFunc)(DMX512_chaser_s *, uint16_t);
 typedef void  (*trigFunc)(DMX512_chaser_s *);
 
 typedef struct DMX512_chaser{
 	uint16_t id;
 	uint16_t sceneCount;
 	DMX512_scene_s **scenes;
-	addSceneFunc addScene;
-	clrSceneFunc clrScene;
+	chaserAddFunc add;
+	chaserClrFunc clr;
 	trigFunc trigger;
 }DMX512_chaser_s;
 

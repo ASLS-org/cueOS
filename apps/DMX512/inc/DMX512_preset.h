@@ -8,8 +8,8 @@
 
 
 typedef struct DMX512_preset DMX512_preset_s;
-typedef DMX512_engine_err_e(*updFunc)(DMX512_preset_s *, uint16_t *, uint8_t *);
-typedef DMX512_engine_err_e(*applyFunc)(DMX512_preset_s *);
+typedef DMX512_engine_err_e(*presetUpdFunc)(DMX512_preset_s *, uint16_t *, uint8_t *);
+typedef DMX512_engine_err_e(*presetSetFunc)(DMX512_preset_s *);
 
 typedef struct DMX512_preset{
 	uint16_t id;
@@ -17,8 +17,8 @@ typedef struct DMX512_preset{
 	uint8_t *values;
 	uint16_t *channels;
 	DMX512_fixture_s *fixture;
-	updFunc update;
-	applyFunc apply;
+	presetUpdFunc upd;
+	presetSetFunc set;
 }DMX512_preset_s;
 
 

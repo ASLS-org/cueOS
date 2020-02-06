@@ -22,6 +22,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "stm32f4xx_hal.h"
+#include "DMX512_engine.h"
 //#include "lwip.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -260,6 +261,7 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
 
+	DMX512_engine engine = DMX512_engine_init();
 
   /* Infinite loop */
   for(;;)
