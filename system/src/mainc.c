@@ -23,37 +23,13 @@
 #include "cmsis_os.h"
 #include "stm32f4xx_hal.h"
 #include "DMX512_engine.h"
-//#include "lwip.h"
-
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
 
 DMA_HandleTypeDef hdma_sdio_rx;
 DMA_HandleTypeDef hdma_sdio_tx;
 
 osThreadId defaultTaskHandle;
-/* USER CODE BEGIN PV */
-/* Private variables ---------------------------------------------------------*/
 
-/* USER CODE END PV */
+DMX512_engine_s *myEngine;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -61,15 +37,6 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 void StartDefaultTask(void const * argument);
 
-/* USER CODE BEGIN PFP */
-/* Private function prototypes -----------------------------------------------*/
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -77,9 +44,6 @@ void StartDefaultTask(void const * argument);
   */
 int main(void)
 {
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
 
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -87,65 +51,25 @@ int main(void)
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
 
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  /* USER CODE BEGIN 2 */
-
-  /* USER CODE END 2 */
-
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
-
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
-
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 2048);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 1024);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
-
-  /* USER CODE BEGIN RTOS_THREADS */
-
-  /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
   osKernelStart();
 
-  /* We should never get here as control is now taken by the scheduler */
+  while (1){}
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-
-  }
-  /* USER CODE END 3 */
 }
 
 
@@ -247,29 +171,31 @@ static void MX_GPIO_Init(void)
 
 }
 
-/* USER CODE BEGIN 4 */
 
-/* USER CODE END 4 */
-
-/* USER CODE BEGIN Header_StartDefaultTask */
 /**
   * @brief  Function implementing the defaultTask thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void const * argument)
 {
 
-	DMX512_engine engine = DMX512_engine_init();
+	uint16_t channel;
 
-  /* Infinite loop */
+	DMX512_engine_err_e err;
+
+	myEngine = DMX512_engine_init();
+	for(int i=0; i< 150;i++){
+		err = myEngine->patch(i,i*10 + 1,i*10 + 10);
+	}
+
+	channel = myEngine->fixtures[49]->channels[4]->address;
+
   for(;;)
   {
 	HAL_GPIO_TogglePin(LED_STATE_GPIO_Port, LED_STATE_Pin);
     osDelay(250);
   }
-  /* USER CODE END 5 */
 }
 
 /**

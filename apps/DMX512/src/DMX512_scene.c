@@ -9,7 +9,7 @@ static int16_t DMX512_scene_getPresetIndex(DMX512_scene_s *this, uint16_t preset
 
 DMX512_scene_s *DMX512_scene_init(uint16_t id){
 
-	DMX512_scene_s *scene = malloc(sizeof(DMX512_scene_s));
+	DMX512_scene_s *scene = pvPortMalloc(sizeof(DMX512_scene_s));
 
 	scene->id = id;
 	scene->presetCount = 0;
@@ -30,7 +30,7 @@ static DMX512_engine_err_e DMX512_scene_addPreset(DMX512_scene_s *this, uint16_t
 
 	if(DMX512_scene_getPresetIndex(this, id) == DMX512_PRESET_NOT_FOUND){
 		this->presetCount ++;
-		this->presets = realloc(this->presets, this->presetCount * sizeof(DMX512_preset_s));
+		this->presets = pvPortRealloc(this->presets, this->presetCount * sizeof(DMX512_preset_s));
 		err = DMX512_preset_init(this->presets[this->presetCount], id, channels, values);
 		if(err != DMX512_ENGINE_OK){
 			DMX512_scene_clrPreset(this, id);
@@ -65,7 +65,7 @@ static DMX512_engine_err_e DMX512_scene_clrPreset(DMX512_scene_s *this, uint16_t
 
 	if(id != DMX512_PRESET_UNKNW){
 
-		DMX512_preset_s **tmpPresets = malloc((this->presetCount - 1) * sizeof(DMX512_preset_s));
+		DMX512_preset_s **tmpPresets = pvPortMalloc((this->presetCount - 1) * sizeof(DMX512_preset_s));
 
 		for(uint16_t i=0; i<this->presetCount; i++){
 			if(i < index){

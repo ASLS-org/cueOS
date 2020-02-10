@@ -7,7 +7,7 @@ static void  DMX512_chaser_trigger(DMX512_chaser_s *this);
 
 DMX512_chaser_s *DMX512_chaser_init(DMX512_chaser_s *this, uint16_t id){
 
-	this = malloc(sizeof(DMX512_chaser_s));
+	this = pvPortMalloc(sizeof(DMX512_chaser_s));
 	this->id 			= id;
 	this->sceneCount	= 0;
 	this->add	 		= DMX512_chaser_addScene;
@@ -25,7 +25,7 @@ static DMX512_engine_err_e DMX512_chaser_addScene(DMX512_chaser_s *this, DMX512_
 
 	if(DMX512_chaser_getSceneIndex(this, scene->id) == DMX512_SCENE_UNKNW){
 		this->sceneCount++;
-		this->scenes = realloc(this->scenes, this->sceneCount * sizeof(DMX512_scene_s));
+		this->scenes = pvPortRealloc(this->scenes, this->sceneCount * sizeof(DMX512_scene_s));
 		this->scenes[this->sceneCount] = scene;
 	}else{
 		err = DMX512_SCENE_DUP;
@@ -43,7 +43,7 @@ static DMX512_engine_err_e DMX512_chaser_clrScene(DMX512_chaser_s *this, uint16_
 
 	if(id != DMX512_PRESET_NOT_FOUND){
 
-		DMX512_preset_s **tmpScenes = malloc((this->sceneCount - 1) * sizeof(DMX512_scene_s));
+		DMX512_preset_s **tmpScenes = pvPortMalloc((this->sceneCount - 1) * sizeof(DMX512_scene_s));
 
 		for(uint16_t i=0; i<this->sceneCount; i++){
 			if(i < index){
