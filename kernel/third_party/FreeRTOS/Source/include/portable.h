@@ -127,6 +127,7 @@ void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions ) PRIVILEG
  * Map to the memory management routines required for the port.
  */
 void *pvPortMalloc( size_t xSize ) PRIVILEGED_FUNCTION;
+void *pvPortRealloc(void *mem, size_t newsize); //MODIFIED
 void vPortFree( void *pv ) PRIVILEGED_FUNCTION;
 void vPortInitialiseBlocks( void ) PRIVILEGED_FUNCTION;
 size_t xPortGetFreeHeapSize( void ) PRIVILEGED_FUNCTION;

@@ -11,7 +11,7 @@
 
 typedef struct DMX512_engine DMX512_engine_s;
 
-typedef DMX512_engine_err_e(*enginePatchFunc)(uint16_t, uint16_t);
+typedef DMX512_engine_err_e(*enginePatchFunc)(uint16_t, uint16_t, uint16_t);
 typedef DMX512_engine_err_e(*engineUnpatchFunc)(uint16_t);
 typedef DMX512_engine_err_e(*engineAddSceneFunc)(uint16_t);
 typedef DMX512_engine_err_e(*engineClrSceneFunc)(uint16_t);
@@ -21,18 +21,18 @@ typedef DMX512_engine_err_e(*engineClrChaserFunc)(uint16_t);
 
 typedef struct DMX512_engine{
 	uint16_t fixtureCount;
-	uint16_t sceneCount;
-	uint16_t chaserCount;
-	uint16_t effectCount;
-	DMX512_fixture_s **fixtures;
-	DMX512_scene_s **scene;
-	DMX512_chaser_s **chaser;
+	//uint16_t sceneCount;
+	//uint16_t chaserCount;
+	//uint16_t effectCount;
+	//DMX512_scene_s *scenes;
+	//DMX512_chaser_s *chasers;
 	enginePatchFunc patch;
 	engineUnpatchFunc unpatch;
-	engineAddSceneFunc addScene;
-	engineClrSceneFunc clrScene;
-	engineAddChaserFunc addChaser;
-	engineClrChaserFunc clrChaser;
+//	engineAddSceneFunc addScene;
+//	engineClrSceneFunc clrScene;
+//	engineAddChaserFunc addChaser;
+//	engineClrChaserFunc clrChaser;
+	DMX512_fixture_s **fixtures;
 }DMX512_engine_s;
 
 DMX512_engine_s *DMX512_engine_init(void);

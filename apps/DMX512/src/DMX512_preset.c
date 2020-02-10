@@ -9,7 +9,7 @@ static DMX512_engine_err_e DMX512_preset_apply(DMX512_preset_s *this);
 DMX512_engine_err_e DMX512_preset_init(DMX512_preset_s *preset, uint16_t fixtureId, uint16_t *channels, uint8_t *values){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-	preset = malloc(sizeof(DMX512_preset_s));
+	preset = pvPortMalloc(sizeof(DMX512_preset_s));
 
 	preset->id 		= preset->fixture->id;
 	preset->chCount = sizeof(preset->channels)/sizeof(uint16_t);
@@ -28,8 +28,8 @@ static DMX512_engine_err_e DMX512_preset_update(DMX512_preset_s *this, uint16_t 
 	DMX512_engine_err_e err = DMX512_preset_validate(this, channels, values);
 
 	if(err == DMX512_ENGINE_OK){
-		this->channels 	= malloc(this->chCount * sizeof(uint16_t));
-		this->values 	= malloc(this->chCount * sizeof(uint8_t));
+		this->channels 	= pvPortMalloc(this->chCount * sizeof(uint16_t));
+		this->values 	= pvPortMalloc(this->chCount * sizeof(uint8_t));
 		memcpy(this->channels, channels, this->chCount);
 		memcpy(this->values, values, this->chCount);
 	}
