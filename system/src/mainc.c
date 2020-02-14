@@ -22,14 +22,13 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "stm32f4xx_hal.h"
+#include "DMX512_fixture_pool.h"
 #include "DMX512_engine.h"
 
 DMA_HandleTypeDef hdma_sdio_rx;
 DMA_HandleTypeDef hdma_sdio_tx;
 
 osThreadId defaultTaskHandle;
-
-DMX512_engine_s *myEngine;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
@@ -62,7 +61,7 @@ int main(void)
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 1024);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 512);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* Start scheduler */
@@ -180,16 +179,69 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
 
-	uint16_t channel;
+	uint32_t heap_sz, used_bytes;
+	uint16_t sizer = 20;
+	uint16_t fcount = (512/sizer);
+	uint16_t chcount = (sizer-1);
+	uint8_t values[sizer];
 
-	DMX512_engine_err_e err;
+	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	myEngine = DMX512_engine_init();
-	for(int i=0; i< 150;i++){
-		err = myEngine->patch(i,i*10 + 1,i*10 + 10);
+
+	DMX512_engine_s *myEngine = DMX512_engine_init();
+	DMX512_fixture_s *fixture;
+
+	heap_sz = xPortGetFreeHeapSize();
+
+	for(int i=0; i<fcount; i++){
+		err = myEngine->patch(i, i*sizer, i*sizer+chcount);
 	}
 
-	channel = myEngine->fixtures[49]->channels[4]->address;
+	for(int i=0; i<fcount; i++){
+		fixture = DMX512_engine_getFixture(i);
+	}
+
+
+//	fixture = DMX512_engine_getFixture(100);
+//	fixture->chStop = 265;
+//	fixture = DMX512_engine_getFixture(100);
+//
+//	err = myEngine->unpatch(100);
+//	err = myEngine->unpatch(100);
+//
+//	fixture = DMX512_engine_getFixture(101);
+
+	used_bytes = heap_sz - xPortGetFreeHeapSize();
+
+//
+//	for(int i=0; i< sizer; i++){
+//		values[i] = 'A';
+//	}
+//
+//	for(int i=0; i<fcount; i++){
+//		DMX512_fixture_pool_add(i, i*chcount, i*chcount+chcount);
+//	}
+//
+//
+//	//DMX512_fixture_pool_add(0, 1, 10);
+//
+//	DMX512_scene_s *myScenes[255];
+//	used_bytes = heap_sz - xPortGetFreeHeapSize();
+//
+//	//heap_sz = xPortGetFreeHeapSize();
+//
+//	heap_sz = xPortGetFreeHeapSize();
+//
+//	for(int i=0; i<255; i++){
+//		myScenes[i] = DMX512_scene_init(i);
+//		for(int j=0; j<fcount; j++){
+//			DMX512_scene_add(myScenes[i], j, values);
+//		}
+//	}
+//
+//	//used_bytes = heap_sz - xPortGetFreeHeapSize();
+//	used_bytes = heap_sz - xPortGetFreeHeapSize();
+
 
   for(;;)
   {
