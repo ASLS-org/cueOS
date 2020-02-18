@@ -1,91 +1,126 @@
-//#include "DMX512_fixture_pool.h"
-//#include "cmsis_os.h"
-//
-//DMX512_fixture_s *_hash_table[DMX512_FIXTURE_POOL_HASHTABLE_SIZE];
-//static uint16_t _DMX512_fixture_pool_hash(uint16_t index);
-//
-//
-//DMX512_fixture_s *DMX512_fixture_pool_get(uint16_t index){
-//
-//	uint16_t hash_index 		= _DMX512_fixture_pool_hash(index);
-//	DMX512_fixture_s *current	= _hash_table[hash_index];
-//
-//	while(current != NULL){
-//		if(current->id == index){
-//			return current;
-//		}
-//		current = current->_next;
-//	}
-//
-//	return NULL;
-//
-//}
-//
-//DMX512_engine_err_e DMX512_fixture_pool_add(uint16_t id, uint16_t chStart, uint16_t chStop){
-//
-//	DMX512_engine_err_e err 	= DMX512_ENGINE_OK;
-//	DMX512_fixture_s *current 	= NULL;
-//	uint16_t hash_index 		= _DMX512_fixture_pool_hash(id);
-//	uint8_t i = 0;
-//
-////	while(err == DMX512_ENGINE_OK && i < DMX512_FIXTURE_POOL_HASHTABLE_SIZE){
-////		current = _hash_table[hash_index];
-////		while(current != NULL){
-////			if(chStart <= current->chStop && current->chStart <= chStop){
-////				err = DMX512_CHANNEL_ADDRESS_DUP;
-////				break;
-////			}
-////			current = current->_next;
-////		}
-////		i++;
-////	}
-//
-//	if(err == DMX512_ENGINE_OK){
-//		if(chStart < DMX512_CHANNEL_ADDRESS_MIN || chStop > DMX512_CHANNEL_ADDRESS_MAX){
-//			err = DMX512_CHANNEL_ADDRESS_OUT_OF_BOUNDS;
-//		}else if(DMX512_fixture_pool_get(id) != NULL){
-//			err = DMX512_FIXTURE_DUP;
-//		}else{
-//			DMX512_fixture_s *fixture = DMX512_fixture_init(id, chStart, chStop);
-//			if(_hash_table[hash_index] == NULL){
-//				_hash_table[hash_index] = fixture;
-//			}else{
-//				current = _hash_table[hash_index];
-//				while(current->_next != NULL){
-//					current = current->_next;
-//				}
-//				current->_next = fixture;
-//			}
-//		}
-//	}
-//
-//	return err;
-//
-//}
-//
-//
-//DMX512_engine_err_e DMX512_fixture_pool_clr(uint16_t index){
-//
-//	DMX512_engine_err_e err 	= DMX512_FIXTURE_UNKNW;
-//	uint16_t hash_index 		= _DMX512_fixture_pool_hash(index);
-//	DMX512_fixture_s *prev 		= NULL;
-//	DMX512_fixture_s *current 	= _hash_table[hash_index];
-//
-//	while(current != NULL){
-//		if(current->id == index){
-//			err = DMX512_ENGINE_OK;
-//			prev->_next = current->_next;
-//			vPortFree(current);
-//			break;
-//		}
-//		prev = current;
-//		current = current->_next;
-//	}
-//
-//	return err;
-//
-//}
-//
-//static uint16_t _DMX512_fixture_pool_hash(uint16_t index){
-//	return index % (DMX512_FIXTURE_POOL_HASHTABLE_SIZE);
-//}
+#include"DMX512_fixture_pool.h"
+
+/* Private variable declarations */
+static DMX512_fixture_s *_instances;	//Dynamic array containing fixture instances
+static size_t _count;					//Current size of the dynamic array
+
+/* Private functions declarations */
+static DMX512_engine_err_e _DMX512_fixture_pool_check(uint16_t id, uint16_t ch_start, uint16_t ch_stop);
+static int16_t _DMX512_fixture_pool_search(uint16_t id);
+
+
+/**
+ * Adds a fixture instance into the pool
+ *
+ * @param id the fixture's idendifier
+ * @param ch_start fixture's first channel address
+ * @param ch_stop fixture's last channel address
+ * @return DMX512_engine_err_e error code following the function call
+ */
+DMX512_engine_err_e DMX512_fixture_pool_add(uint16_t id, uint16_t ch_start, uint16_t ch_stop){
+
+	DMX512_engine_err_e err = DMX512_ENGINE_OK;
+
+	if(err == DMX512_ENGINE_OK){
+		err = _DMX512_fixture_pool_check(id, ch_start, ch_stop);
+		if(err == DMX512_ENGINE_OK){
+			DMX512_fixture_s fixture = DMX512_fixture_init(id , ch_start, ch_stop);
+			_instances = (DMX512_fixture_s*) pvPortRealloc(_instances, sizeof(DMX512_fixture_s) * (_count + 1));
+			_instances[_count] = fixture;
+			_count++;
+		}
+	}
+
+	return err;
+
+}
+
+/**
+ * Deletes a fixture instance from the pool
+ *
+ * @param id the fixture's idendifier
+ * @return DMX512_engine_err_e error code following the function call
+ */
+DMX512_engine_err_e DMX512_fixture_pool_del(uint16_t id){
+
+	DMX512_engine_err_e err = DMX512_ENGINE_OK;
+	int16_t index = _DMX512_fixture_pool_search(id);
+
+	if(index >= 0){
+		for(uint16_t i=0; i< _count; i++){
+			if(i > index){
+				_instances[i-1] = _instances[i];
+			}
+		}
+		_count--;
+		_instances = pvPortRealloc(_instances, sizeof(DMX512_fixture_s) * (_count));
+	}else{
+		err = DMX512_FIXTURE_UNKNW;
+	}
+
+	return err;
+
+}
+
+/**
+ * Gets a fixture instance from the pool
+ *
+ * @param id the fixture's identifier
+ * @return *DMX512_fixture_s pointer to the fixture instance
+ */
+DMX512_fixture_s *DMX512_fixture_pool_get(uint16_t id){
+	int16_t index = _DMX512_fixture_pool_search(id);
+	if(index >= 0){
+		return &_instances[index];
+	}else{
+		return NULL;
+	}
+
+}
+
+/**
+ * Checks if a fixture can be added into the pool
+ *
+ * @param id the fixture's idendifier
+ * @param ch_start fixture's first channel address
+ * @param ch_stop fixture's last channel address
+ * @return DMX512_engine_err_e error code following the function call
+ */
+static DMX512_engine_err_e _DMX512_fixture_pool_check(uint16_t id, uint16_t ch_start, uint16_t ch_stop){
+
+	DMX512_engine_err_e err = DMX512_ENGINE_OK;
+
+	if(_DMX512_fixture_pool_search(id) >= 0){
+		err  = DMX512_FIXTURE_DUP;
+	}else if(ch_stop < ch_start){
+		err  = DMX512_CHANNEL_ADDRESS_INTERVAL_NEG;
+	}else if(ch_start < DMX512_CHANNEL_ADDRESS_MIN || ch_stop > DMX512_CHANNEL_ADDRESS_MAX){
+		err  = DMX512_CHANNEL_ADDRESS_OUT_OF_BOUNDS;
+	}else{
+		for(uint16_t i=0; i<_count; i++){
+			if(ch_start <= _instances[i].ch_stop && _instances[i].ch_start <= ch_stop){
+				err = DMX512_CHANNEL_ADDRESS_DUP;
+				break;
+			}
+		}
+	}
+
+	return err;
+
+}
+
+/**
+ * Finds the array index of a fixture
+ *
+ * @param id the fixture's identifier
+ * @return int16_t the array index of the fixture.
+ * -1 is returned if the fixture couldn't be found
+ */
+static int16_t _DMX512_fixture_pool_search(uint16_t id){
+	for(uint16_t i=0; i<_count; i++){
+		if(id == _instances[i].id){
+			return i;
+		}
+	}
+	return -1;
+}
