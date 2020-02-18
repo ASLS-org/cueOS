@@ -1868,13 +1868,13 @@ static void ETH_MACDMAConfig(ETH_HandleTypeDef *heth, uint32_t err)
   macinit.AutomaticPadCRCStrip = ETH_AUTOMATICPADCRCSTRIP_DISABLE;
   macinit.BackOffLimit = ETH_BACKOFFLIMIT_10;
   macinit.DeferralCheck = ETH_DEFFERRALCHECK_DISABLE;
-  macinit.ReceiveAll = ETH_RECEIVEAll_DISABLE;
+  macinit.ReceiveAll = ETH_RECEIVEALL_ENABLE;//ETH_RECEIVEAll_DISABLE;
   macinit.SourceAddrFilter = ETH_SOURCEADDRFILTER_DISABLE;
-  macinit.PassControlFrames = ETH_PASSCONTROLFRAMES_BLOCKALL;
+  macinit.PassControlFrames = ETH_PASSCONTROLFRAMES_FORWARDALL;//ETH_PASSCONTROLFRAMES_BLOCKALL;
   macinit.BroadcastFramesReception = ETH_BROADCASTFRAMESRECEPTION_ENABLE;
   macinit.DestinationAddrFilter = ETH_DESTINATIONADDRFILTER_NORMAL;
-  macinit.PromiscuousMode = ETH_PROMISCUOUS_MODE_DISABLE;
-  macinit.MulticastFramesFilter = ETH_MULTICASTFRAMESFILTER_PERFECT;
+  macinit.PromiscuousMode = ETH_PROMISCUOUS_MODE_ENABLE;//ETH_PROMISCUOUS_MODE_DISABLE;
+  macinit.MulticastFramesFilter = ETH_MULTICASTFRAMESFILTER_NONE;//ETH_MULTICASTFRAMESFILTER_PERFECT;
   macinit.UnicastFramesFilter = ETH_UNICASTFRAMESFILTER_PERFECT;
   macinit.HashTableHigh = 0x0U;
   macinit.HashTableLow = 0x0U;
