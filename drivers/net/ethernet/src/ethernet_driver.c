@@ -200,16 +200,16 @@ static void low_level_init(struct netif *netif)
   
 /* Init ETH */
 
-   uint8_t MACAddr[6] ;
+  uint8_t MACAddr[6] ;
   heth.Instance = ETH;
   heth.Init.AutoNegotiation = ETH_AUTONEGOTIATION_ENABLE;
   heth.Init.PhyAddress = LAN8742A_PHY_ADDRESS;
-  MACAddr[0] = 0x00;
-  MACAddr[1] = 0x80;
-  MACAddr[2] = 0xE1;
-  MACAddr[3] = 0x00;
-  MACAddr[4] = 0x00;
-  MACAddr[5] = 0x00;
+  MACAddr[0] = MAC_ADDR0;
+  MACAddr[1] = MAC_ADDR1;
+  MACAddr[2] = MAC_ADDR2;
+  MACAddr[3] = MAC_ADDR3;
+  MACAddr[4] = MAC_ADDR4;
+  MACAddr[5] = MAC_ADDR5;
   heth.Init.MACAddr = &MACAddr[0];
   heth.Init.RxMode = ETH_RXINTERRUPT_MODE;
   heth.Init.ChecksumMode = ETH_CHECKSUM_BY_HARDWARE;
