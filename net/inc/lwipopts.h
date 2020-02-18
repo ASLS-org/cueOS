@@ -95,13 +95,12 @@
 #define CHECKSUM_CHECK_ICMP6 0
 /*-----------------------------------------------------------------------------*/
 /* USER CODE BEGIN 1 */
-#define IP_FORWARD 0
-#define LWIP_BROADCAST_PING 1
-#define LWIP_MULTICAST_PING 1
-#define TCP_SYNMAXRTX 6
-//#define LWIP_WND_SCALE 1
-//#define TCP_RCV_SCALE 1
-
+#define LWIP_DHCP 1
+#define MEMP_NUM_UDP_PCB 2
+//#define IP_FORWARD 0
+//#define LWIP_BROADCAST_PING 1
+//#define LWIP_MULTICAST_PING 1
+//#define TCP_SYNMAXRTX 6
 /* USER CODE END 1 */
 
 #ifdef __cplusplus

@@ -24,11 +24,10 @@ typedef enum{
 
 typedef enum{
 	NET_MODE_ETHERNET,
-	NT_MODE_EWIRELESS
+	NET_MODE_WIRELESS
 }net_mode_e;
 
 typedef struct{
-	struct netif gnetif;
 	struct netif ethernetif;
 	struct netif wirelessif;
 	ip4_addr_t localAddr;
@@ -36,13 +35,11 @@ typedef struct{
 	ip4_addr_t gateway;
 	net_state_e state;
 	net_mode_e mode;
-	void(*conCallback)();
 }net_s;
 
-void net_init(uint8_t localAddr[4], uint8_t netmask[4], uint8_t gateway[4], net_mode_e mode);
+void net_init(net_mode_e mode);
 void net_start(void);
 void net_stop(void);
-void net_setMode(net_mode_e mode);
-void net_setConCallback(void(*conCallback));
+void net_set_mode(net_mode_e mode);
 
 #endif
