@@ -49,16 +49,16 @@ static void _net_setup_ethernetif(void){
 	osThreadDef(ethernetif_LinkThr, ethernetif_set_link, osPriorityNormal, 0, configMINIMAL_STACK_SIZE * 2);
 	osThreadCreate(osThread(ethernetif_LinkThr), &ethernetif_link_arg);
 
-	netif_set_up(&this.ethernetif);
-
-	dhcp_start(&this.ethernetif);
-
 	osThreadDef(ethernetif_DHCPThr, _net_set_ip, osPriorityNormal, 0, configMINIMAL_STACK_SIZE * 2);
 	osThreadCreate(osThread(ethernetif_DHCPThr), &_net_set_ip);
 
 }
 
 static void _net_set_ip(void){
+
+	netif_set_up(&this.ethernetif);
+	dhcp_start(&this.ethernetif);
+
 	for(;;){
 		if(dhcp_supplied_address(&this.ethernetif)){
 			this.ip_addr = this.ethernetif.ip_addr;
@@ -69,7 +69,7 @@ static void _net_set_ip(void){
 			this.bound_state = NET_UNBOUND;
 		}
 	}
-	osDelay(200);
+	osDelay(DHCP_FINE_TIMER_MSECS);
 }
 
 static void _net_setup_wirelessif(void){
