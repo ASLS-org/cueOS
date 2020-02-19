@@ -78,7 +78,7 @@
 /*----- Value in opt.h for DEFAULT_THREAD_PRIO: 1 -----*/
 #define DEFAULT_THREAD_PRIO 3
 /*----- Value in opt.h for DEFAULT_UDP_RECVMBOX_SIZE: 0 -----*/
-#define DEFAULT_UDP_RECVMBOX_SIZE 6
+#define DEFAULT_UDP_RECVMBOX_SIZE 16
 /*----- Value in opt.h for DEFAULT_TCP_RECVMBOX_SIZE: 0 -----*/
 #define DEFAULT_TCP_RECVMBOX_SIZE 6
 /*----- Value in opt.h for DEFAULT_ACCEPTMBOX_SIZE: 0 -----*/
@@ -96,7 +96,9 @@
 /*-----------------------------------------------------------------------------*/
 /* USER CODE BEGIN 1 */
 #define LWIP_DHCP 1
-#define MEMP_NUM_UDP_PCB 2
+#define LWIP_DHCP_CHECK_LINK_UP 1
+#define MEMP_NUM_UDP_PCB 4
+#define LWIP_IGMP 1
 //#define IP_FORWARD 0
 //#define LWIP_BROADCAST_PING 1
 //#define LWIP_MULTICAST_PING 1
