@@ -8,46 +8,39 @@ static Q_client_s this = Q_CLIENT_DEFAULT;
 static void Q_client_task(void);
 
 
-Q_client_err_e Q_client_init(void){
+void Q_client_init(Q_client_groupcfg_e groupcfg, Q_client_recv_f recv_clbck){
 
-	Q_client_err_e err = Q_CLIENT_OK;
+	this.conn 		= netconn_new(NETCONN_UDP);
+	this.recv_clbck = recv_clbck;
 
-	this.conn = netconn_new(NETCONN_UDP);
+	IP4_ADDR(&this.mcast_addr, 224, 0, 0, groupcfg);
+	IP4_ADDR(&this.remote_addr, 224, 0, 0, Q_CLIENT_GROUPCFG_CTRL);
 
-	if(this.conn != NULL){
-		osThreadDef(QClientTask, Q_client_task, osPriorityNormal, 0, 1024);
-		osThreadCreate(osThread(QClientTask), NULL);
-	}else{
-		err = Q_CLIENT_UNABLE_TO_CREATE_CON;
-	}
-
-	return err;
+	osThreadDef(QClientTask, Q_client_task, osPriorityNormal, 0, 1024);
+	osThreadCreate(osThread(QClientTask), NULL);
 
 }
 
 
 static void Q_client_task(void){
-	char msg[] = "OUI!\n";
-	char *data;
-	err_t err;
-	struct netbuf *recv_netbuf;
+	uint8_t *data = pvPortMalloc(sizeof(uint8_t));
 	for(;;){
 		if(net_is_link_up() && net_is_bound()){
 			switch(this.state){
 				case Q_CLIENT_UNBOUND:
-					this.ip_addr	 = net_get_ip_addr();
-					this.remote_addr = net_get_gateway();
-					IP4_ADDR(&this.mcast_addr, 239, 1, 1, 234);
+					this.ip_addr = net_get_ip_addr();
 					netconn_bind(this.conn, IP4_ADDR_ANY, 7000);
-					err = netconn_join_leave_group(this.conn, &this.mcast_addr, &this.ip_addr, NETCONN_JOIN);
-					//netconn_connect(this.conn, IP4_ADDR_BROADCAST, 7000);
+					netconn_join_leave_group(this.conn, &this.mcast_addr, &this.ip_addr, NETCONN_JOIN);
 					this.state = Q_CLIENT_BOUND;
 					break;
 				case Q_CLIENT_BOUND:
-					netconn_recv(this.conn, &recv_netbuf);
-					break;
+					netconn_recv(this.conn, &this.buf);
+					data = pvPortRealloc(data, sizeof(uint8_t) * this.buf->p->len);
+					memcpy(data, this.buf->p->payload, this.buf->p->len);
+					netbuf_delete(this.buf);
+					this.recv_clbck(data);
 			}
 		}
-		osDelay(200);
 	}
 }
+
