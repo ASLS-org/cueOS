@@ -225,6 +225,7 @@ static void low_level_init(struct netif *netif)
   {
     /* Set netif link flag */  
     netif->flags |= NETIF_FLAG_LINK_UP;
+    netif->flags |= NETIF_FLAG_IGMP;
   }
   /* Initialize Tx Descriptors list: Chain Mode */
   HAL_ETH_DMATxDescListInit(&heth, DMATxDscrTab, &Tx_Buff[0][0], ETH_TXBUFNB);
