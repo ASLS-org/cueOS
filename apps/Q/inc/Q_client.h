@@ -4,10 +4,14 @@
 
 #include "lwip/api.h"
 #include "Q_defs.h"
-#include "net.h"
+#include "Q_packet.h"
 
-#define Q_PORT 5214
-#define Q_CLIENT_DEFAULT {NULL, NULL, {}, {}, Q_CLIENT_UNBOUND}
+
+#define Q_CLIENT_DEFAULT_PORT 5214
+#define Q_CLIENT_DEFAULT {NULL,NULL,NULL,{},{},{},Q_CLIENT_UNBOUND,NULL}
+
+
+typedef void(*Q_client_frwrd_pckt_f)(Q_packet_s *packet);
 
 typedef enum{
 	Q_CLIENT_GROUPCFG_CTRL 	= 200,
@@ -22,18 +26,18 @@ typedef enum{
 	Q_CLIENT_BOUND
 }Q_client_state_e;
 
-typedef void(*Q_client_recv_f)(uint8_t *data);
-
-typedef struct{
+typedef struct Q_client{
 	struct netconn *conn;
-	struct netbuf *buf;
+	struct netbuf *recv_buf;
+	struct netbuf *send_buf;
 	ip4_addr_t ip_addr;
 	ip4_addr_t mcast_addr;
 	ip4_addr_t remote_addr;
 	Q_client_state_e state;
-	Q_client_recv_f recv_clbck;
+	Q_client_frwrd_pckt_f frwrd_pckt;
 }Q_client_s;
 
-void Q_client_init(Q_client_groupcfg_e groupcfg, Q_client_recv_f recv_clbck);
+
+void Q_client_init(Q_client_groupcfg_e groupcfg, Q_client_frwrd_pckt_f frwrd_pckt_callback);
 
 #endif
