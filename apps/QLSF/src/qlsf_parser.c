@@ -16,6 +16,32 @@ static qlsf_parser_s this;
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
+void qlsf_parser_dump(void){
+
+	DMX512_fixture_s *fixtures = DMX512_fixture_pool_get_all();
+	uint8_t buf[QLSF_PATCH_CHUNK_BYTESIZE];
+	FIL tmp_file;
+	TCHAR *tmp_path = "DUMP.TMP";
+	FRESULT err = f_open(&tmp_file, tmp_path, FA_OPEN_ALWAYS | FA_WRITE);
+
+	if(err == FR_OK){
+		f_lseek(&tmp_file, 0);
+		for(uint16_t i=0; i<4; i++){
+			buf[QLSF_PATCH_CHUNK_ID_LO_INDEX] 	= fixtures[i].id &0XFF;
+			buf[QLSF_PATCH_CHUNK_ID_HI_INDEX] 	= fixtures[i].id >> 8;
+			buf[QLSF_PATCH_CHUNK_ADDR_LO_INDEX] = fixtures[i].addr &0XFF;
+			buf[QLSF_PATCH_CHUNK_ADDR_HI_INDEX] = fixtures[i].addr >> 8;
+			buf[QLSF_PATCH_CHUNK_CHN_LO_INDEX] 	= fixtures[i].ch_count &0XFF;
+			buf[QLSF_PATCH_CHUNK_CHN_HI_INDEX] 	= fixtures[i].ch_count >> 8;
+			f_write(&tmp_file, buf, QLSF_PATCH_CHUNK_BYTESIZE, NULL);
+		}
+		f_close(&tmp_file);
+		f_unlink(this._cur_file_name);
+		f_rename(tmp_path, this._cur_file_name);
+	}
+
+}
+
 /**
  * Loads header information into the parser instance
  *
@@ -60,15 +86,19 @@ static qlfs_err_e _qlsf_parser_load_fixtures(void){
 
 	FSIZE_t fsize = f_size(&this._cur_file);
 	TCHAR buf[fsize];
+	uint16_t *br = NULL;
 
-	f_read(&this._cur_file, buf, fsize - 1, NULL);
+	f_lseek(&this._cur_file, 0);
+	f_read(&this._cur_file, buf, fsize, br);
 
 	for(int i=0; i<fsize; i += QLSF_PATCH_CHUNK_BYTESIZE){
 		id 	 = buf[i + QLSF_PATCH_CHUNK_ID_HI_INDEX] 	| (buf[i + QLSF_PATCH_CHUNK_ID_LO_INDEX]   << 8);
 		addr = buf[i + QLSF_PATCH_CHUNK_ADDR_HI_INDEX] 	| (buf[i + QLSF_PATCH_CHUNK_ADDR_LO_INDEX] << 8);
 		chn  = buf[i + QLSF_PATCH_CHUNK_CHN_HI_INDEX] 	| (buf[i + QLSF_PATCH_CHUNK_CHN_LO_INDEX]  << 8);
-		DMX512_fixture_pool_add(id, addr, addr + chn - 1);
+		DMX512_fixture_pool_add(id, addr, chn);
 	}
+
+	f_close(&this._cur_file);
 
 	return err;
 
@@ -127,7 +157,7 @@ qlfs_err_e qlsf_parser_init(char *file_path){
 	}else if(_qlsf_parser_load_chasers() != QLFS_OK){
 		err = QLFS_CHASER_DEF_ERR;
 	}else{
-
+		this._cur_file_name = file_path;
 	}
 
 	return err;
