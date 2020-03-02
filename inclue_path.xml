@@ -10,6 +10,7 @@
 <includepath>cueos/core/</includepath>
 <includepath>cueos/drivers/net/ethernet/inc</includepath>
 <includepath>cueos/drivers/media/mmc/inc/</includepath>
+<includepath>cueos/drivers/DMX512/inc</includepath>
 <includepath>cueos/fs/inc/</includepath>
 <includepath>cueos/fs/third_party/FatFs/inc/</includepath>
 <includepath>cueos/net/inc/</includepath>
@@ -31,6 +32,7 @@
 <includepath>cueos/net/third_party/LwIP/src/include/compat/stdc/</includepath>
 <includepath>cueos/apps/DMX512/inc</includepath>
 <includepath>cueos/apps/Q/inc</includepath>
+<includepath>cueos/apps/QLSF/inc</includepath>
 <includepath>cueos/system/inc/</includepath>
 
 </language>
@@ -43,6 +45,7 @@
 <includepath>cueos/core/</includepath>
 <includepath>cueos/drivers/net/ethernet/inc</includepath>
 <includepath>cueos/drivers/media/mmc/inc/</includepath>
+<includepath>cueos/drivers/DMX512/inc</includepath>
 <includepath>cueos/fs/inc/</includepath>
 <includepath>cueos/fs/third_party/FatFs/inc/</includepath>
 <includepath>cueos/net/inc/</includepath>
@@ -64,6 +67,7 @@
 <includepath>cueos/net/third_party/LwIP/src/include/compat/stdc/</includepath>
 <includepath>cueos/apps/DMX512/inc</includepath>
 <includepath>cueos/apps/Q/inc</includepath>
+<includepath>cueos/apps/QLSF/inc</includepath>
 <includepath>cueos/system/inc/</includepath>
 
 </language>
