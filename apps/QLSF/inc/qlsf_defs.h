@@ -1,0 +1,14 @@
+#ifndef _DEFS_H_
+#define _DEFS_H_
+
+typedef enum{
+	QLFS_OK,
+	QLFS_FILE_SYSTEM_ERR,
+	QLFS_FILE_NOT_FOUND,
+	QLFS_PATCH_DEF_ERR,
+	QLFS_SCENE_DEF_ERR,
+	QLFS_CHASER_DEF_ERR
+}qlfs_err_e;
+
+
+#endif
