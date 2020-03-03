@@ -87,6 +87,14 @@ DMX512_fixture_s *DMX512_fixture_pool_get_all(void){
 }
 
 /**
+ * Returns the whole instance array
+ *
+ */
+uint16_t DMX512_fixture_pool_get_size(void){
+	return _count;
+}
+
+/**
  * Checks if a fixture can be added into the pool
  *
  * @param id the fixture's idendifier

@@ -12,5 +12,6 @@ DMX512_engine_err_e DMX512_fixture_pool_add(uint16_t id, uint16_t chStart, uint1
 DMX512_engine_err_e DMX512_fixture_pool_del(uint16_t id);
 DMX512_fixture_s *DMX512_fixture_pool_get(uint16_t id);
 DMX512_fixture_s *DMX512_fixture_pool_get_all(void);
+uint16_t DMX512_fixture_pool_get_size(void);
 
 #endif
