@@ -7,6 +7,9 @@
 #include "qlsf_parser.h"
 #include "qlsf_defs.h"
 #include "DMX512_fixture_pool.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 static qlsf_parser_s this;
 
@@ -19,25 +22,31 @@ static qlsf_parser_s this;
 void qlsf_parser_dump(void){
 
 	DMX512_fixture_s *fixtures = DMX512_fixture_pool_get_all();
+	uint16_t fixture_count = DMX512_fixture_pool_get_size();
 	uint8_t buf[QLSF_PATCH_CHUNK_BYTESIZE];
+	uint8_t tmp_path_sz = strlen(this._cur_file_name) + strlen(QLSF_TEMP_FILE_EXT);
+	TCHAR tmp_path[tmp_path_sz];
 	FIL tmp_file;
-	TCHAR *tmp_path = "DUMP.TMP";
-	FRESULT err = f_open(&tmp_file, tmp_path, FA_OPEN_ALWAYS | FA_WRITE);
 
-	if(err == FR_OK){
+	sprintf(tmp_path, "%s%s", this._cur_file_name, QLSF_TEMP_FILE_EXT);
+
+	f_unlink(tmp_path);
+
+	if(f_open(&tmp_file, tmp_path, FA_WRITE | FA_OPEN_ALWAYS) == FR_OK){
 		f_lseek(&tmp_file, 0);
-		for(uint16_t i=0; i<4; i++){
-			buf[QLSF_PATCH_CHUNK_ID_LO_INDEX] 	= fixtures[i].id &0XFF;
-			buf[QLSF_PATCH_CHUNK_ID_HI_INDEX] 	= fixtures[i].id >> 8;
-			buf[QLSF_PATCH_CHUNK_ADDR_LO_INDEX] = fixtures[i].addr &0XFF;
-			buf[QLSF_PATCH_CHUNK_ADDR_HI_INDEX] = fixtures[i].addr >> 8;
-			buf[QLSF_PATCH_CHUNK_CHN_LO_INDEX] 	= fixtures[i].ch_count &0XFF;
-			buf[QLSF_PATCH_CHUNK_CHN_HI_INDEX] 	= fixtures[i].ch_count >> 8;
-			f_write(&tmp_file, buf, QLSF_PATCH_CHUNK_BYTESIZE, NULL);
+		for(uint16_t i=0; i<fixture_count; i++){
+			UINT btr;
+			buf[QLSF_PATCH_CHUNK_ID_HI_INDEX] 	= fixtures[i].id &0XFF;
+			buf[QLSF_PATCH_CHUNK_ID_LO_INDEX] 	= fixtures[i].id >> 8;
+			buf[QLSF_PATCH_CHUNK_ADDR_HI_INDEX] = fixtures[i].addr &0XFF;
+			buf[QLSF_PATCH_CHUNK_ADDR_LO_INDEX] = fixtures[i].addr >> 8;
+			buf[QLSF_PATCH_CHUNK_CHN_HI_INDEX] 	= fixtures[i].ch_count &0XFF;
+			buf[QLSF_PATCH_CHUNK_CHN_LO_INDEX] 	= fixtures[i].ch_count >> 8;
+			f_write(&tmp_file, buf, QLSF_PATCH_CHUNK_BYTESIZE, &btr);
 		}
 		f_close(&tmp_file);
-		f_unlink(this._cur_file_name);
-		f_rename(tmp_path, this._cur_file_name);
+		//f_unlink(this._cur_file_name);
+		//f_rename(tmp_path, this._cur_file_name);
 	}
 
 }
