@@ -27,6 +27,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include <string.h>
 #include <stdio.h>
+#include "cmsis_os.h"
 
 #include "ff_gen_drv.h"
 #include "sd_diskio.h"
