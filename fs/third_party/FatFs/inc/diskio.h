@@ -12,8 +12,7 @@ extern "C" {
 #define _USE_WRITE	1	/* 1: Enable disk_write function */
 #define _USE_IOCTL	1	/* 1: Enable disk_ioctl function */
 
-#include "integer.h"
-
+#include "ff.h"
 
 /* Status of Disk Functions */
 typedef BYTE	DSTATUS;
