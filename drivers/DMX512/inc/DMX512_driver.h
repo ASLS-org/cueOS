@@ -33,9 +33,10 @@ typedef struct{
 }DMX512_driver_s;
 
 DMX512_driver_s DMX512_driver_init(void);
-DMX512_driver_err_e DMX512_driver_start(DMX512_driver_s *this);
-DMX512_driver_err_e DMX512_driver_stop(DMX512_driver_s *this);
-DMX512_driver_err_e DMX512_driver_set_single(DMX512_driver_s *this, uint16_t address, uint8_t value);
-DMX512_driver_err_e DMX512_driver_set_continuous(DMX512_driver_s *this, uint16_t address_start, uint16_t address_stop, uint8_t *values);
+DMX512_driver_err_e DMX512_driver_start(void);
+DMX512_driver_err_e DMX512_driver_stop(void);
+DMX512_driver_err_e DMX512_driver_set_single(uint16_t address, uint8_t value);
+void DMX512_driver_set_multiple(uint8_t *preset_values); //TODO: change type so fixtures with 255+ channels won't overflow
+DMX512_driver_err_e DMX512_driver_set_continuous(uint16_t address_start, uint16_t address_stop, uint8_t *values);
 
 #endif

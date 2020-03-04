@@ -4,7 +4,7 @@
  *=============================================================================================================================*/
 
 #include "DMX512_driver.h"
-
+DMX512_driver_s this = DEFAULT_DMX512_DRIVER;
 
 /**============================================================================================================================
  * Private functions definitions
@@ -17,11 +17,11 @@
  *
  * @param this DMX512 driver instance
  */
-static void _DMX512_driver_send_frame(DMX512_driver_s *this){
-	this->uart.Init.BaudRate  = DMX512_FRAME_BAUDRATE;
-	this->uart.Init.StopBits  = UART_STOPBITS_2;
-	HAL_UART_Init(&this->uart);
-	HAL_UART_Transmit(&this->uart, this->value_buffer, DMX512_FRAME_BYTESIZE, HAL_MAX_DELAY);
+static void _DMX512_driver_send_frame(void){
+	this.uart.Init.BaudRate  = DMX512_FRAME_BAUDRATE;
+	this.uart.Init.StopBits  = UART_STOPBITS_2;
+	HAL_UART_Init(&this.uart);
+	HAL_UART_Transmit(&this.uart, this.value_buffer, DMX512_FRAME_BYTESIZE, HAL_MAX_DELAY);
 }
 
 /**
@@ -33,11 +33,11 @@ static void _DMX512_driver_send_frame(DMX512_driver_s *this){
  *
  * @param this DMX512 driver instance
  */
-static void _DMX512_driver_send_breakmab(DMX512_driver_s *this){
-	this->uart.Init.BaudRate  = DMX512_BREAKMAB_BAUDRATE;
-	this->uart.Init.StopBits  = UART_STOPBITS_1;
-	HAL_UART_Init(&this->uart);
-	HAL_UART_Transmit(&this->uart, DMX512_BREAKMAB_BYTEDATA, DMX512_BREAKMAB_BYTESIZE, 0x0001);
+static void _DMX512_driver_send_breakmab(void){
+	this.uart.Init.BaudRate  = DMX512_BREAKMAB_BAUDRATE;
+	this.uart.Init.StopBits  = UART_STOPBITS_1;
+	HAL_UART_Init(&this.uart);
+	HAL_UART_Transmit(&this.uart, DMX512_BREAKMAB_BYTEDATA, DMX512_BREAKMAB_BYTESIZE, 0x0001);
 }
 
 /**
@@ -47,10 +47,9 @@ static void _DMX512_driver_send_breakmab(DMX512_driver_s *this){
  * IMPORTANT: for this to work, successive calls need to be blocking to prevent packet collisions.
  */
 static void _DMX512_driver_thread(void *arg){
-	DMX512_driver_s *this = arg;
 	for(;;){
-		_DMX512_driver_send_breakmab(this);
-		_DMX512_driver_send_frame(this);
+		_DMX512_driver_send_breakmab();
+		_DMX512_driver_send_frame();
 	}
 }
 
@@ -94,16 +93,16 @@ void _DMX512_driver_GPIO_init(void){
  *
  * @param this handle to the DMX512 driver
  */
-void _DMX512_driver_UART_init(DMX512_driver_s *this){
-	this->uart.Instance 		 = USART1;
-	this->uart.Init.WordLength 	 = UART_WORDLENGTH_8B;
-	this->uart.Init.StopBits 	 = UART_STOPBITS_2;
-	this->uart.Init.Parity 		 = UART_PARITY_NONE;
-	this->uart.Init.Mode		 = UART_MODE_TX_RX;
-	this->uart.Init.HwFlowCtl 	 = UART_HWCONTROL_NONE;
-	this->uart.Init.OverSampling = UART_OVERSAMPLING_16;
+void _DMX512_driver_UART_init(void){
+	this.uart.Instance 		 = USART1;
+	this.uart.Init.WordLength 	 = UART_WORDLENGTH_8B;
+	this.uart.Init.StopBits 	 = UART_STOPBITS_2;
+	this.uart.Init.Parity 		 = UART_PARITY_NONE;
+	this.uart.Init.Mode		 = UART_MODE_TX_RX;
+	this.uart.Init.HwFlowCtl 	 = UART_HWCONTROL_NONE;
+	this.uart.Init.OverSampling = UART_OVERSAMPLING_16;
 
-	HAL_UART_Init(&this->uart);
+	HAL_UART_Init(&this.uart);
 }
 
 /**============================================================================================================================
@@ -114,10 +113,8 @@ void _DMX512_driver_UART_init(DMX512_driver_s *this){
 
 DMX512_driver_s DMX512_driver_init(void){
 
-	DMX512_driver_s this = DEFAULT_DMX512_DRIVER;
-
 	_DMX512_driver_GPIO_init();
-	_DMX512_driver_UART_init(&this);
+	_DMX512_driver_UART_init();
 
 	return this;
 
@@ -129,10 +126,10 @@ DMX512_driver_s DMX512_driver_init(void){
  * @return DMX512_driver_err_e returns DMX512_DRIVER_OK if the thread could be started.
  * @see DMX512_defs.h for complementary informations regarding error codes
  */
-DMX512_driver_err_e DMX512_driver_start(DMX512_driver_s *this){
+DMX512_driver_err_e DMX512_driver_start(void){
 	osThreadDef(DMX512DriverThread, _DMX512_driver_thread, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
-	this->threadId = osThreadCreate(osThread(DMX512DriverThread), this);
-	return this->threadId != NULL ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
+	this.threadId = osThreadCreate(osThread(DMX512DriverThread), NULL);
+	return this.threadId != NULL ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
 }
 
 /**
@@ -141,8 +138,8 @@ DMX512_driver_err_e DMX512_driver_start(DMX512_driver_s *this){
  * @return DMX512_driver_err_e returns DMX512_DRIVER_OK if the thread could be terminated.
  * @see DMX512_defs.h for complementary informations regarding error codes
  */
-DMX512_driver_err_e DMX512_driver_stop(DMX512_driver_s *this){
-	return osThreadTerminate(this->threadId) == osOK ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
+DMX512_driver_err_e DMX512_driver_stop(void){
+	return osThreadTerminate(this.threadId) == osOK ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
 }
 
 /**
@@ -153,17 +150,21 @@ DMX512_driver_err_e DMX512_driver_stop(DMX512_driver_s *this){
  * @return DMX512_driver_err_e returns DMX512_driver_OK if the value could be set.
  * @see DMX512_defs.h for complementary informations regarding error codes
  */
-DMX512_driver_err_e DMX512_driver_set_single(DMX512_driver_s *this, uint16_t address, uint8_t value){
+DMX512_driver_err_e DMX512_driver_set_single(uint16_t address, uint8_t value){
 
 	DMX512_driver_err_e err = DMX512_DRIVER_OK;
 
 	if(!_DMX512_driver_address_check(address)){
 		err = DMX512_CHANNEL_ADDRESS_OUT_OF_BOUNDS;
 	}else{
-		this->value_buffer[address] = value;
+		this.value_buffer[address] = value;
 	}
 
 	return err;
+
+}
+
+void DMX512_driver_set_multiple(uint8_t *preset_values){
 
 }
 
@@ -176,7 +177,7 @@ DMX512_driver_err_e DMX512_driver_set_single(DMX512_driver_s *this, uint16_t add
  * @return DMX512_driver_err_e returns DMX512_DRIVER_OK if the values could be set.
  * @see DMX512_defs.h for complementary informations regarding error codes
  */
-DMX512_driver_err_e DMX512_driver_set_continuous(DMX512_driver_s *this, uint16_t address_start, uint16_t address_stop, uint8_t *values){
+DMX512_driver_err_e DMX512_driver_set_continuous(uint16_t address_start, uint16_t address_stop, uint8_t *values){
 
 	DMX512_driver_err_e err = DMX512_DRIVER_OK;
 
@@ -189,7 +190,7 @@ DMX512_driver_err_e DMX512_driver_set_continuous(DMX512_driver_s *this, uint16_t
 	}else if(!_DMX512_driver_address_check(address_start) || !_DMX512_driver_address_check(address_stop)){
 		err = DMX512_CHANNEL_ADDRESS_OUT_OF_BOUNDS;
 	}else{
-		memcpy(this->value_buffer + address_start, values, buf_size);
+		memcpy(this.value_buffer + address_start, values, buf_size);
 	}
 
 	return err;
