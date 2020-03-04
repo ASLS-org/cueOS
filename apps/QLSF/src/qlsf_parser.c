@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 static qlsf_parser_s this;
-
+DMX512_scene_s myscn;
 
 /**============================================================================================================================
  * Private functions definitions
@@ -21,9 +21,6 @@ static qlsf_parser_s this;
 
 void qlsf_parser_dump(void){
 
-	DMX512_fixture_s *fixtures = DMX512_fixture_pool_get_all();
-	uint16_t fixture_count = DMX512_fixture_pool_get_size();
-	uint8_t buf[QLSF_PATCH_CHUNK_BYTESIZE];
 	uint8_t tmp_path_sz = strlen(this._cur_file_name) + strlen(QLSF_TEMP_FILE_EXT);
 	TCHAR tmp_path[tmp_path_sz];
 	FIL tmp_file;
@@ -33,23 +30,26 @@ void qlsf_parser_dump(void){
 	f_unlink(tmp_path);
 
 	if(f_open(&tmp_file, tmp_path, FA_WRITE | FA_OPEN_ALWAYS) == FR_OK){
-		f_lseek(&tmp_file, 0);
+
+		DMX512_fixture_s *fixtures = DMX512_fixture_pool_get_all();
+		uint16_t fixture_count = DMX512_fixture_pool_get_size();
+		uint16_t patch_buf[QLSF_PATCH_DATA_SIZE];
+
 		for(uint16_t i=0; i<fixture_count; i++){
 			UINT btr;
-			buf[QLSF_PATCH_CHUNK_ID_HI_INDEX] 	= fixtures[i].id &0XFF;
-			buf[QLSF_PATCH_CHUNK_ID_LO_INDEX] 	= fixtures[i].id >> 8;
-			buf[QLSF_PATCH_CHUNK_ADDR_HI_INDEX] = fixtures[i].addr &0XFF;
-			buf[QLSF_PATCH_CHUNK_ADDR_LO_INDEX] = fixtures[i].addr >> 8;
-			buf[QLSF_PATCH_CHUNK_CHN_HI_INDEX] 	= fixtures[i].ch_count &0XFF;
-			buf[QLSF_PATCH_CHUNK_CHN_LO_INDEX] 	= fixtures[i].ch_count >> 8;
-			f_write(&tmp_file, buf, QLSF_PATCH_CHUNK_BYTESIZE, &btr);
+			patch_buf[QLSF_PATCH_CHUNK_ID_INDEX]   = fixtures[i].id;
+			patch_buf[QLSF_PATCH_CHUNK_ADDR_INDEX] = fixtures[i].addr;
+			patch_buf[QLSF_PATCH_CHUNK_CHN_INDEX]  = fixtures[i].ch_count;
+			f_write(&tmp_file, patch_buf, QLSF_PATCH_DATA_SIZE * sizeof(uint16_t), &btr);
 		}
 		f_close(&tmp_file);
-		//f_unlink(this._cur_file_name);
-		//f_rename(tmp_path, this._cur_file_name);
+		f_unlink(this._cur_file_name);
+		f_rename(tmp_path, this._cur_file_name);
+
 	}
 
 }
+
 
 /**
  * Loads header information into the parser instance
@@ -63,51 +63,52 @@ void qlsf_parser_dump(void){
 static qlfs_err_e _qlsf_parser_load_header(void){
 
 	qlfs_err_e err = QLFS_OK;
+	uint16_t buf[QLSF_HEADER_SIZE];
+	UINT br;
 
-	TCHAR buf[QLSF_HEADER_BYTESIZE];
+	f_lseek(&this._cur_file, 0);
 
-	f_read(&this._cur_file, buf, QLSF_HEADER_BYTESIZE - 1, NULL);
+	if(f_read(&this._cur_file, buf, QLSF_HEADER_SIZE * sizeof(uint16_t), &br) == FR_OK){
+		this._fixture_count	= buf[QLSF_HEADER_PATCH_CNT_INDEX];
+		this._scene_count 	= buf[QLSF_HEADER_SCENE_CNT_INDEX];
+		this._chaser_count 	= buf[QLSF_HEADER_CHASE_CNT_INDEX];
+	}else{
+		err = 1;
+	}
 
 	return err;
 
 }
 
+
 /**
  * Loads patch defined within the config file into the DMX51 engine
  *
  * Patch information is conveyed into 6 bytes data chunk:
- * PATCH_CHUNK_ID_HI_INDEX: 	fixture ID MSB
- * PATCH_CHUNK_ID_LO_INDEX: 	fixture ID LSB
- * PATCH_CHUNK_ADDR_HI_INDEX:	fixture address MSB
- * PATCH_CHUNK_ADDR_LO_INDEX:	fixture address LSB
- * PATCH_CHUNK_CHN_HI_INDEX:	fixture channel count MSB
- * PATCH_CHUNK_CHN_LO_INDEX:	fixture channel count LSB
  * @return qlfs_err_e QLFS_OK on success, specific error code otherwise
  * @see qlsf_defs.h for further information regarding error codes
  */
-static qlfs_err_e _qlsf_parser_load_fixtures(void){
+static qlfs_err_e _qlsf_parser_load_patch(void){
 
 	qlfs_err_e err = QLFS_OK;
 
-	uint16_t id;
-	uint16_t addr;
-	uint16_t chn;
+	for(int i=0; i< this._fixture_count; i++){
 
-	FSIZE_t fsize = f_size(&this._cur_file);
-	TCHAR buf[fsize];
-	uint16_t *br = NULL;
+		uint16_t patch_buf[QLSF_PATCH_DATA_SIZE];
+		UINT br;
 
-	f_lseek(&this._cur_file, 0);
-	f_read(&this._cur_file, buf, fsize, br);
+		if(f_read(&this._cur_file, patch_buf, QLSF_PATCH_DATA_SIZE * sizeof(uint16_t), &br) != FR_OK){
+			err = QLFS_PATCH_DEF_ERR; //TODO: rename err enumeration
+		}else if(br < QLSF_PATCH_DATA_SIZE){
+			err = QLFS_PATCH_DEF_ERR; //TODO: rename err enumeration
+		}else{
+			uint16_t id   = patch_buf[QLSF_PATCH_CHUNK_ID_INDEX];
+			uint16_t addr = patch_buf[QLSF_PATCH_CHUNK_ADDR_INDEX];
+			uint16_t chn  = patch_buf[QLSF_PATCH_CHUNK_CHN_INDEX];
+			DMX512_fixture_pool_add(id, addr, chn);	//TODO: try and define universal error enumeration values for better error arsing
+		}
 
-	for(int i=0; i<fsize; i += QLSF_PATCH_CHUNK_BYTESIZE){
-		id 	 = buf[i + QLSF_PATCH_CHUNK_ID_HI_INDEX] 	| (buf[i + QLSF_PATCH_CHUNK_ID_LO_INDEX]   << 8);
-		addr = buf[i + QLSF_PATCH_CHUNK_ADDR_HI_INDEX] 	| (buf[i + QLSF_PATCH_CHUNK_ADDR_LO_INDEX] << 8);
-		chn  = buf[i + QLSF_PATCH_CHUNK_CHN_HI_INDEX] 	| (buf[i + QLSF_PATCH_CHUNK_CHN_LO_INDEX]  << 8);
-		DMX512_fixture_pool_add(id, addr, chn);
 	}
-
-	f_close(&this._cur_file);
 
 	return err;
 
@@ -123,7 +124,36 @@ static qlfs_err_e _qlsf_parser_load_scenes(void){
 
 	qlfs_err_e err = QLFS_OK;
 
+	for(uint16_t i=0; i<this._scene_count; i++){
 
+		uint16_t header[QLSF_SCENE_HEADER_SIZE];
+
+		f_read(&this._cur_file, header, QLSF_SCENE_HEADER_SIZE * sizeof(uint16_t), NULL);
+
+		uint16_t scene_id 	  = header[QLSF_SCENE_ID_INDEX];
+		uint16_t preset_count = header[QLSF_SCENE_FIXTURE_PRESET_CNT_INDEX];
+
+		myscn = DMX512_scene_init(scene_id, 0, 0);
+
+		for(uint16_t j=0; j<preset_count;j++){
+
+			uint16_t preset_header[QLSF_FIXTURE_PRESET_HEADER_SIZE];
+
+			f_read(&this._cur_file, preset_header, QLSF_FIXTURE_PRESET_HEADER_SIZE * sizeof(uint16_t), NULL);
+
+			uint16_t preset_id 	   = preset_header[QLSF_FIXTURE_PRESET_ID_INDEX];
+			uint16_t channel_count = preset_header[QLSF_FIXTURE_PRESET_CHANNEL_CNT_INDEX];
+			uint16_t channels[channel_count];
+			uint8_t values[channel_count];
+
+			f_read(&this._cur_file, channels, channel_count * sizeof(uint16_t), NULL);
+			f_read(&this._cur_file, values, channel_count * sizeof(uint8_t), NULL);
+
+			DMX512_scene_add(&myscn, preset_id, channels, values, channel_count);
+
+		}
+		//TODO: add scene to scene_poool;
+	}
 
 	return err;
 }
@@ -159,7 +189,7 @@ qlfs_err_e qlsf_parser_init(char *file_path){
 		err = QLFS_FILE_NOT_FOUND;
 	}else if(_qlsf_parser_load_header()){
 
-	}else if(_qlsf_parser_load_fixtures() != QLFS_OK){
+	}else if(_qlsf_parser_load_patch() != QLFS_OK){
 		err = QLFS_PATCH_DEF_ERR;
 	}else if(_qlsf_parser_load_scenes() != QLFS_OK){
 		err = QLFS_SCENE_DEF_ERR;
