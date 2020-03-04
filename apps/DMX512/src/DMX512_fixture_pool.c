@@ -10,6 +10,13 @@ static int16_t _DMX512_fixture_pool_search(uint16_t id);
 
 
 /**
+ * TODO: to improve search time greatly, it may be useful to implement
+ * a linked hashtable/linkedlist combo. but since every call to malloc
+ * requires 10 more bytes, for ARM bit alignment, this will be tried
+ * later, when external RAM will be available
+ */
+
+/**
  * Adds a fixture instance into the pool
  *
  * @param id the fixture's idendifier
