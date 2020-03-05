@@ -10,6 +10,7 @@
 #define QLSF_PATCH_DATA_SIZE				0x03U
 #define QLSF_SCENE_HEADER_SIZE 				0x02U
 #define QLSF_FIXTURE_PRESET_HEADER_SIZE 	0x02U
+#define QLSF_CHASER_HEADER_SIZE 			0x04U
 
 #define QLSF_TEMP_FILE_EXT 					".tmp"
 
@@ -35,6 +36,21 @@ typedef enum{
 	QLSF_FIXTURE_PRESET_ID_INDEX,
 	QLSF_FIXTURE_PRESET_CHANNEL_CNT_INDEX,
 }qlsf_fixture_preset_byte_indexes_e;
+
+typedef enum{
+	QLSF_CHASER_ID_INDEX,
+	QLSF_CHASER_RUN_MODE_INDEX,
+	QLSF_CHASER_DIR_MODE_INDEX,
+	QLSF_CHASER_STEP_COUNT_INDEX,
+}qlsf_chaser_byte_indexes_e;
+
+typedef enum{
+	QLSF_STEP_ID_INDEX,
+	QLSF_STEP_FADEIN_INDEX,
+	QLSF_STEP_FADEOUT_INDEX,
+	QLSF_STEP_HOLD_INDEX
+}qlsf_chaser_step_byte_indexes_e;
+
 
 typedef struct{
 	FIL _cur_file;

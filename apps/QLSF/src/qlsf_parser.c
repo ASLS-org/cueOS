@@ -7,12 +7,16 @@
 #include "qlsf_parser.h"
 #include "qlsf_defs.h"
 #include "DMX512_fixture_pool.h"
+#include "DMX512_fixture_preset.h"
+#include "DMX512_scene_pool.h"
+#include "DMX512_chaser.h"
+#include "DMX512_chaser_step.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 static qlsf_parser_s this;
-DMX512_scene_s myscn;
+DMX512_chaser_s mychaser;
 
 /**============================================================================================================================
  * Private functions definitions
@@ -133,7 +137,7 @@ static qlfs_err_e _qlsf_parser_load_scenes(void){
 		uint16_t scene_id 	  = header[QLSF_SCENE_ID_INDEX];
 		uint16_t preset_count = header[QLSF_SCENE_FIXTURE_PRESET_CNT_INDEX];
 
-		myscn = DMX512_scene_init(scene_id, 0, 0);
+		DMX512_scene_s scene = DMX512_scene_init(scene_id, 0, 0);
 
 		for(uint16_t j=0; j<preset_count;j++){
 
@@ -141,18 +145,23 @@ static qlfs_err_e _qlsf_parser_load_scenes(void){
 
 			f_read(&this._cur_file, preset_header, QLSF_FIXTURE_PRESET_HEADER_SIZE * sizeof(uint16_t), NULL);
 
-			uint16_t preset_id 	   = preset_header[QLSF_FIXTURE_PRESET_ID_INDEX];
-			uint16_t channel_count = preset_header[QLSF_FIXTURE_PRESET_CHANNEL_CNT_INDEX];
-			uint16_t channels[channel_count];
-			uint8_t values[channel_count];
+			uint16_t fixture_id = preset_header[QLSF_FIXTURE_PRESET_ID_INDEX];
+			uint16_t ch_count 	= preset_header[QLSF_FIXTURE_PRESET_CHANNEL_CNT_INDEX];
+			uint16_t channels[ch_count];
+			uint8_t values[ch_count];
 
-			f_read(&this._cur_file, channels, channel_count * sizeof(uint16_t), NULL);
-			f_read(&this._cur_file, values, channel_count * sizeof(uint8_t), NULL);
+			f_read(&this._cur_file, channels, ch_count * sizeof(uint16_t), NULL);
+			f_read(&this._cur_file, values, ch_count * sizeof(uint8_t), NULL);
 
-			DMX512_scene_add(&myscn, preset_id, channels, values, channel_count);
+			DMX512_fixture_s *fixture 		= DMX512_fixture_pool_get(fixture_id);
+			DMX512_fixture_preset_s preset 	= DMX512_fixture_preset_init(fixture, ch_count, channels, values);
+
+			if(DMX512_scene_add(&scene, preset) != DMX512_ENGINE_OK){
+				//TODO: report file parsing error, clear pools and report error to user
+			}
 
 		}
-		//TODO: add scene to scene_poool;
+		DMX512_scene_pool_add(scene);
 	}
 
 	return err;
@@ -161,6 +170,41 @@ static qlfs_err_e _qlsf_parser_load_scenes(void){
 static qlfs_err_e _qlsf_parser_load_chasers(void){
 
 	qlfs_err_e err = QLFS_OK;
+
+	for(uint16_t i=0; i<this._chaser_count; i++){
+
+		uint16_t chaser_header[QLSF_CHASER_HEADER_SIZE];
+
+		f_read(&this._cur_file, chaser_header, QLSF_CHASER_HEADER_SIZE * sizeof(uint16_t), NULL);
+
+		uint16_t chaser_id   = chaser_header[QLSF_CHASER_ID_INDEX];
+		uint16_t chaser_mode = chaser_header[QLSF_CHASER_RUN_MODE_INDEX];
+		uint16_t chaser_dir  = chaser_header[QLSF_CHASER_DIR_MODE_INDEX];
+		uint16_t step_count  = chaser_header[QLSF_CHASER_STEP_COUNT_INDEX];
+
+		mychaser = DMX512_chaser_init(chaser_id, chaser_mode, chaser_dir);
+
+		for(uint16_t j=0; j<step_count; j++){
+
+			uint16_t step_buffer[4];
+
+			f_read(&this._cur_file, step_buffer, 4 * sizeof(uint16_t), NULL);
+
+			uint16_t id 	 = step_buffer[QLSF_STEP_ID_INDEX];
+			uint16_t fadein  = step_buffer[QLSF_STEP_FADEIN_INDEX];
+			uint16_t fadeout = step_buffer[QLSF_STEP_FADEOUT_INDEX];
+			uint16_t hold  	 = step_buffer[QLSF_STEP_HOLD_INDEX];
+
+			DMX512_scene_s *scene = DMX512_scene_pool_get(id);
+			DMX512_chaser_step_s step = DMX512_chaser_step_init(scene, fadein, fadeout, hold);
+
+			DMX512_chaser_add(&mychaser, step);
+
+		}
+
+		//TODO: add to chaser pool
+	}
+
 
 	return err;
 
