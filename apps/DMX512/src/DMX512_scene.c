@@ -15,9 +15,9 @@
  * @return int16_t the array index of the fixture.
  * -1 is returned if the fixture couldn't be found
  */
-static int16_t _DMX512_scene_search(DMX512_scene_s *this, uint16_t id){
-	for(uint16_t i=0; i<this->fixture_preset_count; i++){
-		if(id == this->_fixture_presets[i].id){
+static int16_t _DMX512_scene_search(DMX512_scene_s *this, uint16_t fixture_id){
+	for(uint16_t i=0; i<this->fp_count; i++){
+		if(fixture_id == this->fp_instances[i].fixture->id){
 			return i;
 		}
 	}
@@ -45,8 +45,8 @@ DMX512_scene_s DMX512_scene_init(uint16_t id, uint16_t fadein_time, uint16_t fad
 	scene.id = id;
 	scene.fadein_time = fadein_time;
 	scene.fadeout_time = fadeout_time;
-	scene._fixture_presets = NULL;
-	scene.fixture_preset_count = 0;
+	scene.fp_instances = NULL;
+	scene.fp_count = 0;
 	return scene;
 }
 
@@ -58,35 +58,18 @@ DMX512_scene_s DMX512_scene_init(uint16_t id, uint16_t fadein_time, uint16_t fad
  * @param values the list of values to be stored within the scene
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_scene_add(DMX512_scene_s *this, uint16_t id,  uint16_t *channels, uint8_t *values, uint16_t count){
+DMX512_engine_err_e DMX512_scene_add(DMX512_scene_s *this, DMX512_fixture_preset_s fp){
 
 	DMX512_engine_err_e err   = DMX512_ENGINE_OK;
-	DMX512_fixture_s *fixture = DMX512_fixture_pool_get(id);
 
-	if(_DMX512_scene_search(this, id) >= 0){
-		err = DMX512_PRESET_DUP;
-	}else if(fixture == NULL){
-		err = DMX512_FIXTURE_UNKNW;
+	if(fp.status == DMX512_FIXTURE_PRESET_UNINITIALISED){
+		err = DMX512_INVALID_FIXTURE_PRESET;
+	}else if(_DMX512_scene_search(this, fp.fixture->id) >= 0){
+		err = DMX512_DUPLICATE_FIXTURE_PRESET;
 	}else{
-
-		//TODO make separate file for fxture presets
-		DMX512_fixture_preset_s fixture_preset;
-
-		fixture_preset.id 		= fixture->id;
-		fixture_preset.values 	= pvPortMalloc(count*sizeof(uint8_t));
-		fixture_preset.channels = pvPortMalloc(count*sizeof(uint16_t));
-		fixture_preset.count 	= count;
-
-		memcpy(fixture_preset.channels, channels, fixture_preset.count*sizeof(uint16_t));
-		memcpy(fixture_preset.values, values, fixture_preset.count*sizeof(uint8_t));
-
-		this->_fixture_presets = (DMX512_fixture_preset_s*) pvPortRealloc(this->_fixture_presets, sizeof(DMX512_fixture_preset_s) * (this->fixture_preset_count + 1));
-		this->_fixture_presets[this->fixture_preset_count] = fixture_preset;
-
-		uint16_t chan1 = this->_fixture_presets[this->fixture_preset_count].channels[1];
-
-		this->fixture_preset_count++;
-
+		this->fp_instances = (DMX512_fixture_preset_s*) pvPortRealloc(this->fp_instances, sizeof(DMX512_fixture_preset_s) * (this->fp_count + 1));
+		this->fp_instances[this->fp_count] = fp;
+		this->fp_count++;
 	}
 
 	return err;
@@ -101,18 +84,16 @@ DMX512_engine_err_e DMX512_scene_add(DMX512_scene_s *this, uint16_t id,  uint16_
  */
 DMX512_engine_err_e DMX512_scene_del(DMX512_scene_s *this, uint16_t id){
 
-	DMX512_engine_err_e err = DMX512_PRESET_UNKNW;
+	DMX512_engine_err_e err = DMX512_INVALID_FIXTURE_PRESET;
 	int16_t index = _DMX512_scene_search(this, id);
 
 	if(index >= 0){
-		for(uint16_t i=0; i< this->fixture_preset_count; i++){
-			if(i > index){
-				this->_fixture_presets[i-1] = this->_fixture_presets[i];
-			}
+		for(uint16_t i=index+1; i< this->fp_count; i++){
+			this->fp_instances[i-1] = this->fp_instances[i];
 		}
-		this->fixture_preset_count--;
-		vPortFree(this->_fixture_presets[index].values);
-		this->_fixture_presets = pvPortRealloc(this->_fixture_presets, sizeof(DMX512_fixture_s) * (this->fixture_preset_count));
+		this->fp_count--;
+		vPortFree(this->fp_instances[index].values);
+		this->fp_instances = pvPortRealloc(this->fp_instances, sizeof(DMX512_fixture_s) * (this->fp_count));
 		err = DMX512_ENGINE_OK;
 	}
 
@@ -129,7 +110,7 @@ DMX512_engine_err_e DMX512_scene_del(DMX512_scene_s *this, uint16_t id){
 DMX512_fixture_preset_s *DMX512_scene_get(DMX512_scene_s *this, uint16_t id){
 	int16_t index = _DMX512_scene_search(this, id);
 	if(index >= 0){
-		return &this->_fixture_presets[index];
+		return &this->fp_instances[index];
 	}else{
 		return NULL;
 	}
@@ -141,11 +122,10 @@ DMX512_fixture_preset_s *DMX512_scene_get(DMX512_scene_s *this, uint16_t id){
  * @param this scene instance
  */
 void DMX512_scene_trigger(DMX512_scene_s *this){
-	for(uint16_t i=0; i<this->fixture_preset_count; i++){
-		DMX512_fixture_s *fixture = DMX512_fixture_pool_get(this->_fixture_presets[i].id);
-		for(uint16_t j=0; j<this->_fixture_presets[i].count; j++){
-			uint16_t addr = fixture->addr + this->_fixture_presets[i].channels[j];
-			uint8_t value = this->_fixture_presets[i].values[j];
+	for(uint16_t i=0; i<this->fp_count; i++){
+		for(uint16_t j=0; j<this->fp_instances[i].ch_count; j++){
+			uint16_t addr = this->fp_instances[i].fixture->addr + this->fp_instances[i].channels[j];
+			uint8_t value = this->fp_instances[i].values[j];
 			DMX512_driver_set_single(addr, value);
 		}
 	}
