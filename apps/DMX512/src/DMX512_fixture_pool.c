@@ -54,10 +54,8 @@ DMX512_engine_err_e DMX512_fixture_pool_del(uint16_t id){
 	int16_t index = _DMX512_fixture_pool_search(id);
 
 	if(index >= 0){
-		for(uint16_t i=0; i< _count; i++){
-			if(i > index){
+		for(uint16_t i=index+1; i<_count; i++){
 				_instances[i-1] = _instances[i];
-			}
 		}
 		_count--;
 		_instances = pvPortRealloc(_instances, sizeof(DMX512_fixture_s) * (_count));
