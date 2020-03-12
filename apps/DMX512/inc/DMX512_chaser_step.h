@@ -24,5 +24,6 @@ typedef struct{
 
 
 DMX512_chaser_step_s DMX512_chaser_step_init(DMX512_scene_s *scene, uint16_t fadein, uint16_t fadeout, uint16_t hold);
+void DMX512_chaser_step_trigger(DMX512_chaser_step_s *this);
 
 #endif
