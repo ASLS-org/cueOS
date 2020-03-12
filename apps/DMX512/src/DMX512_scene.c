@@ -24,6 +24,62 @@ static int16_t _DMX512_scene_search(DMX512_scene_s *this, uint16_t fixture_id){
 	return -1;
 }
 
+//TODO: enable RTC for fade time calculations ?
+
+static void _DMX512_scene_fadein(void *arg){
+	uint16_t time = *((uint16_t*)arg);
+	float val;
+//	for(uint16_t i=0; i<this->fp_count; i++){
+//		for(uint16_t j=0; j<this->fp_instances[i].ch_count; j++){
+//			uint16_t addr = this->fp_instances[i].fixture->addr + this->fp_instances[i].channels[j];
+//			uint16_t value = this->fp_instances[i].values[j];
+//			if(this->fadein_time > 0){
+//				val = ((float)value/(float)this->fadein_time)*((float)this->tick_count);
+//				DMX512_driver_set_single(addr, (uint16_t)(val));
+//			}else{
+//				DMX512_driver_set_single(addr, value);
+//			}
+//		}
+//	}
+}
+
+static void _DMX512_scene_fadeout(DMX512_scene_s *this){
+	for(uint16_t i=0; i<this->fp_count; i++){
+		for(uint16_t j=0; j<this->fp_instances[i].ch_count; j++){
+			uint16_t addr = this->fp_instances[i].fixture->addr + this->fp_instances[i].channels[j];
+			uint16_t value = this->fp_instances[i].values[j];
+			float val = ((float)value/(float)this->fadeout_time)*(float)this->tick_count + value;
+			DMX512_driver_set_single(addr, (uint16_t)(val));
+		}
+	}
+	this->tick_count++;
+}
+
+void DMX512_scene_start(DMX512_scene_s *this){
+	osTimerDef(TestTimer, _DMX512_scene_fadein);
+	osTimerId test = osTimerCreate(osTimer(TestTimer), osTimerPeriodic, &this->fadein_time);
+	osTimerStart(test, 1);
+}
+
+void DMX512_scene_manage(DMX512_scene_s *this){
+	switch(this->state){
+		case DMX512_SCENE_FADEIN:
+			if(this->tick_count > this->fadein_time){
+				this->tick_count = 0; this->state = DMX512_SCENE_IDLE;
+			}
+			else{ _DMX512_scene_fadein(this); this->tick_count++; }
+			break;
+		case DMX512_SCENE_FADEOUT:
+			if(this->tick_count > this->fadeout_time){ this->tick_count = 0; this->state = DMX512_SCENE_IDLE; }
+			else{ _DMX512_scene_fadeout(this); this->tick_count++; }
+			break;
+		case DMX512_SCENE_IDLE:
+			this->tick_count = 0;
+			break;
+	}
+}
+
+
 //TODO: Implement scene fade-in fade-out
 
 /**============================================================================================================================
@@ -47,6 +103,8 @@ DMX512_scene_s DMX512_scene_init(uint16_t id, uint16_t fadein_time, uint16_t fad
 	scene.fadeout_time = fadeout_time;
 	scene.fp_instances = NULL;
 	scene.fp_count = 0;
+	scene.state = DMX512_SCENE_IDLE;
+	scene.tick_count = 0;
 	return scene;
 }
 
@@ -115,20 +173,4 @@ DMX512_fixture_preset_s *DMX512_scene_get(DMX512_scene_s *this, uint16_t id){
 		return NULL;
 	}
 }
-
-/**
- * Triggers a DMX scene by assinging fixture preset values to DMX512 buffer
- *
- * @param this scene instance
- */
-void DMX512_scene_trigger(DMX512_scene_s *this){
-	for(uint16_t i=0; i<this->fp_count; i++){
-		for(uint16_t j=0; j<this->fp_instances[i].ch_count; j++){
-			uint16_t addr = this->fp_instances[i].fixture->addr + this->fp_instances[i].channels[j];
-			uint8_t value = this->fp_instances[i].values[j];
-			DMX512_driver_set_single(addr, value);
-		}
-	}
-}
-
 
