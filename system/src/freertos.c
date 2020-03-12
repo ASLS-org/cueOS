@@ -55,23 +55,33 @@
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, StackType_t **ppxTimerTaskStackBuffer, uint32_t *pulTimerTaskStackSize );
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
 static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
+
+static StaticTask_t timerTaskTCBBuffer;
+static StackType_t timerTaskStack[configTIMER_TASK_STACK_DEPTH];
   
 void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
 {
-  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
-  *ppxIdleTaskStackBuffer = &xIdleStack[0];
-  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+  *ppxIdleTaskTCBBuffer = &timerTaskTCBBuffer;
+  *ppxIdleTaskStackBuffer = &timerTaskStack[0];
+  *pulIdleTaskStackSize = configTIMER_TASK_STACK_DEPTH;
   /* place for user code */
 }                   
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-     
+void vApplicationGetTimerTaskMemory( StaticTask_t **ppxTimerTaskTCBBuffer, StackType_t **ppxTimerTaskStackBuffer, uint32_t *pulTimerTaskStackSize )
+{
+  *ppxTimerTaskTCBBuffer = &xIdleTaskTCBBuffer;
+  *ppxTimerTaskStackBuffer = &xIdleStack[0];
+  *pulTimerTaskStackSize = configMINIMAL_STACK_SIZE;
+  /* place for user code */
+}
 /* USER CODE END Application */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
