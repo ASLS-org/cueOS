@@ -51,21 +51,21 @@ typedef enum{
 	QLSF_STEP_HOLD_INDEX
 }qlsf_chaser_step_byte_indexes_e;
 
+typedef struct{
+	uint16_t fixture_count;
+	uint16_t scene_count;
+	uint16_t chaser_count;
+	uint16_t effect_count;
+}DMX512_qlsf_header_s;
 
 typedef struct{
-	FIL _cur_file;
-	TCHAR *_cur_file_name;
-	FSIZE_t _cur_file_pointer;
-	FSIZE_t _patch_size;
-	FSIZE_t _scene_pool_size;
-	FSIZE_t _chaser_pool_size;
-	uint16_t _fixture_count;
-	uint16_t _scene_count;
-	uint16_t _chaser_count;
-}qlsf_parser_s;
+	FIL file;
+	TCHAR *path;
+	DMX512_qlsf_header_s header;
+}DMX512_qlsf_s;
 
-void qlsf_parser_dump(void);
-void test(void);
-qlfs_err_e qlsf_parser_init(char *file_path);
+
+DMX512_engine_err_e DMX512_qlsf_parser_load(DMX512_qlsf_s *qlfs);
+DMX512_engine_err_e DMX512_qlsf_parser_dump(DMX512_qlsf_s *qlfs);
 
 #endif
