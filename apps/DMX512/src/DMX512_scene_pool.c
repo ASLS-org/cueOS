@@ -1,20 +1,50 @@
+/**============================================================================================================================
+ * Dependencies inclusion
+ * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
+ *=============================================================================================================================*/
+
 #include"DMX512_scene_pool.h"
+#include "cmsis_os.h"
 
-/* Private variable declarations */
-static DMX512_scene_s *_instances;	//Dynamic array containing scene instances
-static size_t _count;					//Current size of the dynamic array
 
-/* Private functions declarations */
-static DMX512_engine_err_e _DMX512_scene_pool_check(uint16_t id, uint16_t addr, uint16_t ch_stop);
-static int16_t _DMX512_scene_pool_search(uint16_t id);
-
+/**============================================================================================================================
+ * Private functions definitions
+ * These functions are only accessible from within the file's scope
+ *=============================================================================================================================*/
 
 /**
- * TODO: to improve search time greatly, it may be useful to implement
- * a linked hashtable/linkedlist combo. but since every call to malloc
- * requires 10 more bytes, for ARM bit alignment, this will be tried
- * later, when external RAM will be available
+ * Finds the array index of a scene
+ *
+ * @param id the scene's identifier
+ * @return int16_t the array index of the scene.
+ * -1 is returned if the scene couldn't be found
  */
+static int16_t _DMX512_scene_pool_search(DMX512_scene_pool_s *this, uint16_t id){
+	for(uint16_t i=0; i<this->scene_count; i++){
+		if(id == this->scenes[i].id){
+			return i;
+		}
+	}
+	return -1;
+}
+
+
+/**============================================================================================================================
+ * Public functions definitions
+ * These functions can be accessed outside of the file's scope
+ * @see DMX512_fixture_pool.h for declarations
+ *=============================================================================================================================*/
+
+/**
+ * Creates a new scene pool instance
+ * @return DMX512_scene_pool_s the created pool instance
+ */
+DMX512_scene_pool_s *DMX512_scene_pool_new(void){
+	DMX512_scene_pool_s *this = pvPortMalloc(sizeof(DMX512_scene_pool_s));
+	this->scenes 	  = NULL;
+	this->scene_count = 0;
+	return this;
+}
 
 /**
  * Adds a scene instance into the pool
@@ -24,16 +54,17 @@ static int16_t _DMX512_scene_pool_search(uint16_t id);
  * @param ch_stop scene's last channel address
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_scene_pool_add(DMX512_scene_s scene){
+DMX512_engine_err_e DMX512_scene_pool_add(DMX512_scene_pool_s *this, DMX512_scene_s scene){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	if(_DMX512_scene_pool_search(scene.id) >= 0){
+	//TODO: check for scene validity
+	if(_DMX512_scene_pool_search(this, scene.id) >= 0){
 		err  = DMX512_SCENE_DUP;
 	}else if(err == DMX512_ENGINE_OK){
-		_instances = (DMX512_scene_s*) pvPortRealloc(_instances, sizeof(DMX512_scene_s) * (_count + 1));
-		_instances[_count] = scene;
-		_count++;
+		this->scenes = (DMX512_scene_s*) pvPortRealloc(this->scenes, sizeof(DMX512_scene_s) * (this->scene_count + 1));
+		this->scenes[this->scene_count] = scene;
+		this->scene_count++;
 	}
 
 	return err;
@@ -46,17 +77,17 @@ DMX512_engine_err_e DMX512_scene_pool_add(DMX512_scene_s scene){
  * @param id the scene's idendifier
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_scene_pool_del(uint16_t id){
+DMX512_engine_err_e DMX512_scene_pool_del(DMX512_scene_pool_s *this, uint16_t id){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-	int16_t index = _DMX512_scene_pool_search(id);
+	int16_t index = _DMX512_scene_pool_search(this, id);
 
 	if(index >= 0){
-		for(uint16_t i=index+1; i<_count; i++){
-				_instances[i-1] = _instances[i];
+		for(uint16_t i=index+1; i<this->scene_count; i++){
+				this->scenes[i-1] = this->scenes[i];
 		}
-		_count--;
-		_instances = pvPortRealloc(_instances, sizeof(DMX512_scene_s) * (_count));
+		this->scene_count--;
+		this->scenes = pvPortRealloc(this->scenes, sizeof(DMX512_scene_s) * (this->scene_count));
 	}else{
 		err = DMX512_SCENE_UNKNW;
 	}
@@ -71,45 +102,22 @@ DMX512_engine_err_e DMX512_scene_pool_del(uint16_t id){
  * @param id the scene's identifier
  * @return *DMX512_scene_s pointer to the scene instance
  */
-DMX512_scene_s *DMX512_scene_pool_get(uint16_t id){
-	int16_t index = _DMX512_scene_pool_search(id);
+DMX512_scene_s *DMX512_scene_pool_get(DMX512_scene_pool_s *this, uint16_t id){
+	int16_t index = _DMX512_scene_pool_search(this, id);
 	if(index >= 0){
-		return &_instances[index];
+		return &this->scenes[index];
 	}else{
 		return NULL;
 	}
-
 }
 
 /**
- * Returns the whole instance array
+ * Manages all scenes contained within the pool
  *
+ * @param this pointer to the instance pool
  */
-DMX512_scene_s *DMX512_scene_pool_get_all(void){
-	return _instances;
-}
-
-/**
- * Returns the whole instance array
- *
- */
-uint16_t DMX512_scene_pool_get_size(void){
-	return _count;
-}
-
-
-/**
- * Finds the array index of a scene
- *
- * @param id the scene's identifier
- * @return int16_t the array index of the scene.
- * -1 is returned if the scene couldn't be found
- */
-static int16_t _DMX512_scene_pool_search(uint16_t id){
-	for(uint16_t i=0; i<_count; i++){
-		if(id == _instances[i].id){
-			return i;
-		}
+void DMX512_scene_pool_manage(DMX512_scene_pool_s *this){
+	for(uint16_t i = 0; i<this->scene_count;i++){
+		DMX512_scene_manage(&this->scenes[i]);
 	}
-	return -1;
 }

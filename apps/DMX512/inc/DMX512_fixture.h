@@ -1,9 +1,8 @@
-#ifndef __DMX512_fixture_H
-#define __DMX512_fixture_H
+#ifndef DMX512_fixture_H
+#define DMX512_fixture_H
 
 #include <stdint.h>
 #include <stdlib.h>
-#include "DMX512_channel.h"
 #include "DMX512_defs.h"
 
 
@@ -16,6 +15,6 @@ typedef struct DMX512_fixture{
 	uint16_t ch_stop;
 }DMX512_fixture_s;
 
-DMX512_fixture_s DMX512_fixture_init(uint16_t id, uint16_t addr, uint16_t ch_count);
+DMX512_fixture_s DMX512_fixture_new(uint16_t id, uint16_t addr, uint16_t ch_count);
 
 #endif

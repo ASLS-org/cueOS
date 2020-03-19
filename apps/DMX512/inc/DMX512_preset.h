@@ -1,5 +1,5 @@
-#ifndef __DMX512_PRESET_H_
-#define __DMX512_PRESET_H_
+#ifndef DMX512_PRESET_H_
+#define DMX512_PRESET_H_
 
 #include <stdint.h>
 #include <stdlib.h>

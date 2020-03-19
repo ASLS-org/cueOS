@@ -1,8 +1,7 @@
-#ifndef _FIXTURE_PRESET_H_
-#define _FIXTURE_PRESET_H_
+#ifndef DMX512_FIXTURE_PRESET_H_
+#define DMX512_FIXTURE_PRESET_H_
 
 #include <stdint.h>
-#include <stdlib.h>
 #include "DMX512_fixture.h"
 #include "DMX512_defs.h"
 
@@ -22,6 +21,6 @@ typedef struct DMX512_fixture_preset{
 }DMX512_fixture_preset_s;
 
 
-DMX512_fixture_preset_s DMX512_fixture_preset_init(DMX512_fixture_s *fixture, uint16_t channel_count, uint16_t *channels, uint8_t *values);
+DMX512_fixture_preset_s DMX512_fixture_preset_new(DMX512_fixture_s *fixture, uint16_t channel_count, uint16_t *channels, uint8_t *values);
 
 #endif

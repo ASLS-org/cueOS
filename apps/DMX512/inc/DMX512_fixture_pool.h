@@ -1,17 +1,18 @@
-#ifndef __DMX512_fixture_pool_H
-#define __DMX512_fixture_pool_H
+#ifndef DMX512_fixture_pool_H
+#define DMX512_fixture_pool_H
 
 #include <stdint.h>
-#include <stdlib.h>
-#include <string.h>
-#include "cmsis_os.h"
 #include "DMX512_fixture.h"
 #include "DMX512_defs.h"
 
-DMX512_engine_err_e DMX512_fixture_pool_add(uint16_t id, uint16_t chStart, uint16_t chStop);
-DMX512_engine_err_e DMX512_fixture_pool_del(uint16_t id);
-DMX512_fixture_s *DMX512_fixture_pool_get(uint16_t id);
-DMX512_fixture_s *DMX512_fixture_pool_get_all(void);
-uint16_t DMX512_fixture_pool_get_size(void);
+typedef struct{
+	DMX512_fixture_s *fixtures;
+	uint16_t fixture_count;
+}DMX512_fixture_pool_s;
+
+DMX512_fixture_pool_s *DMX512_fixture_pool_new(void);
+DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_fixture_s fixture);
+DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_t id);
+DMX512_fixture_s *DMX512_fixture_pool_get(DMX512_fixture_pool_s *this, uint16_t id);
 
 #endif
