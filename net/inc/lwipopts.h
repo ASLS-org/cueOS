@@ -78,7 +78,7 @@
 /*----- Value in opt.h for DEFAULT_THREAD_PRIO: 1 -----*/
 #define DEFAULT_THREAD_PRIO 3
 /*----- Value in opt.h for DEFAULT_UDP_RECVMBOX_SIZE: 0 -----*/
-#define DEFAULT_UDP_RECVMBOX_SIZE 16
+#define DEFAULT_UDP_RECVMBOX_SIZE 6
 /*----- Value in opt.h for DEFAULT_TCP_RECVMBOX_SIZE: 0 -----*/
 #define DEFAULT_TCP_RECVMBOX_SIZE 6
 /*----- Value in opt.h for DEFAULT_ACCEPTMBOX_SIZE: 0 -----*/
@@ -86,7 +86,7 @@
 /*----- Value in opt.h for RECV_BUFSIZE_DEFAULT: INT_MAX -----*/
 #define RECV_BUFSIZE_DEFAULT 2000000000
 /*----- Default Value for LWIP_TFTP: 0 ---*/
-#define LWIP_TFTP 1
+#define LWIP_TFTP 0
 /*----- Value in opt.h for LWIP_STATS: 1 -----*/
 #define LWIP_STATS 0
 /*----- Value in opt.h for CHECKSUM_GEN_ICMP6: 1 -----*/
@@ -99,10 +99,8 @@
 #define LWIP_DHCP_CHECK_LINK_UP 1
 #define MEMP_NUM_UDP_PCB 4
 #define LWIP_IGMP 1
-//#define IP_FORWARD 0
-//#define LWIP_BROADCAST_PING 1
-//#define LWIP_MULTICAST_PING 1
-//#define TCP_SYNMAXRTX 6
+#define LWIP_MULTICAST_PING 1
+
 /* USER CODE END 1 */
 
 #ifdef __cplusplus

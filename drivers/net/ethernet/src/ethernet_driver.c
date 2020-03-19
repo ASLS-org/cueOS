@@ -68,10 +68,9 @@ __ALIGN_BEGIN uint8_t Tx_Buff[ETH_TXBUFNB][ETH_TX_BUF_SIZE] __ALIGN_END; /* Ethe
 /* USER CODE END 2 */
 
 /* Semaphore to signal incoming packets */
-osSemaphoreId s_xSemaphore = NULL;
+osSemaphoreId_t s_xSemaphore = NULL;
 /* Global Ethernet handle */
 ETH_HandleTypeDef heth;
-
 /* USER CODE BEGIN 3 */
 
 /* USER CODE END 3 */
@@ -197,7 +196,7 @@ static void low_level_init(struct netif *netif)
 { 
   uint32_t regvalue = 0;
   HAL_StatusTypeDef hal_eth_init_status;
-  
+  osThreadAttr_t attributes;
 /* Init ETH */
 
   uint8_t MACAddr[6] ;
@@ -258,13 +257,13 @@ static void low_level_init(struct netif *netif)
   #endif /* LWIP_ARP */
   
 /* create a binary semaphore used for informing ethernetif of frame reception */
-  osSemaphoreDef(SEM);
-  s_xSemaphore = osSemaphoreCreate(osSemaphore(SEM), 1);
+  s_xSemaphore = osSemaphoreNew(1, 1, NULL);
 
-/* create the task that handles the ETH_MAC */
-  osThreadDef(EthIf, ethernetif_input, osPriorityRealtime, 0, INTERFACE_THREAD_STACK_SIZE);
-  osThreadCreate (osThread(EthIf), netif);
-  /* Enable MAC and DMA transmission and reception */
+  /*FIXME: FIX for semaphore corruption
+   * THREAD SIZE INCREMENTED TO TCPIP STACKSIZE INSTEAD OF PROVIDED INTERFACE THREAD STACK SIZE
+   * TO BE TESTED !!!!!!*/
+  sys_thread_new("EthIf", ethernetif_input, netif, TCPIP_THREAD_STACKSIZE, osPriorityRealtime);
+
   HAL_ETH_Start(&heth);
 
 /* USER CODE BEGIN PHY_PRE_CONFIG */ 
@@ -482,14 +481,14 @@ static struct pbuf * low_level_input(struct netif *netif)
  *
  * @param netif the lwip network interface structure for this ethernetif
  */
-void ethernetif_input(void const * argument)
+void ethernetif_input(void * argument)
 {
   struct pbuf *p;
   struct netif *netif = (struct netif *) argument;
   
   for( ;; )
   {
-    if (osSemaphoreWait(s_xSemaphore, TIME_WAITING_FOR_INPUT) == osOK)
+    if (osSemaphoreAcquire(s_xSemaphore, TIME_WAITING_FOR_INPUT) == osOK)
     {
       do
       {   
@@ -609,7 +608,7 @@ u32_t sys_now(void)
   * @param  netif: the network interface
   * @retval None
   */  
-void ethernetif_set_link(void const *argument)
+void ethernetif_set_link(void *argument)
 {
   uint32_t regvalue = 0;
   struct link_str *link_arg = (struct link_str *)argument;

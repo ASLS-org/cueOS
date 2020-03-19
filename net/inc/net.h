@@ -18,6 +18,7 @@
 #endif /* WITH_RTOS */
 
 #define NET_DEFAULT {{},{},{},{},{},NET_LINK_DOWN,NET_UNBOUND,NET_MODE_ETHERNET};
+#define ETHERNETIF_LINKTHR_ATTR {.stack_size = 128,.priority = (osPriority_t) osPriorityNormal}
 
 typedef enum{
 	NET_BOUND 	= 1,
@@ -43,9 +44,10 @@ typedef struct net{
 	net_link_state_e link_state;
 	net_bound_state_e bound_state;
 	net_mode_e mode;
+	void( *net_ready_callback)(void);
 }net_s;
 
-void net_init(net_mode_e mode);
+void net_init(net_mode_e mode, void *net_ready_callback);
 uint8_t net_is_bound(void);
 uint8_t net_is_link_up(void);
 ip4_addr_t net_get_ip_addr(void);
