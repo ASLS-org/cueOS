@@ -22,8 +22,9 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "stm32f4xx_hal.h"
-//#include "DMX512_fixture_pool.h"
 #include "net.h"
+#include "Q_client.h"
+#include "DMX512_engine.h"
 
 DMA_HandleTypeDef hdma_sdio_rx;
 DMA_HandleTypeDef hdma_sdio_tx;
@@ -34,7 +35,11 @@ osThreadId defaultTaskHandle;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
-void StartDefaultTask(void const * argument);
+void StartDefaultTask(void *argument);
+
+
+//TODO: clean main
+//TODO: remove Deprecated and useless declarations redaclared within os
 
 
 /**
@@ -48,35 +53,44 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  //TODO: Move to system init
   HAL_Init();
 
-
   /* Configure the system clock */
+  //TODO: Move to system init
   SystemClock_Config();
 
 
   /* Initialize all configured peripherals */
+  //TODO: remove when os finished
   MX_GPIO_Init();
   MX_DMA_Init();
 
-  /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+  osKernelInitialize();
 
-  /* Start scheduler */
-  osKernelStart();
+	const osThreadAttr_t attr = {
+		.name = "defaultTask",
+		.priority = osPriorityNormal,
+		.stack_size = 4096
+	};
 
-  while (1){}
+	//TODO: move to system init
+	/* Start scheduler */
+	osThreadNew(StartDefaultTask, NULL, &attr);
+
+	osKernelStart();
+
+  while (1){
+
+  }
 
 }
-
-
 
 /**
   * @brief System Clock Configuration
   * @retval None
   */
+//TODO: move to system INIT
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -121,6 +135,7 @@ void SystemClock_Config(void)
 /**
   * Enable DMA controller clock
   */
+//TODO: move to system INIT
 static void MX_DMA_Init(void)
 {
 
@@ -142,6 +157,7 @@ static void MX_DMA_Init(void)
   * @param None
   * @retval None
   */
+//TODO: move to system INIT
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -176,25 +192,18 @@ static void MX_GPIO_Init(void)
   * @param  argument: Not used
   * @retval None
   */
-void StartDefaultTask(void const * argument)
+void StartDefaultTask(void *argument)
 {
 
-//	uint16_t sizer = 1;
-//	uint16_t fcount = (512/sizer);
-//	uint16_t chcount = (sizer-1);
-//
-//	for(int i=0; i<fcount; i++){
-//		DMX512_fixture_pool_add(i, i*sizer, i*sizer+chcount);
-//	}
+	net_init(NET_MODE_ETHERNET, Q_client_bind);
+	Q_client_init(Q_CLIENT_GROUPCFG_DMX);
+	DMX512_engine_init("parsed-patch.qlsf");
 
+	for(;;){
+		HAL_GPIO_TogglePin(LED_STATE_GPIO_Port, LED_STATE_Pin);
+		osDelay(250);
+	}
 
-	net_init(NET_MODE_ETHERNET);
-
-  for(;;)
-  {
-	HAL_GPIO_TogglePin(LED_STATE_GPIO_Port, LED_STATE_Pin);
-    osDelay(250);
-  }
 }
 
 /**

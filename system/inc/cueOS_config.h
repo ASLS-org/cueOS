@@ -8,6 +8,7 @@
 #ifndef APP_INC_CUEOS_CONFIG_H_
 #define APP_INC_CUEOS_CONFIG_H_
 
+#define cueos_CMSISOS_VERSION 2
 
 #define cueOS_NET_ETHERNET
 

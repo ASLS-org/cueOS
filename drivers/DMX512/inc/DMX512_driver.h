@@ -29,7 +29,7 @@ typedef struct{
 	UART_HandleTypeDef uart;
 	DMX512_driver_status_e status;
 	uint8_t value_buffer[DMX512_FRAME_BYTESIZE - 1];
-	osThreadId threadId;
+	osThreadId_t threadId;
 }DMX512_driver_s;
 
 DMX512_driver_s DMX512_driver_init(void);

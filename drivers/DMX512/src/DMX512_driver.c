@@ -3,8 +3,10 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
+#include <string.h>
 #include "DMX512_driver.h"
-DMX512_driver_s this = DEFAULT_DMX512_DRIVER;
+
+static DMX512_driver_s this = DEFAULT_DMX512_DRIVER;
 
 /**============================================================================================================================
  * Private functions definitions
@@ -50,6 +52,7 @@ static void _DMX512_driver_thread(void *arg){
 	for(;;){
 		_DMX512_driver_send_breakmab();
 		_DMX512_driver_send_frame();
+		osDelay(1);
 	}
 }
 
@@ -94,12 +97,12 @@ void _DMX512_driver_GPIO_init(void){
  * @param this handle to the DMX512 driver
  */
 void _DMX512_driver_UART_init(void){
-	this.uart.Instance 		 = USART1;
-	this.uart.Init.WordLength 	 = UART_WORDLENGTH_8B;
-	this.uart.Init.StopBits 	 = UART_STOPBITS_2;
-	this.uart.Init.Parity 		 = UART_PARITY_NONE;
-	this.uart.Init.Mode		 = UART_MODE_TX_RX;
-	this.uart.Init.HwFlowCtl 	 = UART_HWCONTROL_NONE;
+	this.uart.Instance 		 	= USART1;
+	this.uart.Init.WordLength 	= UART_WORDLENGTH_8B;
+	this.uart.Init.StopBits 	= UART_STOPBITS_2;
+	this.uart.Init.Parity 		= UART_PARITY_NONE;
+	this.uart.Init.Mode		 	= UART_MODE_TX_RX;
+	this.uart.Init.HwFlowCtl 	= UART_HWCONTROL_NONE;
 	this.uart.Init.OverSampling = UART_OVERSAMPLING_16;
 
 	HAL_UART_Init(&this.uart);
@@ -127,8 +130,12 @@ DMX512_driver_s DMX512_driver_init(void){
  * @see DMX512_defs.h for complementary informations regarding error codes
  */
 DMX512_driver_err_e DMX512_driver_start(void){
-	osThreadDef(DMX512DriverThread, _DMX512_driver_thread, osPriorityNormal, 0, configMINIMAL_STACK_SIZE);
-	this.threadId = osThreadCreate(osThread(DMX512DriverThread), NULL);
+	const osThreadAttr_t DMX512_driver_thread_attr = {
+		.priority = osPriorityNormal,
+		.stack_size = configMINIMAL_STACK_SIZE*4
+	};
+
+	this.threadId = osThreadNew(_DMX512_driver_thread, NULL, &DMX512_driver_thread_attr);
 	return this.threadId != NULL ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
 }
 
@@ -161,10 +168,6 @@ DMX512_driver_err_e DMX512_driver_set_single(uint16_t address, uint8_t value){
 	}
 
 	return err;
-
-}
-
-void DMX512_driver_set_multiple(uint8_t *preset_values){
 
 }
 
