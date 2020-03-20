@@ -58,9 +58,10 @@ DMX512_engine_err_e DMX512_scene_pool_add(DMX512_scene_pool_s *this, DMX512_scen
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	//TODO: check for scene validity
-	if(_DMX512_scene_pool_search(this, scene.id) >= 0){
-		err  = DMX512_SCENE_DUP;
+	if(scene.status != DMX512_SCENE_INITIALISED){
+		err = DMX512_ENGINE_INSTANCE_UNDEFINED;
+	}else if(_DMX512_scene_pool_search(this, scene.id) >= 0){
+		err  = DMX512_ENGINE_INSTANCE_DUPLICATE;
 	}else if(err == DMX512_ENGINE_OK){
 		this->scenes = (DMX512_scene_s*) pvPortRealloc(this->scenes, sizeof(DMX512_scene_s) * (this->scene_count + 1));
 		this->scenes[this->scene_count] = scene;
@@ -89,7 +90,7 @@ DMX512_engine_err_e DMX512_scene_pool_del(DMX512_scene_pool_s *this, uint16_t id
 		this->scene_count--;
 		this->scenes = pvPortRealloc(this->scenes, sizeof(DMX512_scene_s) * (this->scene_count));
 	}else{
-		err = DMX512_SCENE_UNKNW;
+		err = DMX512_ENGINE_INSTANCE_UNDEFINED;
 	}
 
 	return err;

@@ -18,6 +18,7 @@
 /**
  * Finds the array index of a fixture
  *
+ * @param this pointer to the scene instance
  * @param id the fixture's identifier
  * @return int16_t the array index of the fixture.
  * -1 is returned if the fixture couldn't be found
@@ -30,9 +31,6 @@ static int16_t _DMX512_scene_search(DMX512_scene_s *this, uint16_t fixture_id){
 	}
 	return -1;
 }
-
-
-//TODO: add a way to force fade times
 
 /**
  * Sets a scenes' fixtures channel values to their predefined preset values according to time
@@ -87,8 +85,8 @@ static void _DMX512_scene_fadeout(DMX512_scene_s *this){
  * Creates and initialises a new scene instance
  *
  * @param id the scene identifier (@see DMX512_scene_pool.h)
- * @param fadein_time the scene fade-in time in ms
- * @param fadeout_time the scene fade-out time in ms
+ * @param fadein_time the scene fade-in time in milliseconds
+ * @param fadeout_time the scene fade-out time in milliseconds
  * @return DMX512_scene_s the created scene
  */
 DMX512_scene_s DMX512_scene_new(uint16_t id, uint16_t fadein_time, uint16_t fadeout_time){
@@ -96,6 +94,7 @@ DMX512_scene_s DMX512_scene_new(uint16_t id, uint16_t fadein_time, uint16_t fade
 	scene.id 			 = id;
 	scene.fadein_time 	 = fadein_time;
 	scene.fadeout_time 	 = fadeout_time;
+	scene.status 		 = DMX512_SCENE_INITIALISED;
 	return scene;
 }
 
@@ -107,17 +106,17 @@ DMX512_scene_s DMX512_scene_new(uint16_t id, uint16_t fadein_time, uint16_t fade
  * @param values the list of values to be stored within the scene
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_scene_add_preset(DMX512_scene_s *this, DMX512_fixture_preset_s fp){
+DMX512_engine_err_e DMX512_scene_add_preset(DMX512_scene_s *this, DMX512_fixture_preset_s preset){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	if(fp.status == DMX512_FIXTURE_PRESET_UNINITIALISED){
-		err = DMX512_INVALID_FIXTURE_PRESET;
-	}else if(_DMX512_scene_search(this, fp.fixture->id) >= 0){
-		err = DMX512_DUPLICATE_FIXTURE_PRESET;
+	if(preset.status == DMX512_FIXTURE_PRESET_UNINITIALISED){
+		err = DMX512_ENGINE_INSTANCE_INVALID;
+	}else if(_DMX512_scene_search(this, preset.fixture->id) >= 0){
+		err = DMX512_ENGINE_INSTANCE_DUPLICATE;
 	}else{
 		this->presets = (DMX512_fixture_preset_s*) pvPortRealloc(this->presets, sizeof(DMX512_fixture_preset_s) * (this->preset_count + 1));
-		this->presets[this->preset_count] = fp;
+		this->presets[this->preset_count] = preset;
 		this->preset_count++;
 	}
 
@@ -128,12 +127,13 @@ DMX512_engine_err_e DMX512_scene_add_preset(DMX512_scene_s *this, DMX512_fixture
 /**
  * Deletes a fixture preset instance from the scene
  *
+ * @param this pointer to the scene instance
  * @param id the fixture preset's idendifier
  * @return DMX512_engine_err_e error code following the function call
  */
 DMX512_engine_err_e DMX512_scene_del_preset(DMX512_scene_s *this, uint16_t id){
 
-	DMX512_engine_err_e err = DMX512_INVALID_FIXTURE_PRESET;
+	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
 	int16_t index = _DMX512_scene_search(this, id);
 
 	if(index >= 0){
@@ -142,6 +142,8 @@ DMX512_engine_err_e DMX512_scene_del_preset(DMX512_scene_s *this, uint16_t id){
 		}
 		this->preset_count--;
 		vPortFree(this->presets[index].values);
+		vPortFree(this->presets[index].channels);
+		//TODO: create free template in DMX512_fixture_preset.c
 		this->presets = pvPortRealloc(this->presets, sizeof(DMX512_fixture_s) * (this->preset_count));
 		err = DMX512_ENGINE_OK;
 	}
@@ -153,6 +155,7 @@ DMX512_engine_err_e DMX512_scene_del_preset(DMX512_scene_s *this, uint16_t id){
 /**
  * Gets a fixture instance from the pool
  *
+ * @param this pointer to the scene instance
  * @param id the fixture preset identifier
  * @return *DMX512_fixture_preset_s pointer to the fixture preset instance
  */

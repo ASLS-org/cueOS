@@ -38,25 +38,18 @@ static int16_t _DMX512_fixture_pool_search(DMX512_fixture_pool_s *this, uint16_t
  * @param ch_stop fixture's last channel address
  * @return DMX512_engine_err_e error code following the function call
  */
-static DMX512_engine_err_e _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fixture_s fixture){
-
-	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-
-	if(_DMX512_fixture_pool_search(this, fixture.id) >= 0){
-		err  = DMX512_FIXTURE_DUP;
-	}else if(fixture.addr < DMX512_CHANNEL_ADDRESS_MIN || fixture.ch_count + fixture.addr - 1 > DMX512_CHANNEL_ADDRESS_MAX){
-		err  = DMX512_CHANNEL_ADDRESS_OUT_OF_BOUNDS;
+static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fixture_s fixture){
+	if(_DMX512_fixture_pool_search(this, fixture.id) >= 0 || fixture.ch_stop > DMX512_CHANNEL_ADDRESS_MAX){
+		return 0;
 	}else{
 		for(uint16_t i=0; i<this->fixture_count; i++){
-			if(fixture.addr <= this->fixtures[i].ch_stop && this->fixtures[i].addr <=  fixture.ch_count + fixture.addr - 1){
-				err = DMX512_CHANNEL_ADDRESS_DUP;
-				break;
+			if(fixture.addr <= this->fixtures[i].ch_stop &&
+			   this->fixtures[i].addr <= fixture.ch_count + fixture.addr - 1){
+				return 0;
 			}
 		}
 	}
-
-	return err;
-
+	return 1;
 }
 
 
@@ -108,17 +101,16 @@ DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_
  */
 DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_t id){
 
-	DMX512_engine_err_e err = DMX512_ENGINE_OK;
+	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
 	int16_t index = _DMX512_fixture_pool_search(this, id);
 
 	if(index >= 0){
-		for(uint16_t i=index+1; i<this->fixture_count; i++){
-				this->fixtures[i-1] = this->fixtures[i];
+		for(uint16_t i=index+1; i< this->fixture_count; i++){
+			this->fixtures[i-1] = this->fixtures[i];
 		}
 		this->fixture_count--;
 		this->fixtures = pvPortRealloc(this->fixtures, sizeof(DMX512_fixture_s) * (this->fixture_count));
-	}else{
-		err = DMX512_FIXTURE_UNKNW;
+		err = DMX512_ENGINE_OK;
 	}
 
 	return err;
