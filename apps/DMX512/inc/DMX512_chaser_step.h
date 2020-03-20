@@ -8,7 +8,7 @@
 #include "DMX512_defs.h"
 #include "DMX512_scene.h"
 
-#define DMX512_CHASER_STEP_DEFAULT {NULL, 0, 0, 0, NULL, DMX512_CHASER_STEP_UNINITIALISED, DMX512_CHASER_STEP_IDLE}
+#define DMX512_CHASER_STEP_DEFAULT {NULL, 0, 0, 0, {}, DMX512_CHASER_STEP_UNINITIALISED, DMX512_CHASER_STEP_IDLE}
 
 typedef enum{
 	DMX512_CHASER_STEP_UNINITIALISED,
@@ -25,18 +25,18 @@ typedef enum{
 
 typedef struct{
 	DMX512_scene_s *scene;
-	uint16_t fadein;
-	uint16_t fadeout;
-	uint16_t hold;
+	uint16_t fadein_time;
+	uint16_t fadeout_time;
+	uint16_t hold_time;
 	DMX512_utils_mschronometer_s mschronometer;
 	DMX512_fixture_chaser_step_status_e status;
 	DMX512_fixture_chaser_step_state_e state;
 }DMX512_chaser_step_s;
 
 
-DMX512_chaser_step_s DMX512_chaser_step_init(DMX512_scene_s *scene, uint16_t fadein, uint16_t fadeout, uint16_t hold);
+DMX512_chaser_step_s DMX512_chaser_step_init(DMX512_scene_s *scene, uint16_t fadein_time, uint16_t fadeout_time, uint16_t hold_time);
 void DMX512_chaser_step_manage(DMX512_chaser_step_s *this);
 void DMX512_chaser_step_start(DMX512_chaser_step_s *this);
-
+void DMX512_chaser_step_stop(DMX512_chaser_step_s *this);
 
 #endif

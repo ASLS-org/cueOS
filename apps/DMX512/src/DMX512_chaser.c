@@ -6,6 +6,7 @@
 #include "DMX512_chaser.h"
 #include "DMX512_driver.h"
 #include "cmsis_os.h"
+#include <math.h>
 
 
 /**============================================================================================================================
@@ -29,6 +30,46 @@ static int16_t _DMX512_chaser_search(DMX512_chaser_s *this, uint16_t fixture_id)
 	return -1;
 }
 
+/**
+ * Iterates throug steps in ascending order
+ *
+ * @param this pointer to the chaser instance
+ */
+static void _DMX512_chaser_iterate_steps_forward(DMX512_chaser_s *this){
+	this->current_step = (this->current_step + 1) % this->step_count;
+	DMX512_chaser_step_start(&this->steps[this->current_step]);
+	this->state = ( this->mode == DMX512_CHASER_MODE_SINGLE_SHOT && this->current_step == this->step_count - 1) ? DMX512_CHASER_IDLE : DMX512_CHASER_PLAYING;
+}
+
+/**
+ * Iterates through steps in descending order
+ *
+ * @param this pointer to the chaser instance
+ */
+static void _DMX512_chaser_iterate_steps_backward(DMX512_chaser_s *this){
+	this->current_step = this->current_step > 0 ? this->current_step - 1 : this->step_count - 1;
+	DMX512_chaser_step_start(&this->steps[this->current_step]);
+	this->state = ( this->mode == DMX512_CHASER_MODE_SINGLE_SHOT && this->current_step == 0 ) ? DMX512_CHASER_IDLE : DMX512_CHASER_PLAYING;
+}
+
+/**
+ * Iterates through steps back and forth
+ *
+ * @param this pointer to the chaser instance
+ */
+static void _DMX512_chaser_iterate_steps_pingpong(DMX512_chaser_s *this){
+	if(this->pingpong == DMX512_CHASER_PINGPONG_PING){
+		this->current_step = (this->current_step + 1);
+		DMX512_chaser_step_start(&this->steps[this->current_step]);
+		this->pingpong = this->current_step >= this->step_count -1 ? DMX512_CHASER_PINGPONG_PONG : DMX512_CHASER_PINGPONG_PING;
+	}else{
+		this->current_step = this->current_step > 0 ? this->current_step - 1 : this->step_count - 1;
+		DMX512_chaser_step_start(&this->steps[this->current_step]);
+		this->pingpong = this->current_step == 0  ? DMX512_CHASER_PINGPONG_PING : DMX512_CHASER_PINGPONG_PONG;
+		this->state = ( this->mode == DMX512_CHASER_MODE_SINGLE_SHOT && this->current_step == 0 ) ? DMX512_CHASER_IDLE : DMX512_CHASER_PLAYING;
+	}
+}
+
 
 /**============================================================================================================================
  * Public functions definitions
@@ -46,12 +87,12 @@ static int16_t _DMX512_chaser_search(DMX512_chaser_s *this, uint16_t fixture_id)
  * @param dir the chaser step play direction
  * @return DMX512_chaser_s the created chaser
  */
-DMX512_chaser_s DMX512_chaser_new(uint16_t id, DMX512_chaser_step_mode_e mode, DMX512_chaser_step_direction_e dir){
+DMX512_chaser_s DMX512_chaser_new(uint16_t id, DMX512_chaser_mode_e mode, DMX512_chaser_direction_e direction){
 	DMX512_chaser_s this = DMX512_CHASER_DEFAULT;
-	this.id			  = id;
-	this.mode 		  = mode;
-	this.dir  		  = dir;
-	this.current_step = 0;
+	this.id	   		= id;
+	this.mode  		= mode;
+	this.direction  = direction;
+	this.status 	= DMX512_CHASER_INITIALISED;
 	return this;
 }
 
@@ -67,10 +108,10 @@ DMX512_engine_err_e DMX512_chaser_add_step(DMX512_chaser_s *this, DMX512_chaser_
 
 	DMX512_engine_err_e err   = DMX512_ENGINE_OK;
 
-	if(step.status == DMX512_CHASER_STEP_UNINITIALISED){
-		err = DMX512_INVALID_CHASER_STEP;
+	if(step.status != DMX512_CHASER_STEP_INITIALISED){
+		err = DMX512_ENGINE_INSTANCE_INVALID;
 	}else if(_DMX512_chaser_search(this, step.scene->id) >= 0){
-		err = DMX512_DUPLICATE_CHASER_STEP;
+		err = DMX512_ENGINE_INSTANCE_DUPLICATE;
 	}else{
 		this->steps = (DMX512_chaser_step_s*) pvPortRealloc(this->steps, sizeof(DMX512_chaser_step_s) * (this->step_count + 1));
 		this->steps[this->step_count] = step;
@@ -89,7 +130,7 @@ DMX512_engine_err_e DMX512_chaser_add_step(DMX512_chaser_s *this, DMX512_chaser_
  */
 DMX512_engine_err_e DMX512_chaser_del_step(DMX512_chaser_s *this, uint16_t id){
 
-	DMX512_engine_err_e err = DMX512_INVALID_CHASER_STEP;
+	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
 	int16_t index = _DMX512_chaser_search(this, id);
 
 	if(index >= 0){
@@ -97,7 +138,6 @@ DMX512_engine_err_e DMX512_chaser_del_step(DMX512_chaser_s *this, uint16_t id){
 			this->steps[i-1] = this->steps[i];
 		}
 		this->step_count--;
-		//TODO: Maybe stop the step and/or create free function to clear instance safely
 		this->steps = pvPortRealloc(this->steps, sizeof(DMX512_chaser_step_s) * (this->step_count));
 		err = DMX512_ENGINE_OK;
 	}
@@ -125,34 +165,17 @@ DMX512_chaser_step_s *DMX512_chaser_get_step(DMX512_chaser_s *this, uint16_t id)
  *
  * Handles step selection and trigger over time
  *
- *@param this pointer to the chaser instance
+ * @param this pointer to the chaser instance
  */
-//TODO: tidy this !
 void DMX512_chaser_manage(DMX512_chaser_s *this){
-	if(this->state == CHASER_PLAYING){
+	if(this->state == DMX512_CHASER_PLAYING){
 		DMX512_chaser_step_manage(&this->steps[this->current_step]);
 		if(this->steps[this->current_step].state == DMX512_CHASER_STEP_IDLE){
-			switch(this->mode){
-				case CHASER_MODE_LOOP:
-					this->current_step = (this->current_step + 1) % this->step_count;
-					DMX512_chaser_step_start(&this->steps[this->current_step]);
-					break;
-				case CHASER_MODE_SINGLE_SHOT:
-					if(this->dir == CHASER_DIRECTION_FORWARD){
-						if(this->current_step-- == 0){
-							this->state = CHASER_IDLE;
-						}
-					}else{
-						if(this->current_step++ > this->step_count){
-							this->state = CHASER_IDLE;
-						}
-					}
-					DMX512_chaser_step_start(&this->steps[this->current_step]);
-					break;
-				case CHASER_MODE_PING_PONG:
-					break;
-				case CHASER_MODE_RANDOM:
-					break;
+			switch(this->direction){
+				case DMX512_CHASER_DIRECTION_FORWARD:  _DMX512_chaser_iterate_steps_forward(this); 	break;
+				case DMX512_CHASER_DIRECTION_BACKWARD: _DMX512_chaser_iterate_steps_backward(this); break;
+				case DMX512_CHASER_DIRECTION_PINGPONG: _DMX512_chaser_iterate_steps_pingpong(this);	break;
+				case DMX512_CHASER_DIRECTION_RANDOM: /*TODO: handle RNG for random step iteration*/	break;
 			}
 		}
 	}
@@ -164,7 +187,8 @@ void DMX512_chaser_manage(DMX512_chaser_s *this){
  * @param this pointer to the scene instance
  */
 void DMX512_chaser_start(DMX512_chaser_s *this){
-	this->current_step = this->dir == CHASER_DIRECTION_FORWARD ? 0 : this->step_count;
+	//TODO: see if current step preselection could be handled better
+	this->current_step = this->direction == DMX512_CHASER_DIRECTION_BACKWARD ? this->step_count - 1 : 0;
 	DMX512_chaser_step_start(&this->steps[this->current_step]);
-	this->state = CHASER_PLAYING;
+	this->state = DMX512_CHASER_PLAYING;
 }
