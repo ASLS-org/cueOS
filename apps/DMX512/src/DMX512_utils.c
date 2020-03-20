@@ -31,3 +31,4 @@ void DMX512_utils_mschronometer_reset(DMX512_utils_mschronometer_s *this){
 uint32_t DMX512_utils_mschronometer_get_elapsed_ms(DMX512_utils_mschronometer_s *this){
 	return osKernelGetTickCount() - this->_ms_delta;
 }
+
