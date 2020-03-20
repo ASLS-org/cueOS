@@ -49,7 +49,6 @@ void StartDefaultTask(void *argument);
 int main(void)
 {
 
-
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
@@ -90,7 +89,7 @@ int main(void)
   * @brief System Clock Configuration
   * @retval None
   */
-//TODO: move to system INIT
+//TODO: move to device configuration within device folder
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -131,11 +130,10 @@ void SystemClock_Config(void)
 }
 
 
-
 /**
   * Enable DMA controller clock
   */
-//TODO: move to system INIT
+//TODO: move to device configuration within device folder
 static void MX_DMA_Init(void)
 {
 
@@ -157,7 +155,7 @@ static void MX_DMA_Init(void)
   * @param None
   * @retval None
   */
-//TODO: move to system INIT
+//TODO this should be removed once drivers have been setup correctly
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -197,7 +195,7 @@ void StartDefaultTask(void *argument)
 
 	net_init(NET_MODE_ETHERNET, Q_client_bind);
 	Q_client_init(Q_CLIENT_GROUPCFG_DMX);
-	DMX512_engine_init("parsed-patch.qlsf");
+	DMX512_engine_init();
 
 	for(;;){
 		HAL_GPIO_TogglePin(LED_STATE_GPIO_Port, LED_STATE_Pin);
