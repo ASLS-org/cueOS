@@ -6,7 +6,7 @@
 #include "DMX512_utils.h"
 #include "DMX512_fixture_preset.h"
 
-#define DMX512_SCENE_DEFAULT {0, 0, 0, 0, NULL, NULL, DMX512_SCENE_IDLE, DMX512_SCENE_UNINITIALISED}
+#define DMX512_SCENE_DEFAULT {0, 0, 0, 0, NULL, {}, DMX512_SCENE_IDLE, DMX512_SCENE_UNINITIALISED}
 
 typedef enum{
 	DMX512_SCENE_UNINITIALISED,
@@ -27,7 +27,7 @@ typedef struct DMX512_scene{
 	DMX512_fixture_preset_s *presets;
 	DMX512_utils_mschronometer_s mschronometer;
 	DMX512_scene_state_e state;
-	DMX512_scene_status_e status
+	DMX512_scene_status_e status;
 }DMX512_scene_s;
 
 DMX512_scene_s DMX512_scene_new(uint16_t id, uint16_t fadein_time, uint16_t fadeout_time);
