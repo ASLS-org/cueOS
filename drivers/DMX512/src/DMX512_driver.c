@@ -6,7 +6,15 @@
 #include <string.h>
 #include "DMX512_driver.h"
 
+
+/**============================================================================================================================
+ * Private variables definitions
+ * These variables are only accessible from within the file's scope
+ *=============================================================================================================================*/
+
 static DMX512_driver_s this = DEFAULT_DMX512_DRIVER;
+static osThreadId_t DMX512_driver_ThreadId = NULL;
+
 
 /**============================================================================================================================
  * Private functions definitions
@@ -97,6 +105,7 @@ void _DMX512_driver_GPIO_init(void){
  * @param this handle to the DMX512 driver
  */
 void _DMX512_driver_UART_init(void){
+
 	this.uart.Instance 		 	= USART1;
 	this.uart.Init.WordLength 	= UART_WORDLENGTH_8B;
 	this.uart.Init.StopBits 	= UART_STOPBITS_2;
@@ -106,6 +115,7 @@ void _DMX512_driver_UART_init(void){
 	this.uart.Init.OverSampling = UART_OVERSAMPLING_16;
 
 	HAL_UART_Init(&this.uart);
+
 }
 
 /**============================================================================================================================
@@ -114,29 +124,46 @@ void _DMX512_driver_UART_init(void){
  * @see DMX512_driver.h for declarations
  *=============================================================================================================================*/
 
-DMX512_driver_s DMX512_driver_init(void){
+/**
+ * Initialises DMX512 driver periphals
+ *
+ * Once initialised the driver may be controlled started or stopped
+ * using DMX512_driver_start and DMX512_driver_stop functions
+ */
+void DMX512_driver_init(void){
+	if(this.status == DMX512_DRIVER_UNINITIALISED){
+		_DMX512_driver_GPIO_init();
+		_DMX512_driver_UART_init();
+		this.status = DMX512_DRIVER_INITIALISED;
+	}
+}
 
-	_DMX512_driver_GPIO_init();
-	_DMX512_driver_UART_init();
-
-	return this;
-
+/**
+ * Returns the status of the DMX512 driver
+ * @return DMX512_driver_status_e status of the driver
+ * @see DMX512_driver.h for further information regarding
+ * 		the driver's status enumeration
+ */
+DMX512_driver_status_e DMX512_driver_get_status(void){
+	return this.status;
 }
 
 /**
  * Starts the DMX512 driver thread
  *
  * @return DMX512_driver_err_e returns DMX512_DRIVER_OK if the thread could be started.
- * @see DMX512_defs.h for complementary informations regarding error codes
+ * @see DMX512_driver.h for complementary informations regarding the driver's error codes
  */
 DMX512_driver_err_e DMX512_driver_start(void){
+
 	const osThreadAttr_t DMX512_driver_thread_attr = {
 		.priority = osPriorityNormal,
 		.stack_size = configMINIMAL_STACK_SIZE*4
 	};
 
-	this.threadId = osThreadNew(_DMX512_driver_thread, NULL, &DMX512_driver_thread_attr);
-	return this.threadId != NULL ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
+	DMX512_driver_ThreadId = osThreadNew(_DMX512_driver_thread, NULL, &DMX512_driver_thread_attr);
+	return DMX512_driver_ThreadId != NULL ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
+
 }
 
 /**
@@ -146,7 +173,7 @@ DMX512_driver_err_e DMX512_driver_start(void){
  * @see DMX512_defs.h for complementary informations regarding error codes
  */
 DMX512_driver_err_e DMX512_driver_stop(void){
-	return osThreadTerminate(this.threadId) == osOK ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
+	return osThreadTerminate(DMX512_driver_ThreadId) == osOK ? DMX512_DRIVER_OK : DMX512_DRIVER_THREAD_ERR;
 }
 
 /**
@@ -162,40 +189,10 @@ DMX512_driver_err_e DMX512_driver_set_single(uint16_t address, uint8_t value){
 	DMX512_driver_err_e err = DMX512_DRIVER_OK;
 
 	if(!_DMX512_driver_address_check(address)){
-		err = DMX512_CHANNEL_ADDRESS_OUT_OF_BOUNDS;
+		err = DMX512_DRIVER_ADDRESS_OUT_OF_BOUNDS;
 	}else{
 		this.value_buffer[address] = value;
 	}
 
 	return err;
-
-}
-
-/**
- * Continuously sets a buffer's addresses to given values for a given address interval
- *
- * @param address_start the first address in the interval
- * @param address_start the last address in the interval
- * @param values a buffer containing singular values for each addresses in the interval
- * @return DMX512_driver_err_e returns DMX512_DRIVER_OK if the values could be set.
- * @see DMX512_defs.h for complementary informations regarding error codes
- */
-DMX512_driver_err_e DMX512_driver_set_continuous(uint16_t address_start, uint16_t address_stop, uint8_t *values){
-
-	DMX512_driver_err_e err = DMX512_DRIVER_OK;
-
-	uint16_t buf_size = (address_stop - address_start);
-
-	if(sizeof(values) != buf_size){
-		err = DMX512_ADDRESSES_VALUES_MISMATCH;
-	}else if(buf_size <= 0){
-		err = DMX512_ADDRESS_INTERVAL_NEG;
-	}else if(!_DMX512_driver_address_check(address_start) || !_DMX512_driver_address_check(address_stop)){
-		err = DMX512_CHANNEL_ADDRESS_OUT_OF_BOUNDS;
-	}else{
-		memcpy(this.value_buffer + address_start, values, buf_size);
-	}
-
-	return err;
-
 }
