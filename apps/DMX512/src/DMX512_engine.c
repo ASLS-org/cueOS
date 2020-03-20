@@ -17,7 +17,7 @@
  *=============================================================================================================================*/
 
 static DMX512_engine_s this;
-
+static osThreadId_t DMX512engineThread = NULL;
 
 /**============================================================================================================================
  * Private functions definitions
@@ -36,15 +36,15 @@ static DMX512_engine_s this;
 static DMX512_engine_err_e _DMX512_engine_load_config_header(FIL *config_file){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-	uint16_t buf[QLSF_HEADER_SIZE];
+	uint16_t buf[DMX512_ENGINE_CONFIG_HEADER_SIZE];
 	UINT br;
 
 	f_lseek(config_file, 0);
 
-	if(f_read(config_file, buf, QLSF_HEADER_SIZE * sizeof(uint16_t), &br) == FR_OK){
-		this.fixture_count	= buf[QLSF_HEADER_PATCH_CNT_INDEX];
-		this.scene_count 	= buf[QLSF_HEADER_SCENE_CNT_INDEX];
-		this.chaser_count 	= buf[QLSF_HEADER_CHASE_CNT_INDEX];
+	if(f_read(config_file, buf, DMX512_ENGINE_CONFIG_HEADER_SIZE * sizeof(uint16_t), &br) == FR_OK){
+		this.fixture_count	= buf[DMX512_ENGINE_CONFIG_HEADER_PATCH_CNT_INDEX];
+		this.scene_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_SCENE_CNT_INDEX];
+		this.chaser_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_CHASE_CNT_INDEX];
 	}else{
 		err = 1;
 	}
@@ -66,17 +66,17 @@ static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
 
 	for(int i=0; i< this.fixture_count; i++){
 
-		uint16_t patch_buf[QLSF_PATCH_DATA_SIZE];
+		uint16_t patch_buf[DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE];
 		UINT br;
 
-		if(f_read(config_file, patch_buf, QLSF_PATCH_DATA_SIZE * sizeof(uint16_t), &br) != FR_OK){
+		if(f_read(config_file, patch_buf, DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE * sizeof(uint16_t), &br) != FR_OK){
 			err = -1; //TODO: rename err enumeration
-		}else if(br < QLSF_PATCH_DATA_SIZE){
+		}else if(br < DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE){
 			err = -1; //TODO: rename err enumeration
 		}else{
-			uint16_t id   = patch_buf[QLSF_PATCH_CHUNK_ID_INDEX];
-			uint16_t addr = patch_buf[QLSF_PATCH_CHUNK_ADDR_INDEX];
-			uint16_t chn  = patch_buf[QLSF_PATCH_CHUNK_CHN_INDEX];
+			uint16_t id   = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_ID_INDEX];
+			uint16_t addr = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_ADDR_INDEX];
+			uint16_t chn  = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_CHN_INDEX];
 			DMX512_fixture_s fixture = DMX512_fixture_new(id, addr, chn);
 			DMX512_fixture_pool_add(this.fixtures, fixture);	//TODO: try and define universal error enumeration values for better error arsing
 		}
@@ -94,38 +94,29 @@ static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
  * @see qlsf_defs.h for further information regarding error codes
  */
 //TODO: clean and minify for clarity
+//TODO: check for errors here
 static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
 	for(uint16_t i=0; i<this.scene_count; i++){
 
-		uint16_t header[QLSF_SCENE_HEADER_SIZE];
-
-		f_read(config_file, header, QLSF_SCENE_HEADER_SIZE * sizeof(uint16_t), NULL);
-
-		uint16_t scene_id 	  = header[QLSF_SCENE_ID_INDEX];
-		uint16_t preset_count = header[QLSF_SCENE_FIXTURE_PRESET_CNT_INDEX];
+		uint16_t header[DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE];
+		f_read(config_file, header, DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE * sizeof(uint16_t), NULL);
+		uint16_t scene_id 	  = header[DMX512_ENGINE_CONFIG_SCENE_ID_INDEX];
+		uint16_t preset_count = header[DMX512_ENGINE_CONFIG_SCENE_FIXTURE_PRESET_CNT_INDEX];
 		DMX512_scene_s scene  = DMX512_scene_new(scene_id, 250, 250);
-
 		for(uint16_t j=0; j<preset_count;j++){
-
-			uint16_t preset_header[QLSF_FIXTURE_PRESET_HEADER_SIZE];
-
-			f_read(config_file, preset_header, QLSF_FIXTURE_PRESET_HEADER_SIZE * sizeof(uint16_t), NULL);
-
-			uint16_t fixture_id = preset_header[QLSF_FIXTURE_PRESET_ID_INDEX];
-			uint16_t ch_count 	= preset_header[QLSF_FIXTURE_PRESET_CHANNEL_CNT_INDEX];
+			uint16_t preset_header[DMX512_ENGINE_CONFIG_FIXTURE_PRESET_HEADER_SIZE];
+			f_read(config_file, preset_header, DMX512_ENGINE_CONFIG_FIXTURE_PRESET_HEADER_SIZE * sizeof(uint16_t), NULL);
+			uint16_t fixture_id = preset_header[DMX512_ENGINE_CONFIG_FIXTURE_PRESET_ID_INDEX];
+			uint16_t ch_count 	= preset_header[DMX512_ENGINE_CONFIG_FIXTURE_PRESET_CHANNEL_CNT_INDEX];
 			uint16_t channels[ch_count];
 			uint8_t values[ch_count];
-
 			f_read(config_file, channels, ch_count * sizeof(uint16_t), NULL);
 			f_read(config_file, values, ch_count * sizeof(uint8_t), NULL);
-
 			DMX512_fixture_s *fixture 		= DMX512_fixture_pool_get(this.fixtures, fixture_id);
 			DMX512_fixture_preset_s preset 	= DMX512_fixture_preset_new(fixture, ch_count, channels, values);
-
-			//if((err = DMX512_scene_add_preset(&scene, preset) != DMX512_ENGINE_OK )){ break; }
 			DMX512_scene_add_preset(&scene, preset);
 		}
 
@@ -136,20 +127,27 @@ static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 	return err;
 }
 
+/**
+ * Loads chasers defined within the config file into the DMX512 engine
+ *
+ * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
+ * @see qlsf_defs.h for further information regarding error codes
+ */
+//TODO: check for errors here
 static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
 	for(uint16_t i=0; i<this.chaser_count; i++){
 
-		uint16_t chaser_header[QLSF_CHASER_HEADER_SIZE];
+		uint16_t chaser_header[DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE];
 
-		f_read(config_file, chaser_header, QLSF_CHASER_HEADER_SIZE * sizeof(uint16_t), NULL);
+		f_read(config_file, chaser_header, DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE * sizeof(uint16_t), NULL);
 
-		uint16_t chaser_id     = chaser_header[QLSF_CHASER_ID_INDEX];
-		uint16_t chaser_mode   = chaser_header[QLSF_CHASER_RUN_MODE_INDEX];
-		uint16_t chaser_dir    = chaser_header[QLSF_CHASER_DIR_MODE_INDEX];
-		uint16_t step_count    = chaser_header[QLSF_CHASER_STEP_COUNT_INDEX];
+		uint16_t chaser_id     = chaser_header[DMX512_ENGINE_CONFIG_CHASER_ID_INDEX];
+		uint16_t chaser_dir    = chaser_header[DMX512_ENGINE_CONFIG_CHASER_DIR_MODE_INDEX];
+		uint16_t chaser_mode   = chaser_header[DMX512_ENGINE_CONFIG_CHASER_RUN_MODE_INDEX];
+		uint16_t step_count    = chaser_header[DMX512_ENGINE_CONFIG_CHASER_STEP_COUNT_INDEX];
 		DMX512_chaser_s chaser = DMX512_chaser_new(chaser_id, chaser_mode, chaser_dir);
 
 		for(uint16_t j=0; j<step_count; j++){
@@ -158,15 +156,15 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 
 			f_read(config_file, step_buffer, 4 * sizeof(uint16_t), NULL);
 
-			uint16_t scene_id = step_buffer[QLSF_STEP_ID_INDEX];
-			uint16_t fadein   = step_buffer[QLSF_STEP_FADEIN_INDEX];
-			uint16_t fadeout  = step_buffer[QLSF_STEP_FADEOUT_INDEX];
-			uint16_t hold  	  = step_buffer[QLSF_STEP_HOLD_INDEX];
+			uint16_t scene_id = step_buffer[DMX512_ENGINE_CONFIG_STEP_ID_INDEX];
+			uint16_t fadein   = step_buffer[DMX512_ENGINE_CONFIG_STEP_FADEIN_INDEX];
+			uint16_t fadeout  = step_buffer[DMX512_ENGINE_CONFIG_STEP_FADEOUT_INDEX];
+			uint16_t hold  	  = step_buffer[DMX512_ENGINE_CONFIG_STEP_HOLD_INDEX];
 
 			DMX512_scene_s *scene 	  = DMX512_scene_pool_get(this.scenes, scene_id);
 			DMX512_chaser_step_s step = DMX512_chaser_step_init(scene, fadein, fadeout, hold);
 
-			//if((err = DMX512_chaser_add_step(&chaser, step) != DMX512_ENGINE_OK )){ break; }
+			//if((err = DMX512_chaser_add_step(&chaser, step)) != DMX512_ENGINE_OK ){ break; }
 			DMX512_chaser_add_step(&chaser, step);
 
 		}
@@ -180,6 +178,15 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 
 }
 
+/**
+ * Thread managing engine functions execution
+ *
+ * Currently availbale DMX512 functions include:
+ * Scene: a set of predefined values for one or many fixtures
+ * Chaser: a chained set of scenes defined as "steps" executed sequentially
+ * Effect: a set of mathematical function used as individual channel actuator for one or many fixtures
+ * @param *arg pointer to argument passed during thread creation. Not used here.
+ */
 static void _DMX512_engine_manage(void *arg){
 	for(;;){
 		DMX512_scene_pool_manage(this.scenes);
@@ -203,23 +210,18 @@ static void _DMX512_engine_manage(void *arg){
  */
 DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path){
 
-	DMX512_engine_err_e err = DMX512_ENGINE_OK;
+	DMX512_engine_err_e err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
 	FIL config_file;
 
-	//TODO: update error codes
-	if(fs_get_mount_status() != FS_MOUNTED){
-		err = 2;
-	}else if(f_open(&config_file, config_file_path, FA_OPEN_ALWAYS | FA_READ ) != FR_OK){
-		err = 2;
+	if(fs_get_mount_status() != FS_MOUNTED){ fs_init(); }
+
+	if(f_open(&config_file, config_file_path, FA_OPEN_ALWAYS | FA_READ ) != FR_OK){
 	}else if(_DMX512_engine_load_config_header(&config_file)  != DMX512_ENGINE_OK){
-		err = 2;
 	}else if(_DMX512_engine_load_config_patch(&config_file)   != DMX512_ENGINE_OK){
-		err = 2;
 	}else if(_DMX512_engine_load_config_scenes(&config_file)  != DMX512_ENGINE_OK){
-		err = 2;
 	}else if(_DMX512_engine_load_config_chasers(&config_file) != DMX512_ENGINE_OK){
-		err = 2;
 	}else{
+		err = DMX512_ENGINE_OK;
 		f_close(&config_file);
 	}
 
@@ -231,29 +233,28 @@ DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path){
  *
  * @param *config_file_name pointer to the configuration path string
  */
-void DMX512_engine_init(TCHAR *config_file_name){
-
-	fs_init();
+void DMX512_engine_init(void){
 
 	this.fixture_count  = 0;
 	this.scene_count	= 0;
 	this.chaser_count	= 0;
 	this.effect_count	= 0;
+	this.fixtures 		= DMX512_fixture_pool_new();
+	this.scenes 		= DMX512_scene_pool_new();
+	this.chasers 		= DMX512_chaser_pool_new();
 
-	this.fixtures 	= DMX512_fixture_pool_new();
-	this.scenes 	= DMX512_scene_pool_new();
-	this.chasers 	= DMX512_chaser_pool_new();
+	if(DMX512_driver_get_status() != DMX512_DRIVER_INITIALISED){
+		DMX512_driver_init();
+	}
 
-	DMX512_engine_err_e err = DMX512_engine_load_config(config_file_name);
+}
 
-	DMX512_driver_init();
+void DMX512_engine_start(void){
 	DMX512_driver_start();
+	DMX512engineThread = osThreadNew(_DMX512_engine_manage, NULL, NULL);
+}
 
-	osDelay(500);	//Mandatory delay to ensure at least e single DMX512 frame is sent by the driver
-
-	osThreadNew(_DMX512_engine_manage, NULL, NULL);
-
-	DMX512_chaser_start(&this.chasers->chasers[0]);
-
-
+void DMX512_engine_stop(void){
+	DMX512_driver_stop();
+	osThreadTerminate(DMX512engineThread);
 }
