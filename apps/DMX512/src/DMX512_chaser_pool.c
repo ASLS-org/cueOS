@@ -60,9 +60,8 @@ DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *this, DMX512_ch
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	//TODO: check for chaser validity
 	if(_DMX512_chaser_pool_search(this, chaser.id) >=0){
-		err = DMX512_CHASER_DUP;
+		err = DMX512_ENGINE_INSTANCE_DUPLICATE;
 	}else{
 		this->chasers = (DMX512_chaser_s*) pvPortRealloc(this->chasers, sizeof(DMX512_chaser_s) * (this->chaser_count + 1));
 		this->chasers[this->chaser_count] = chaser;
@@ -91,7 +90,7 @@ DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *this, uint16_t 
 		this->chaser_count--;
 		this->chasers = pvPortRealloc(this->chasers, sizeof(DMX512_chaser_s) * (this->chaser_count));
 	}else{
-		err = DMX512_FIXTURE_UNKNW;
+		err = DMX512_ENGINE_INSTANCE_UNDEFINED;
 	}
 
 	return err;
