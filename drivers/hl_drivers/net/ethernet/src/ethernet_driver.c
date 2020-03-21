@@ -196,7 +196,6 @@ static void low_level_init(struct netif *netif)
 { 
   uint32_t regvalue = 0;
   HAL_StatusTypeDef hal_eth_init_status;
-  osThreadAttr_t attributes;
 /* Init ETH */
 
   uint8_t MACAddr[6] ;
