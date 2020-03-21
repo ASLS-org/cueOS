@@ -5,7 +5,8 @@
 #include <stdlib.h>
 #include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
-#include "DMX512_defs.h"
+
+#include "../../../../../apps/DMX512_engine/inc/DMX512_defs.h"
 
 #define DMX512_BREAKMAB_BAUDRATE 0x186A0U
 #define DMX512_FRAME_BAUDRATE 	 0x3D090U
