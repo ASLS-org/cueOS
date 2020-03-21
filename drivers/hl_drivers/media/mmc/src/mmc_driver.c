@@ -7,6 +7,8 @@
 
 #include "mmc_driver.h"
 
+DMA_HandleTypeDef hdma_sdio_rx;
+DMA_HandleTypeDef hdma_sdio_tx;
 SD_HandleTypeDef hsd;
 
 void mmc_init(void){
