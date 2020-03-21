@@ -6,6 +6,7 @@
 #include "lwip/init.h"
 #include "lwip/netif.h"
 #include "lwip/dhcp.h"
+#include "leds_driver.h"
 #include "ethernet_driver.h"
 #include "net.h"
 
@@ -46,8 +47,10 @@ static void _net_set_ip(void *arg){
 				this.netmask = gnetif.netmask;
 				this.net_ready_callback();
 				this.bound_state = NET_BOUND;
+				leds_driver_set(LED_NETWORK, LED_BLINK);
 			}else{
 				this.bound_state = NET_UNBOUND;
+				leds_driver_set(LED_NETWORK, LED_OFF);
 			}
 		}
 
@@ -93,6 +96,7 @@ static void _net_setup_ethernetif(void){
  * setup wireless interface
  * @warning wireless driver must be provided in ethernet_driver.h
  * @see wireless_driver.h for further information regarding the wireless interface driver
+ * TODO: implement wireless interface driver
  */
 static void _net_setup_wirelessif(void){
 
@@ -169,7 +173,7 @@ void net_set_mode(net_mode_e mode){
 			netif_set_down(&this.ethernetif);
 			netif_set_default(&this.wirelessif);
 			netif_set_up(&this.wirelessif);
-			wirelessif_notify_conn_changed(&this.wirelessif);
+			//wirelessif_notify_conn_changed(&this.wirelessif);
 			break;
 	}
 
@@ -192,6 +196,6 @@ void ethernetif_notify_conn_changed(struct netif *netif){
  * @param *netif pointer to the network interface structure
  * @see wireless_driver.h for further information regarding this callback
  */
-void wirelessif_notify_conn_changed(struct netif *netif){
-	this.link_state = netif_is_link_up(netif) ? NET_LINK_UP : NET_LINK_DOWN;
-}
+//void wirelessif_notify_conn_changed(struct netif *netif){
+//	this.link_state = netif_is_link_up(netif) ? NET_LINK_UP : NET_LINK_DOWN;
+//}
