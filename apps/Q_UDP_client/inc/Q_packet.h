@@ -25,10 +25,6 @@
 
 static const char Q_PACKETID_STRING[Q_PACKETID_BYTELENGTH] = "ASLS-Q";
 
-typedef enum{
-	Q_PACKET_INVALID,
-	Q_PACKET_VALID
-}Q_packet_validity_e;
 
 typedef enum{
 	Q_OPCODE_TRIGGER	= 0x00,
@@ -63,11 +59,13 @@ typedef enum{
 	Q_CMD_REPLY_CONFIG,
 }Q_packet_opcode_cmd_e;
 
+
 typedef struct Q_packet{
 	uint8_t opcode;
 	char *raw_data;
 	char *payload;
 }Q_packet_s;
+
 
 Q_packet_s *Q_packet_parse(void *data, uint8_t len);
 char *Q_packet_forge_discover_reply(uint8_t node_id);

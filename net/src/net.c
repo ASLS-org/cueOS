@@ -6,10 +6,10 @@
 #include "lwip/init.h"
 #include "lwip/netif.h"
 #include "lwip/dhcp.h"
+#include "cueos_config.h"
 #include "leds_driver.h"
 #include "ethernet_driver.h"
 #include "net.h"
-
 
 /**============================================================================================================================
  * Private variables definitions
@@ -27,6 +27,7 @@ const osThreadAttr_t ethernetif_LinkThr_attr = ETHERNETIF_LINKTHR_ATTR;
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
+#if cueOS_CONFIG_NET_USE_DHCP
 /**
  * DHCP thread. Checks wether an IP has been provided or not and initiates callback on success
  *
@@ -49,7 +50,6 @@ static void _net_set_ip(void *arg){
 				this.bound_state = NET_BOUND;
 				leds_driver_set(LED_NETWORK, LED_BLINK);
 			}else{
-				this.bound_state = NET_UNBOUND;
 				leds_driver_set(LED_NETWORK, LED_OFF);
 			}
 		}
@@ -57,7 +57,9 @@ static void _net_set_ip(void *arg){
 		osDelay(DHCP_FINE_TIMER_MSECS);
 
 	}
+
 }
+#endif
 
 /**
  * setup ethernet interface
@@ -83,10 +85,16 @@ static void _net_setup_ethernetif(void){
 	ethernetif_link_arg.semaphore = ethernetif_LinkSemaphore;
 
 	osThreadNew(ethernetif_set_link, &ethernetif_link_arg, &attr);
-	osThreadNew(_net_set_ip, NULL, NULL);
 
+#if cueOS_CONFIG_NET_USE_DHCP
+	osThreadNew(_net_set_ip, NULL, NULL);
 	netif_set_up(&this.ethernetif);
 	dhcp_start(&this.ethernetif);
+#else
+	this.net_ready_callback();
+	this.bound_state = NET_BOUND;
+	leds_driver_set(LED_NETWORK, LED_BLINK);
+#endif
 
 	ethernetif_notify_conn_changed(&this.ethernetif);
 
@@ -127,9 +135,26 @@ static void _net_setup_if(void *arg){
  * @param net_ready_callback function to be called on initialisation success
  */
 void net_init(net_mode_e mode, void *net_ready_callback){
+#if cueOS_CONFIG_NET_USE_DHCP
 	IP4_ADDR(&this.ip_addr, 0, 0, 0, 0);
 	IP4_ADDR(&this.gateway, 0, 0, 0, 0);
 	IP4_ADDR(&this.netmask, 0, 0, 0, 0);
+#else
+	IP4_ADDR(&this.ip_addr, cueOS_CONFIG_NET_STATIC_IP_0,
+							cueOS_CONFIG_NET_STATIC_IP_1,
+							cueOS_CONFIG_NET_STATIC_IP_2,
+							cueOS_CONFIG_NET_STATIC_IP_3);
+
+	IP4_ADDR(&this.gateway, cueOS_CONFIG_NET_STATIC_GW_0,
+							cueOS_CONFIG_NET_STATIC_GW_1,
+							cueOS_CONFIG_NET_STATIC_GW_2,
+							cueOS_CONFIG_NET_STATIC_GW_3);
+
+	IP4_ADDR(&this.netmask, cueOS_CONFIG_NET_STATIC_NM_0,
+							cueOS_CONFIG_NET_STATIC_NM_1,
+							cueOS_CONFIG_NET_STATIC_NM_2,
+							cueOS_CONFIG_NET_STATIC_NM_3);
+#endif
 	this.net_ready_callback = net_ready_callback;
 	tcpip_init(_net_setup_if, NULL);
 }
@@ -186,6 +211,7 @@ void net_set_mode(net_mode_e mode){
  * @see ethernet_driver.h for further information regarding this callback
  */
 void ethernetif_notify_conn_changed(struct netif *netif){
+	this.bound_state = NET_UNBOUND;
 	this.link_state = netif_is_link_up(netif) ? NET_LINK_UP : NET_LINK_DOWN;
 	dhcp_network_changed(netif);
 }

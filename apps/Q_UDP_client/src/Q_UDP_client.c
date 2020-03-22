@@ -24,6 +24,18 @@ static Q_client_s this;
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
+static void _Q_UDP_client_poll_reply(void){
+	char *reply_packet = Q_packet_forge_poll_reply(65);
+	Q_client_send(reply_packet, strlen(reply_packet));
+	vPortFree(reply_packet);
+}
+
+static void _Q_UDP_client_discover_reply(void){
+	char *reply_packet = Q_packet_forge_discover_reply(65);
+	Q_client_send(reply_packet, strlen(reply_packet));
+	vPortFree(reply_packet);
+}
+
 //FIXME: clean and update switch statement
 static void _Q_client_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port){
 
@@ -31,26 +43,13 @@ static void _Q_client_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, co
 
 	if(packet != NULL){
 
-		char *reply_packet;
-
 		switch(packet->opcode){
-			case Q_CMD_TRIGGER_START:
-				break;
-			case Q_CMD_PROBE_DISCOVER:
-				reply_packet = Q_packet_forge_discover_reply(65);
-				Q_client_send(reply_packet, strlen(reply_packet));
-				vPortFree(reply_packet);
-				break;
-			case Q_CMD_PROBE_POLL:
-				reply_packet = Q_packet_forge_poll_reply(65);
-				Q_client_send(reply_packet, strlen(reply_packet));
-				vPortFree(reply_packet);
-				break;
-			case Q_CMD_PROBE_DIAGNOSTIC:
-				reply_packet = Q_packet_forge_discover_reply(65);
-				Q_client_send(reply_packet, strlen(reply_packet));
-				vPortFree(reply_packet);
-				break;
+			case Q_CMD_TRIGGER_START:  /* Complete cue triggering */	break;
+			case Q_CMD_TRIGGER_PAUSE:  /* Complete cue triggering */	break;
+			case Q_CMD_TRIGGER_RESUME: /* Complete cue triggering */	break;
+			case Q_CMD_TRIGGER_STOP:   /* Complete cue triggering */	break;
+			case Q_CMD_PROBE_DISCOVER: _Q_UDP_client_discover_reply(); 	break;
+			case Q_CMD_PROBE_POLL: 	   _Q_UDP_client_poll_reply(); 		break;
 		}
 
 		Q_packet_free(packet);
@@ -74,14 +73,14 @@ static void _Q_client_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, co
  * @param groupcfg the group configuration byte to be used
  * @see Q_client.h for further information regarding group configuration byte
  */
-void Q_client_init(Q_client_groupcfg_e groupcfg){
+void Q_client_init(void){
 
-	IP4_ADDR(&this.mcast_addr, 224, 0, 0, 201);
-	IP4_ADDR(&this.remote_addr, 224, 0, 0, Q_CLIENT_GROUPCFG_CTRL);
+	IP4_ADDR(&this.mcast_addr, 224, 0, 0, Q_UDP_CLIENT_GROUPCFG);
+	IP4_ADDR(&this.remote_addr, 224, 0, 0, Q_UDP_CLIENT_GROUPCFG_CTRL);
 
 	this._pcb = udp_new();
 
-	udp_bind(this._pcb, IP_ADDR_ANY, Q_CLIENT_DEFAULT_PORT);
+	udp_bind(this._pcb, IP_ADDR_ANY, Q_UDP_CLIENT_DEFAULT_PORT);
 	udp_recv(this._pcb, _Q_client_receive, NULL);
 
 }
