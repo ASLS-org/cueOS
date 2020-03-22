@@ -3,12 +3,13 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
-#include "DMX512_scene.h"
-
+#include "cueos_config.h"
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
 #include <stdlib.h>
 #include "math.h"
 #include "cmsis_os.h"
 #include "DMX512_driver.h"
+#include "DMX512_scene.h"
 
 
 /**============================================================================================================================
@@ -202,3 +203,5 @@ void DMX512_scene_manage(DMX512_scene_s *this){
 		case DMX512_SCENE_IDLE:		/*TODO: handle IDLE state ?*/	break;
 	}
 }
+
+#endif

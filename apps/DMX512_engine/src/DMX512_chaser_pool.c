@@ -3,11 +3,12 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
-#include "DMX512_chaser_pool.h"
-
+#include "cueos_config.h"
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
 #include <stdlib.h>
 #include <string.h>
 #include "cmsis_os.h"
+#include "DMX512_chaser_pool.h"
 
 
 /**============================================================================================================================
@@ -124,3 +125,5 @@ void DMX512_chaser_pool_manage(DMX512_chaser_pool_s *this){
 		DMX512_chaser_manage(&this->chasers[i]);
 	}
 }
+
+#endif

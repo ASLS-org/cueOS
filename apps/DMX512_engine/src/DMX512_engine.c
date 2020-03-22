@@ -3,13 +3,14 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
-#include "DMX512_engine.h"
-
+#include "cueos_config.h"
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "cmsis_os.h"
 #include "DMX512_driver.h"
+#include "DMX512_engine.h"
 
 
 /**============================================================================================================================
@@ -47,7 +48,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_header(FIL *config_file){
 		this.scene_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_SCENE_CNT_INDEX];
 		this.chaser_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_CHASE_CNT_INDEX];
 	}else{
-		err = 1;
+		err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
 	}
 
 	return err;
@@ -63,7 +64,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_header(FIL *config_file){
  */
 static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
 
-	DMX512_engine_err_e err = DMX512_ENGINE_OK;
+	DMX512_engine_err_e err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
 
 	for(int i=0; i< this.fixture_count; i++){
 
@@ -71,15 +72,18 @@ static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
 		UINT br;
 
 		if(f_read(config_file, patch_buf, DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE * sizeof(uint16_t), &br) != FR_OK){
-			err = -1; //TODO: rename err enumeration
 		}else if(br < DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE){
-			err = -1; //TODO: rename err enumeration
 		}else{
 			uint16_t id   = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_ID_INDEX];
 			uint16_t addr = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_ADDR_INDEX];
 			uint16_t chn  = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_CHN_INDEX];
 			DMX512_fixture_s fixture = DMX512_fixture_new(id, addr, chn);
-			DMX512_fixture_pool_add(this.fixtures, fixture);	//TODO: try and define universal error enumeration values for better error arsing
+			if(DMX512_fixture_pool_add(this.fixtures, fixture) != DMX512_ENGINE_OK){
+				err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
+				break;
+			}else{
+				err = DMX512_ENGINE_OK;
+			}
 		}
 
 	}
@@ -182,7 +186,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 /**
  * Thread managing engine functions execution
  *
- * Currently availbale DMX512 functions include:
+ * Currently available DMX512 functions include:
  * Scene: a set of predefined values for one or many fixtures
  * Chaser: a chained set of scenes defined as "steps" executed sequentially
  * Effect: a set of mathematical function used as individual channel actuator for one or many fixtures
@@ -192,7 +196,7 @@ static void _DMX512_engine_manage(void *arg){
 	for(;;){
 		DMX512_scene_pool_manage(this.scenes);
 		DMX512_chaser_pool_manage(this.chasers);
-		osDelay(1);
+		osDelay(DMX512_ENGINE_THREAD_DELAY);
 	}
 }
 
@@ -261,3 +265,5 @@ void DMX512_engine_stop(void){
 	DMX512_driver_stop();
 	osThreadTerminate(DMX512engineThread);
 }
+
+#endif

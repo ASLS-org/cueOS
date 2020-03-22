@@ -3,9 +3,10 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
-#include "DMX512_scene_pool.h"
-
+#include "cueos_config.h"
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
 #include "cmsis_os.h"
+#include "DMX512_scene_pool.h"
 
 
 /**============================================================================================================================
@@ -123,3 +124,5 @@ void DMX512_scene_pool_manage(DMX512_scene_pool_s *this){
 		DMX512_scene_manage(&this->scenes[i]);
 	}
 }
+
+#endif

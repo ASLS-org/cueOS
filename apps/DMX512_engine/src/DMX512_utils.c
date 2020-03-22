@@ -3,10 +3,10 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
-#include "DMX512_utils.h"
-
+#include "cueos_config.h"
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
 #include "cmsis_os.h"
-
+#include "DMX512_utils.h"
 
 /**============================================================================================================================
  * Public functions definitions
@@ -33,3 +33,4 @@ uint32_t DMX512_utils_mschronometer_get_elapsed_ms(DMX512_utils_mschronometer_s 
 	return osKernelGetTickCount() - this->_ms_delta;
 }
 
+#endif

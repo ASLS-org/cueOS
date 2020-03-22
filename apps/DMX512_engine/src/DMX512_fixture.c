@@ -3,10 +3,10 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
-#include "DMX512_fixture.h"
-
+#include "cueos_config.h"
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
 #include "cmsis_os.h"
-
+#include "DMX512_fixture.h"
 
 /**============================================================================================================================
  * Public functions definitions
@@ -34,3 +34,5 @@ DMX512_fixture_s DMX512_fixture_new(uint16_t id, uint16_t addr, uint16_t ch_coun
 	return fixture;
 
 }
+
+#endif

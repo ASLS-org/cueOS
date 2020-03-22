@@ -3,11 +3,12 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependencies declarations as possible
  *=============================================================================================================================*/
 
-#include "DMX512_chaser_step.h"
-
+#include "cueos_config.h"
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
 #include <math.h>
 #include "cmsis_os.h"
 #include "DMX512_driver.h"
+#include "DMX512_chaser_step.h"
 
 
 /**============================================================================================================================
@@ -129,3 +130,5 @@ void DMX512_chaser_step_stop(DMX512_chaser_step_s *this){
 	DMX512_utils_mschronometer_reset(&this->mschronometer);
 	this->state = DMX512_CHASER_STEP_IDLE;
 }
+
+#endif

@@ -5,7 +5,7 @@
 
 #include "main.h"
 #include "cmsis_os.h"
-#include "system.h"
+#include "sys.h"
 
 
 /**============================================================================================================================
@@ -17,7 +17,7 @@
 int main(void){
 
 	osKernelInitialize();
-	system_init();
+	cueos_init();
 	osKernelStart();
 
 	for(;;); //Mandatory. this should never be reached
