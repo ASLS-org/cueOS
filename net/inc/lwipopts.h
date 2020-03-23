@@ -43,6 +43,8 @@
 #define CHECKSUM_BY_HARDWARE 1
 /*-----------------------------------------------------------------------------*/
 
+//TODO: clean config file. It's quite ugly ATM
+
 /* LwIP Stack Parameters (modified compared to initialization value in opt.h) -*/
 /* Parameters set in STM32CubeMX LwIP Configuration GUI -*/
 /*----- Value in opt.h for MEM_ALIGNMENT: 1 -----*/
@@ -101,6 +103,11 @@
 #define LWIP_IGMP 1
 #define LWIP_MULTICAST_PING 1
 
+#define LWIP_HTTPD	1
+#define HTTPD_USE_CUSTOM_FSDATA 0
+#define LWIP_HTTPD_CUSTOM_FILES	0
+
+//#define LWIP_HTTPD_DYNAMIC_HEADERS 0
 /* USER CODE END 1 */
 
 #ifdef __cplusplus
