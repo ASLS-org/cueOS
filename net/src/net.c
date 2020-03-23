@@ -54,7 +54,7 @@ static void _net_set_ip(void *arg){
 			}
 		}
 
-		osDelay(DHCP_FINE_TIMER_MSECS);
+		osDelay(10);
 
 	}
 

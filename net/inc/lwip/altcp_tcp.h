@@ -1,10 +1,16 @@
 /**
  * @file
- * SNTP client API
+ * Application layered TCP connection API (to be used from TCPIP thread)\n
+ * This interface mimics the tcp callback API to the application while preventing
+ * direct linking (much like virtual functions).
+ * This way, an application can make use of other application layer protocols
+ * on top of TCP without knowing the details (e.g. TLS, proxy connection).
+ *
+ * This file contains the base implementation calling into tcp.
  */
 
 /*
- * Copyright (c) 2007-2009 Frédéric Bernon, Simon Goldschmidt
+ * Copyright (c) 2017 Simon Goldschmidt
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
@@ -31,46 +37,36 @@
  *
  * This file is part of the lwIP TCP/IP stack.
  *
- * Author: Frédéric Bernon, Simon Goldschmidt
+ * Author: Simon Goldschmidt <goldsimon@gmx.de>
  *
  */
-#ifndef LWIP_HDR_APPS_SNTP_H
-#define LWIP_HDR_APPS_SNTP_H
+#ifndef LWIP_HDR_ALTCP_TCP_H
+#define LWIP_HDR_ALTCP_TCP_H
 
-#include "lwip/apps/sntp_opts.h"
-#include "lwip/ip_addr.h"
+#include "lwip/opt.h"
+
+#if LWIP_ALTCP /* don't build if not configured for use in lwipopts.h */
+
+#include "lwip/altcp.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-/* SNTP operating modes: default is to poll using unicast.
-   The mode has to be set before calling sntp_init(). */
-#define SNTP_OPMODE_POLL            0
-#define SNTP_OPMODE_LISTENONLY      1
-void sntp_setoperatingmode(u8_t operating_mode);
-u8_t sntp_getoperatingmode(void);
+struct altcp_pcb *altcp_tcp_new_ip_type(u8_t ip_type);
 
-void sntp_init(void);
-void sntp_stop(void);
-u8_t sntp_enabled(void);
+#define altcp_tcp_new() altcp_tcp_new_ip_type(IPADDR_TYPE_V4)
+#define altcp_tcp_new_ip6() altcp_tcp_new_ip_type(IPADDR_TYPE_V6)
 
-void sntp_setserver(u8_t idx, const ip_addr_t *addr);
-const ip_addr_t* sntp_getserver(u8_t idx);
+struct altcp_pcb *altcp_tcp_alloc(void *arg, u8_t ip_type);
 
-#if SNTP_SERVER_DNS
-void sntp_setservername(u8_t idx, char *server);
-char *sntp_getservername(u8_t idx);
-#endif /* SNTP_SERVER_DNS */
-
-#if SNTP_GET_SERVERS_FROM_DHCP
-void sntp_servermode_dhcp(int set_servers_from_dhcp);
-#else /* SNTP_GET_SERVERS_FROM_DHCP */
-#define sntp_servermode_dhcp(x)
-#endif /* SNTP_GET_SERVERS_FROM_DHCP */
+struct tcp_pcb;
+struct altcp_pcb *altcp_tcp_wrap(struct tcp_pcb *tpcb);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* LWIP_HDR_APPS_SNTP_H */
+#endif /* LWIP_ALTCP */
+
+#endif /* LWIP_HDR_ALTCP_TCP_H */
