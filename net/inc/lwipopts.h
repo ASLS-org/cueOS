@@ -103,11 +103,6 @@
 #define LWIP_IGMP 1
 #define LWIP_MULTICAST_PING 1
 
-#define LWIP_HTTPD	1
-#define HTTPD_USE_CUSTOM_FSDATA 0
-#define LWIP_HTTPD_CUSTOM_FILES	0
-
-//#define LWIP_HTTPD_DYNAMIC_HEADERS 0
 /* USER CODE END 1 */
 
 #ifdef __cplusplus
