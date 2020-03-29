@@ -3,9 +3,12 @@
 
 #include "cueos.h"
 
+//TODO: Implement configurations throughout project
+//TODO: DOn't forget to implement new configurations here
+
 #define cueOS_CONFIG_NODETYPE 	  cueOS_NODETYPE_SLAVE_DMX
 #define cueOS_CONFIG_NET_DEFAULT  cueOS_NET_ETHERNET
-#define cueOS_CONFIG_NET_USE_DHCP 1
+#define cueOS_CONFIG_NET_USE_DHCP 0
 #define cueOS_CONFIG_NET_TIMEOUT  3000
 
 
@@ -13,7 +16,7 @@
 	#define cueOS_CONFIG_NET_STATIC_IP_0 192
 	#define cueOS_CONFIG_NET_STATIC_IP_1 168
 	#define cueOS_CONFIG_NET_STATIC_IP_2 0
-	#define cueOS_CONFIG_NET_STATIC_IP_3 2
+	#define cueOS_CONFIG_NET_STATIC_IP_3 175
 
 	#define cueOS_CONFIG_NET_STATIC_GW_0 192
 	#define cueOS_CONFIG_NET_STATIC_GW_1 168
