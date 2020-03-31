@@ -18,7 +18,7 @@
 #define DMX512_ENGINE_CONFIG_FILE_EXT 		".qlsf"
 #define DMX512_ENGINE_CONFIG_TEMP_FILE_EXT 	".tmp"
 
-#define DMX512_ENGINE_THREAD_DELAY 	1
+#define DMX512_ENGINE_THREAD_DELAY 	30
 
 
 typedef enum{
@@ -73,6 +73,7 @@ typedef struct{
 void DMX512_engine_init(void);
 void DMX512_engine_start(void);
 void DMX512_engine_stop(void);
+void DMX512_engine_patch(uint16_t fixture_id, uint16_t address, uint16_t ch_count);
 DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path);
 
 

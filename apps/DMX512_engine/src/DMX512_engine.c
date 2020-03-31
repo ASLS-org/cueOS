@@ -266,4 +266,11 @@ void DMX512_engine_stop(void){
 	osThreadTerminate(DMX512engineThread);
 }
 
+void DMX512_engine_patch(uint16_t fixture_id, uint16_t address, uint16_t ch_count){
+	DMX512_fixture_s fixture = DMX512_fixture_new(this.fixtures->fixture_count, this.fixtures->fixture_count, 1);
+	DMX512_fixture_pool_add(this.fixtures, fixture);
+	DMX512_fixture_s *fixture_handle = DMX512_fixture_pool_get(this.fixtures, 200);
+	uint8_t stop = 0;
+}
+
 #endif
