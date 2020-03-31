@@ -54,7 +54,7 @@ static void _net_set_ip(void *arg){
 			}
 		}
 
-		osDelay(10);
+		osDelay(500);
 
 	}
 
