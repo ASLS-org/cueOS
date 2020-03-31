@@ -60,7 +60,7 @@ static void _DMX512_driver_thread(void *arg){
 	for(;;){
 		_DMX512_driver_send_breakmab();
 		_DMX512_driver_send_frame();
-		osDelay(1);
+		osDelay(23);
 	}
 }
 
