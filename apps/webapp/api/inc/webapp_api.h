@@ -1,17 +1,23 @@
-#ifndef Q_WEBAPP_API_H__
-#define Q_WEBAPP_API_H__
+#ifndef WEBAPP_API_H__
+#define WEBAPP_API_H__
 
-#define Q_WEBAPP_API_PORT 8000
+#define WEBAPP_API_PORT 8000
+#define WEBAPP_API_ENDPOINT_SEPARATOR 	"/"
+#define WEBAPP_API_
 
-#define Q_WEBAPP_API_ENDPOINT_AUTH 			"/auth"
+static char *const wabapp_api_endpoints[] = {
+	"/auth",
+	"/patch",
+	"/groups",
+	"/scenes",
+	"/chasers",
+	"/effects",
+	"/cues"
+};
 
-#define Q_WEBAPP_API_ENDPOINT_DMX 			"/DMX"
-#define Q_WEBAPP_API_ENDPOINT_DMX_PATCH 	"/patch"
-#define Q_WEBAPP_API_ENDPOINT_DMX_GROUPS 	"/groups"
-#define Q_WEBAPP_API_ENDPOINT_DMX_SCENES 	"/scenes"
-#define Q_WEBAPP_API_ENDPOINT_DMX_CHASERS 	"/chasers"
-#define Q_WEBAPP_API_ENDPOINT_DMX_EFFECTS 	"/effects"
-#define Q_WEBAPP_API_ENDPOINT_DMX_CUES 		"/cues"
+static const char *const wabapp_api_responses[] = {
+	"{err: 404, msg: Invalid api path}",
+};
 
 void webapp_api_start(void);
 

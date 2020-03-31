@@ -1,15 +1,23 @@
-#include "http.h"
+#include "http_server.h"
 #include "webapp_api.h"
 #include <string.h>
+#include "cmsis_os.h"
+#include "tcpip.h"
+#include "DMX512_engine.h"
 
-static uint32_t webapp_api_router(char *uri, char *header_field_values[HTTP_REQ_HEADER_CONTENT_LOCATION],
-	 	 				 char *data, http_param_s *params,const char **res_buf){
+static void webapp_api_dynamic_router(http_request_s *req){
 
-	*res_buf = "caca";
-	return strlen(*res_buf);
+
+//TEST ONLY
+	char *test = "test";
+	char *ok   = "ok";
+	req->res->is_static = 0;
+	req->res->data_ptr = pvPortMalloc(20*sizeof(char));
+	sprintf(req->res->data_ptr, "%s %s %d", test, ok, 200);
+	req->res->data_len = strlen(req->res->data_ptr);
 
 }
 
 void webapp_api_start(void){
-	http_init(Q_WEBAPP_API_PORT, webapp_api_router);
+	http_server_init(WEBAPP_API_PORT, webapp_api_dynamic_router);
 }
