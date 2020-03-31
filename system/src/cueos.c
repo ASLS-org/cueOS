@@ -7,17 +7,12 @@
 #include "net.h"
 #include "leds_driver.h"
 #include "Q_UDP_client.h"
+#include "webapp_static.h"
+#include "webapp_api.h"
 #include "DMX512_engine.h"
 #include "device.h"
 #include "cueos_config.h"
 #include "cueos.h"
-
-
-/**============================================================================================================================
- * Private functions definitions
- * These functions are only accessible from within the file's scope
- *=============================================================================================================================*/
-
 
 /**============================================================================================================================
  * Public functions definitions
@@ -32,6 +27,8 @@ void cueos_init(void){
 	leds_driver_init();
 	net_init(NET_MODE_ETHERNET, Q_client_bind);
 	Q_client_init();
+	webapp_static_start();
+	webapp_api_start();
 
 #if cueOS_CONFIG_NODETYPE   == cueOS_NODETYPE_MASTER
 	master_engine_init();
@@ -43,6 +40,6 @@ void cueos_init(void){
 	media_engine_init();
 #endif
 
-	leds_driver_set(LED_STATE, LED_ON);
+	leds_driver_set(LED_STATE, LED_BLINK);
 
 }

@@ -5,8 +5,9 @@
 
 #include "main.h"
 #include "cmsis_os.h"
-#include "sys.h"
-
+#include "cueos.h"
+#include "webapp_static.h"
+#include "webapp_api.h"
 
 /**============================================================================================================================
  * Public functions definitions
