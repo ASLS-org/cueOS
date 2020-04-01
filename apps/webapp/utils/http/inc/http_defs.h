@@ -47,18 +47,18 @@ typedef enum{
 
 
 static char *const http_status_codes_str[] = {
-	"200 OK"
-	"201 Created"
-	"Accepted"
-	"No Content"
-	"300 Multiple Choices"
-	"301 Moved Permanently"
-	"400 Bad Request"
-	"401 Unauthorized"
-	"403 Forbidden"
-	"404 Not Found"
-	"501 Not Implemented"
-	"502 Bad Gateway"
+	"200 OK",
+	"201 Created",
+	"Accepted",
+	"No Content",
+	"300 Multiple Choices",
+	"301 Moved Permanently",
+	"400 Bad Request",
+	"401 Unauthorized",
+	"403 Forbidden",
+	"404 Not Found",
+	"501 Not Implemented",
+	"502 Bad Gateway",
 	"503 Service Unavailable"
 };
 

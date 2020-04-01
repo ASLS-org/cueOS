@@ -13,8 +13,6 @@ typedef struct http_server{
 	router_fn router;
 }http_server_s;
 
-
 http_server_s *http_server_init(uint16_t port, router_fn router);
-
 
 #endif

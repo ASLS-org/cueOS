@@ -60,7 +60,7 @@ void http_request_free(http_request_s *req){
 		vPortFree(req->params);
 	}
 
-	if(req->content !=NULL){
+	if(req->uri !=NULL){
 		vPortFree(req->uri);
 	}
 
@@ -116,28 +116,46 @@ void http_request_parse(http_request_s *req, struct pbuf *p){
 			if(pbuf_data[len] == 0){ break; }
 		}while(pbuf_data[len++] != ' ');
 
-		uint8_t param_count = 0;
-		req->params = pvPortMalloc(sizeof(http_param_s));
-		char *value_stop;
+		req->param_count = 0;
+
 		char *params_str = lwip_strnstr(pbuf_data, HTTP_PARAMS_DELIMITOR, len);
+		char *arg_start  = NULL;
+		char *val_start  = NULL;
+		char *val_end 	 = NULL;
 
-		if(params_str !=NULL){
+		if(params_str != NULL){
 
-			len = strlen(pbuf_data) - strlen(params_str);
 			params_str++;
+			len = strlen(pbuf_data) - strlen(params_str);
 
 			do{
-				char *value_start = lwip_strnstr(params_str, "=", len) + 1;
-				value_stop = lwip_strnstr(params_str, "&", len);
-				req->params = pvPortRealloc(req->params, sizeof(http_param_s) * ++param_count);
-				uint8_t arg_len = &params_str - &value_start - 1;
-				uint8_t val_len = &value_stop - &value_start;
-				req->params[param_count-1].arg = pvPortMalloc(arg_len * sizeof(char));
-				req->params[param_count-1].val = pvPortMalloc(val_len * sizeof(char));
-				memmove(req->params[param_count-1].arg, params_str, arg_len);
-				memmove(req->params[param_count-1].val, value_start, val_len);
-				params_str = value_stop + 1;
-			}while(value_stop != NULL);
+
+				arg_start = params_str;
+				val_start = lwip_strnstr(arg_start, "=", len);
+				val_end	= lwip_strnstr(val_start + 1, "&", len);
+
+//				if(val_end == NULL){
+//					val_end = lwip_strnstr(val_start, " ", len);
+//				}
+
+				if(arg_start != NULL && val_start != NULL && val_end != NULL){
+
+					uint8_t arg_len = val_start - arg_start;
+					uint8_t val_len = val_end - val_start;
+
+					req->params = pvPortRealloc(req->params, sizeof(http_param_s) * (++req->param_count));
+
+					req->params[req->param_count-1].arg = pvPortMalloc(sizeof(char) * arg_len);
+					req->params[req->param_count-1].val = pvPortMalloc(sizeof(char) * val_len);
+
+					memmove(req->params[req->param_count-1].arg, arg_start, arg_len);
+					memmove(req->params[req->param_count-1].val, val_start+1, val_len);
+
+					params_str = val_end + 1;
+
+				}
+
+			}while(arg_start != NULL && val_start != NULL && val_end != NULL);
 
 		}
 
@@ -147,20 +165,32 @@ void http_request_parse(http_request_s *req, struct pbuf *p){
 
 		pbuf_data += len;
 
-		char *content_length_index = lwip_strnstr(pbuf_data, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_LENGTH], strlen(pbuf_data));
-		char *content_length_end   = lwip_strnstr(content_length_index, HTTP_HEADER_SEPARATOR, strlen(content_length_index));
+		//char *content_length_index = lwip_strnstr(pbuf_data, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_LENGTH], strlen(pbuf_data));
 
-		uint8_t content_length_str_len = content_length_end - content_length_index;
-		char content_length_str[content_length_str_len];
-		memmove(content_length_str, content_length_index, content_length_str_len);
-		req->content_length = atoi(content_length_str);
+		//if(content_length_index != NULL){
 
+//			char *content_length_end   = lwip_strnstr(content_length_index, HTTP_HEADER_SEPARATOR, strlen(content_length_index));
+//			uint8_t content_length_str_len = content_length_end - content_length_index;
+//			char content_length_str[content_length_str_len];
+//			memmove(content_length_str, content_length_index, content_length_str_len);
+//			req->content_length = atoi(content_length_str);
+//			char *content = lwip_strnstr(pbuf_data, HTTP_HEADER_DELIMITOR, strlen(pbuf_data));
 
-		char *content = lwip_strnstr(pbuf_data, HTTP_HEADER_DELIMITOR, strlen(pbuf_data));
-		content  += strlen(HTTP_HEADER_DELIMITOR);
+			char *content_start = lwip_strnstr(pbuf_data, HTTP_HEADER_DELIMITOR, strlen(pbuf_data));
+			char *content_end   = lwip_strnstr(content_start, 0, strlen(pbuf_data));
+			uint16_t content_len = strlen(content_start) - strlen(HTTP_HEADER_DELIMITOR);
+			//if(content_start != NULL){
+				req->content = pvPortMalloc(content_len);
+				memmove(req->content, content_start + strlen(HTTP_HEADER_DELIMITOR), content_len);
+				req->content[content_len] = 0;
+			//}
+//			if(content != NULL){
+//				content += strlen(HTTP_HEADER_DELIMITOR);
+//				req->content = pvPortMalloc(strlen(content));
+//				memmove(req->content, content, strlen(content));
+//			}
 
-		req->content = pvPortMalloc(strlen(content));
-		memmove(req->content, content, strlen(content));
+		//}
 
 		pbuf_free(p);
 
