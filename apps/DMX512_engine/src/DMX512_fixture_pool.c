@@ -68,7 +68,7 @@ static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fi
 DMX512_fixture_pool_s *DMX512_fixture_pool_new(void){
 	DMX512_fixture_pool_s *this = pvPortMalloc(sizeof(DMX512_fixture_pool_s));
 	this->fixtures 		= NULL;
-	this->fixture_count 	= 0;
+	this->fixture_count = 0;
 	return this;
 }
 
