@@ -104,10 +104,14 @@ static err_t http_receive(void *arg, struct altcp_pcb *pcb,struct pbuf *p, err_t
 		http_close(pcb, req);
 	}else{
 		altcp_recved(pcb, p->tot_len);
-		http_request_parse(req, p);
-		req->router(req);
-		pbuf_free(p);
-		http_send(pcb, req);
+		if(http_request_parse(req, p)){
+			pbuf_free(p);
+			req->router(req);
+			http_send(pcb, req);
+		}else{
+			pbuf_free(p);
+			http_close(pcb, req);
+		}
 	}
 
 	return ERR_OK;
@@ -219,7 +223,7 @@ static err_t http_accept(void *arg, struct altcp_pcb *pcb, err_t err){
  * @param server http server instance
  */
 static void http_prepare_pcb(http_server_s *server){
-
+//TODO: maybe set semaphore here
 	struct altcp_pcb *pcb;
 
 	pcb = altcp_tcp_new_ip_type(IPADDR_TYPE_ANY);
