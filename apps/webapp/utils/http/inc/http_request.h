@@ -15,20 +15,23 @@ typedef struct http_param{
 }http_param_s;
 
 typedef struct http_request{
-	http_method_e method;
+	char *raw_data;
+	uint16_t raw_len;
 	char *uri;
 	char *content;
-	http_param_s *params;
+	http_method_e method;
+	http_version_e http_version;
 	uint8_t param_count;
 	uint8_t retry_count;
 	uint16_t content_length;
 	router_fn router;
+	http_param_s *params;
 	http_response_s *res;
 }http_request_s;
 
 
 http_request_s *http_request_new(router_fn router);
 void http_request_free(http_request_s *req);
-void http_request_parse(http_request_s *req, struct pbuf *p);
+uint8_t http_request_parse(http_request_s *req, struct pbuf *p);
 
 #endif

@@ -9,6 +9,153 @@
 #include "cmsis_os.h"
 #include <string.h>
 
+static uint8_t http_request_parse_method(http_request_s *req){
+
+	uint8_t ret = 0;
+
+	for(uint8_t i=HTTP_GET; i<HTTP_DELETE; i++){
+		uint8_t method_len = strlen(http_methods[i]);
+		if(!strncmp(req->raw_data, http_methods[i], method_len - 1)){
+			req->method = i;
+			req->raw_data += method_len + 1;
+			req->raw_len -= method_len - 1;
+			ret = 1;
+			break;
+		}
+	}
+
+	return ret;
+
+}
+
+static uint8_t http_request_parse_uri(http_request_s *req){
+
+	uint8_t ret = 0;
+
+	req->param_count = 0;
+
+	char *params_start = lwip_strnstr(req->raw_data, STR_COMMON_QMRK, req->raw_len);
+	char *params_end   = lwip_strnstr(req->raw_data + 1, STR_COMMON_SP, req->raw_len);
+	char *arg_start    = NULL;
+	char *val_start    = NULL;
+	char *val_end 	   = NULL;
+
+	if(params_end != NULL){
+
+		ret = 1;
+
+		uint8_t uri_len 	= params_start != NULL ? params_start - req->raw_data : params_end - req->raw_data;
+		uint16_t params_len = params_end - params_start - 1;
+
+		req->uri = pvPortMalloc(uri_len);
+		memmove(req->uri, req->raw_data, uri_len);
+		req->uri[uri_len] = 0;
+
+		req->raw_data = params_end + 1;
+		req->raw_len -= uri_len + params_len + 1;
+
+		//TODO: put this in separate function for cleanliness ?
+		if(params_start != NULL){
+
+			params_start++;
+
+			do{
+
+				arg_start = params_start;
+				val_start = strnstr(arg_start, STR_COMMON_EQUL, params_len);
+				val_end	  = strnstr(val_start, STR_COMMON_AMPR, params_len);
+				if(val_end == NULL){ val_end = params_end; }
+
+				if(arg_start != NULL && val_start != NULL){
+
+					uint8_t arg_len = val_start++ - arg_start + 1;
+					uint8_t val_len = val_end - val_start + 1;
+
+					req->params = pvPortRealloc(req->params, sizeof(http_param_s) * (++req->param_count));
+
+					req->params[req->param_count-1].arg = pvPortMalloc(sizeof(char) * arg_len);
+					req->params[req->param_count-1].val = pvPortMalloc(sizeof(char) * val_len);
+
+					memmove(req->params[req->param_count-1].arg, arg_start, arg_len);
+					memmove(req->params[req->param_count-1].val, val_start, val_len);
+
+					req->params[req->param_count-1].arg[arg_len - 1] = 0;	//Terminating string
+					req->params[req->param_count-1].val[val_len - 1] = 0;	//Terminating string
+
+					params_start = val_end + 1;
+
+				}
+
+			}while(arg_start != NULL && val_start != NULL && val_end != NULL);
+
+		}
+	}
+
+	return ret;
+
+}
+
+static uint8_t http_request_parse_http_version(http_request_s *req){
+
+	uint8_t ret = 0;
+
+	char *http_version_end   = strnstr(req->raw_data, STR_COMMON_CRLF, req->raw_len);
+	uint8_t http_version_len = http_version_end - req->raw_data;
+
+	for(uint8_t i=HTTP_VERSION_0_9; i<HTTP_VERSION_2_0; i++){
+		if(!strncmp(req->raw_data, http_versions[i], http_version_len)){
+			req->http_version = i;
+			req->raw_data += http_version_len + 2;
+			req->raw_len -= http_version_len - 2;
+			ret = 1;
+			break;
+		}
+	}
+
+	return ret;
+
+}
+
+static uint8_t http_request_parse_headers(http_request_s *req){
+
+	uint8_t ret = 1;
+
+	char *content_length_index = lwip_strnstr(req->raw_data, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_LENGTH], req->raw_len);
+
+	if(content_length_index != NULL){
+
+		char *content_length_value 	   = lwip_strnstr(content_length_index, " ", req->raw_len) + 1;
+		char *content_length_value_end = lwip_strnstr(content_length_value, STR_COMMON_CRLF, req->raw_len);
+
+		uint8_t content_length_str_len = content_length_value_end - content_length_value;
+
+		char *content_length_value_str[content_length_str_len];
+		memmove(content_length_value_str, content_length_value, content_length_str_len);
+		req->content_length = atoi(content_length_value);
+
+	}
+
+	return ret;
+
+}
+
+static uint8_t http_request_parse_content(http_request_s *req){
+
+	uint8_t ret = 1;
+
+	if(req->content_length > 0){
+
+		char *content_data = lwip_strnstr(req->raw_data, HTTP_HEADER_DELIMITOR, req->raw_len) + strlen(HTTP_HEADER_DELIMITOR);
+
+		req->content = pvPortMalloc(req->content_length + 1);
+		memcpy(req->content, content_data, req->content_length);
+		req->content[req->content_length] = 0;
+
+	}
+
+	return ret;	//TODO: maybe return error if content is too big ?
+
+}
 
 /**============================================================================================================================
  * Public functions definitions
@@ -60,7 +207,7 @@ void http_request_free(http_request_s *req){
 		vPortFree(req->params);
 	}
 
-	if(req->uri !=NULL){
+	if(req->uri != NULL){
 		vPortFree(req->uri);
 	}
 
@@ -70,7 +217,7 @@ void http_request_free(http_request_s *req){
 
 	req->params 		= NULL;
 	req->router			= NULL;
-	req->content 	 	= NULL;
+	req->content 	 	= 0;
 	req->uri	 	 	= NULL;
 	req->params	 	 	= NULL;
 	req->retry_count 	= 0;
@@ -91,109 +238,28 @@ void http_request_free(http_request_s *req){
  * @return err_t error code to be forwarded to the stack
  * @see err.h for further information regarding the TCIP/IP stack error codes
  */
-void http_request_parse(http_request_s *req, struct pbuf *p){
+//FIXME: PROBLEM COMES FROM STRINGS TERMINATORS !
+uint8_t http_request_parse(http_request_s *req, struct pbuf *p){
 
-	char *pbuf_data = p->payload;
-	uint16_t pbuf_len = p->len;
+	uint8_t ret = 0;
+	req->raw_data = p->payload;
+	req->raw_len  = p->tot_len;
 
 	pbuf_ref(p);
 
-	if(lwip_strnstr(pbuf_data , HTTP_HEADER_DELIMITOR, pbuf_len) != NULL){
-
-		http_method_e method = HTTP_GET;
-		uint8_t len 		 = 0;
-
-		for(method=HTTP_GET; method<HTTP_DELETE; method++){
-			uint8_t method_len = strlen(http_methods[method]);
-			if(!strncmp(pbuf_data, http_methods[method], method_len - 1)){
-				req->method = method;
-				pbuf_data += method_len;
-				break;
-			}
+	if(lwip_strnstr(req->raw_data , HTTP_HEADER_DELIMITOR, req->raw_len) != NULL){
+		if(!http_request_parse_method(req)){
+		}else if(!http_request_parse_uri(req)){
+		}else if(!http_request_parse_http_version(req)){
+		}else if(!http_request_parse_headers(req)){
+		}else if(!http_request_parse_content(req)){
+		}else{
+			ret = 1;
 		}
-
-		do{
-			if(pbuf_data[len] == 0){ break; }
-		}while(pbuf_data[len++] != ' ');
-
-		req->param_count = 0;
-
-		char *params_str = lwip_strnstr(pbuf_data, HTTP_PARAMS_DELIMITOR, len);
-		char *arg_start  = NULL;
-		char *val_start  = NULL;
-		char *val_end 	 = NULL;
-
-		if(params_str != NULL){
-
-			params_str++;
-			len = strlen(pbuf_data) - strlen(params_str);
-
-			do{
-
-				arg_start = params_str;
-				val_start = lwip_strnstr(arg_start, "=", len);
-				val_end	= lwip_strnstr(val_start + 1, "&", len);
-
-//				if(val_end == NULL){
-//					val_end = lwip_strnstr(val_start, " ", len);
-//				}
-
-				if(arg_start != NULL && val_start != NULL && val_end != NULL){
-
-					uint8_t arg_len = val_start - arg_start;
-					uint8_t val_len = val_end - val_start;
-
-					req->params = pvPortRealloc(req->params, sizeof(http_param_s) * (++req->param_count));
-
-					req->params[req->param_count-1].arg = pvPortMalloc(sizeof(char) * arg_len);
-					req->params[req->param_count-1].val = pvPortMalloc(sizeof(char) * val_len);
-
-					memmove(req->params[req->param_count-1].arg, arg_start, arg_len);
-					memmove(req->params[req->param_count-1].val, val_start+1, val_len);
-
-					params_str = val_end + 1;
-
-				}
-
-			}while(arg_start != NULL && val_start != NULL && val_end != NULL);
-
-		}
-
-		req->uri = pvPortMalloc(len-1);
-		memmove(req->uri, pbuf_data, len-1);
-		req->uri[len-1] = 0;
-
-		pbuf_data += len;
-
-		//char *content_length_index = lwip_strnstr(pbuf_data, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_LENGTH], strlen(pbuf_data));
-
-		//if(content_length_index != NULL){
-
-//			char *content_length_end   = lwip_strnstr(content_length_index, HTTP_HEADER_SEPARATOR, strlen(content_length_index));
-//			uint8_t content_length_str_len = content_length_end - content_length_index;
-//			char content_length_str[content_length_str_len];
-//			memmove(content_length_str, content_length_index, content_length_str_len);
-//			req->content_length = atoi(content_length_str);
-//			char *content = lwip_strnstr(pbuf_data, HTTP_HEADER_DELIMITOR, strlen(pbuf_data));
-
-			char *content_start = lwip_strnstr(pbuf_data, HTTP_HEADER_DELIMITOR, strlen(pbuf_data));
-			char *content_end   = lwip_strnstr(content_start, 0, strlen(pbuf_data));
-			uint16_t content_len = strlen(content_start) - strlen(HTTP_HEADER_DELIMITOR);
-			//if(content_start != NULL){
-				req->content = pvPortMalloc(content_len);
-				memmove(req->content, content_start + strlen(HTTP_HEADER_DELIMITOR), content_len);
-				req->content[content_len] = 0;
-			//}
-//			if(content != NULL){
-//				content += strlen(HTTP_HEADER_DELIMITOR);
-//				req->content = pvPortMalloc(strlen(content));
-//				memmove(req->content, content, strlen(content));
-//			}
-
-		//}
-
-		pbuf_free(p);
-
 	}
+
+	pbuf_free(p);
+
+	return ret;
 
 }
