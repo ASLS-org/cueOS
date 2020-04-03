@@ -1,10 +1,18 @@
 #ifndef HTTP_DEFS_H_
 #define HTTP_DEFS_H_
 
-#define HTTP_HEADER_SEPARATOR "\r\n"
-#define HTTP_HEADER_DELIMITOR "\r\n\r\n"
-#define HTTP_PARAMS_SEPARATOR "&"
-#define HTTP_PARAMS_DELIMITOR "?"
+#define STR_COMMON_SP 	" "
+#define STR_COMMON_CRLF "\r\n"
+#define STR_COMMON_QMRK "?"
+#define STR_COMMON_EQUL "="
+#define STR_COMMON_AMPR	"&"
+
+#define HTTP_HEADER_SEPARATOR 	"\r\n"
+#define HTTP_HEADER_DELIMITOR 	"\r\n\r\n"
+#define HTTP_PARAMS_DELIMITOR 	"?"
+#define HTTP_PARAMS_TERMINATOR 	" "
+#define HTTP_VALUE_SEPARATOR 	"="
+#define HTTP_PARAMS_SEPARATOR 	"&"
 
 typedef enum{
 	HTTP_STATUS_CODE_200,
@@ -45,6 +53,11 @@ typedef enum{
 	HTTP_DELETE
 }http_method_e;
 
+typedef enum{
+	HTTP_VERSION_0_9,
+	HTTP_VERSION_1_1,
+	HTTP_VERSION_2_0
+}http_version_e;
 
 static char *const http_status_codes_str[] = {
 	"200 OK",
@@ -78,11 +91,17 @@ static char *const http_content_types_str[] = {
 };
 
 static const char *const http_methods[] = {
-	"GET ",
-	"POST ",
-	"PUT ",
-	"PATCH ",
-	"DELETE ",
+	"GET",
+	"POST",
+	"PUT",
+	"PATCH",
+	"DELETE",
+};
+
+static const char *const http_versions[] = {
+	"HTTP/0.9",
+	"HTTP/1.1",
+	"HTTP/2.0"
 };
 
 #endif
