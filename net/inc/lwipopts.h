@@ -101,6 +101,7 @@
 #define LWIP_DHCP 1
 #define LWIP_DHCP_CHECK_LINK_UP 1
 #define MEMP_NUM_UDP_PCB 4
+#define MEMP_NUM_TCP_PCB 4
 #define LWIP_IGMP 1
 #define LWIP_MULTICAST_PING 1
 
