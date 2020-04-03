@@ -97,7 +97,9 @@ uint32_t http_response_get_bytes_left(http_response_s *res){
  * 			http_response_dynamic_cat function will help dynamically allocating and concatenating
  * 			new string valus to the responses' data pointer.
  * @see http_defs.h for further information regarding HTTP header definitions
+ *
  */
+//FIXME: maybe using string functions actually worked. Retry now that memory leakage in request content parsing has been fixed.
 void http_response_prepare_dynamic(http_response_s *res, http_status_code_e status_code, http_content_types_e content_type, char *content){
 
 	char content_length_str[HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH];
