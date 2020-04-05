@@ -2,13 +2,21 @@
 #define DMX512_fixture_pool_H
 
 #include <stdint.h>
-
 #include "DMX512_defs.h"
 #include "DMX512_fixture.h"
 
+/**
+ * @ingroup DMX512_fixture_pool
+ * @struct DMX512_fixture_pool_s
+ * @brief Defines a DMX512 fixture pool object
+ *
+ * DMX512 fixtures may be patched over 512 channels universes. Fixture pools are used
+ * to store a universe's patch information. What is referred as a patch here is
+ * essentially of fixture objects.
+ */
 typedef struct{
-	DMX512_fixture_s *fixtures;
-	uint16_t fixture_count;
+	DMX512_fixture_s *fixtures;		/**< Pointer to a list of fixtures */
+	uint16_t fixture_count;			/**< The amount of fixtures within the fixture list */
 }DMX512_fixture_pool_s;
 
 DMX512_fixture_pool_s *DMX512_fixture_pool_new(void);

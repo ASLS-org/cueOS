@@ -17,7 +17,9 @@
  *=============================================================================================================================*/
 
 /**
- * Finds the array index of a chaser
+ * @ingroup DMX512_chaser_pool
+ * @fn _DMX512_chaser_pool_search
+ * @brief Finds the array index of a chaser
  *
  * @param id the chaser's identifier
  * @return int16_t the array index of the chaser.
@@ -40,7 +42,10 @@ static int16_t _DMX512_chaser_pool_search(DMX512_chaser_pool_s *this, uint16_t i
  *=============================================================================================================================*/
 
 /**
- * Creates a new chaser pool instance
+ * @ingroup DMX512_chaser_pool
+ * @fn DMX512_chaser_pool_new
+ * @brief Creates a new chaser pool instance
+ *
  * @return DMX512_chaser_pool_s the created pool instance
  */
 DMX512_chaser_pool_s *DMX512_chaser_pool_new(void){
@@ -51,7 +56,9 @@ DMX512_chaser_pool_s *DMX512_chaser_pool_new(void){
 }
 
 /**
- * Adds a chaser instance into the pool
+ * @ingroup DMX512_chaser_pool
+ * @fn DMX512_chaser_pool_add
+ * @brief Adds a chaser instance into the pool
  *
  * @param id the chaser's idendifier
  * @param addr chaser's first channel address
@@ -75,7 +82,9 @@ DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *this, DMX512_ch
 }
 
 /**
- * Deletes a chaser instance from the pool
+ * @ingroup DMX512_chaser_pool
+ * @fn DMX512_chaser_pool_del
+ * @brief Deletes a chaser instance from the pool
  *
  * @param id the chaser's idendifier
  * @return DMX512_engine_err_e error code following the function call
@@ -100,7 +109,9 @@ DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *this, uint16_t 
 }
 
 /**
- * Gets a chaser instance from the pool
+ * @ingroup DMX512_chaser_pool
+ * @fn DMX512_chaser_pool_get
+ * @brief Gets a chaser instance from the pool
  *
  * @param id the chaser's identifier
  * @return *DMX512_chaser_s pointer to the chaser instance
@@ -116,7 +127,9 @@ DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *this, uint16_t id)
 }
 
 /**
- * Manages execution of chaser instances for a whole pool
+ * @ingroup DMX512_chaser_pool
+ * @fn DMX512_chaser_pool_manage
+ * @brief Manages execution of chaser instances for a whole pool
  *
  *@param this pointer to a chaser pool instance
  */

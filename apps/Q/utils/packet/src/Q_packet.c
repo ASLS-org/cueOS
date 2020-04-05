@@ -14,15 +14,17 @@
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
-/*
- * Checks the integrity of a packet by checting packet id string and opcode
+/**
+ * @ingroup Q_packet
+ * @fn _Q_packet_check_validity
+ * @brief Checks the integrity of a packet by checting packet id string and opcode
  *
  * @param *packet pointer to packet instance to be checked
  * @return uint8_t 1 on success, 0 otherwise.
  */
 static uint8_t _Q_packet_check_validity(Q_packet_s *packet){
 	if(strncmp(packet->raw_data, Q_PACKETID_STRING, Q_PACKETID_BYTELENGTH) == 0){
-		if(packet->opcode >= Q_CMD_TRIGGER_START && packet->opcode <= Q_CMD_REPLY_CONFIG){
+		if(packet->opcode >= Q_CMD_TRIGGER_START && packet->opcode <= Q_CMD_REPLY_DIAGNOSTIC){
 			return 1;
 		}
 	}
@@ -33,11 +35,13 @@ static uint8_t _Q_packet_check_validity(Q_packet_s *packet){
 /**============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
- * @see DMX512_chaser_pool.h for declarations
+ * @see Q_packet.h for declarations
  *=============================================================================================================================*/
 
 /**
- * parses and converts received data into a Q_packet instance
+ * @ingroup Q_packet
+ * @fn Q_packet_parse
+ * @brief parses and converts received data into a Q_packet instance
  *
  * @param *data pointer to data buffer
  * @param len length of the data contained within the buffer in bytes
@@ -66,7 +70,9 @@ Q_packet_s *Q_packet_parse(void *data, uint8_t len){
 }
 
 /**
- * Frees packet's dynamically allocated ressources
+ * @ingroup Q_packet
+ * @fn Q_packet_free
+ * @brief Frees packet's dynamically allocated ressources
  *
  * @param *packet pointer to packet instance to be freed
  */
@@ -79,10 +85,12 @@ void Q_packet_free(Q_packet_s *packet){
 }
 
 /**
- * Forges a discover reply packet using provided node's id
+ * @ingroup Q_packet
+ * @fn Q_packet_free
+ * @brief Forges a discover reply packet using provided node's id
  *
  * @param node_id node identifier
- * @return char * pointer to raw data buffer to be sent
+ * @return char* pointer to raw data buffer to be sent
  */
 char *Q_packet_forge_discover_reply(uint8_t node_id){
 	char *raw_data = pvPortMalloc(sizeof(uint8_t) * Q_DISCOVERREPLY_BYTELENGTH);
@@ -91,10 +99,12 @@ char *Q_packet_forge_discover_reply(uint8_t node_id){
 }
 
 /**
- * Forges a poll reply packet using provided node's id
+ * @ingroup Q_packet
+ * @fn Q_packet_forge_poll_reply
+ * @brief Forges a poll reply packet using provided node's id
  *
  * @param node_id node identifier
- * @return char * pointer to raw data buffer to be sent
+ * @return char* pointer to raw data buffer to be sent
  */
 char *Q_packet_forge_poll_reply(uint8_t node_id){
 	char *raw_data = pvPortMalloc(sizeof(uint8_t) * Q_POLLREPLY_BYTELENGTH);

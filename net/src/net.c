@@ -11,6 +11,8 @@
 #include "ethernet_driver.h"
 #include "net.h"
 
+//TODO: clean, there has been many modifications, some content might be useless
+
 /**============================================================================================================================
  * Private variables definitions
  * These variables are only accessible from within the file's scope
@@ -29,7 +31,9 @@ const osThreadAttr_t ethernetif_LinkThr_attr = ETHERNETIF_LINKTHR_ATTR;
 
 #if cueOS_CONFIG_NET_USE_DHCP
 /**
- * DHCP thread. Checks wether an IP has been provided or not and initiates callback on success
+ * @ingroup network
+ * @fn _net_set_ip
+ * @brief DHCP thread. Checks wether an IP has been provided or not and initiates callback on success
  *
  * @param *arg required by osThreadNew, not used here.
  */
@@ -62,7 +66,9 @@ static void _net_set_ip(void *arg){
 #endif
 
 /**
- * setup ethernet interface
+ * @ingroup network
+ * @fn _net_setup_ethernetif
+ * @brief setup ethernet interface
  * @warning ethernet driver must be provided in ethernet_driver.h
  * @see ethernet_driver.h for further information regarding the ethernet interface driver
  */
@@ -101,7 +107,9 @@ static void _net_setup_ethernetif(void){
 }
 
 /**
- * setup wireless interface
+ * @ingroup network
+ * @fn _net_setup_wirelessif
+ * @brief setup wireless interface
  * @warning wireless driver must be provided in ethernet_driver.h
  * @see wireless_driver.h for further information regarding the wireless interface driver
  * TODO: implement wireless interface driver
@@ -111,7 +119,9 @@ static void _net_setup_wirelessif(void){
 }
 
 /**
- * Setup both wireless end ethernet network interfaces
+ * @ingroup network
+ * @fn _net_setup_if
+ * @brief Setup both wireless end ethernet network interfaces
  *
  * @param *arg required by tcp_init, not used here.
  */
@@ -129,7 +139,9 @@ static void _net_setup_if(void *arg){
  *=============================================================================================================================*/
 
 /**
- * Initialises network.
+ * @ingroup network
+ * @fn net_init
+ * @brief Initialises network.
  *
  * @param mode the network mode (either ethernet or wireless)
  * @param net_ready_callback function to be called on initialisation success
@@ -160,7 +172,9 @@ void net_init(net_mode_e mode, void *net_ready_callback){
 }
 
 /**
- * Returns the active network interface IP address
+ * @ingroup network
+ * @fn net_get_ip_addr
+ * @brief Returns the active network interface IP address
  *
  * @return ip4_addr_t the interface's IP address
  */
@@ -169,7 +183,9 @@ ip4_addr_t net_get_ip_addr(void){
 }
 
 /**
- * Returns the active network interface gateway address
+ * @ingroup network
+ * @fn net_get_gateway
+ * @brief Returns the active network interface gateway address
  *
  * @return ip4_addr_t the interface's gateway address
  */
@@ -178,7 +194,9 @@ ip4_addr_t net_get_gateway(void){
 }
 
 /**
- * Sets the network mode to either ethernet or wireless
+ * @ingroup network
+ * @fn net_set_mode
+ * @brief Sets the network mode to either ethernet or wireless
  *
  * @param mode the mode to be set
  * @see net.h for further information regarding available modes
@@ -198,14 +216,16 @@ void net_set_mode(net_mode_e mode){
 			netif_set_down(&this.ethernetif);
 			netif_set_default(&this.wirelessif);
 			netif_set_up(&this.wirelessif);
-			//wirelessif_notify_conn_changed(&this.wirelessif);
+			//TODO: implement wireless connection change callback
 			break;
 	}
 
 }
 
 /**
- * Function called on ethernet interface link change
+ * @ingroup network
+ * @fn ethernetif_notify_conn_changed
+ * @brief Function called on ethernet interface link change
  *
  * @param *netif pointer to the network interface structure
  * @see ethernet_driver.h for further information regarding this callback
@@ -215,13 +235,3 @@ void ethernetif_notify_conn_changed(struct netif *netif){
 	this.link_state = netif_is_link_up(netif) ? NET_LINK_UP : NET_LINK_DOWN;
 	dhcp_network_changed(netif);
 }
-
-/**
- * Function called on wireless interface link change
- *
- * @param *netif pointer to the network interface structure
- * @see wireless_driver.h for further information regarding this callback
- */
-//void wirelessif_notify_conn_changed(struct netif *netif){
-//	this.link_state = netif_is_link_up(netif) ? NET_LINK_UP : NET_LINK_DOWN;
-//}

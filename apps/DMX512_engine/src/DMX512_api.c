@@ -19,7 +19,9 @@
  *=============================================================================================================================*/
 
 /**
- * Retrieves one or many fixture patched within the DMX512 engine's
+ * @ingroup DMX512_api
+ * @fn DMX512_api_get_fixtures
+ * @brief Retrieves one or many fixture patched within the DMX512 engine's
  *
  * @param *req pointer to the http request instance for retrieving uri parameters
  * @see http_server.h for further information relative to http requests parameter
@@ -120,7 +122,9 @@ static void DMX512_api_get_fixtures(http_request_s *req){
 }
 
 /**
- * Tries patching a fixture into the DMX512 engine fixture pool.
+ * @ingroup DMX512_api
+ * @fn DMX512_api_add_fixture
+ * @brief Tries patching a fixture into the DMX512 engine fixture pool.
  *
  * @param *req pointer to the http request instance for retrieving uri parameters
  * @see http_server.h for further information relative to http requests parameter
@@ -178,7 +182,9 @@ static void DMX512_api_add_fixture(http_request_s *req){
  *=============================================================================================================================*/
 
 /**
- * Parses the current HTTP request method and URI in order to route requests to a
+ * @ingroup DMX512_api
+ * @fn DMX512_api_router
+ * @brief Parses the current HTTP request method and URI in order to route requests to a
  * specific api function.
  *
  * @param *req pointer to the http request instance for retrieving uri parameters

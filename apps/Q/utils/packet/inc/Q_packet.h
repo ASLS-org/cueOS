@@ -21,29 +21,40 @@
 
 #define Q_PACKETID_STRING 			"ASLS-Q"
 
-
+/**
+ * @ingroup Q_packet
+ * @enum Q_packet_opcode_cmd_e
+ * @brief List of Q packet opcodes
+ */
 typedef enum{
-	Q_CMD_TRIGGER_START,
-	Q_CMD_TRIGGER_PAUSE,
-	Q_CMD_TRIGGER_RESUME,
-	Q_CMD_TRIGGER_STOP,
-	Q_CMD_CONTROL_ALLOFF,
-	Q_CMD_CONTROL_RESTORE,
-	Q_CMD_CONTROL_ACTUATOR,
-	Q_CMD_PROBE_DISCOVER,
-	Q_CMD_PROBE_POLL,
-	Q_CMD_PROBE_DIAGNOSTIC,
-	Q_CMD_REPLY_DISCOVER,
-	Q_CMD_REPLY_POLL,
-	Q_CMD_REPLY_DIAGNOSTIC,
-	Q_CMD_REPLY_CONFIG,
+	Q_CMD_TRIGGER_START,						/*< Starts a cue*/
+	Q_CMD_TRIGGER_PAUSE,						/*< Pauses a cue*/
+	Q_CMD_TRIGGER_RESUME,						/*< Resumes a paused cue*/
+	Q_CMD_TRIGGER_STOP,							/*< Stops a started cue*/
+	Q_CMD_CONTROL_ALLOFF,						/*< Sets all outputs to OFF state*/
+	Q_CMD_CONTROL_RESTORE,						/*< Restores all outputs to their state prior to ALLOFF*/
+	Q_CMD_CONTROL_ACTUATOR,						/*< Controls an individual actuator channe value*/
+	Q_CMD_PROBE_DISCOVER,						/*< Discover all nodes on the network*/
+	Q_CMD_PROBE_POLL,							/*< Poll a specific probe*/
+	Q_CMD_PROBE_DIAGNOSTIC,						/*< Diagnostic a specific node*/ //TODO: maybe remove this and pass everything to poll
+	Q_CMD_REPLY_DISCOVER,						/*< Reply to a discover command*/
+	Q_CMD_REPLY_POLL,							/*< Reply to a poll command*/
+	Q_CMD_REPLY_DIAGNOSTIC,						/*< Reply to a diagnostic command*/
 }Q_packet_opcode_cmd_e;
 
 
+/**
+ * @ingroup Q_packet
+ * @struct Q_packet
+ * @brief Defines a Q packet object
+ *
+ * Q packets are simply made of a single byte OPCODE
+ * and a variable length data payload.
+ */
 typedef struct Q_packet{
-	uint8_t opcode;
-	char *raw_data;
-	char *payload;
+	Q_packet_opcode_cmd_e opcode;				/*< packet opcode @see Q_packet_opcode_cmd_e*/
+	char *raw_data;								/*< packet raw unparsed data*/
+	char *payload;								/*< packet variable length payload*/
 }Q_packet_s;
 
 

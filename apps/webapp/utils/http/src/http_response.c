@@ -9,16 +9,17 @@
 #include <string.h>
 
 
-
 /**
- * Concatenates a provided string to the response's data pointer and
+ * @ingroup http_response
+ * @fn _http_response_dynamic_cat
+ * @brief Concatenates a provided string to the response's data pointer and
  * automatically reallocates data pointer's size to fit the provided
  * string.
  *
  * @param res HTTP response instance to be reallocated
  * @param data string data to be concatenated
  */
-static void http_response_dynamic_cat(http_response_s *res, char *data){
+static void _http_response_dynamic_cat(http_response_s *res, char *data){
 	uint16_t data_len = strlen(data);
 	res->data_ptr = pvPortRealloc(res->data_ptr, res->data_len + data_len);
 	memmove(res->data_ptr+res->data_len, data, data_len);
@@ -33,9 +34,11 @@ static void http_response_dynamic_cat(http_response_s *res, char *data){
  *=============================================================================================================================*/
 
 /**
- * Creates a new HTTP response instance
+ * @ingroup http_response
+ * @fn http_response_new
+ * @brief Creates a new HTTP response instance
  *
- * @return http_response_s the created HTTP response instance
+ * @return http_response_s* pointer to the created HTTP response instance
  */
 http_response_s *http_response_new(void){
 
@@ -52,7 +55,9 @@ http_response_s *http_response_new(void){
 }
 
 /**
- * Safely frees an HTTP response instance
+ * @ingroup http_response
+ * @fn http_response_free
+ * @brief Safely frees an HTTP response instance
  *
  * @param res HTTP response instance to be freed
  */
@@ -72,7 +77,9 @@ void http_response_free(http_response_s *res){
 }
 
 /**
- * Returns the amount of bytes left to be processed
+ * @ingroup http_response
+ * @fn http_response_get_bytes_left
+ * @brief Returns the amount of bytes left to be processed
  * @warning this function does not affect the current
  * 			instance data pointer index. this parameter
  *  	    is incremented during the server send process.
@@ -85,7 +92,9 @@ uint32_t http_response_get_bytes_left(http_response_s *res){
 }
 
 /**
- * Pre-formats response to HTTP response using provided response header parameters
+ * @ingroup http_response
+ * @fn http_response_prepare_dynamic
+ * @brief Pre-formats response to HTTP response using provided response header parameters
  *
  * @param *res pointer to the response to be prepared
  * @param status code response's HTTP status code
@@ -95,11 +104,10 @@ uint32_t http_response_get_bytes_left(http_response_s *res){
  * @warning while it might be tempting, DO NOT USE STRING FUNCTIONS, they are not thread safe
  * 			and therefore not suitable to be used within the execution of the TCP/IP task thread.
  * 			http_response_dynamic_cat function will help dynamically allocating and concatenating
- * 			new string valus to the responses' data pointer.
+ * 			new string valuehttp_response_prepare_dynamics to the responses' data pointer.
  * @see http_defs.h for further information regarding HTTP header definitions
  *
  */
-//FIXME: maybe using string functions actually worked. Retry now that memory leakage in request content parsing has been fixed.
 void http_response_prepare_dynamic(http_response_s *res, http_status_code_e status_code, http_content_types_e content_type, char *content){
 
 	char content_length_str[HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH];
@@ -108,15 +116,15 @@ void http_response_prepare_dynamic(http_response_s *res, http_status_code_e stat
 
 	itoa(strlen(content), content_length_str, 10);
 
-	http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_STATUS_CODE]);
-	http_response_dynamic_cat(res, http_status_codes_str[status_code]);
-	http_response_dynamic_cat(res, HTTP_HEADER_SEPARATOR);
-	http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_TYPE]);
-	http_response_dynamic_cat(res, http_content_types_str[content_type]);
-	http_response_dynamic_cat(res, HTTP_HEADER_SEPARATOR);
-	http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_LENGTH]);
-	http_response_dynamic_cat(res, content_length_str);
-	http_response_dynamic_cat(res, HTTP_HEADER_DELIMITOR);
-	http_response_dynamic_cat(res, content);
+	_http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_STATUS_CODE]);
+	_http_response_dynamic_cat(res, http_status_codes_str[status_code]);
+	_http_response_dynamic_cat(res, HTTP_HEADER_SEPARATOR);
+	_http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_TYPE]);
+	_http_response_dynamic_cat(res, http_content_types_str[content_type]);
+	_http_response_dynamic_cat(res, HTTP_HEADER_SEPARATOR);
+	_http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_LENGTH]);
+	_http_response_dynamic_cat(res, content_length_str);
+	_http_response_dynamic_cat(res, HTTP_HEADER_DELIMITOR);
+	_http_response_dynamic_cat(res, content);
 
 }

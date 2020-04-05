@@ -6,6 +6,7 @@
 #include "cmsis_os.h"
 #include "leds_driver.h"
 
+//TODO: check this, it was made in a hurry and it seems quite shitty, could be greatly improved in a minimal amount of time
 
 /**============================================================================================================================
  * Private variables definitions
@@ -19,13 +20,16 @@ static const led_driver_pin_e LED_PINS[LED_DRIVER_COUNT] = {
 	LED_NETWORK_PIN
 };
 
+
 /**============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * Initialises a LED's GPIO
+ * @ingroup leds_driver
+ * @fn _leds_driver_init_led
+ * @brief Initialises a LED's GPIO
  *
  * @param pin the LED's GPIO pin number
  * @return led_driver_led_sthe created LED instance
@@ -49,7 +53,9 @@ led_driver_led_s _leds_driver_init_led(led_driver_pin_e pin){
 }
 
 /**
- * LED driver thread which periodically refreshes LED's according to state
+ * @ingroup leds_driver
+ * @fn _leds_driver_manage
+ * @brief LED driver thread which periodically refreshes LED's according to state
  *
  * @param *arg required by cmsis_os osThreadNew prototype. not used here.
  */
@@ -80,7 +86,9 @@ static void _leds_driver_manage(void *arg){
  *=============================================================================================================================*/
 
 /**
- * LED Driver initialisation
+ * @ingroup leds_driver
+ * @fn leds_driver_init
+ * @brief LED Driver initialisation
  */
 void leds_driver_init(void){
 
@@ -99,7 +107,9 @@ void leds_driver_init(void){
 }
 
 /**
- * Assigns a state to a driver's led
+ * @ingroup leds_driver
+ * @fn leds_driver_set
+ * @brief Assigns a state to a driver's led
  *
  * @param led the led which state is to be set
  * @param state the selected state

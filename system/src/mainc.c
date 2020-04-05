@@ -4,10 +4,8 @@
  *=============================================================================================================================*/
 
 #include "main.h"
-#include "cmsis_os.h"
 #include "cueos.h"
-#include "webapp_static.h"
-#include "webapp_api.h"
+
 
 /**============================================================================================================================
  * Public functions definitions
@@ -15,12 +13,12 @@
  * @see main.h for declarations
  *=============================================================================================================================*/
 
+/**
+ * @ingroup system
+ * @fn main
+ * @brief Main function called at device startup
+ */
 int main(void){
-
-	osKernelInitialize();
 	cueos_init();
-	osKernelStart();
-
 	for(;;); //Mandatory. this should never be reached
-
 }

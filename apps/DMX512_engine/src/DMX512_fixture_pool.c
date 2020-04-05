@@ -17,7 +17,9 @@
  *=============================================================================================================================*/
 
 /**
- * Finds the array index of a fixture
+ * @ingroup DMX512_fixture_pool
+ * @fn _DMX512_fixture_pool_search
+ * @brief Finds the array index of a fixture
  *
  * @param id the fixture's identifier
  * @return int16_t the array index of the fixture.
@@ -33,7 +35,9 @@ static int16_t _DMX512_fixture_pool_search(DMX512_fixture_pool_s *this, uint16_t
 }
 
 /**
- * Checks if a fixture can be added into the pool
+ * @ingroup DMX512_fixture_pool
+ * @fn _DMX512_fixture_pool_check
+ * @brief Checks if a fixture can be added into the pool
  *
  * @param id the fixture's idendifier
  * @param addr fixture's first channel address
@@ -69,7 +73,10 @@ static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fi
  *=============================================================================================================================*/
 
 /**
- * Creates a new fixture pool instance
+ * @ingroup DMX512_fixture_pool
+ * @fn DMX512_fixture_pool_new
+ * @brief Creates a new fixture pool instance
+ *
  * @return DMX512_fixture_pool_s the created pool instance
  */
 DMX512_fixture_pool_s *DMX512_fixture_pool_new(void){
@@ -80,7 +87,9 @@ DMX512_fixture_pool_s *DMX512_fixture_pool_new(void){
 }
 
 /**
- * Adds a fixture instance into the pool
+ * @ingroup DMX512_fixture_pool
+ * @fn DMX512_fixture_pool_add
+ * @brief Adds a fixture instance into the pool
  *
  * @param id the fixture's identifier
  * @param addr fixture's first channel address
@@ -103,7 +112,9 @@ DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_
 }
 
 /**
- * Deletes a fixture instance from the pool
+ * @ingroup DMX512_fixture_pool
+ * @fn DMX512_fixture_pool_del
+ * @brief Deletes a fixture instance from the pool
  *
  * @param id the fixture's idendifier
  * @return DMX512_engine_err_e error code following the function call
@@ -127,7 +138,9 @@ DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_
 }
 
 /**
- * Gets a fixture instance from the pool
+ * @ingroup DMX512_fixture_pool
+ * @fn DMX512_fixture_pool_get
+ * @brief Gets a fixture instance from the pool
  *
  * @param id the fixture's identifier
  * @param **fixture pointer to the fixture

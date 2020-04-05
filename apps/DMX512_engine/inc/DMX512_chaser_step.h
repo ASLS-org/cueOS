@@ -4,34 +4,67 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "DMX512_defs.h"
 #include "DMX512_scene.h"
 #include "DMX512_utils.h"
 
+
+/**
+ * @ingroup DMX512_chaser_step
+ * @def DMX512_CHASER_STEP_DEFAULT
+ * @brief chaser step instance default values
+ *
+ * Used during initialisation of a chaser step instance, it lowers the risk of conflicts
+ * by ensuring that every parameters which will be set are correctly initialised.
+ */
 #define DMX512_CHASER_STEP_DEFAULT {NULL, 0, 0, 0, {}, DMX512_CHASER_STEP_UNINITIALISED, DMX512_CHASER_STEP_IDLE}
 
+
+/**
+ * @ingroup DMX512_chaser_step
+ * @enum DMX512_fixture_chaser_step_status_e
+ * @brief Status of a chaser step instance
+ *
+ * Defines whether or not a chaser step instance has been correctly initialised.
+ */
 typedef enum{
-	DMX512_CHASER_STEP_UNINITIALISED,
-	DMX512_CHASER_STEP_INITIALISED
+	DMX512_CHASER_STEP_UNINITIALISED,						/**< The chaser step is initialised*/
+	DMX512_CHASER_STEP_INITIALISED							/**< The chaser step is uninitialised*/
 }DMX512_fixture_chaser_step_status_e;
 
+/**
+ * @ingroup DMX512_chaser_step
+ * @enum DMX512_fixture_chaser_step_state_e
+ * @brief Current playing state of a chaser step
+ *
+ * Used by the chaser step state machine to determine the current operation to
+ * be done on the chaser  step based on its current state value.
+ */
 typedef enum{
-	DMX512_CHASER_STEP_FADE_IN,
-	DMX512_CHASER_STEP_HOLD,
-	DMX512_CHASER_STEP_FADE_OUT,
-	DMX512_CHASER_STEP_IDLE,
+	DMX512_CHASER_STEP_FADE_IN,								/**< The chaser step is fading in*/
+	DMX512_CHASER_STEP_HOLD,								/**< The chaser step is holding its values*/
+	DMX512_CHASER_STEP_FADE_OUT,							/**< The chaser step is fadeing out*/
+	DMX512_CHASER_STEP_IDLE,								/**< The chaser step finished playing*/
 }DMX512_fixture_chaser_step_state_e;
 
 
+/**
+ * @ingroup DMX512_chaser_step
+ * @struct DMX512_chaser_step_s
+ * @brief Defines a DMX512 chaser step object
+ *
+ * A chaser step represents a scene with additional information regarding
+ * its timing. Information such as fade in/out and hold time are used
+ * by a chaser to affect timings of scene's playing sequence.
+ */
 typedef struct{
-	DMX512_scene_s *scene;
-	uint16_t fadein_time;
-	uint16_t fadeout_time;
-	uint16_t hold_time;
-	DMX512_utils_mschronometer_s mschronometer;
-	DMX512_fixture_chaser_step_status_e status;
-	DMX512_fixture_chaser_step_state_e state;
+	DMX512_scene_s *scene;									/**< Pointer to a scene instance*/
+	uint16_t fadein_time;									/**< Step fade in time in ms*/
+	uint16_t fadeout_time;									/**< Step fade out time in ms*/
+	uint16_t hold_time;										/**< Step hold time in ms*/
+	DMX512_utils_mschronometer_s mschronometer;				/*< Step chronometer used to keep track of time during play-time*/
+	DMX512_fixture_chaser_step_status_e status;				/**< Step initilisation status @see DMX512_fixture_chaser_step_status_e*/
+	DMX512_fixture_chaser_step_state_e state;				/**< Current step playing state @see DMX512_fixture_chaser_step_state_e*/
 }DMX512_chaser_step_s;
 
 

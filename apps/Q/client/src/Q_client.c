@@ -25,7 +25,9 @@ static Q_client_s this;
  *=============================================================================================================================*/
 
 /**
- * Sends a Q poll reply packet over UDP stream
+ * @ingroup Q_client
+ * @fn _Q_UDP_client_poll_reply
+ * @brief Sends a Q poll reply packet over UDP stream
  */
 static void _Q_UDP_client_poll_reply(void){
 	char *reply_packet = Q_packet_forge_poll_reply(65);
@@ -34,7 +36,9 @@ static void _Q_UDP_client_poll_reply(void){
 }
 
 /**
- * Sends a Q discoverp reply packet over UDP stream
+ * @ingroup Q_client
+ * @fn _Q_UDP_client_discover_reply
+ * @brief Sends a Q discoverp reply packet over UDP stream
  */
 static void _Q_UDP_client_discover_reply(void){
 	char *reply_packet = Q_packet_forge_discover_reply(65);
@@ -43,7 +47,9 @@ static void _Q_UDP_client_discover_reply(void){
 }
 
 /**
- * Handles UDP packet reception. Verifies integrity of the received UDP packet and handles function call selection
+ * @ingroup Q_client
+ * @fn _Q_client_receive
+ * @brief Handles UDP packet reception. Verifies integrity of the received UDP packet and handles function call selection
  * based on received OPCODE command arguments.
  *
  * @param arg user supplied argument (udp_pcb.recv_arg)
@@ -77,21 +83,24 @@ static void _Q_client_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, co
  *=============================================================================================================================*/
 
 /**
- * Initialises Q client.
+ * @ingroup Q_client
+ * @fn Q_client_init
+ * @brief Initialises Q client.
  *
  * @param groupcfg the group configuration byte to be used
  * @see Q_client.h for further information regarding group configuration byte
  */
 void Q_client_init(void){
-	IP4_ADDR(&this.mcast_addr, 224, 0, 0, Q_UDP_CLIENT_GROUPCFG);
-	IP4_ADDR(&this.remote_addr, 224, 0, 0, Q_UDP_CLIENT_GROUPCFG_CTRL);
+	IP4_ADDR(&this.mcast_addr, 224, 0, 0, Q_CLIENT_GROUPCFG);
 	this._pcb = udp_new();
 	udp_bind(this._pcb, IP_ADDR_ANY, Q_UDP_CLIENT_DEFAULT_PORT);
 	udp_recv(this._pcb, _Q_client_receive, NULL);
 }
 
 /**
- * Sends a packet over UDP. Packet needs to be pre-formated in order
+ * @ingroup Q_client
+ * @fn Q_client_send
+ * @brief Sends a packet over UDP. Packet needs to be pre-formated in order
  * for it to be understood by concerned destinator. Q packets can be forged
  * using forging functions described within Q_packet.h/c files.
  *
@@ -106,7 +115,9 @@ void Q_client_send(char *raw_packet, uint16_t len){
 }
 
 /**
- * Establishes a multicast join request over UDP. Multicast address is determined
+ * @ingroup Q_client
+ * @fn Q_client_bind
+ * @brief Establishes a multicast join request over UDP. Multicast address is determined
  * by the group configuration byte provided during initialisation.
  *
  * @see Q_client.h for further information regarding group configuration options

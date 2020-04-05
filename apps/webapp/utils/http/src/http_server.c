@@ -16,13 +16,15 @@
  *=============================================================================================================================*/
 
 /**
- * Closes TCP connection. finalises write operation and
+ * @ingroup http_server
+ * @fn _http_close
+ * @brief Closes TCP connection. finalises write operation and
  * sends FIN ACK to distant connection
  *
  * @param *pcb tcp procol control block
  * @param req http request instance
  */
-static void http_close(struct altcp_pcb *pcb, http_request_s *req){
+static void _http_close(struct altcp_pcb *pcb, http_request_s *req){
 
 	altcp_arg(pcb, NULL);
 	altcp_recv(pcb, NULL);
@@ -39,14 +41,16 @@ static void http_close(struct altcp_pcb *pcb, http_request_s *req){
 }
 
 /**
- * Handles response data writing over tcp.
+ * @ingroup http_server
+ * @fn _http_send
+ * @brief Handles response data writing over tcp.
  *
  * @param *pcb tcp procol control block
  * @param req http request instance
  * @return err_t error code to be forwarded to the stack
  * @see err.h for further information regarding the TCIP/IP stack error codes
  */
-static err_t http_send(struct altcp_pcb *pcb, http_request_s *req){
+static err_t _http_send(struct altcp_pcb *pcb, http_request_s *req){
 
 	err_t err = ERR_OK;
 
@@ -77,7 +81,7 @@ static err_t http_send(struct altcp_pcb *pcb, http_request_s *req){
 	}
 
 	if(!http_response_get_bytes_left(req->res)){
-		http_close(pcb, req);
+		_http_close(pcb, req);
 	}
 
 	return err;
@@ -86,7 +90,9 @@ static err_t http_send(struct altcp_pcb *pcb, http_request_s *req){
 
 
 /**
- * Function called at data reception
+ * @ingroup http_server
+ * @fn _http_receive
+ * @brief Function called at data reception
  *
  * @param arg http server instance
  * @param *pcb tcp procol control block
@@ -95,22 +101,22 @@ static err_t http_send(struct altcp_pcb *pcb, http_request_s *req){
  * @return err_t error code to be forwarded to the stack
  * @see err.h for further information regarding the TCIP/IP stack error codes
  */
-static err_t http_receive(void *arg, struct altcp_pcb *pcb,struct pbuf *p, err_t err){
+static err_t _http_receive(void *arg, struct altcp_pcb *pcb,struct pbuf *p, err_t err){
 
 	http_request_s *req = arg;
 
 	if(err != ERR_OK || p == NULL || req == NULL){
 		if(p != NULL){ altcp_recved(pcb, p->tot_len); pbuf_free(p); }
-		http_close(pcb, req);
+		_http_close(pcb, req);
 	}else{
 		altcp_recved(pcb, p->tot_len);
 		if(http_request_parse(req, p)){
 			pbuf_free(p);
 			req->router(req);
-			http_send(pcb, req);
+			_http_send(pcb, req);
 		}else{
 			pbuf_free(p);
-			http_close(pcb, req);
+			_http_close(pcb, req);
 		}
 	}
 
@@ -119,7 +125,9 @@ static err_t http_receive(void *arg, struct altcp_pcb *pcb,struct pbuf *p, err_t
 }
 
 /**
- * Function called following write operation
+ * @ingroup http_server
+ * @fn _http_sent
+ * @brief Function called following write operation
  *
  * @param arg http request instance
  * @param *pcb tcp procol control block
@@ -127,16 +135,18 @@ static err_t http_receive(void *arg, struct altcp_pcb *pcb,struct pbuf *p, err_t
  * @return err_t error code to be forwarded to the stack
  * @see err.h for further information regarding the TCIP/IP stack error codes
  */
-static err_t http_sent(void *arg, struct altcp_pcb *pcb, uint16_t len){
+static err_t _http_sent(void *arg, struct altcp_pcb *pcb, uint16_t len){
 	http_request_s *req = arg;
 	if(req != NULL){
-		http_send(pcb, req);
+		_http_send(pcb, req);
 	}
 	return ERR_OK;
 }
 
 /**
- * Manages application state at pre-defined intervals. retries sending left response data
+ * @ingroup http_server
+ * @fn _http_poll
+ * @brief Manages application state at pre-defined intervals. retries sending left response data
  * and handles connection closing once a maximum retry increment value has been reached
  *
  * @param arg http request instance
@@ -144,21 +154,21 @@ static err_t http_sent(void *arg, struct altcp_pcb *pcb, uint16_t len){
  * @return err_t error code to be forwarded to the stack
  * @see err.h for further information regarding the TCIP/IP stack error codes
  */
-static err_t http_poll(void *arg, struct altcp_pcb *pcb){
+static err_t _http_poll(void *arg, struct altcp_pcb *pcb){
 
 	http_request_s *req = arg;
 
 	  if (req == NULL) {
-	    http_close(pcb, NULL);
+	    _http_close(pcb, NULL);
 	    return ERR_OK;
 	  } else {
 	    req->retry_count++;
 	    if (req->retry_count == 10) {
-	      http_close(pcb, req);
+	      _http_close(pcb, req);
 	      return ERR_OK;
 	    }
 	    if (req->res->data_ptr != NULL) {
-	      if (http_send(pcb, req)) {
+	      if (_http_send(pcb, req)) {
 	        altcp_output(pcb);
 	      }
 	    }
@@ -169,13 +179,15 @@ static err_t http_poll(void *arg, struct altcp_pcb *pcb){
 }
 
 /**
- * Frees ressources on TCP/IP stack error
+ * @ingroup http_server
+ * @fn _http_error
+ * @brief Frees ressources on TCP/IP stack error
  *
  * @param arg http request instance
  * @param err error forwarded by TCP/IP stack
  * @see err.h for further information regarding the TCIP/IP stack error codes
  */
-static void http_error(void *arg, err_t err){
+static void _http_error(void *arg, err_t err){
 	http_request_s *req = arg;
 	if (req != NULL) {
 		http_request_free(req);
@@ -183,7 +195,9 @@ static void http_error(void *arg, err_t err){
 }
 
 /**
- * Function called during new connection attempt to the server
+ * @ingroup http_server
+ * @fn _http_accept
+ * @brief Function called during new connection attempt to the server
  *
  * @param arg http server instance
  * @param *pcb tcp procol control block
@@ -191,7 +205,7 @@ static void http_error(void *arg, err_t err){
  * @return err_t error code to be forwarded to the stack
  * @see err.h for further information regarding the TCIP/IP stack error codes
  */
-static err_t http_accept(void *arg, struct altcp_pcb *pcb, err_t err){
+static err_t _http_accept(void *arg, struct altcp_pcb *pcb, err_t err){
 
 	http_server_s *server = arg;
 
@@ -206,10 +220,10 @@ static err_t http_accept(void *arg, struct altcp_pcb *pcb, err_t err){
 		}
 
 		altcp_arg(pcb, req);
-		altcp_recv(pcb, http_receive);
-		altcp_sent(pcb, http_sent);
-		altcp_poll(pcb, http_poll, 4);
-		altcp_err(pcb, http_error);
+		altcp_recv(pcb, _http_receive);
+		altcp_sent(pcb, _http_sent);
+		altcp_poll(pcb, _http_poll, 4);
+		altcp_err(pcb, _http_error);
 
 	}
 
@@ -218,12 +232,14 @@ static err_t http_accept(void *arg, struct altcp_pcb *pcb, err_t err){
 }
 
 /**
- * Prepares a server's tcp procol control block
+ * @ingroup http_server
+ * @fn _http_prepare_pcb
+ * @brief Prepares a server's tcp procol control block
  *
  * @param server http server instance
  */
-static void http_prepare_pcb(http_server_s *server){
-//TODO: maybe set semaphore here
+static void _http_prepare_pcb(http_server_s *server){
+
 	struct altcp_pcb *pcb;
 
 	pcb = altcp_tcp_new_ip_type(IPADDR_TYPE_ANY);
@@ -236,7 +252,7 @@ static void http_prepare_pcb(http_server_s *server){
 
 	altcp_setprio(pcb, 1);
 	altcp_arg(pcb, server);
-	altcp_accept(pcb, http_accept);
+	altcp_accept(pcb, _http_accept);
 
 }
 
@@ -247,7 +263,9 @@ static void http_prepare_pcb(http_server_s *server){
  *=============================================================================================================================*/
 
 /**
- * Initialises a new HTTP server instance
+ * @ingroup http_server
+ * @fn http_server_init
+ * @brief Initialises a new HTTP server instance
  *
  * @param port the server's port number
  * @param router the router functions which will be used to generate
@@ -260,7 +278,7 @@ http_server_s *http_server_init(uint16_t port, router_fn router){
 	server->router = router;
 	server->port = port;
 
-	http_prepare_pcb(server);
+	_http_prepare_pcb(server);
 
 	return server;
 

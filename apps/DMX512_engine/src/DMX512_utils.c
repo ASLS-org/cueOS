@@ -15,7 +15,8 @@
  *=============================================================================================================================*/
 
 /**
- * Resets an mschronometer instance time delta to zero
+ * @fn DMX512_utils_mschronometer_reset
+ * @brief Resets an mschronometer instance time delta to zero
  *
  * @param this mschronometer instance to be reseted
  */
@@ -24,7 +25,8 @@ void DMX512_utils_mschronometer_reset(DMX512_utils_mschronometer_s *this){
 }
 
 /**
- * Returns elapsed time in milliseconds since last reset
+ * @fn DMX512_utils_mschronometer_get_elapsed_ms
+ * @brief Returns elapsed time in milliseconds since last reset
  *
  * @param this mschronometer instance to be reseted
  * @return uint32_t elapsed time in milliseconds

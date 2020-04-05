@@ -8,6 +8,7 @@
 #include "cmsis_os.h"
 #include "DMX512_fixture.h"
 
+
 /**============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
@@ -15,7 +16,9 @@
  *=============================================================================================================================*/
 
 /**
- * Creates a new scene fixture instance
+ * @ingroup DMX512_fixture
+ * @fn DMX512_fixture_new
+ * @brief Creates a new scene fixture instance
  *
  * @param id the fixture's unique identifier
  * @param addr the fixture's address

@@ -17,7 +17,9 @@
  *=============================================================================================================================*/
 
 /**
- * Checks whether or not provided fixture preset arguments are correct
+ * @ingroup DMX512_fixture_preset
+ * @fn _DMX512_fixture_preset_check
+ * @brief Checks whether or not provided fixture preset arguments are correct
  *
  * @param *fixture pointer to the fixture instance to be referenced
  * @param channel_count the fixture preset channel count
@@ -45,7 +47,9 @@ static uint8_t _DMX512_fixture_preset_check(DMX512_fixture_s *fixture, uint16_t 
  *=============================================================================================================================*/
 
 /**
- * Creates a new scene fixture preset instance
+ * @ingroup DMX512_fixture_preset
+ * @fn DMX512_fixture_preset_new
+ * @brief Creates a new scene fixture preset instance
  *
  * @param *fixture pointer to the fixture instance to be referenced
  * @param channel_count the fixture preset channel count

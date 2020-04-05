@@ -1,54 +1,67 @@
+/**============================================================================================================================
+ * Dependencies inclusion
+ * Necessary dependencies should be declared here. Header file should contain as little dependencies declarations as possible
+ *=============================================================================================================================*/
+
 #include <stdio.h>
 #include "fs.h"
 #include "mmc_driver.h"
 
-/**
- * Pivate variable declarations
- *
- * These variable values may only be manipulated within this file scope
- * Singleton's parameters may be manipulated through the use of getters
- * and setters
- * @see fs.h for the list of public functions
- */
-static fs_s this = FS_DEFAULT;									//Declaring fs singleton instance as "this" and defaulting its values to FS_DEFAULT
-static FATFS _fatfs;											//Declaring file system object structure
-static TCHAR _path[4];											//Declaring media path instance
+
+/**============================================================================================================================
+ * Private variables definitions
+ * These variables are only accessible from within the file's scope
+ *=============================================================================================================================*/
+
+static fs_s this = FS_DEFAULT;
+static FATFS _fatfs;
+static TCHAR _path[4];
 
 
+/**============================================================================================================================
+ * Public functions definitions
+ * These functions can be accessed outside of the file's scope
+ * @see DMX512_chaser.h for declarations
+ *=============================================================================================================================*/
+
 /**
- * Initialises the file system
+ * @ingroup filesystem
+ * @fn fs_init
+ * @brief Initialises the file system
  *
  * @return fs_err_e returns 0 in case of succes, negative value otherwise
  * @see fs.h for fs_err_e error enumeration
  */
 fs_err_e fs_init(void){
 
-	fs_err_e err = FS_OK;										//Error return value defaulted to FS_OK
+	fs_err_e err = FS_OK;
 
-	mmc_init();													//Initialising SD handle Structure
+	mmc_init();
 
-	this._link_status = !FATFS_LinkDriver(&SD_Driver, (char *)_path);	//Linking SD card driver to fatfs
+	this._link_status = !FATFS_LinkDriver(&SD_Driver, (char *)_path);
 
-	if(this._mount_status == FS_MOUNTED){						//Checking if the file system is already initialised
-		err = FS_OK;											//The file system is already initialised
-	}else if(this._link_status == 0){							//Checking if the driver was succcessfully linked
-		err = FS_CANNOT_LINK_SD;								//Media driver could not be linked
-	}else if(f_mount(&_fatfs, _path, 0) != FR_OK){				//Try mounting the filesystem
-		err = FS_CANNOT_MOUNT_SD;								//Media could not be mounted
+	if(this._mount_status == FS_MOUNTED){
+		err = FS_OK;
+	}else if(this._link_status == FS_LINKSTATUS_LINKED){
+		err = FS_CANNOT_LINK_SD;
+	}else if(f_mount(&_fatfs, _path, 0) != FR_OK){
+		err = FS_CANNOT_MOUNT_SD;
 	}else{
-		this._mount_status = FS_MOUNTED;						//Inform structure that the filesystem has been initialised
+		this._mount_status = FS_MOUNTED;
 	}
 
-	return err;													//Returning final error value
+	return err;
 
 }
 
 /**
- * Returns the file system's current state
+ * ingroup filesystem
+ * @fn fs_get_mount_status
+ * @brief Returns the file system's current state
  *
  * @return fs_mount_status_e returns 0 if mounted 1 otherwise
  * @see fs.h for fs_mount_status_e error enumeration
  */
 fs_mount_status_e fs_get_mount_status(void){
-	return this._mount_status;									//returning mount status
+	return this._mount_status;
 }

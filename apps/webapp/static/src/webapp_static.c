@@ -16,7 +16,9 @@ struct fs_file file_handle;
  *=============================================================================================================================*/
 
 /**
- * Fetches file data using provided URI. Fetches a default
+ * @ingroup webapp_static
+ * @fn _webapp_static_router
+ * @brief Fetches file data using provided URI. Fetches a default
  * 404 html error page in case the requested file could not
  * be found within htmlgen.c file.
  *
@@ -24,7 +26,7 @@ struct fs_file file_handle;
  * @see htmlgen folder for further information regarding
  * 		html file generation and html file parsing
  */
-static void Q_webapp_router(http_request_s *req) {
+static void _webapp_static_router(http_request_s *req) {
 
 	struct fs_file *file = NULL;
 	uint16_t uri_len 	 = strlen(req->uri);
@@ -59,11 +61,13 @@ static void Q_webapp_router(http_request_s *req) {
  *=============================================================================================================================*/
 
 /**
- * Starts static HTTP server on port 80. This server is ONLY dedicated to serve
+ * @ingroup webapp_static
+ * @fn webapp_static_start
+ * @brief Starts static HTTP server on port 80. This server is ONLY dedicated to serve
  * compiled HTML static files contained within htmlgen.c. Run "htmlgen.sh" script
  * to compile the files put into the "htmlgen" subfolder "dist"  into a single c file.
  * Output of the script is copied into the "htmlgen" subfolder "release" as "htmlgen.c"
  */
 void webapp_static_start(void){
-	http_server_init(80, Q_webapp_router);
+	http_server_init(80, _webapp_static_router);
 }

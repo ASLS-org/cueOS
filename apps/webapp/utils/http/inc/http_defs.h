@@ -14,6 +14,11 @@
 #define HTTP_VALUE_SEPARATOR 	"="
 #define HTTP_PARAMS_SEPARATOR 	"&"
 
+/**
+ * @ingroup http_defs
+ * @enum http_status_code_e
+ * @brief Enumeration index of HTTP status codes.
+ */
 typedef enum{
 	HTTP_STATUS_CODE_200,
 	HTTP_STATUS_CODE_201,
@@ -30,6 +35,11 @@ typedef enum{
 	HTTP_STATUS_CODE_503,
 }http_status_code_e;
 
+/**
+ * @ingroup http_defs
+ * @enum http_header_field_e
+ * @brief Enumeration index of HTTP header fields.
+ */
 typedef enum{
 	HTTP_HEADER_FIELD_STATUS_CODE,
 	HTTP_HEADER_FIELD_CONTENT_TYPE,
@@ -39,12 +49,22 @@ typedef enum{
 	HTTP_HEADER_FIELD_CONTENT_LOCATION
 }http_header_field_e;
 
+/**
+ * @ingroup http_defs
+ * @enum http_content_types_e
+ * @brief Enumeration index of HTTP content-types header values.
+ */
 typedef enum{
 	HTTP_CONTENT_TYPE_PLAIN,
 	HTTP_CONTENT_TYPE_HTML,
 	HTTP_CONTENT_TYPE_JSON,
 }http_content_types_e;
 
+/**
+ * @ingroup http_defs
+ * @enum http_method_e
+ * @brief Enumeration index of HTTP method.
+ */
 typedef enum{
 	HTTP_GET,
 	HTTP_POST,
@@ -53,6 +73,11 @@ typedef enum{
 	HTTP_DELETE
 }http_method_e;
 
+/**
+ * @ingroup http_defs
+ * @enum http_version_e
+ * @brief Enumeration index of current HTTP versions
+ */
 typedef enum{
 	HTTP_VERSION_0_9,
 	HTTP_VERSION_1_1,

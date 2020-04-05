@@ -18,7 +18,8 @@
  *=============================================================================================================================*/
 
 /**
- * Finds the array index of a fixture
+ * @fn _DMX512_scene_search
+ * @brief Finds the array index of a fixture
  *
  * @param this pointer to the scene instance
  * @param id the fixture's identifier
@@ -35,7 +36,9 @@ static int16_t _DMX512_scene_search(DMX512_scene_s *this, uint16_t fixture_id){
 }
 
 /**
- * Sets a scenes' fixtures channel values to their predefined preset values according to time
+ * @fn _DMX512_scene_fadein
+ * @brief Sets a scenes' fixtures channel values to their predefined preset values according to time
+ *
  * @param this the scene instance to be faded in
  */
 static void _DMX512_scene_fadein(DMX512_scene_s *this){
@@ -56,7 +59,8 @@ static void _DMX512_scene_fadein(DMX512_scene_s *this){
 }
 
 /**
- * Sets a scenes' fixtures channel values to their "OFF" values according to time
+ * @fn _DMX512_scene_fadeout
+ * @brief Sets a scenes' fixtures channel values to their "OFF" values according to time
  * @param this the scene instance to be faded out
  */
 static void _DMX512_scene_fadeout(DMX512_scene_s *this){
@@ -84,7 +88,9 @@ static void _DMX512_scene_fadeout(DMX512_scene_s *this){
  *=============================================================================================================================*/
 
 /**
- * Creates and initialises a new scene instance
+ * @ingroup DMX512_scene
+ * @fn DMX512_scene_new
+ * @brief Creates and initialises a new scene instance
  *
  * @param id the scene identifier (@see DMX512_scene_pool.h)
  * @param fadein_time the scene fade-in time in milliseconds
@@ -101,7 +107,9 @@ DMX512_scene_s DMX512_scene_new(uint16_t id, uint16_t fadein_time, uint16_t fade
 }
 
 /**
- * Adds a fixture preset instance into the scene
+ * @ingroup DMX512_scene
+ * @fn DMX512_scene_add_preset
+ * @brief Adds a fixture preset instance into the scene
  *
  * @param this pointer to the scene instance
  * @param id the fixture's idendifier
@@ -127,7 +135,9 @@ DMX512_engine_err_e DMX512_scene_add_preset(DMX512_scene_s *this, DMX512_fixture
 }
 
 /**
- * Deletes a fixture preset instance from the scene
+ * @ingroup DMX512_scene
+ * @fn DMX512_scene_del_preset
+ * @brief Deletes a fixture preset instance from the scene
  *
  * @param this pointer to the scene instance
  * @param id the fixture preset's idendifier
@@ -155,7 +165,9 @@ DMX512_engine_err_e DMX512_scene_del_preset(DMX512_scene_s *this, uint16_t id){
 }
 
 /**
- * Gets a fixture instance from the pool
+ * @ingroup DMX512_scene
+ * @fn DMX512_scene_get_preset
+ * @brief Gets a fixture instance from the pool
  *
  * @param this pointer to the scene instance
  * @param id the fixture preset identifier
@@ -171,7 +183,9 @@ DMX512_fixture_preset_s *DMX512_scene_get_preset(DMX512_scene_s *this, uint16_t 
 }
 
 /**
- * Starts a scene fade-in process
+ * @ingroup DMX512_scene
+ * @fn DMX512_scene_start
+ * @brief Starts a scene fade-in process
  *
  * @param this pointer to the scene instance
  */
@@ -181,7 +195,9 @@ void DMX512_scene_start(DMX512_scene_s *this){
 }
 
 /**
- * Starts a scene fade-out process
+ * @ingroup DMX512_scene
+ * @fn DMX512_scene_stop
+ * @brief Starts a scene fade-out process
  *
  * @param this pointer to the scene instance
  */
@@ -191,7 +207,9 @@ void DMX512_scene_stop(DMX512_scene_s *this){
 }
 
 /**
- * State machine to manage scene at a given state
+ * @ingroup DMX512_scene
+ * @fn DMX512_scene_manage
+ * @brief State machine to manage scene at a given state
  *
  * @param this pointer to the scene instance
  * @see DMX512_scene.h DMX512_scene_state_e state enumeration

@@ -22,17 +22,21 @@
 static DMX512_engine_s this;
 static osThreadId_t DMX512engineThread = NULL;
 
+
 /**============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * Loads header information into the parser instance
+ * @ingroup DMX512_engine
+ * @fn _DMX512_engine_load_config_header
+ * @brief Loads header information into the parser instance
  *
  * Data contained within a QLSF file header conveys information regarding
  * the size of each groups of data chunks, thus enabling a parser to lookup
  * for show-relative information fast.
+ *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
  * @see DMX512_engine.h for further information regarding error codes
  */
@@ -57,9 +61,10 @@ static DMX512_engine_err_e _DMX512_engine_load_config_header(FIL *config_file){
 }
 
 /**
- * Loads patch defined within the config file into the DMX51 engine
+ * @ingroup DMX512_engine
+ * @fn _DMX512_engine_load_config_patch
+ * @brief Loads patch defined within the config file into the DMX51 engine
  *
- * Patch information is conveyed into 6 bytes data chunk:
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
  * @see DMX512_engine.h for further information regarding error codes
  */
@@ -94,12 +99,13 @@ static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
 }
 
 /**
- * Loads scenes defined within the config file into the DMX512 engine
+ * @ingroup DMX512_engine
+ * @fn _DMX512_engine_load_config_scenes
+ * @brief Loads scenes defined within the config file into the DMX512 engine
  *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
  * @see DMX512_engine.h for further information regarding error codes
  */
-//TODO: clean and minify for clarity
 //TODO: check for errors here
 static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 
@@ -136,7 +142,9 @@ static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 }
 
 /**
- * Loads chasers defined within the config file into the DMX512 engine
+ * @ingroup DMX512_engine
+ * @fn _DMX512_engine_load_config_chasers
+ * @brief Loads chasers defined within the config file into the DMX512 engine
  *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
  * @see DMX512_engine.h for further information regarding error codes
@@ -187,7 +195,9 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 }
 
 /**
- * Thread managing engine functions execution
+ * @ingroup DMX512_engine
+ * @fn _DMX512_engine_manage
+ * @brief Thread managing engine functions execution
  *
  * Currently available DMX512 functions include:
  * Scene: a set of predefined values for one or many fixtures
@@ -211,7 +221,9 @@ static void _DMX512_engine_manage(void *arg){
  *=============================================================================================================================*/
 
 /**
- * Loads a show configuration from a QLSF file
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_load_config
+ * @brief Loads a show configuration from a QLSF file
  *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
  * @see DMX512_defs.h for further information regarding error codes
@@ -237,7 +249,9 @@ DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path){
 }
 
 /**
- * Initialises the DMX512 engine singleton.
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_init
+ * @brief Initialises the DMX512 engine singleton.
  */
 void DMX512_engine_init(void){
 
@@ -260,7 +274,9 @@ void DMX512_engine_init(void){
 //TODO: maybe add a "started state" to prevent recursive calls to start/stop function
 
 /**
- * Starts the DMX512 driver and launches the DMX512 engine management thread
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_start
+ * @brief Starts the DMX512 driver and launches the DMX512 engine management thread
  */
 void DMX512_engine_start(void){
 	DMX512_driver_start();
@@ -268,7 +284,9 @@ void DMX512_engine_start(void){
 }
 
 /**
- * Stops the DMX512 driver and terminates the DMX512 engine management thread
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_stop
+ * @brief Stops the DMX512 driver and terminates the DMX512 engine management thread
  */
 void DMX512_engine_stop(void){
 	DMX512_driver_stop();
@@ -276,7 +294,9 @@ void DMX512_engine_stop(void){
 }
 
 /**
- * Wrapper for "DMX512_fixture_pool_add" function. Provides context to the specified function using
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_patch_add
+ * @brief Wrapper for "DMX512_fixture_pool_add" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
  * @param id the fixture's identifier
@@ -291,7 +311,9 @@ DMX512_engine_err_e DMX512_engine_patch_add(uint16_t fixture_id, uint16_t addres
 }
 
 /**
- * Wrapper for "DMX512_fixture_pool_get" function. Provides context to the specified function using
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_patch_get
+ * @brief Wrapper for "DMX512_fixture_pool_get" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
  * @param id the fixture's identifier
@@ -303,16 +325,20 @@ DMX512_engine_err_e DMX512_engine_patch_get(uint16_t fixture_id, DMX512_fixture_
 }
 
 /**
- * Returns the current engine fixture patch
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_patch_get_all
+ * @brief Returns the current engine fixture patch
  *
- * @return *DMX512_fixture_pool_s pointer to the engine's fixture pool
+ * @return DMX512_fixture_pool_s* pointer to the engine's fixture pool
  */
 DMX512_fixture_pool_s *DMX512_engine_patch_get_all(void){
 	return this.fixtures;
 }
 
 /**
- * Wrapper for "DMX512_fixture_pool_del" function. Provides context to the specified function using
+ * @ingroup DMX512_engine
+ * @fn DMX512_engine_patch_delete
+ * @brief Wrapper for "DMX512_fixture_pool_del" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
  * @param id the fixture's idendifier

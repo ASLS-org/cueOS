@@ -1,12 +1,13 @@
 #ifndef DMX512_PRESET_H_
 #define DMX512_PRESET_H_
 
+//TODO: Check if this can be safely removed from project
+
 #include <stdint.h>
 #include <stdlib.h>
 
 #include "DMX512_defs.h"
 #include "DMX512_fixture.h"
-
 
 typedef struct DMX512_preset DMX512_preset_s;
 typedef DMX512_engine_err_e(*presetUpdFunc)(DMX512_preset_s *, uint16_t *, uint8_t *);

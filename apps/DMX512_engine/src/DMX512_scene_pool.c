@@ -15,7 +15,9 @@
  *=============================================================================================================================*/
 
 /**
- * Finds the array index of a scene
+ * @ingroup DMX512_scene_pool
+ * @fn _DMX512_scene_pool_search
+ * @brief Finds the array index of a scene
  *
  * @param id the scene's identifier
  * @return int16_t the array index of the scene.
@@ -38,8 +40,11 @@ static int16_t _DMX512_scene_pool_search(DMX512_scene_pool_s *this, uint16_t id)
  *=============================================================================================================================*/
 
 /**
- * Creates a new scene pool instance
- * @return DMX512_scene_pool_s the created pool instance
+ * @ingroup DMX512_scene_pool
+ * @fn DMX512_scene_pool_new
+ * @brief Creates a new scene pool instance
+ *
+ * @return DMX512_scene_pool_s* pointer to the created pool instance
  */
 DMX512_scene_pool_s *DMX512_scene_pool_new(void){
 	DMX512_scene_pool_s *this = pvPortMalloc(sizeof(DMX512_scene_pool_s));
@@ -49,7 +54,9 @@ DMX512_scene_pool_s *DMX512_scene_pool_new(void){
 }
 
 /**
- * Adds a scene instance into the pool
+ * @ingroup DMX512_scene_pool
+ * @fn DMX512_scene_pool_add
+ * @brief Adds a scene instance into the pool
  *
  * @param id the scene's idendifier
  * @param addr scene's first channel address
@@ -75,7 +82,9 @@ DMX512_engine_err_e DMX512_scene_pool_add(DMX512_scene_pool_s *this, DMX512_scen
 }
 
 /**
- * Deletes a scene instance from the pool
+ * @ingroup DMX512_scene_pool
+ * @fn DMX512_scene_pool_del
+ * @brief Deletes a scene instance from the pool
  *
  * @param id the scene's idendifier
  * @return DMX512_engine_err_e error code following the function call
@@ -100,10 +109,12 @@ DMX512_engine_err_e DMX512_scene_pool_del(DMX512_scene_pool_s *this, uint16_t id
 }
 
 /**
- * Gets a scene instance from the pool
+ * @ingroup DMX512_scene_pool
+ * @fn DMX512_scene_pool_get
+ * @brief Gets a scene instance from the pool
  *
  * @param id the scene's identifier
- * @return *DMX512_scene_s pointer to the scene instance
+ * @return DMX512_scene_s* pointer to the scene instance
  */
 DMX512_scene_s *DMX512_scene_pool_get(DMX512_scene_pool_s *this, uint16_t id){
 	int16_t index = _DMX512_scene_pool_search(this, id);
@@ -115,7 +126,9 @@ DMX512_scene_s *DMX512_scene_pool_get(DMX512_scene_pool_s *this, uint16_t id){
 }
 
 /**
- * Manages all scenes contained within the pool
+ * @ingroup DMX512_scene_pool
+ * @fn DMX512_scene_pool_manage
+ * @brief Manages all scenes contained within the pool
  *
  * @param this pointer to the instance pool
  */
