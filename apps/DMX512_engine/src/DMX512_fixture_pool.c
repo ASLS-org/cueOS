@@ -41,17 +41,24 @@ static int16_t _DMX512_fixture_pool_search(DMX512_fixture_pool_s *this, uint16_t
  * @return DMX512_engine_err_e error code following the function call
  */
 static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fixture_s fixture){
-	if(_DMX512_fixture_pool_search(this, fixture.id) >= 0 || fixture.ch_stop > DMX512_CHANNEL_ADDRESS_MAX){
-		return 0;
+
+	DMX512_engine_err_e err = DMX512_ENGINE_OK;
+
+	if(_DMX512_fixture_pool_search(this, fixture.id) >= 0 ){
+		err = DMX512_ENGINE_INSTANCE_DUPLICATE;
+	}else if(fixture.ch_stop > DMX512_CHANNEL_ADDRESS_MAX){
+		err = DMX512_ENGINE_INSTANCE_INVALID;
 	}else{
 		for(uint16_t i=0; i<this->fixture_count; i++){
 			if(fixture.addr <= this->fixtures[i].ch_stop &&
 			   this->fixtures[i].addr <= fixture.ch_count + fixture.addr - 1){
-				return 0;
+				err = DMX512_ENGINE_INSTANCE_INVALID;
 			}
 		}
 	}
-	return 1;
+
+	return err;
+
 }
 
 
@@ -123,15 +130,21 @@ DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_
  * Gets a fixture instance from the pool
  *
  * @param id the fixture's identifier
- * @return *DMX512_fixture_s pointer to the fixture instance
+ * @param **fixture pointer to the fixture
+ * @return DMX512_engine_err_e ERR_OK if fixture was found, DMX512_ENGINE_INSTANCE_UNDEFINED otherwise
  */
-DMX512_fixture_s *DMX512_fixture_pool_get(DMX512_fixture_pool_s *this, uint16_t id){
+DMX512_engine_err_e DMX512_fixture_pool_get(DMX512_fixture_pool_s *this, uint16_t id, DMX512_fixture_s **fixture){
+
+	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
+
 	int16_t index = _DMX512_fixture_pool_search(this, id);
+
 	if(index >= 0){
-		return &this->fixtures[index];
-	}else{
-		return NULL;
+		*fixture = &this->fixtures[index];
+		err = DMX512_ENGINE_OK;
 	}
+
+	return err;
 
 }
 
