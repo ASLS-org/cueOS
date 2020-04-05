@@ -3,8 +3,9 @@
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
-#include "cueos_config.h"
 #if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
+
+#include "cueos_config.h"
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -120,9 +121,11 @@ static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 			uint8_t values[ch_count];
 			f_read(config_file, channels, ch_count * sizeof(uint16_t), NULL);
 			f_read(config_file, values, ch_count * sizeof(uint8_t), NULL);
-			DMX512_fixture_s *fixture 		= DMX512_fixture_pool_get(this.fixtures, fixture_id);
-			DMX512_fixture_preset_s preset 	= DMX512_fixture_preset_new(fixture, ch_count, channels, values);
-			DMX512_scene_add_preset(&scene, preset);
+
+//			FIXME: update following changes made to  fixture pool "get" function
+//			DMX512_fixture_s *fixture 		= DMX512_fixture_pool_get(this.fixtures, fixture_id);
+//			DMX512_fixture_preset_s preset 	= DMX512_fixture_preset_new(fixture, ch_count, channels, values);
+//			DMX512_scene_add_preset(&scene, preset);
 		}
 
 		DMX512_scene_pool_add(this.scenes, scene);
@@ -234,9 +237,7 @@ DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path){
 }
 
 /**
- * Initialises the DMX512 engine
- *
- * @param *config_file_name pointer to the configuration path string
+ * Initialises the DMX512 engine singleton.
  */
 void DMX512_engine_init(void){
 
@@ -256,21 +257,69 @@ void DMX512_engine_init(void){
 
 }
 
+//TODO: maybe add a "started state" to prevent recursive calls to start/stop function
+
+/**
+ * Starts the DMX512 driver and launches the DMX512 engine management thread
+ */
 void DMX512_engine_start(void){
 	DMX512_driver_start();
 	DMX512engineThread = osThreadNew(_DMX512_engine_manage, NULL, NULL);
 }
 
+/**
+ * Stops the DMX512 driver and terminates the DMX512 engine management thread
+ */
 void DMX512_engine_stop(void){
 	DMX512_driver_stop();
 	osThreadTerminate(DMX512engineThread);
 }
 
-void DMX512_engine_patch(uint16_t fixture_id, uint16_t address, uint16_t ch_count){
-	DMX512_fixture_s fixture = DMX512_fixture_new(this.fixtures->fixture_count, this.fixtures->fixture_count, 1);
-	DMX512_fixture_pool_add(this.fixtures, fixture);
-	DMX512_fixture_s *fixture_handle = DMX512_fixture_pool_get(this.fixtures, 200);
-	uint8_t stop = 0;
+/**
+ * Wrapper for "DMX512_fixture_pool_add" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "fixtures" as argument.
+ *
+ * @param id the fixture's identifier
+ * @param addr fixture's first channel address
+ * @param ch_stop fixture's last channel address
+ * @return DMX512_engine_err_e error code following the function call
+ * @see DMX512_defs.h for further information regarding DMX512 engin error codes
+ */
+DMX512_engine_err_e DMX512_engine_patch_add(uint16_t fixture_id, uint16_t address, uint16_t ch_count){
+	DMX512_fixture_s fixture = DMX512_fixture_new(fixture_id, address, ch_count);
+	return DMX512_fixture_pool_add(this.fixtures, fixture);
+}
+
+/**
+ * Wrapper for "DMX512_fixture_pool_get" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "fixtures" as argument.
+ *
+ * @param id the fixture's identifier
+ * @param **fixture pointer to the fixture
+ * @return DMX512_engine_err_e ERR_OK if fixture was found, DMX512_ENGINE_INSTANCE_UNDEFINED otherwise
+ */
+DMX512_engine_err_e DMX512_engine_patch_get(uint16_t fixture_id, DMX512_fixture_s **fixture){
+	return DMX512_fixture_pool_get(this.fixtures, fixture_id, fixture);
+}
+
+/**
+ * Returns the current engine fixture patch
+ *
+ * @return *DMX512_fixture_pool_s pointer to the engine's fixture pool
+ */
+DMX512_fixture_pool_s *DMX512_engine_patch_get_all(void){
+	return this.fixtures;
+}
+
+/**
+ * Wrapper for "DMX512_fixture_pool_del" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "fixtures" as argument.
+ *
+ * @param id the fixture's idendifier
+ * @return DMX512_engine_err_e error code following the function call
+ */
+DMX512_engine_err_e DMX512_engine_patch_delete(uint16_t fixture_id){
+	return DMX512_fixture_pool_del(this.fixtures, fixture_id);
 }
 
 #endif

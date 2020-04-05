@@ -73,8 +73,16 @@ typedef struct{
 void DMX512_engine_init(void);
 void DMX512_engine_start(void);
 void DMX512_engine_stop(void);
-void DMX512_engine_patch(uint16_t fixture_id, uint16_t address, uint16_t ch_count);
-DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path);
 
+DMX512_engine_err_e DMX512_engine_patch_add(uint16_t fixture_id, uint16_t address, uint16_t ch_count);
+DMX512_engine_err_e DMX512_engine_patch_get(uint16_t fixture_id, DMX512_fixture_s **fixture);
+DMX512_fixture_pool_s *DMX512_engine_patch_get_all(void);
+DMX512_engine_err_e DMX512_engine_patch_delete(uint16_t fixture_id);
+DMX512_engine_err_e DMX512_engine_scene_add(uint16_t scene_id, uint16_t fadein_time, uint16_t fadeout_time);
+DMX512_scene_s *DMX512_engine_scene_get(uint16_t scene_id);
+DMX512_engine_err_e DMX512_engine_scene_delete(uint16_t scene_id);
+DMX512_engine_err_e DMX512_engine_scene_add_preset(uint16_t scene_id, uint16_t fixture_id, uint16_t ch_count, uint16_t *channels, uint8_t *values);
+DMX512_fixture_preset_s *DMX512_engine_scene_get_preset(uint16_t scene_id, uint16_t fixture_id);
+DMX512_engine_err_e DMX512_engine_scene_delete_preset(uint16_t scene_id, uint16_t fixture_id);
 
 #endif
