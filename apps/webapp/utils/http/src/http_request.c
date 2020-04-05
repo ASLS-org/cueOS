@@ -47,7 +47,7 @@ static uint8_t http_request_parse_uri(http_request_s *req){
 		uint8_t uri_len 	= params_start != NULL ? params_start - req->raw_data : params_end - req->raw_data;
 		uint16_t params_len = params_end - params_start - 1;
 
-		req->uri = pvPortMalloc(uri_len);
+		req->uri = pvPortMalloc(uri_len + 1);
 		memmove(req->uri, req->raw_data, uri_len);
 		req->uri[uri_len] = 0;
 
