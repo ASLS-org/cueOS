@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cdtprojectproperties>
 <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
-<language name="C Source File">
-<includepath>cueos/device/</includepath>
+<language name="S">
 <includepath>cueos/core/</includepath>
+<includepath>cueos/device/inc</includepath>
 <includepath>cueos/drivers/ll_drivers/inc</includepath>
 <includepath>cueos/drivers/hl_drivers/net/ethernet/inc</includepath>
 <includepath>cueos/drivers/hl_drivers/media/mmc/inc</includepath>
@@ -12,32 +12,35 @@
 <includepath>cueos/kernel/portable/GCC/ARM_CM4F</includepath>
 <includepath>cueos/kernel/core/inc</includepath>
 <includepath>cueos/kernel/api/inc</includepath>
+<includepath>cueos/fs/system/inc</includepath>
+<includepath>cueos/fs/core/inc</includepath>
 <includepath>cueos/net/inc/</includepath>
-<includepath>cueos/net/inc</includepath>
-<includepath>cueos/net/inc/netif/ppp/</includepath>
 <includepath>cueos/net/inc/lwip/</includepath>
-<includepath>cueos/net/inc/lwip/apps/</includepath>
 <includepath>cueos/net/inc/lwip/priv/</includepath>
 <includepath>cueos/net/inc/lwip/prot/</includepath>
-<includepath>cueos/net/inc/posix/sys/</includepath>
 <includepath>cueos/net/inc/netif/</includepath>
-<includepath>cueos/net/inc/posix/</includepath>
-<includepath>cueos/net/inc/arch/</includepath>
+<includepath>cueos/net/inc/netif/ppp/</includepath>
 <includepath>cueos/net/inc/compat/posix/arpa/</includepath>
 <includepath>cueos/net/inc/compat/posix/</includepath>
 <includepath>cueos/net/inc/compat/posix/net/</includepath>
 <includepath>cueos/net/inc/compat/posix/sys/</includepath>
 <includepath>cueos/net/inc/compat/stdc/</includepath>
+<includepath>cueos/net/inc/arch/</includepath>
 <includepath>cueos/apps/DMX512_engine/inc</includepath>
-<includepath>cueos/apps/Q_UDP_client/inc</includepath>
+<includepath>cueos/apps/Q/client/inc</includepath>
+<includepath>cueos/apps/Q/utils/packet/inc</includepath>
+<includepath>cueos/apps/webapp/utils/fs/inc</includepath>
+<includepath>cueos/apps/webapp/utils/http/inc</includepath>
+<includepath>cueos/apps/webapp/utils/htmlgen/release/</includepath>
+<includepath>cueos/apps/webapp/utils/jsonparser/inc</includepath>
+<includepath>cueos/apps/webapp/static/inc</includepath>
+<includepath>cueos/apps/webapp/api/inc</includepath>
 <includepath>cueos/system/inc/</includepath>
-<includepath>cueos/fs/system/inc</includepath>
-<includepath>cueos/fs/core/inc</includepath>
 
 </language>
-<language name="S">
-<includepath>cueos/device/</includepath>
+<language name="C Source File">
 <includepath>cueos/core/</includepath>
+<includepath>cueos/device/inc</includepath>
 <includepath>cueos/drivers/ll_drivers/inc</includepath>
 <includepath>cueos/drivers/hl_drivers/net/ethernet/inc</includepath>
 <includepath>cueos/drivers/hl_drivers/media/mmc/inc</includepath>
@@ -46,68 +49,30 @@
 <includepath>cueos/kernel/portable/GCC/ARM_CM4F</includepath>
 <includepath>cueos/kernel/core/inc</includepath>
 <includepath>cueos/kernel/api/inc</includepath>
+<includepath>cueos/fs/system/inc</includepath>
+<includepath>cueos/fs/core/inc</includepath>
 <includepath>cueos/net/inc/</includepath>
-<includepath>cueos/net/inc</includepath>
-<includepath>cueos/net/inc/netif/ppp/</includepath>
 <includepath>cueos/net/inc/lwip/</includepath>
-<includepath>cueos/net/inc/lwip/apps/</includepath>
 <includepath>cueos/net/inc/lwip/priv/</includepath>
 <includepath>cueos/net/inc/lwip/prot/</includepath>
-<includepath>cueos/net/inc/posix/sys/</includepath>
 <includepath>cueos/net/inc/netif/</includepath>
-<includepath>cueos/net/inc/posix/</includepath>
-<includepath>cueos/net/inc/arch/</includepath>
+<includepath>cueos/net/inc/netif/ppp/</includepath>
 <includepath>cueos/net/inc/compat/posix/arpa/</includepath>
 <includepath>cueos/net/inc/compat/posix/</includepath>
 <includepath>cueos/net/inc/compat/posix/net/</includepath>
 <includepath>cueos/net/inc/compat/posix/sys/</includepath>
 <includepath>cueos/net/inc/compat/stdc/</includepath>
+<includepath>cueos/net/inc/arch/</includepath>
 <includepath>cueos/apps/DMX512_engine/inc</includepath>
-<includepath>cueos/apps/Q_UDP_client/inc</includepath>
+<includepath>cueos/apps/Q/client/inc</includepath>
+<includepath>cueos/apps/Q/utils/packet/inc</includepath>
+<includepath>cueos/apps/webapp/utils/fs/inc</includepath>
+<includepath>cueos/apps/webapp/utils/http/inc</includepath>
+<includepath>cueos/apps/webapp/utils/htmlgen/release/</includepath>
+<includepath>cueos/apps/webapp/utils/jsonparser/inc</includepath>
+<includepath>cueos/apps/webapp/static/inc</includepath>
+<includepath>cueos/apps/webapp/api/inc</includepath>
 <includepath>cueos/system/inc/</includepath>
-<includepath>cueos/fs/system/inc</includepath>
-<includepath>cueos/fs/core/inc</includepath>
-
-</language>
-<language name="Object File">
-
-</language>
-<language name="Assembly Source File">
-
-</language>
-<language name="s">
-
-</language>
-</section>
-<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
-<language name="C Source File">
-<macro>
-<name>STM32</name><value/>
-</macro>
-<macro>
-<name>STM32F4</name><value/>
-</macro>
-<macro>
-<name>DEBUG</name><value/>
-</macro>
-<macro>
-<name>STM32F407XX</name><value/>
-</macro>
-
-</language>
-<language name="S">
-<macro>
-<name>STM32</name><value/>
-</macro>
-<macro>
-<name>STM32F4</name><value/>
-</macro>
-<macro>
-<name>DEBUG</name><value/>
-</macro>
-<macro>
-<name>STM32F407XX</name><value/>
-</macro>
 
 </language>
 <language name="Object File">
