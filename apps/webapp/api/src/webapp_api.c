@@ -1,23 +1,35 @@
-#include "http_server.h"
-#include "webapp_api.h"
+/**============================================================================================================================
+ * Depedencies inclusion
+ * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
+ *=============================================================================================================================*/
+
 #include <string.h>
-#include "cmsis_os.h"
-#include "tcpip.h"
-#include "DMX512_engine.h"
+#include "http_server.h"
+#include "http_defs.h"
+#include "http_response.h"
+#include "http_request.h"
+#include "DMX512_api.h"
+#include "webapp_api.h"
 
-static void webapp_api_dynamic_router(http_request_s *req){
 
+/**============================================================================================================================
+ * Private functions definitions
+ * These functions are only accessible from within the file's scope
+ *=============================================================================================================================*/
 
-//TEST ONLY
-	char *test = "test";
-	char *ok   = "ok";
-	req->res->is_static = 0;
-	req->res->data_ptr = pvPortMalloc(20*sizeof(char));
-	sprintf(req->res->data_ptr, "%s %s %d", test, ok, 200);
-	req->res->data_len = strlen(req->res->data_ptr);
-
+static void webapp_api_router(http_request_s *req){
+#if cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
+	DMX512_api_router(req);
+#endif
 }
 
+
+/**============================================================================================================================
+ * Public functions definitions
+ * These functions can be accessed outside of the file's scope
+ * @see http_request.h for declarations
+ *=============================================================================================================================*/
+
 void webapp_api_start(void){
-	http_server_init(WEBAPP_API_PORT, webapp_api_dynamic_router);
+	http_server_init(WEBAPP_API_PORT, webapp_api_router);
 }
