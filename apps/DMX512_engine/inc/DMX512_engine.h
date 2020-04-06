@@ -1,8 +1,5 @@
 /**
- * @defgroup apps
- * Higher layer applications
- * @{
- *
+ * @ingroup apps
  * @defgroup DMX512_engine
  * The DMX512 engine is in charge of managing the whole DMX show creation and show playback process.
  * To do so, it wraps the functionalities described throughout the apps' submodules into higher level
@@ -135,6 +132,5 @@ DMX512_engine_err_e DMX512_engine_patch_delete(uint16_t fixture_id);
 #endif
 
 /**
- * @} Grouping in DMX512_engine module ends
  * @} Grouping in apps module ends
  **/

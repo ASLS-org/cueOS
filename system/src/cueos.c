@@ -8,8 +8,8 @@
 #include "net.h"
 #include "leds_driver.h"
 #include "Q_client.h"
-#include "webapp_static.h"
-#include "webapp_api.h"
+#include "web_application.h"
+#include "rest_api.h"
 #include "DMX512_engine.h"
 #include "device.h"
 #include "cueos_config.h"
@@ -27,7 +27,6 @@
  * @brief initilises OS
  */
 //TODO: implement global error handler
-//TODO: implement kernel initalisation here ?
 void cueos_init(void){
 
 	osKernelInitialize();
@@ -36,7 +35,7 @@ void cueos_init(void){
 
 	leds_driver_init();
 	net_init(NET_MODE_ETHERNET, Q_client_bind);
-	webapp_api_start();
+	rest_api_start();
 
 #if cueOS_CONFIG_NODETYPE   == cueOS_NODETYPE_MASTER
 	Q_server_init();

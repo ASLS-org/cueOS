@@ -89,9 +89,12 @@ $(document).ready(function(){initNavTree('group__webapp.html','');});
 <div class="header">
   <div class="summary">
 <a href="#groups">Modules</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Webapp<div class="ingroups"><a class="el" href="group__apps.html">Apps</a></div></div>  </div>
+<div class="title">Webapp</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -102,11 +105,8 @@ Collaboration diagram for Webapp:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__webapp.png" border="0" usemap="#group____webapp" alt=""/></div>
 <map name="group____webapp" id="group____webapp">
-<area shape="rect" href="group__webapp__utils.html" title="Tools and helpers to be used by the webapp module." alt="" coords="228,5,329,31"/>
-<area shape="rect" href="group__apps.html" title="Higher layer applications." alt="" coords="5,55,57,80"/>
-<area shape="rect" title="Definition of a suite of WEB services enabling remote device configuration through the use of HTTP se..." alt="" coords="105,55,176,80"/>
-<area shape="rect" href="group__webapp__api.html" title="REST API web services enabling configuration of the system through HTTP requests over pre&#45;defined spe..." alt="" coords="231,55,326,80"/>
-<area shape="rect" href="group__webapp__static.html" title="Module for serving the system&#39;s web applicaion user&#45;interface static files over HTTP." alt="" coords="224,104,333,129"/>
+<area shape="rect" href="group__webapp__api.html" title="REST API web services enabling configuration of the system through HTTP requests over pre&#45;defined spe..." alt="" coords="124,5,219,31"/>
+<area shape="rect" title="Definition of a suite of WEB services enabling remote device configuration through the use of HTTP se..." alt="" coords="5,5,76,31"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -115,24 +115,52 @@ Modules</h2></td></tr>
 <tr class="memitem:group__webapp__api"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__webapp__api.html">Webapp_api</a></td></tr>
 <tr class="memdesc:group__webapp__api"><td class="mdescLeft">&#160;</td><td class="mdescRight">REST API web services enabling configuration of the system through HTTP requests over pre-defined specific API enpoints. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__webapp__static"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__webapp__static.html">Webapp_static</a></td></tr>
-<tr class="memdesc:group__webapp__static"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module for serving the system's web applicaion user-interface static files over HTTP. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfs__file.html">fs_file</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:group__webapp__utils"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__webapp__utils.html">Webapp_utils</a></td></tr>
-<tr class="memdesc:group__webapp__utils"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tools and helpers to be used by the webapp module. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsdata__file.html">fsdata_file</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga750f225f8336e045a48e7803bd038a40"><td class="memItemLeft" align="right" valign="top"><a id="ga750f225f8336e045a48e7803bd038a40"></a>
-struct altcp_pcb *&#160;</td><td class="memItemRight" valign="bottom"><b>pcb</b></td></tr>
-<tr class="separator:ga750f225f8336e045a48e7803bd038a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8e0798404bf2cf5dabb84c5ba9a4f236"><td class="memItemLeft" align="right" valign="top"><a id="ga8e0798404bf2cf5dabb84c5ba9a4f236"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>port</b></td></tr>
-<tr class="separator:ga8e0798404bf2cf5dabb84c5ba9a4f236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacada276a7a97bcab2ca29b2a4497ebef"><td class="memItemLeft" align="right" valign="top"><a id="gacada276a7a97bcab2ca29b2a4497ebef"></a>
-router_fn&#160;</td><td class="memItemRight" valign="bottom"><b>router</b></td></tr>
-<tr class="separator:gacada276a7a97bcab2ca29b2a4497ebef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga05d23b3c867c1f9d701efa0d6d0db92d"><td class="memItemLeft" align="right" valign="top"><a id="ga05d23b3c867c1f9d701efa0d6d0db92d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FS_READ_EOF</b>&#160;&#160;&#160;-1</td></tr>
+<tr class="separator:ga05d23b3c867c1f9d701efa0d6d0db92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3f90d15249e0bc12ed287140356f71dc"><td class="memItemLeft" align="right" valign="top"><a id="ga3f90d15249e0bc12ed287140356f71dc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FS_READ_DELAYED</b>&#160;&#160;&#160;-2</td></tr>
+<tr class="separator:ga3f90d15249e0bc12ed287140356f71dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e36694e0257a7642d41ffda5bf03634"><td class="memItemLeft" align="right" valign="top"><a id="ga7e36694e0257a7642d41ffda5bf03634"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FS_FILE_FLAGS_HEADER_INCLUDED</b>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:ga7e36694e0257a7642d41ffda5bf03634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95e84b4ba432cf58a59f14ba85733584"><td class="memItemLeft" align="right" valign="top"><a id="ga95e84b4ba432cf58a59f14ba85733584"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FS_FILE_FLAGS_HEADER_PERSISTENT</b>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:ga95e84b4ba432cf58a59f14ba85733584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d3830c1e5b9f68e4ae346d0e3f750e9"><td class="memItemLeft" align="right" valign="top"><a id="ga3d3830c1e5b9f68e4ae346d0e3f750e9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FS_FILE_FLAGS_HEADER_HTTPVER_1_1</b>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:ga3d3830c1e5b9f68e4ae346d0e3f750e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec7ecbdfe4b0bb159437065b1a8f3d3f"><td class="memItemLeft" align="right" valign="top"><a id="gaec7ecbdfe4b0bb159437065b1a8f3d3f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FS_FILE_FLAGS_SSI</b>&#160;&#160;&#160;0x08</td></tr>
+<tr class="separator:gaec7ecbdfe4b0bb159437065b1a8f3d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga608bda67dc94eefc5fa9c79747a1f188"><td class="memItemLeft" align="right" valign="top"><a id="ga608bda67dc94eefc5fa9c79747a1f188"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>WEBAPP_HTTP_SERVER_PORT</b>&#160;&#160;&#160;80</td></tr>
+<tr class="separator:ga608bda67dc94eefc5fa9c79747a1f188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga52dc8f2fdce986194d606ac05bbac116"><td class="memItemLeft" align="right" valign="top"><a id="ga52dc8f2fdce986194d606ac05bbac116"></a>
+typedef void&#160;</td><td class="memItemRight" valign="bottom"><b>fs_file_extension</b></td></tr>
+<tr class="separator:ga52dc8f2fdce986194d606ac05bbac116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f48b2c138dc27f9779dd358b35fdb52"><td class="memItemLeft" align="right" valign="top"><a id="ga0f48b2c138dc27f9779dd358b35fdb52"></a>
+typedef struct <a class="el" href="structfs__file.html">fs_file</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fs_file_s</b></td></tr>
+<tr class="separator:ga0f48b2c138dc27f9779dd358b35fdb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac9f72376110852096d308c52bcd3db33"><td class="memItemLeft" align="right" valign="top"><a id="gac9f72376110852096d308c52bcd3db33"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>webapp_start</b> (void)</td></tr>
+<tr class="separator:gac9f72376110852096d308c52bcd3db33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Definition of a suite of WEB services enabling remote device configuration through the use of HTTP services. </p>

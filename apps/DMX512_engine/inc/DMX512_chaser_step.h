@@ -15,7 +15,7 @@
 #include <string.h>
 #include "DMX512_defs.h"
 #include "DMX512_scene.h"
-#include "DMX512_utils.h"
+#include "ms_chronometer.h"
 
 
 /**
@@ -62,7 +62,7 @@ typedef struct{
 	uint16_t fadein_time;									/**< Step fade in time in ms*/
 	uint16_t fadeout_time;									/**< Step fade out time in ms*/
 	uint16_t hold_time;										/**< Step hold time in ms*/
-	DMX512_utils_mschronometer_s mschronometer;				/*< Step chronometer used to keep track of time during play-time*/
+	ms_chronometer_s ms_chronometer;						/*< Step chronometer used to keep track of time during play-time*/
 	DMX512_fixture_chaser_step_status_e status;				/**< Step initilisation status @see DMX512_fixture_chaser_step_status_e*/
 	DMX512_fixture_chaser_step_state_e state;				/**< Current step playing state @see DMX512_fixture_chaser_step_state_e*/
 }DMX512_chaser_step_s;

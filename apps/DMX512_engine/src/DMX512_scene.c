@@ -45,7 +45,7 @@ static void _DMX512_scene_fadein(DMX512_scene_s *scene){
 		for(uint16_t j=0; j<scene->presets[i].ch_count; j++){
 			uint16_t addr 	= scene->presets[i].fixture->addr + scene->presets[i].channels[j];
 			uint16_t value 	= scene->presets[i].values[j];
-			uint32_t time 	= DMX512_utils_mschronometer_get_elapsed_ms(&scene->mschronometer);
+			uint32_t time 	= ms_chronometer_get_elapsed_ms(&scene->ms_chronometer);
 			if(time < scene->fadein_time){
 				value = floor(((float)value/(float)scene->fadein_time)*((float)(time)));
 			}else{
@@ -66,7 +66,7 @@ static void _DMX512_scene_fadeout(DMX512_scene_s *scene){
 		for(uint16_t j=0; j<scene->presets[i].ch_count; j++){
 			uint16_t addr 	= scene->presets[i].fixture->addr + scene->presets[i].channels[j];
 			uint16_t value 	= scene->presets[i].values[j];
-			uint32_t time 	= DMX512_utils_mschronometer_get_elapsed_ms(&scene->mschronometer);
+			uint32_t time 	= ms_chronometer_get_elapsed_ms(&scene->ms_chronometer);
 			if(time < scene->fadeout_time){
 				value = floor(((float)value/(float)scene->fadein_time)*((float)(time + value)));
 			}else{
@@ -178,7 +178,7 @@ DMX512_fixture_preset_s *DMX512_scene_get_preset(DMX512_scene_s *scene, uint16_t
  * @param scene pointer to the scene instance
  */
 void DMX512_scene_start(DMX512_scene_s *scene){
-	DMX512_utils_mschronometer_reset(&scene->mschronometer);
+	ms_chronometer_reset(&scene->ms_chronometer);
 	scene->state = DMX512_SCENE_FADEIN;
 }
 
@@ -188,7 +188,7 @@ void DMX512_scene_start(DMX512_scene_s *scene){
  * @param scene pointer to the scene instance
  */
 void DMX512_scene_stop(DMX512_scene_s *scene){
-	DMX512_utils_mschronometer_reset(&scene->mschronometer);
+	ms_chronometer_reset(&scene->ms_chronometer);
 	scene->state = DMX512_SCENE_FADEOUT;
 }
 

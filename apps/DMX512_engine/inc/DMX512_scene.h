@@ -14,7 +14,7 @@
 
 #include "DMX512_defs.h"
 #include "DMX512_fixture_preset.h"
-#include "DMX512_utils.h"
+#include "ms_chronometer.h"
 
 /**
  * @brief scene instance default values
@@ -57,7 +57,7 @@ typedef struct{
 	uint16_t fadeout_time;							/**< Fadeout time in ms*/
 	uint16_t preset_count;							/**< Count of current fixture presets associated to the scene*/
 	DMX512_fixture_preset_s *presets;				/**< List of current fixture presets associated to the scene*/
-	DMX512_utils_mschronometer_s mschronometer;		/**< Scene chronometer used to keep track of time during play-time*/
+	ms_chronometer_s ms_chronometer;					/**< Scene chronometer used to keep track of time during play-time*/
 	DMX512_scene_state_e state;						/**< Current play-state of the scene @see DMX512_scene_state_e*/
 	DMX512_scene_status_e status;					/**< Scene initialisation status @see DMX512_scene_state_e*/
 }DMX512_scene_s;

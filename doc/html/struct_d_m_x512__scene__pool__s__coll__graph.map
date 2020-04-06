@@ -1,6 +1,6 @@
 <map id="DMX512_scene_pool_s" name="DMX512_scene_pool_s">
-<area shape="rect" id="node1" title="DMX512 scene pool structure object." alt="" coords="121,184,281,211"/>
-<area shape="rect" id="node2" href="$struct_d_m_x512__scene__s.html" title="DMX512 scene structure object." alt="" coords="137,95,266,121"/>
+<area shape="rect" id="node1" title="DMX512 scene pool structure object." alt="" coords="100,184,260,211"/>
+<area shape="rect" id="node2" href="$struct_d_m_x512__scene__s.html" title="DMX512 scene structure object." alt="" coords="115,95,245,121"/>
 <area shape="rect" id="node3" href="$struct_d_m_x512__fixture__preset__s.html" title="DMX512 fixture preset structure object." alt="" coords="5,5,179,32"/>
-<area shape="rect" id="node4" href="$struct_d_m_x512__utils__mschronometer__s.html" title="mschronometer structure object" alt="" coords="203,5,418,32"/>
+<area shape="rect" id="node4" href="$structms__chronometer__s.html" title="mschronometer structure object" alt="" coords="203,5,336,32"/>
 </map>

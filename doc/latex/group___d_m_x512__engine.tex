@@ -5,8 +5,7 @@
 The D\+M\+X512 engine is in charge of managing the whole D\+MX show creation and show playback process. To do so, it wraps the functionalities described throughout the apps\textquotesingle{} submodules into higher level functions and data structures to provide users with an easy and intuitive way to create and manage D\+M\+X512 show instances.  
 
 
-Collaboration diagram for D\+M\+X512\+\_\+engine\+:
-\nopagebreak
+Collaboration diagram for D\+M\+X512\+\_\+engine\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,6 @@ Collaboration diagram for D\+M\+X512\+\_\+engine\+:
 \doxysubsection*{Modules}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group___d_m_x512__api}{D\+M\+X512\+\_\+api}}
-\begin{DoxyCompactList}\small\item\em D\+M\+X512 engine H\+T\+TP wrapper. Handles manipulation of the D\+M\+X512 engine resources over H\+T\+TP through a user-\/friendly R\+E\+ST A\+PI. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group___d_m_x512__chaser__pool}{D\+M\+X512\+\_\+chaser\+\_\+pool}}
 \begin{DoxyCompactList}\small\item\em Chaser pools are used to store and manage a lists of pre-\/configured chasers. Up to 65535 D\+M\+X512 chasers may be stored for each individual D\+M\+X512 universe. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group___d_m_x512__defs}{D\+M\+X512\+\_\+defs}}
@@ -25,9 +22,7 @@ Collaboration diagram for D\+M\+X512\+\_\+engine\+:
 \mbox{\hyperlink{group___d_m_x512__fixture__pool}{D\+M\+X512\+\_\+fixture\+\_\+pool}}
 \begin{DoxyCompactList}\small\item\em Fixture pools are used to store a universe\textquotesingle{}s patch information. A patch is a pool of addressed fixtures which channel channel values must me comprised in within a 0-\/512 address value interval. A patched fixture\textquotesingle{}s channels may not overlap over the channel addresses of another fixture member of the patch. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{group___d_m_x512__scene__pool}{D\+M\+X512\+\_\+scene\+\_\+pool}}
-\begin{DoxyCompactList}\small\item\em Scene pools are used to store and manage a lists of pre-\/configured scenes. Up to 65535 D\+M\+X512 scenes may be stored per D\+M\+X512 universe. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___d_m_x512__utils}{D\+M\+X512\+\_\+utils}}
-\begin{DoxyCompactList}\small\item\em Code snippets for non D\+M\+X512 related tools and helpers used throughout the D\+M\+X512 app. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Scene pools are used to store and manage a lists of pre-\/configured scenes. Up to 65535 D\+M\+X512 scenes may be stored per D\+M\+X512 universe. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -171,7 +166,7 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\
 \end{DoxyEnumFields}
 
 
-Definition at line 92 of file D\+M\+X512\+\_\+engine.\+h.
+Definition at line 89 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga6ba2cd905e3cb831561b99d10a66bd9f}\label{group___d_m_x512__engine_ga6ba2cd905e3cb831561b99d10a66bd9f}} 
 \index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e}}
@@ -203,7 +198,7 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+E\+P\+\_
 \end{DoxyEnumFields}
 
 
-Definition at line 105 of file D\+M\+X512\+\_\+engine.\+h.
+Definition at line 102 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga1bde9f93b0c6113bd395876590f691b8}\label{group___d_m_x512__engine_ga1bde9f93b0c6113bd395876590f691b8}} 
 \index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e@{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e}}
@@ -227,7 +222,7 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+X\+T\+U\
 \end{DoxyEnumFields}
 
 
-Definition at line 81 of file D\+M\+X512\+\_\+engine.\+h.
+Definition at line 78 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_gabf4abd5fbc6fa9dda3c07f4babee571c}\label{group___d_m_x512__engine_gabf4abd5fbc6fa9dda3c07f4babee571c}} 
 \index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_header\_byte\_indexes\_e@{DMX512\_engine\_config\_header\_byte\_indexes\_e}}
@@ -259,7 +254,7 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\
 \end{DoxyEnumFields}
 
 
-Definition at line 44 of file D\+M\+X512\+\_\+engine.\+h.
+Definition at line 41 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga1d9654b8d4aa0777c6e575010bc07a09}\label{group___d_m_x512__engine_ga1d9654b8d4aa0777c6e575010bc07a09}} 
 \index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e@{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e}}
@@ -287,7 +282,7 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\
 \end{DoxyEnumFields}
 
 
-Definition at line 58 of file D\+M\+X512\+\_\+engine.\+h.
+Definition at line 55 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_gac07cfe11f1458a152c0619b9bf350fe6}\label{group___d_m_x512__engine_gac07cfe11f1458a152c0619b9bf350fe6}} 
 \index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_scene\_byte\_indexes\_e@{DMX512\_engine\_config\_scene\_byte\_indexes\_e}}
@@ -311,7 +306,7 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+E\+N\+E\
 \end{DoxyEnumFields}
 
 
-Definition at line 70 of file D\+M\+X512\+\_\+engine.\+h.
+Definition at line 67 of file D\+M\+X512\+\_\+engine.\+h.
 
 
 

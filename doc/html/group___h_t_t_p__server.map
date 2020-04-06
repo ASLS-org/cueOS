@@ -1,4 +1,7 @@
 <map id="HTTP_server" name="HTTP_server">
-<area shape="rect" id="node1" href="$group___h_t_t_p.html" title="Handles HTTP packet transactions." alt="" coords="5,5,63,31"/>
-<area shape="rect" id="node2" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="111,5,211,31"/>
+<area shape="rect" id="node1" href="$group___h_t_t_p__response.html" title="Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP version..." alt="" coords="248,5,365,31"/>
+<area shape="rect" id="node2" href="$group___h_t_t_p__defs.html" title="Definition of fundamental constant values to be used within the HTTP module." alt="" coords="262,55,351,80"/>
+<area shape="rect" id="node3" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="100,55,200,80"/>
+<area shape="rect" id="node5" href="$group___h_t_t_p__request.html" title="An HTTP request contains information relative to a received HTTP frame such as its method,..." alt="" coords="253,104,360,129"/>
+<area shape="rect" id="node4" href="$group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,55,52,80"/>
 </map>

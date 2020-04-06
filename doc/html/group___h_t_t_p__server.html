@@ -88,10 +88,11 @@ $(document).ready(function(){initNavTree('group___h_t_t_p__server.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#groups">Modules</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">HTTP_server<div class="ingroups"><a class="el" href="group__apps.html">Apps</a> &raquo; <a class="el" href="group__webapp.html">Webapp</a> &raquo; <a class="el" href="group__webapp__utils.html">Webapp_utils</a> &raquo; <a class="el" href="group___h_t_t_p.html">HTTP</a></div></div>  </div>
+<div class="title">HTTP_server<div class="ingroups"><a class="el" href="group__libs.html">Libs</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -102,11 +103,26 @@ Collaboration diagram for HTTP_server:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___h_t_t_p__server.png" border="0" usemap="#group______h__t__t__p____server" alt=""/></div>
 <map name="group______h__t__t__p____server" id="group______h__t__t__p____server">
-<area shape="rect" href="group___h_t_t_p.html" title="Handles HTTP packet transactions." alt="" coords="5,5,63,31"/>
-<area shape="rect" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="111,5,211,31"/>
+<area shape="rect" href="group___h_t_t_p__response.html" title="Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP version..." alt="" coords="248,5,365,31"/>
+<area shape="rect" href="group___h_t_t_p__defs.html" title="Definition of fundamental constant values to be used within the HTTP module." alt="" coords="262,55,351,80"/>
+<area shape="rect" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="100,55,200,80"/>
+<area shape="rect" href="group___h_t_t_p__request.html" title="An HTTP request contains information relative to a received HTTP frame such as its method,..." alt="" coords="253,104,360,129"/>
+<area shape="rect" href="group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,55,52,80"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:group___h_t_t_p__defs"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p__defs.html">HTTP_defs</a></td></tr>
+<tr class="memdesc:group___h_t_t_p__defs"><td class="mdescLeft">&#160;</td><td class="mdescRight">Definition of fundamental constant values to be used within the HTTP module. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:group___h_t_t_p__request"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p__request.html">HTTP_request</a></td></tr>
+<tr class="memdesc:group___h_t_t_p__request"><td class="mdescLeft">&#160;</td><td class="mdescRight">An HTTP request contains information relative to a received HTTP frame such as its method, header fields and content. Once HTTP requests should be processed through a router function. During routing step it is up to the user to forge response data and forward it to the http request instance to be sent back over to the sender of the request. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:group___h_t_t_p__response"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p__response.html">HTTP_response</a></td></tr>
+<tr class="memdesc:group___h_t_t_p__response"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP versions: HTTP/0.9 and HTTP/1.1. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp__server__s.html">http_server_s</a></td></tr>
@@ -157,7 +173,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="http__server_8c_source.html#l00257">257</a> of file <a class="el" href="http__server_8c_source.html">http_server.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="http__server_8c_source.html#l00256">256</a> of file <a class="el" href="http__server_8c_source.html">http_server.c</a>.</p>
 
 </div>
 </div>

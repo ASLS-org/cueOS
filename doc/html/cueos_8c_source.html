@@ -97,50 +97,48 @@ $(document).ready(function(){initNavTree('cueos_8c_source.html','');});
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;net.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;leds_driver.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Q_client.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;webapp_static.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;webapp_api.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;web_application.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;rest_api.h&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;DMX512_engine.h&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;device.h&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;cueos_config.h&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;cueos.h&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//TODO: implement global error handler</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">//TODO: implement kernel initalisation here ?</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> cueos_init(<span class="keywordtype">void</span>){</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    osKernelInitialize();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    device_init();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    leds_driver_init();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    net_init(NET_MODE_ETHERNET, <a class="code" href="group___q__client.html#gacd4f5e9f426708aa5c88de5b29cfd4c6">Q_client_bind</a>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="group__webapp__api.html#ga308f9b10e097470bba21ac099e783b7e">webapp_api_start</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#if cueOS_CONFIG_NODETYPE   == cueOS_NODETYPE_MASTER</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    Q_server_init();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="group__webapp__static.html#gabd7fa9cc2da15ce1d66111c30a03a8a0">webapp_static_start</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="group___d_m_x512__engine.html#gaab4923cc6a030d8626c2de32cd7aea06">DMX512_engine_init</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_PYRO</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    pyro_engine_init();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_MEDIA</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    media_engine_init();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    leds_driver_set(LED_STATE, LED_BLINK);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    osKernelStart();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> cueos_init(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    osKernelInitialize();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    device_init();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    leds_driver_init();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    net_init(NET_MODE_ETHERNET, <a class="code" href="group___q__client.html#gacd4f5e9f426708aa5c88de5b29cfd4c6">Q_client_bind</a>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="group__rest__api.html#ga0aade0e498ac217e3aca8dc3f43c96b0">rest_api_start</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#if cueOS_CONFIG_NODETYPE   == cueOS_NODETYPE_MASTER</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Q_server_init();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    webapp_static_start();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="group___d_m_x512__engine.html#gaab4923cc6a030d8626c2de32cd7aea06">DMX512_engine_init</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_PYRO</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    pyro_engine_init();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_MEDIA</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    media_engine_init();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    leds_driver_set(LED_STATE, LED_BLINK);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    osKernelStart();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="agroup___q__client_html_ga45d15779b911acaa3b1ec88e5a194bf9"><div class="ttname"><a href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a></div><div class="ttdeci">void Q_client_init(void)</div><div class="ttdoc">Initialises Q client.</div><div class="ttdef"><b>Definition:</b> <a href="_q__client_8c_source.html#l00091">Q_client.c:91</a></div></div>
-<div class="ttc" id="agroup__webapp__api_html_ga308f9b10e097470bba21ac099e783b7e"><div class="ttname"><a href="group__webapp__api.html#ga308f9b10e097470bba21ac099e783b7e">webapp_api_start</a></div><div class="ttdeci">void webapp_api_start(void)</div><div class="ttdoc">Starts API HTTP server on port 8000.</div><div class="ttdef"><b>Definition:</b> <a href="webapp__api_8c_source.html#l00044">webapp_api.c:44</a></div></div>
-<div class="ttc" id="agroup___q__client_html_gacd4f5e9f426708aa5c88de5b29cfd4c6"><div class="ttname"><a href="group___q__client.html#gacd4f5e9f426708aa5c88de5b29cfd4c6">Q_client_bind</a></div><div class="ttdeci">void Q_client_bind(void)</div><div class="ttdoc">Establishes a multicast join request over UDP. Multicast address is determined by the group configura...</div><div class="ttdef"><b>Definition:</b> <a href="_q__client_8c_source.html#l00119">Q_client.c:119</a></div></div>
-<div class="ttc" id="agroup__webapp__static_html_gabd7fa9cc2da15ce1d66111c30a03a8a0"><div class="ttname"><a href="group__webapp__static.html#gabd7fa9cc2da15ce1d66111c30a03a8a0">webapp_static_start</a></div><div class="ttdeci">void webapp_static_start(void)</div><div class="ttdoc">Starts static HTTP server on port 80. This server is ONLY dedicated to serve compiled HTML static fil...</div><div class="ttdef"><b>Definition:</b> <a href="webapp__static_8c_source.html#l00067">webapp_static.c:67</a></div></div>
+<div class="ttc" id="agroup___q__client_html_ga45d15779b911acaa3b1ec88e5a194bf9"><div class="ttname"><a href="group___q__client.html#ga45d15779b911acaa3b1ec88e5a194bf9">Q_client_init</a></div><div class="ttdeci">void Q_client_init(void)</div><div class="ttdoc">Initialises Q client.</div><div class="ttdef"><b>Definition:</b> <a href="_q__client_8c_source.html#l00085">Q_client.c:85</a></div></div>
+<div class="ttc" id="agroup__rest__api_html_ga0aade0e498ac217e3aca8dc3f43c96b0"><div class="ttname"><a href="group__rest__api.html#ga0aade0e498ac217e3aca8dc3f43c96b0">rest_api_start</a></div><div class="ttdeci">void rest_api_start(void)</div><div class="ttdoc">Starts API HTTP server on port 8000.</div><div class="ttdef"><b>Definition:</b> <a href="rest__api_8c_source.html#l00041">rest_api.c:41</a></div></div>
+<div class="ttc" id="agroup___q__client_html_gacd4f5e9f426708aa5c88de5b29cfd4c6"><div class="ttname"><a href="group___q__client.html#gacd4f5e9f426708aa5c88de5b29cfd4c6">Q_client_bind</a></div><div class="ttdeci">void Q_client_bind(void)</div><div class="ttdoc">Establishes a multicast join request over UDP. Multicast address is determined by the group configura...</div><div class="ttdef"><b>Definition:</b> <a href="_q__client_8c_source.html#l00113">Q_client.c:113</a></div></div>
 <div class="ttc" id="agroup___d_m_x512__engine_html_gaab4923cc6a030d8626c2de32cd7aea06"><div class="ttname"><a href="group___d_m_x512__engine.html#gaab4923cc6a030d8626c2de32cd7aea06">DMX512_engine_init</a></div><div class="ttdeci">void DMX512_engine_init(void)</div><div class="ttdoc">Initialises the DMX512 engine singleton.</div><div class="ttdef"><b>Definition:</b> <a href="_d_m_x512__engine_8c_source.html#l00242">DMX512_engine.c:242</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

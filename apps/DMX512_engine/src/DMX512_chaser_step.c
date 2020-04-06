@@ -26,7 +26,7 @@ static void _DMX512_step_fadein(DMX512_chaser_step_s *this){
 		for(uint16_t j=0; j<this->scene->presets[i].ch_count; j++){
 			uint16_t addr 	= this->scene->presets[i].fixture->addr + this->scene->presets[i].channels[j];
 			uint16_t value 	= this->scene->presets[i].values[j];
-			uint32_t time 	= DMX512_utils_mschronometer_get_elapsed_ms(&this->mschronometer);
+			uint32_t time 	= ms_chronometer_get_elapsed_ms(&this->ms_chronometer);
 			if(time < this->fadein_time){
 				value = floor(((float)value/(float)this->fadein_time)*((float)(time)));
 			}else{
@@ -44,7 +44,7 @@ static void _DMX512_step_fadein(DMX512_chaser_step_s *this){
  * @param this the chaser step instance to be held
  */
 static void _DMX512_step_hold(DMX512_chaser_step_s *this){
-	if(DMX512_utils_mschronometer_get_elapsed_ms(&this->mschronometer) > this->hold_time){
+	if(ms_chronometer_get_elapsed_ms(&this->ms_chronometer) > this->hold_time){
 		this->state = DMX512_CHASER_STEP_FADE_OUT;
 	}
 }
@@ -59,7 +59,7 @@ static void _DMX512_step_fadeout(DMX512_chaser_step_s *this){
 		for(uint16_t j=0; j<this->scene->presets[i].ch_count; j++){
 			uint16_t addr 	= this->scene->presets[i].fixture->addr + this->scene->presets[i].channels[j];
 			uint16_t value 	= this->scene->presets[i].values[j];
-			uint32_t time 	= DMX512_utils_mschronometer_get_elapsed_ms(&this->mschronometer);
+			uint32_t time 	= ms_chronometer_get_elapsed_ms(&this->ms_chronometer);
 			if(time < this->fadeout_time){
 				value = floor(((float)value/(float)this->fadeout_time)*((float)(time + value)));
 			}else{
@@ -122,7 +122,7 @@ void DMX512_chaser_step_manage(DMX512_chaser_step_s *this){
  * @param this the chaser step instance to be started
  */
 void DMX512_chaser_step_start(DMX512_chaser_step_s *this){
-	DMX512_utils_mschronometer_reset(&this->mschronometer);
+	ms_chronometer_reset(&this->ms_chronometer);
 	this->state = DMX512_CHASER_STEP_FADE_IN;
 }
 
@@ -132,7 +132,7 @@ void DMX512_chaser_step_start(DMX512_chaser_step_s *this){
  * @param this the chaser step instance to be stopped
  */
 void DMX512_chaser_step_stop(DMX512_chaser_step_s *this){
-	DMX512_utils_mschronometer_reset(&this->mschronometer);
+	ms_chronometer_reset(&this->ms_chronometer);
 	this->state = DMX512_CHASER_STEP_IDLE;
 }
 

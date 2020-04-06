@@ -9,29 +9,59 @@ Collaboration diagram for Webapp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=326pt]{group__webapp}
+\includegraphics[width=240pt]{group__webapp}
 \end{center}
 \end{figure}
 \doxysubsection*{Modules}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{group__webapp__api}{Webapp\+\_\+api}}
-\begin{DoxyCompactList}\small\item\em R\+E\+ST A\+PI web services enabling configuration of the system through H\+T\+TP requests over pre-\/defined specific A\+PI enpoints. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__webapp__static}{Webapp\+\_\+static}}
-\begin{DoxyCompactList}\small\item\em Module for serving the system\textquotesingle{}s web applicaion user-\/interface static files over H\+T\+TP. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group__webapp__utils}{Webapp\+\_\+utils}}
-\begin{DoxyCompactList}\small\item\em Tools and helpers to be used by the webapp module. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
+\begin{DoxyCompactList}\small\item\em R\+E\+ST A\+PI web services enabling configuration of the system through H\+T\+TP requests over pre-\/defined specific A\+PI enpoints. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__webapp_ga750f225f8336e045a48e7803bd038a40}\label{group__webapp_ga750f225f8336e045a48e7803bd038a40}} 
-struct altcp\+\_\+pcb $\ast$ {\bfseries pcb}
+struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}}
 \item 
-\mbox{\Hypertarget{group__webapp_ga8e0798404bf2cf5dabb84c5ba9a4f236}\label{group__webapp_ga8e0798404bf2cf5dabb84c5ba9a4f236}} 
-uint16\+\_\+t {\bfseries port}
+struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{group__webapp_gacada276a7a97bcab2ca29b2a4497ebef}\label{group__webapp_gacada276a7a97bcab2ca29b2a4497ebef}} 
-router\+\_\+fn {\bfseries router}
+\mbox{\Hypertarget{group__webapp_ga05d23b3c867c1f9d701efa0d6d0db92d}\label{group__webapp_ga05d23b3c867c1f9d701efa0d6d0db92d}} 
+\#define {\bfseries F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+E\+OF}~-\/1
+\item 
+\mbox{\Hypertarget{group__webapp_ga3f90d15249e0bc12ed287140356f71dc}\label{group__webapp_ga3f90d15249e0bc12ed287140356f71dc}} 
+\#define {\bfseries F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+D\+E\+L\+A\+Y\+ED}~-\/2
+\item 
+\mbox{\Hypertarget{group__webapp_ga7e36694e0257a7642d41ffda5bf03634}\label{group__webapp_ga7e36694e0257a7642d41ffda5bf03634}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+I\+N\+C\+L\+U\+D\+ED}~0x01
+\item 
+\mbox{\Hypertarget{group__webapp_ga95e84b4ba432cf58a59f14ba85733584}\label{group__webapp_ga95e84b4ba432cf58a59f14ba85733584}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+NT}~0x02
+\item 
+\mbox{\Hypertarget{group__webapp_ga3d3830c1e5b9f68e4ae346d0e3f750e9}\label{group__webapp_ga3d3830c1e5b9f68e4ae346d0e3f750e9}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+H\+T\+T\+P\+V\+E\+R\+\_\+1\+\_\+1}~0x04
+\item 
+\mbox{\Hypertarget{group__webapp_gaec7ecbdfe4b0bb159437065b1a8f3d3f}\label{group__webapp_gaec7ecbdfe4b0bb159437065b1a8f3d3f}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+S\+SI}~0x08
+\item 
+\mbox{\Hypertarget{group__webapp_ga608bda67dc94eefc5fa9c79747a1f188}\label{group__webapp_ga608bda67dc94eefc5fa9c79747a1f188}} 
+\#define {\bfseries W\+E\+B\+A\+P\+P\+\_\+\+H\+T\+T\+P\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}~80
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__webapp_ga52dc8f2fdce986194d606ac05bbac116}\label{group__webapp_ga52dc8f2fdce986194d606ac05bbac116}} 
+typedef void {\bfseries fs\+\_\+file\+\_\+extension}
+\item 
+\mbox{\Hypertarget{group__webapp_ga0f48b2c138dc27f9779dd358b35fdb52}\label{group__webapp_ga0f48b2c138dc27f9779dd358b35fdb52}} 
+typedef struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} {\bfseries fs\+\_\+file\+\_\+s}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__webapp_gac9f72376110852096d308c52bcd3db33}\label{group__webapp_gac9f72376110852096d308c52bcd3db33}} 
+void {\bfseries webapp\+\_\+start} (void)
 \end{DoxyCompactItemize}
 
 

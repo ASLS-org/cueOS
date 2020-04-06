@@ -1,11 +1,9 @@
 var group___d_m_x512__engine =
 [
-    [ "DMX512_api", "group___d_m_x512__api.html", "group___d_m_x512__api" ],
     [ "DMX512_chaser_pool", "group___d_m_x512__chaser__pool.html", "group___d_m_x512__chaser__pool" ],
     [ "DMX512_defs", "group___d_m_x512__defs.html", "group___d_m_x512__defs" ],
     [ "DMX512_fixture_pool", "group___d_m_x512__fixture__pool.html", "group___d_m_x512__fixture__pool" ],
     [ "DMX512_scene_pool", "group___d_m_x512__scene__pool.html", "group___d_m_x512__scene__pool" ],
-    [ "DMX512_utils", "group___d_m_x512__utils.html", "group___d_m_x512__utils" ],
     [ "DMX512_engine_s", "struct_d_m_x512__engine__s.html", [
       [ "chaser_count", "struct_d_m_x512__engine__s.html#a813c4496d7f0f1554d0cd54ee691047e", null ],
       [ "chasers", "struct_d_m_x512__engine__s.html#a0981734e2aeea3b5c1ef8fed0a01c0c4", null ],

@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('group__mschronometer.html','');});
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Mschronometer<div class="ingroups"><a class="el" href="group__apps.html">Apps</a> &raquo; <a class="el" href="group___d_m_x512__engine.html">DMX512_engine</a> &raquo; <a class="el" href="group___d_m_x512__utils.html">DMX512_utils</a></div></div>  </div>
+<div class="title">Mschronometer<div class="ingroups"><a class="el" href="group__libs.html">Libs</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -101,34 +101,34 @@ Collaboration diagram for Mschronometer:</div>
 <div class="dyncontent">
 <div class="center"><img src="group__mschronometer.png" border="0" usemap="#group____mschronometer" alt=""/></div>
 <map name="group____mschronometer" id="group____mschronometer">
-<area shape="rect" href="group___d_m_x512__utils.html" title="Code snippets for non DMX512 related tools and helpers used throughout the DMX512 app." alt="" coords="5,5,109,31"/>
-<area shape="rect" title="In order to keep track of time, a chronometer capable of producing accurate millisecond count is requ..." alt="" coords="157,5,269,31"/>
+<area shape="rect" title="In order to keep track of time, a chronometer capable of producing accurate millisecond count is requ..." alt="" coords="100,5,212,31"/>
+<area shape="rect" href="group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,52,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga1388d95d740fcaa0e663bba0864b1f9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mschronometer.html#ga1388d95d740fcaa0e663bba0864b1f9b">DMX512_utils_mschronometer_reset</a> (<a class="el" href="struct_d_m_x512__utils__mschronometer__s.html">DMX512_utils_mschronometer_s</a> *mschronometer)</td></tr>
-<tr class="memdesc:ga1388d95d740fcaa0e663bba0864b1f9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets an mschronometer instance time delta to zero.  <a href="group__mschronometer.html#ga1388d95d740fcaa0e663bba0864b1f9b">More...</a><br /></td></tr>
-<tr class="separator:ga1388d95d740fcaa0e663bba0864b1f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga62473952fd29ca3c8fbc766107af9f29"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mschronometer.html#ga62473952fd29ca3c8fbc766107af9f29">DMX512_utils_mschronometer_get_elapsed_ms</a> (<a class="el" href="struct_d_m_x512__utils__mschronometer__s.html">DMX512_utils_mschronometer_s</a> *mschronometer)</td></tr>
-<tr class="memdesc:ga62473952fd29ca3c8fbc766107af9f29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns elapsed time in milliseconds since last reset.  <a href="group__mschronometer.html#ga62473952fd29ca3c8fbc766107af9f29">More...</a><br /></td></tr>
-<tr class="separator:ga62473952fd29ca3c8fbc766107af9f29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d102aa7546c654578badeeb7a30a047"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mschronometer.html#ga0d102aa7546c654578badeeb7a30a047">ms_chronometer_reset</a> (<a class="el" href="structms__chronometer__s.html">ms_chronometer_s</a> *ms_chronometer)</td></tr>
+<tr class="memdesc:ga0d102aa7546c654578badeeb7a30a047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets an mschronometer instance time delta to zero.  <a href="group__mschronometer.html#ga0d102aa7546c654578badeeb7a30a047">More...</a><br /></td></tr>
+<tr class="separator:ga0d102aa7546c654578badeeb7a30a047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b999983069da4349f823775b751717a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__mschronometer.html#ga9b999983069da4349f823775b751717a">ms_chronometer_get_elapsed_ms</a> (<a class="el" href="structms__chronometer__s.html">ms_chronometer_s</a> *ms_chronometer)</td></tr>
+<tr class="memdesc:ga9b999983069da4349f823775b751717a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns elapsed time in milliseconds since last reset.  <a href="group__mschronometer.html#ga9b999983069da4349f823775b751717a">More...</a><br /></td></tr>
+<tr class="separator:ga9b999983069da4349f823775b751717a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>In order to keep track of time, a chronometer capable of producing accurate millisecond count is required. mschonometer conveys time information using a time delta value which can be set and reset throughout time. Once reset, elapsed time may be processed using the time delta value as a start offset. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga62473952fd29ca3c8fbc766107af9f29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga62473952fd29ca3c8fbc766107af9f29">&#9670;&nbsp;</a></span>DMX512_utils_mschronometer_get_elapsed_ms()</h2>
+<a id="ga9b999983069da4349f823775b751717a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b999983069da4349f823775b751717a">&#9670;&nbsp;</a></span>ms_chronometer_get_elapsed_ms()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t DMX512_utils_mschronometer_get_elapsed_ms </td>
+          <td class="memname">uint32_t ms_chronometer_get_elapsed_ms </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_d_m_x512__utils__mschronometer__s.html">DMX512_utils_mschronometer_s</a> *&#160;</td>
-          <td class="paramname"><em>mschronometer</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structms__chronometer__s.html">ms_chronometer_s</a> *&#160;</td>
+          <td class="paramname"><em>ms_chronometer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -143,21 +143,21 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t elapsed time in milliseconds </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__utils_8c_source.html#l00035">35</a> of file <a class="el" href="_d_m_x512__utils_8c_source.html">DMX512_utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ms__chronometer_8c_source.html#l00035">35</a> of file <a class="el" href="ms__chronometer_8c_source.html">ms_chronometer.c</a>.</p>
 
 </div>
 </div>
-<a id="ga1388d95d740fcaa0e663bba0864b1f9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1388d95d740fcaa0e663bba0864b1f9b">&#9670;&nbsp;</a></span>DMX512_utils_mschronometer_reset()</h2>
+<a id="ga0d102aa7546c654578badeeb7a30a047"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0d102aa7546c654578badeeb7a30a047">&#9670;&nbsp;</a></span>ms_chronometer_reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void DMX512_utils_mschronometer_reset </td>
+          <td class="memname">void ms_chronometer_reset </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_d_m_x512__utils__mschronometer__s.html">DMX512_utils_mschronometer_s</a> *&#160;</td>
-          <td class="paramname"><em>mschronometer</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structms__chronometer__s.html">ms_chronometer_s</a> *&#160;</td>
+          <td class="paramname"><em>ms_chronometer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -171,7 +171,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__utils_8c_source.html#l00024">24</a> of file <a class="el" href="_d_m_x512__utils_8c_source.html">DMX512_utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="ms__chronometer_8c_source.html#l00024">24</a> of file <a class="el" href="ms__chronometer_8c_source.html">ms_chronometer.c</a>.</p>
 
 </div>
 </div>

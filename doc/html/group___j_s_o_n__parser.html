@@ -92,32 +92,32 @@ $(document).ready(function(){initNavTree('group___j_s_o_n__parser.html','');});
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">JSON_parser<div class="ingroups"><a class="el" href="group__apps.html">Apps</a> &raquo; <a class="el" href="group__webapp.html">Webapp</a> &raquo; <a class="el" href="group__webapp__utils.html">Webapp_utils</a></div></div>  </div>
+<div class="title">JSON_parser<div class="ingroups"><a class="el" href="group__libs.html">Libs</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Module dedicated to JSON parsing and string formating.  
+<p>Module dedicated to JSON parsing and JSON string formating.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for JSON_parser:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___j_s_o_n__parser.png" border="0" usemap="#group______j__s__o__n____parser" alt=""/></div>
 <map name="group______j__s__o__n____parser" id="group______j__s__o__n____parser">
-<area shape="rect" title="Module dedicated to JSON parsing and string formating." alt="" coords="155,5,256,31"/>
-<area shape="rect" href="group__webapp__utils.html" title="Tools and helpers to be used by the webapp module." alt="" coords="5,5,107,31"/>
+<area shape="rect" title="Module dedicated to JSON parsing and JSON string formating." alt="" coords="100,5,201,31"/>
+<area shape="rect" href="group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,52,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjsonparser__json__param__s.html">jsonparser_json_param_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON parameter structure object.  <a href="structjsonparser__json__param__s.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson__parser__json__param__s.html">json_parser_json_param_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON parameter structure object.  <a href="structjson__parser__json__param__s.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjsonparser__json__object__s.html">jsonparser_json_object_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON Objects structure object.  <a href="structjsonparser__json__object__s.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson__parser__json__object__s.html">json_parser_json_object_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON Objects structure object.  <a href="structjson__parser__json__object__s.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON String structure object.  <a href="structjsonparser__json__string__s.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON String structure object.  <a href="structjson__parser__json__string__s.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -146,44 +146,44 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga82d2ef1df30e6f56f8482d0bf24d40e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga82d2ef1df30e6f56f8482d0bf24d40e4">jsonparser_json_string_put_int_pair</a> (<a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *json_string, char *key, uint16_t val, uint8_t is_initial, uint8_t is_final)</td></tr>
-<tr class="memdesc:ga82d2ef1df30e6f56f8482d0bf24d40e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts a JSON key/(integer)value pair into a provided json string object;.  <a href="group___j_s_o_n__parser.html#ga82d2ef1df30e6f56f8482d0bf24d40e4">More...</a><br /></td></tr>
-<tr class="separator:ga82d2ef1df30e6f56f8482d0bf24d40e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc">jsonparser_json_string_put_str_pair</a> (<a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *json_string, char *key, char *val, uint8_t is_final, uint8_t is_initial)</td></tr>
-<tr class="memdesc:ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts a JSON key/(string)value pair into a provided json string object;.  <a href="group___j_s_o_n__parser.html#ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc">More...</a><br /></td></tr>
-<tr class="separator:ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac023a560ca4eb78a36b6ba0a2c5bbace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gac023a560ca4eb78a36b6ba0a2c5bbace">jsonparser_json_string_nest</a> (<a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *json_string, char *key, <a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *nested_json_string, uint8_t is_initial, uint8_t is_final)</td></tr>
-<tr class="memdesc:gac023a560ca4eb78a36b6ba0a2c5bbace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nests a child JSON string into a parent JSON string.  <a href="group___j_s_o_n__parser.html#gac023a560ca4eb78a36b6ba0a2c5bbace">More...</a><br /></td></tr>
-<tr class="separator:gac023a560ca4eb78a36b6ba0a2c5bbace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad66569437587bfa9d5fa36c32671398c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gad66569437587bfa9d5fa36c32671398c">jsonparser_json_string_put_array_object</a> (<a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *json_string, <a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *json_object, uint8_t is_initial, uint8_t is_final)</td></tr>
-<tr class="memdesc:gad66569437587bfa9d5fa36c32671398c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nests a child JSON string into a parent JSON array.  <a href="group___j_s_o_n__parser.html#gad66569437587bfa9d5fa36c32671398c">More...</a><br /></td></tr>
-<tr class="separator:gad66569437587bfa9d5fa36c32671398c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga171913e44bd232c6568b3d945ef5073f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjsonparser__json__object__s.html">jsonparser_json_object_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga171913e44bd232c6568b3d945ef5073f">jsonparser_parse</a> (char *json_string, uint16_t json_string_len)</td></tr>
-<tr class="memdesc:ga171913e44bd232c6568b3d945ef5073f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves key/value pairs from a JSON encoded string.  <a href="group___j_s_o_n__parser.html#ga171913e44bd232c6568b3d945ef5073f">More...</a><br /></td></tr>
-<tr class="separator:ga171913e44bd232c6568b3d945ef5073f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7d5de13c212ac321192dc07ea1f8826a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga7d5de13c212ac321192dc07ea1f8826a">jsonparser_json_string_new</a> (void)</td></tr>
-<tr class="memdesc:ga7d5de13c212ac321192dc07ea1f8826a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and initialises a new json string instance.  <a href="group___j_s_o_n__parser.html#ga7d5de13c212ac321192dc07ea1f8826a">More...</a><br /></td></tr>
-<tr class="separator:ga7d5de13c212ac321192dc07ea1f8826a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2cb0ccbc3fe7d584c4a299280f702830"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga2cb0ccbc3fe7d584c4a299280f702830">jsonparser_free_json_object</a> (<a class="el" href="structjsonparser__json__object__s.html">jsonparser_json_object_s</a> *json_object)</td></tr>
-<tr class="memdesc:ga2cb0ccbc3fe7d584c4a299280f702830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a parsed json object.  <a href="group___j_s_o_n__parser.html#ga2cb0ccbc3fe7d584c4a299280f702830">More...</a><br /></td></tr>
-<tr class="separator:ga2cb0ccbc3fe7d584c4a299280f702830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga084da82bf0fcdc2a21f454e2d09546ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga084da82bf0fcdc2a21f454e2d09546ed">jsonparser_free_json_string</a> (<a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *json_string)</td></tr>
-<tr class="memdesc:ga084da82bf0fcdc2a21f454e2d09546ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a json string instance.  <a href="group___j_s_o_n__parser.html#ga084da82bf0fcdc2a21f454e2d09546ed">More...</a><br /></td></tr>
-<tr class="separator:ga084da82bf0fcdc2a21f454e2d09546ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9bff9ff833382f3757553b1394cfd463"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga9bff9ff833382f3757553b1394cfd463">json_parser_json_string_put_int_pair</a> (<a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *json_string, char *key, uint16_t val, uint8_t is_initial, uint8_t is_final)</td></tr>
+<tr class="memdesc:ga9bff9ff833382f3757553b1394cfd463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts a JSON key/(integer)value pair into a provided json string object;.  <a href="group___j_s_o_n__parser.html#ga9bff9ff833382f3757553b1394cfd463">More...</a><br /></td></tr>
+<tr class="separator:ga9bff9ff833382f3757553b1394cfd463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a4c3cae9495de7797650a0b7766ec35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga2a4c3cae9495de7797650a0b7766ec35">json_parser_json_string_put_str_pair</a> (<a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *json_string, char *key, char *val, uint8_t is_final, uint8_t is_initial)</td></tr>
+<tr class="memdesc:ga2a4c3cae9495de7797650a0b7766ec35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts a JSON key/(string)value pair into a provided json string object;.  <a href="group___j_s_o_n__parser.html#ga2a4c3cae9495de7797650a0b7766ec35">More...</a><br /></td></tr>
+<tr class="separator:ga2a4c3cae9495de7797650a0b7766ec35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46a7c6e8223c8a10faaa0b0b26d1f450"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga46a7c6e8223c8a10faaa0b0b26d1f450">json_parser_json_string_nest</a> (<a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *json_string, char *key, <a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *nested_json_string, uint8_t is_initial, uint8_t is_final)</td></tr>
+<tr class="memdesc:ga46a7c6e8223c8a10faaa0b0b26d1f450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nests a child JSON string into a parent JSON string.  <a href="group___j_s_o_n__parser.html#ga46a7c6e8223c8a10faaa0b0b26d1f450">More...</a><br /></td></tr>
+<tr class="separator:ga46a7c6e8223c8a10faaa0b0b26d1f450"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e69e7ea39459ffe4bf7125ee86a0bb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga7e69e7ea39459ffe4bf7125ee86a0bb3">json_parser_json_string_put_array_object</a> (<a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *json_string, <a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *json_object, uint8_t is_initial, uint8_t is_final)</td></tr>
+<tr class="memdesc:ga7e69e7ea39459ffe4bf7125ee86a0bb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nests a child JSON string into a parent JSON array.  <a href="group___j_s_o_n__parser.html#ga7e69e7ea39459ffe4bf7125ee86a0bb3">More...</a><br /></td></tr>
+<tr class="separator:ga7e69e7ea39459ffe4bf7125ee86a0bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e9ad0aa575e0904d3364a472e9c337a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjson__parser__json__object__s.html">json_parser_json_object_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga9e9ad0aa575e0904d3364a472e9c337a">json_parser_parse</a> (char *json_string, uint16_t json_string_len)</td></tr>
+<tr class="memdesc:ga9e9ad0aa575e0904d3364a472e9c337a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves key/value pairs from a JSON encoded string.  <a href="group___j_s_o_n__parser.html#ga9e9ad0aa575e0904d3364a472e9c337a">More...</a><br /></td></tr>
+<tr class="separator:ga9e9ad0aa575e0904d3364a472e9c337a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad1b29951176046523c36546264c2e899"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gad1b29951176046523c36546264c2e899">json_parser_json_string_new</a> (void)</td></tr>
+<tr class="memdesc:gad1b29951176046523c36546264c2e899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and initialises a new json string instance.  <a href="group___j_s_o_n__parser.html#gad1b29951176046523c36546264c2e899">More...</a><br /></td></tr>
+<tr class="separator:gad1b29951176046523c36546264c2e899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabce9c37659d93dceb2df833e52e02fd5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gabce9c37659d93dceb2df833e52e02fd5">json_parser_free_json_object</a> (<a class="el" href="structjson__parser__json__object__s.html">json_parser_json_object_s</a> *json_object)</td></tr>
+<tr class="memdesc:gabce9c37659d93dceb2df833e52e02fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a parsed json object.  <a href="group___j_s_o_n__parser.html#gabce9c37659d93dceb2df833e52e02fd5">More...</a><br /></td></tr>
+<tr class="separator:gabce9c37659d93dceb2df833e52e02fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga077d74c65c070750f1a749625d795704"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga077d74c65c070750f1a749625d795704">json_parser_free_json_string</a> (<a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *json_string)</td></tr>
+<tr class="memdesc:ga077d74c65c070750f1a749625d795704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a json string instance.  <a href="group___j_s_o_n__parser.html#ga077d74c65c070750f1a749625d795704">More...</a><br /></td></tr>
+<tr class="separator:ga077d74c65c070750f1a749625d795704"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Module dedicated to JSON parsing and string formating. </p>
+<p>Module dedicated to JSON parsing and JSON string formating. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga2cb0ccbc3fe7d584c4a299280f702830"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2cb0ccbc3fe7d584c4a299280f702830">&#9670;&nbsp;</a></span>jsonparser_free_json_object()</h2>
+<a id="gabce9c37659d93dceb2df833e52e02fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabce9c37659d93dceb2df833e52e02fd5">&#9670;&nbsp;</a></span>json_parser_free_json_object()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void jsonparser_free_json_object </td>
+          <td class="memname">void json_parser_free_json_object </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__object__s.html">jsonparser_json_object_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__object__s.html">json_parser_json_object_s</a> *&#160;</td>
           <td class="paramname"><em>json_object</em></td><td>)</td>
           <td></td>
         </tr>
@@ -198,20 +198,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00232">232</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00232">232</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>
-<a id="ga084da82bf0fcdc2a21f454e2d09546ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga084da82bf0fcdc2a21f454e2d09546ed">&#9670;&nbsp;</a></span>jsonparser_free_json_string()</h2>
+<a id="ga077d74c65c070750f1a749625d795704"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga077d74c65c070750f1a749625d795704">&#9670;&nbsp;</a></span>json_parser_free_json_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void jsonparser_free_json_string </td>
+          <td class="memname">void json_parser_free_json_string </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td>
           <td class="paramname"><em>json_string</em></td><td>)</td>
           <td></td>
         </tr>
@@ -221,25 +221,25 @@ Functions</h2></td></tr>
 <p>Frees a json string instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*jsonparser_json_string_s</td><td>pointer to json string instance to be freed </td></tr>
+    <tr><td class="paramname">*json_parser_json_string_s</td><td>pointer to json string instance to be freed </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00263">263</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00263">263</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>
-<a id="gac023a560ca4eb78a36b6ba0a2c5bbace"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac023a560ca4eb78a36b6ba0a2c5bbace">&#9670;&nbsp;</a></span>jsonparser_json_string_nest()</h2>
+<a id="ga46a7c6e8223c8a10faaa0b0b26d1f450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46a7c6e8223c8a10faaa0b0b26d1f450">&#9670;&nbsp;</a></span>json_parser_json_string_nest()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void jsonparser_json_string_nest </td>
+          <td class="memname">void json_parser_json_string_nest </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td>
           <td class="paramname"><em>json_string</em>, </td>
         </tr>
         <tr>
@@ -251,7 +251,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td>
           <td class="paramname"><em>nested_json_string</em>, </td>
         </tr>
         <tr>
@@ -286,18 +286,18 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00121">121</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00121">121</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>
-<a id="ga7d5de13c212ac321192dc07ea1f8826a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7d5de13c212ac321192dc07ea1f8826a">&#9670;&nbsp;</a></span>jsonparser_json_string_new()</h2>
+<a id="gad1b29951176046523c36546264c2e899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad1b29951176046523c36546264c2e899">&#9670;&nbsp;</a></span>json_parser_json_string_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a>* jsonparser_json_string_new </td>
+          <td class="memname"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a>* json_parser_json_string_new </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -307,28 +307,28 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates and initialises a new json string instance. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structjsonparser__json__string__s.html" title="JSON String structure object.">jsonparser_json_string_s</a> * pointer to the created json string instance </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structjson__parser__json__string__s.html" title="JSON String structure object.">json_parser_json_string_s</a> * pointer to the created json string instance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00251">251</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00251">251</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>
-<a id="gad66569437587bfa9d5fa36c32671398c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad66569437587bfa9d5fa36c32671398c">&#9670;&nbsp;</a></span>jsonparser_json_string_put_array_object()</h2>
+<a id="ga7e69e7ea39459ffe4bf7125ee86a0bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7e69e7ea39459ffe4bf7125ee86a0bb3">&#9670;&nbsp;</a></span>json_parser_json_string_put_array_object()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void jsonparser_json_string_put_array_object </td>
+          <td class="memname">void json_parser_json_string_put_array_object </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td>
           <td class="paramname"><em>json_string</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td>
           <td class="paramname"><em>json_object</em>, </td>
         </tr>
         <tr>
@@ -362,20 +362,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00150">150</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00150">150</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>
-<a id="ga82d2ef1df30e6f56f8482d0bf24d40e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga82d2ef1df30e6f56f8482d0bf24d40e4">&#9670;&nbsp;</a></span>jsonparser_json_string_put_int_pair()</h2>
+<a id="ga9bff9ff833382f3757553b1394cfd463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9bff9ff833382f3757553b1394cfd463">&#9670;&nbsp;</a></span>json_parser_json_string_put_int_pair()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void jsonparser_json_string_put_int_pair </td>
+          <td class="memname">void json_parser_json_string_put_int_pair </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td>
           <td class="paramname"><em>json_string</em>, </td>
         </tr>
         <tr>
@@ -422,20 +422,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00056">56</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00056">56</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>
-<a id="ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc">&#9670;&nbsp;</a></span>jsonparser_json_string_put_str_pair()</h2>
+<a id="ga2a4c3cae9495de7797650a0b7766ec35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2a4c3cae9495de7797650a0b7766ec35">&#9670;&nbsp;</a></span>json_parser_json_string_put_str_pair()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void jsonparser_json_string_put_str_pair </td>
+          <td class="memname">void json_parser_json_string_put_str_pair </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structjsonparser__json__string__s.html">jsonparser_json_string_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="structjson__parser__json__string__s.html">json_parser_json_string_s</a> *&#160;</td>
           <td class="paramname"><em>json_string</em>, </td>
         </tr>
         <tr>
@@ -482,18 +482,18 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00089">89</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00089">89</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>
-<a id="ga171913e44bd232c6568b3d945ef5073f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga171913e44bd232c6568b3d945ef5073f">&#9670;&nbsp;</a></span>jsonparser_parse()</h2>
+<a id="ga9e9ad0aa575e0904d3364a472e9c337a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9e9ad0aa575e0904d3364a472e9c337a">&#9670;&nbsp;</a></span>json_parser_parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structjsonparser__json__object__s.html">jsonparser_json_object_s</a>* jsonparser_parse </td>
+          <td class="memname"><a class="el" href="structjson__parser__json__object__s.html">json_parser_json_object_s</a>* json_parser_parse </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>json_string</em>, </td>
@@ -520,10 +520,10 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>jsonparser_json_object_s* pointer to the parsed JSON object instance </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>json_parser_json_object_s* pointer to the parsed JSON object instance </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>this is parser cannot (yet ?) parse JSON arrays. When provided with a JSON array, it will simply chain the array values to the parser pairs as if the array did not exist </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="jsonparser_8c_source.html#l00176">176</a> of file <a class="el" href="jsonparser_8c_source.html">jsonparser.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00176">176</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
 </div>
 </div>

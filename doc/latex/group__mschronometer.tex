@@ -5,19 +5,20 @@
 In order to keep track of time, a chronometer capable of producing accurate millisecond count is required. mschonometer conveys time information using a time delta value which can be set and reset throughout time. Once reset, elapsed time may be processed using the time delta value as a start offset.  
 
 
-Collaboration diagram for Mschronometer\+:\nopagebreak
+Collaboration diagram for Mschronometer\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=278pt]{group__mschronometer}
+\includegraphics[width=235pt]{group__mschronometer}
 \end{center}
 \end{figure}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{group__mschronometer_ga1388d95d740fcaa0e663bba0864b1f9b}{D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+reset}} (\mbox{\hyperlink{struct_d_m_x512__utils__mschronometer__s}{D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+s}} $\ast$mschronometer)
+void \mbox{\hyperlink{group__mschronometer_ga0d102aa7546c654578badeeb7a30a047}{ms\+\_\+chronometer\+\_\+reset}} (\mbox{\hyperlink{structms__chronometer__s}{ms\+\_\+chronometer\+\_\+s}} $\ast$ms\+\_\+chronometer)
 \begin{DoxyCompactList}\small\item\em Resets an mschronometer instance time delta to zero. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{group__mschronometer_ga62473952fd29ca3c8fbc766107af9f29}{D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+get\+\_\+elapsed\+\_\+ms}} (\mbox{\hyperlink{struct_d_m_x512__utils__mschronometer__s}{D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+s}} $\ast$mschronometer)
+uint32\+\_\+t \mbox{\hyperlink{group__mschronometer_ga9b999983069da4349f823775b751717a}{ms\+\_\+chronometer\+\_\+get\+\_\+elapsed\+\_\+ms}} (\mbox{\hyperlink{structms__chronometer__s}{ms\+\_\+chronometer\+\_\+s}} $\ast$ms\+\_\+chronometer)
 \begin{DoxyCompactList}\small\item\em Returns elapsed time in milliseconds since last reset. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -27,11 +28,11 @@ In order to keep track of time, a chronometer capable of producing accurate mill
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{group__mschronometer_ga62473952fd29ca3c8fbc766107af9f29}\label{group__mschronometer_ga62473952fd29ca3c8fbc766107af9f29}} 
-\index{Mschronometer@{Mschronometer}!DMX512\_utils\_mschronometer\_get\_elapsed\_ms@{DMX512\_utils\_mschronometer\_get\_elapsed\_ms}}
-\index{DMX512\_utils\_mschronometer\_get\_elapsed\_ms@{DMX512\_utils\_mschronometer\_get\_elapsed\_ms}!Mschronometer@{Mschronometer}}
-\doxysubsubsection{\texorpdfstring{DMX512\_utils\_mschronometer\_get\_elapsed\_ms()}{DMX512\_utils\_mschronometer\_get\_elapsed\_ms()}}
-{\footnotesize\ttfamily uint32\+\_\+t D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+get\+\_\+elapsed\+\_\+ms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__utils__mschronometer__s}{D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+s}} $\ast$}]{mschronometer }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{group__mschronometer_ga9b999983069da4349f823775b751717a}\label{group__mschronometer_ga9b999983069da4349f823775b751717a}} 
+\index{Mschronometer@{Mschronometer}!ms\_chronometer\_get\_elapsed\_ms@{ms\_chronometer\_get\_elapsed\_ms}}
+\index{ms\_chronometer\_get\_elapsed\_ms@{ms\_chronometer\_get\_elapsed\_ms}!Mschronometer@{Mschronometer}}
+\doxysubsubsection{\texorpdfstring{ms\_chronometer\_get\_elapsed\_ms()}{ms\_chronometer\_get\_elapsed\_ms()}}
+{\footnotesize\ttfamily uint32\+\_\+t ms\+\_\+chronometer\+\_\+get\+\_\+elapsed\+\_\+ms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structms__chronometer__s}{ms\+\_\+chronometer\+\_\+s}} $\ast$}]{ms\+\_\+chronometer }\end{DoxyParamCaption})}
 
 
 
@@ -47,13 +48,13 @@ uint32\+\_\+t elapsed time in milliseconds
 \end{DoxyReturn}
 
 
-Definition at line 35 of file D\+M\+X512\+\_\+utils.\+c.
+Definition at line 35 of file ms\+\_\+chronometer.\+c.
 
-\mbox{\Hypertarget{group__mschronometer_ga1388d95d740fcaa0e663bba0864b1f9b}\label{group__mschronometer_ga1388d95d740fcaa0e663bba0864b1f9b}} 
-\index{Mschronometer@{Mschronometer}!DMX512\_utils\_mschronometer\_reset@{DMX512\_utils\_mschronometer\_reset}}
-\index{DMX512\_utils\_mschronometer\_reset@{DMX512\_utils\_mschronometer\_reset}!Mschronometer@{Mschronometer}}
-\doxysubsubsection{\texorpdfstring{DMX512\_utils\_mschronometer\_reset()}{DMX512\_utils\_mschronometer\_reset()}}
-{\footnotesize\ttfamily void D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__utils__mschronometer__s}{D\+M\+X512\+\_\+utils\+\_\+mschronometer\+\_\+s}} $\ast$}]{mschronometer }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{group__mschronometer_ga0d102aa7546c654578badeeb7a30a047}\label{group__mschronometer_ga0d102aa7546c654578badeeb7a30a047}} 
+\index{Mschronometer@{Mschronometer}!ms\_chronometer\_reset@{ms\_chronometer\_reset}}
+\index{ms\_chronometer\_reset@{ms\_chronometer\_reset}!Mschronometer@{Mschronometer}}
+\doxysubsubsection{\texorpdfstring{ms\_chronometer\_reset()}{ms\_chronometer\_reset()}}
+{\footnotesize\ttfamily void ms\+\_\+chronometer\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structms__chronometer__s}{ms\+\_\+chronometer\+\_\+s}} $\ast$}]{ms\+\_\+chronometer }\end{DoxyParamCaption})}
 
 
 
@@ -66,5 +67,5 @@ Resets an mschronometer instance time delta to zero.
 \end{DoxyParams}
 
 
-Definition at line 24 of file D\+M\+X512\+\_\+utils.\+c.
+Definition at line 24 of file ms\+\_\+chronometer.\+c.
 

@@ -1,4 +1,4 @@
 <map id="HTML_FS" name="HTML_FS">
-<area shape="rect" id="node1" href="$group__webapp__utils.html" title="Tools and helpers to be used by the webapp module." alt="" coords="5,5,107,31"/>
-<area shape="rect" id="node2" title="Static files file system. Manages files compiled within htmlgen.c file. htmlgen.c file contains a com..." alt="" coords="155,5,237,31"/>
+<area shape="rect" id="node1" title="Static files file system. Manages files compiled within htmlgen.c file. htmlgen.c file contains a com..." alt="" coords="5,22,88,47"/>
+<area shape="rect" id="node2" href="$group__webapp.html" title="Definition of a suite of WEB services enabling remote device configuration through the use of HTTP se..." alt="" coords="197,22,268,47"/>
 </map>

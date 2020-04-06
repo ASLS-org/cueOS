@@ -1,10 +1,8 @@
 <map id="DMX512_engine" name="DMX512_engine">
-<area shape="rect" id="node1" href="$group__apps.html" title="Higher layer applications." alt="" coords="5,129,57,155"/>
-<area shape="rect" id="node6" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="105,129,224,155"/>
+<area shape="rect" id="node1" href="$group__apps.html" title="High layer user&#45;defined user applications." alt="" coords="5,80,57,105"/>
+<area shape="rect" id="node5" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="105,80,224,105"/>
 <area shape="rect" id="node2" href="$group___d_m_x512__fixture__pool.html" title="Fixture pools are used to store a universe&#39;s patch information. A patch is a pool of addressed fixtur..." alt="" coords="274,5,421,31"/>
 <area shape="rect" id="node3" href="$group___d_m_x512__defs.html" title="Definition of fundamental constant values to be used by the DMX512 engine." alt="" coords="295,55,400,80"/>
-<area shape="rect" id="node4" href="$group___d_m_x512__utils.html" title="Code snippets for non DMX512 related tools and helpers used throughout the DMX512 app." alt="" coords="295,104,399,129"/>
-<area shape="rect" id="node5" href="$group___d_m_x512__chaser__pool.html" title="Chaser pools are used to store and manage a lists of pre&#45;configured chasers. Up to 65535 DMX512 chase..." alt="" coords="272,153,423,179"/>
-<area shape="rect" id="node7" href="$group___d_m_x512__api.html" title="DMX512 engine HTTP wrapper. Handles manipulation of the DMX512 engine resources over HTTP through a u..." alt="" coords="299,203,396,228"/>
-<area shape="rect" id="node8" href="$group___d_m_x512__scene__pool.html" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="274,252,421,277"/>
+<area shape="rect" id="node4" href="$group___d_m_x512__chaser__pool.html" title="Chaser pools are used to store and manage a lists of pre&#45;configured chasers. Up to 65535 DMX512 chase..." alt="" coords="272,104,423,129"/>
+<area shape="rect" id="node6" href="$group___d_m_x512__scene__pool.html" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="274,153,421,179"/>
 </map>

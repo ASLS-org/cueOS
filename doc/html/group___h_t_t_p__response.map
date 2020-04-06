@@ -1,4 +1,4 @@
 <map id="HTTP_response" name="HTTP_response">
-<area shape="rect" id="node1" href="$group___h_t_t_p.html" title="Handles HTTP packet transactions." alt="" coords="5,5,63,31"/>
-<area shape="rect" id="node2" title="Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP version..." alt="" coords="111,5,228,31"/>
+<area shape="rect" id="node1" title="Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP version..." alt="" coords="153,5,271,31"/>
+<area shape="rect" id="node2" href="$group___h_t_t_p__server.html" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="5,5,105,31"/>
 </map>

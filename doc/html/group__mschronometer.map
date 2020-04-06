@@ -1,4 +1,4 @@
 <map id="Mschronometer" name="Mschronometer">
-<area shape="rect" id="node1" href="$group___d_m_x512__utils.html" title="Code snippets for non DMX512 related tools and helpers used throughout the DMX512 app." alt="" coords="5,5,109,31"/>
-<area shape="rect" id="node2" title="In order to keep track of time, a chronometer capable of producing accurate millisecond count is requ..." alt="" coords="157,5,269,31"/>
+<area shape="rect" id="node1" title="In order to keep track of time, a chronometer capable of producing accurate millisecond count is requ..." alt="" coords="100,5,212,31"/>
+<area shape="rect" id="node2" href="$group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,52,31"/>
 </map>
