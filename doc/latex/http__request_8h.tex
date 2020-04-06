@@ -1,0 +1,44 @@
+\hypertarget{http__request_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/webapp/utils/http/inc/http\+\_\+request.h File Reference}
+\label{http__request_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/http/inc/http\_request.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/http/inc/http\_request.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}http\+\_\+response.\+h\char`\"{}}\newline
+Include dependency graph for http\+\_\+request.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{http__request_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{http__request_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structhttp__param}{http\+\_\+param}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP uri parameter object. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structhttp__request}{http\+\_\+request}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP request object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structhttp__request}{http\+\_\+request}} \mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP request object. \end{DoxyCompactList}\item 
+typedef void($\ast$ \mbox{\hyperlink{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}{router\+\_\+fn}}) (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
+\item 
+typedef struct \mbox{\hyperlink{structhttp__param}{http\+\_\+param}} \mbox{\hyperlink{group___h_t_t_p__request_gaed4bdbabddb9e62d6e48261f7e9b7e20}{http\+\_\+param\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP uri parameter object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$ \mbox{\hyperlink{group___h_t_t_p__request_gabd4a931a62009fea68304a602af763ea}{http\+\_\+request\+\_\+new}} (\mbox{\hyperlink{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}{router\+\_\+fn}} router)
+\begin{DoxyCompactList}\small\item\em Creates a new H\+T\+TP request instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_t_t_p__request_ga4038a4f876a89f3446956db1d36200ef}{http\+\_\+request\+\_\+free}} (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
+\begin{DoxyCompactList}\small\item\em Safely frees an H\+T\+TP request instance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group___h_t_t_p__request_gaec538948aac340d2692de64d65ee870c}{http\+\_\+request\+\_\+parse}} (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req, struct pbuf $\ast$p)
+\begin{DoxyCompactList}\small\item\em Extracts and parses H\+T\+TP method headers and content from received data and calls the router function defined during initialisation. router function is in charge of generating response data. It is up to the user to implement such function. \end{DoxyCompactList}\end{DoxyCompactItemize}

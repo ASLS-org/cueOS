@@ -33,10 +33,15 @@
 #include "lwip/def.h"
 #include "htmlfs.h"
 #include <string.h>
-
 #include "htmlgen.c"
 
-
+/**
+ * @brief opens a pre-compiled file located in htmlgen.c
+ *
+ * @param *file pointer to an fs_file object
+ * @param *name pointer to a string containing the path/name
+ * 		  of the file to be opened
+ */
 err_t fs_open(struct fs_file *file, const char *name) {
 
   const struct fsdata_file *f;
@@ -57,12 +62,4 @@ err_t fs_open(struct fs_file *file, const char *name) {
   }
   /* file not found */
   return ERR_VAL;
-}
-
-void fs_close(struct fs_file *file) {
-  LWIP_UNUSED_ARG(file);
-}
-
-int fs_bytes_left(struct fs_file *file) {
-  return file->len - file->index;
 }

@@ -1,0 +1,5 @@
+<map id="DMX512_scene_pool" name="DMX512_scene_pool">
+<area shape="rect" id="node1" href="$group___d_m_x512__scene.html" title="Scenes fundamentally define a set of fixtures pre&#45;defined values to be transferred over to the DMX512..." alt="" coords="367,5,481,31"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__engine.html" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="5,5,124,31"/>
+<area shape="rect" id="node3" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="172,5,319,31"/>
+</map>

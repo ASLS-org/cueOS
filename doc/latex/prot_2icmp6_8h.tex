@@ -1,0 +1,291 @@
+\hypertarget{prot_2icmp6_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/prot/icmp6.h File Reference}
+\label{prot_2icmp6_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/icmp6.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/icmp6.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structicmp6__hdr}{icmp6\+\_\+hdr}}
+\item 
+struct \mbox{\hyperlink{structicmp6__echo__hdr}{icmp6\+\_\+echo\+\_\+hdr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858}{icmp6\+\_\+type}} \{ \newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aad9d4f207459e4bbd0c33a25adf6fdd7}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+D\+UR}} = 1, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1d52ef5024a5822bd622bcb0b9da323d}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+TB}} = 2, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afae9848904bc4b4b4aa716a7a9a2d7fe}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+TE}} = 3, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a63114feac8140031b74424d4a7cf6b26}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+PP}} = 4, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac7020c08a7b03ae2a198e4a8dcd31bd4}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E1}} = 100, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aed14d280e5911098af914a94bd3ab22b}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E2}} = 101, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858abe61415e020b996220337f0cd002a28f}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+S\+V\+\_\+\+E\+RR}} = 127, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae649aa45c97b885f28771688957528a3}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+EQ}} = 128, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac6b91695c06bfc7fb2360310d7b8e78a}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+EP}} = 129, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ad9794ae12b9ca196cc4fafaf6d834375}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+LQ}} = 130, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a906dd689f0aa9b4796f49f299d4e3eb0}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+LR}} = 131, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a04228a1d11f9f88bd165f3430188bfe7}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+LD}} = 132, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a670d95494c9282f646ac442d81d9a780}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+RS}} = 133, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae4ae04be7df3a2cce614af0a5cdae951}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+RA}} = 134, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0d8d8717c6c34053d1101932c23929fe}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+NS}} = 135, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1f99d333f425c28d3840e029cc9c46f3}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+NA}} = 136, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0f6702d62de5f873e0afe7431d878207}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+RD}} = 137, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a29281016d3bb58e3bfd90417bbce7aa0}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+RA}} = 151, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a425f4e64a7d1570228adbbe450650ab4}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+RS}} = 152, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afb12a9d774f53deb15ec23041548f6fc}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+RT}} = 153, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a9c9c358ebd5eb683a66819fd9ecf98c6}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E3}} = 200, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858af8ebe97c4f68b54c9ef0c43e98211df5}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E4}} = 201, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a2c12d3244d837bd243ea647ec530600d}{I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+S\+V\+\_\+\+I\+NF}} = 255
+ \}
+\item 
+enum \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccf}{icmp6\+\_\+dur\+\_\+code}} \{ \newline
+\mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa695bb4d92f32b504a9483ff137235a78}{I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+N\+O\+\_\+\+R\+O\+U\+TE}} = 0, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa251961b990d0fbaf2c643f047c4f2532}{I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+P\+R\+O\+H\+I\+B\+I\+T\+ED}} = 1, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfabdb01a67c61da588872f5799ef75aa6e}{I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+S\+C\+O\+PE}} = 2, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa789ef8158d8750b0fa5a14ec9ecaa23a}{I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+A\+D\+D\+R\+E\+SS}} = 3, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa28cc924ec6eaa761acb76ccef4adcba0}{I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+P\+O\+RT}} = 4, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfac3c255282e0b49b5bbb3cd8f435bb763}{I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+P\+O\+L\+I\+CY}} = 5, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa2aeed278149fb071a34beec89df03b5c}{I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+R\+E\+J\+E\+C\+T\+\_\+\+R\+O\+U\+TE}} = 6
+ \}
+\item 
+enum \mbox{\hyperlink{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869e}{icmp6\+\_\+te\+\_\+code}} \{ \newline
+\mbox{\hyperlink{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eacccbb5e776df1b35af4149e593240880}{I\+C\+M\+P6\+\_\+\+T\+E\+\_\+\+HL}} = 0, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eaec493420d61c80a21981b1aa32befe1f}{I\+C\+M\+P6\+\_\+\+T\+E\+\_\+\+F\+R\+AG}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023}{icmp6\+\_\+pp\+\_\+code}} \{ \newline
+\mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a4aa4a79306a69fd4f60ad445cde4c2a9}{I\+C\+M\+P6\+\_\+\+P\+P\+\_\+\+F\+I\+E\+LD}} = 0, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023acbcc58901e2345ffc31df4098de60ff8}{I\+C\+M\+P6\+\_\+\+P\+P\+\_\+\+H\+E\+A\+D\+ER}} = 1, 
+\newline
+\mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a53884832d00d3c8f8de62cfdb4646932}{I\+C\+M\+P6\+\_\+\+P\+P\+\_\+\+O\+P\+T\+I\+ON}} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2icmp6_8h_a78cd5496526f3de09831880d2f09db80}\label{prot_2icmp6_8h_a78cd5496526f3de09831880d2f09db80}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+E\+G\+IN}} struct \mbox{\hyperlink{structicmp6__hdr}{icmp6\+\_\+hdr}} {\bfseries P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+S\+T\+R\+U\+CT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I\+C\+M\+P6 protocol definitions 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccf}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccf}} 
+\index{icmp6.h@{icmp6.h}!icmp6\_dur\_code@{icmp6\_dur\_code}}
+\index{icmp6\_dur\_code@{icmp6\_dur\_code}!icmp6.h@{icmp6.h}}
+\doxysubsubsection{\texorpdfstring{icmp6\_dur\_code}{icmp6\_dur\_code}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccf}{icmp6\+\_\+dur\+\_\+code}}}
+
+I\+C\+MP destination unreachable codes \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_DUR\_NO\_ROUTE@{ICMP6\_DUR\_NO\_ROUTE}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_DUR\_NO\_ROUTE@{ICMP6\_DUR\_NO\_ROUTE}}}\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa695bb4d92f32b504a9483ff137235a78}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa695bb4d92f32b504a9483ff137235a78}} 
+I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+N\+O\+\_\+\+R\+O\+U\+TE&No route to destination \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_DUR\_PROHIBITED@{ICMP6\_DUR\_PROHIBITED}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_DUR\_PROHIBITED@{ICMP6\_DUR\_PROHIBITED}}}\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa251961b990d0fbaf2c643f047c4f2532}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa251961b990d0fbaf2c643f047c4f2532}} 
+I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+P\+R\+O\+H\+I\+B\+I\+T\+ED&Communication with destination administratively prohibited \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_DUR\_SCOPE@{ICMP6\_DUR\_SCOPE}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_DUR\_SCOPE@{ICMP6\_DUR\_SCOPE}}}\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfabdb01a67c61da588872f5799ef75aa6e}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfabdb01a67c61da588872f5799ef75aa6e}} 
+I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+S\+C\+O\+PE&Beyond scope of source address \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_DUR\_ADDRESS@{ICMP6\_DUR\_ADDRESS}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_DUR\_ADDRESS@{ICMP6\_DUR\_ADDRESS}}}\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa789ef8158d8750b0fa5a14ec9ecaa23a}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa789ef8158d8750b0fa5a14ec9ecaa23a}} 
+I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+A\+D\+D\+R\+E\+SS&Address unreachable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_DUR\_PORT@{ICMP6\_DUR\_PORT}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_DUR\_PORT@{ICMP6\_DUR\_PORT}}}\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa28cc924ec6eaa761acb76ccef4adcba0}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa28cc924ec6eaa761acb76ccef4adcba0}} 
+I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+P\+O\+RT&Port unreachable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_DUR\_POLICY@{ICMP6\_DUR\_POLICY}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_DUR\_POLICY@{ICMP6\_DUR\_POLICY}}}\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfac3c255282e0b49b5bbb3cd8f435bb763}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfac3c255282e0b49b5bbb3cd8f435bb763}} 
+I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+P\+O\+L\+I\+CY&Source address failed ingress/egress policy \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_DUR\_REJECT\_ROUTE@{ICMP6\_DUR\_REJECT\_ROUTE}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_DUR\_REJECT\_ROUTE@{ICMP6\_DUR\_REJECT\_ROUTE}}}\mbox{\Hypertarget{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa2aeed278149fb071a34beec89df03b5c}\label{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa2aeed278149fb071a34beec89df03b5c}} 
+I\+C\+M\+P6\+\_\+\+D\+U\+R\+\_\+\+R\+E\+J\+E\+C\+T\+\_\+\+R\+O\+U\+TE&Reject route to destination \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 98 of file icmp6.\+h.
+
+\mbox{\Hypertarget{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023}\label{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023}} 
+\index{icmp6.h@{icmp6.h}!icmp6\_pp\_code@{icmp6\_pp\_code}}
+\index{icmp6\_pp\_code@{icmp6\_pp\_code}!icmp6.h@{icmp6.h}}
+\doxysubsubsection{\texorpdfstring{icmp6\_pp\_code}{icmp6\_pp\_code}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023}{icmp6\+\_\+pp\+\_\+code}}}
+
+I\+C\+MP parameter code \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_PP\_FIELD@{ICMP6\_PP\_FIELD}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_PP\_FIELD@{ICMP6\_PP\_FIELD}}}\mbox{\Hypertarget{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a4aa4a79306a69fd4f60ad445cde4c2a9}\label{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a4aa4a79306a69fd4f60ad445cde4c2a9}} 
+I\+C\+M\+P6\+\_\+\+P\+P\+\_\+\+F\+I\+E\+LD&Erroneous header field encountered \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_PP\_HEADER@{ICMP6\_PP\_HEADER}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_PP\_HEADER@{ICMP6\_PP\_HEADER}}}\mbox{\Hypertarget{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023acbcc58901e2345ffc31df4098de60ff8}\label{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023acbcc58901e2345ffc31df4098de60ff8}} 
+I\+C\+M\+P6\+\_\+\+P\+P\+\_\+\+H\+E\+A\+D\+ER&Unrecognized next header type encountered \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_PP\_OPTION@{ICMP6\_PP\_OPTION}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_PP\_OPTION@{ICMP6\_PP\_OPTION}}}\mbox{\Hypertarget{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a53884832d00d3c8f8de62cfdb4646932}\label{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a53884832d00d3c8f8de62cfdb4646932}} 
+I\+C\+M\+P6\+\_\+\+P\+P\+\_\+\+O\+P\+T\+I\+ON&Unrecognized I\+Pv6 option encountered \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 124 of file icmp6.\+h.
+
+\mbox{\Hypertarget{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869e}\label{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869e}} 
+\index{icmp6.h@{icmp6.h}!icmp6\_te\_code@{icmp6\_te\_code}}
+\index{icmp6\_te\_code@{icmp6\_te\_code}!icmp6.h@{icmp6.h}}
+\doxysubsubsection{\texorpdfstring{icmp6\_te\_code}{icmp6\_te\_code}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869e}{icmp6\+\_\+te\+\_\+code}}}
+
+I\+C\+MP time exceeded codes \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TE\_HL@{ICMP6\_TE\_HL}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TE\_HL@{ICMP6\_TE\_HL}}}\mbox{\Hypertarget{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eacccbb5e776df1b35af4149e593240880}\label{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eacccbb5e776df1b35af4149e593240880}} 
+I\+C\+M\+P6\+\_\+\+T\+E\+\_\+\+HL&Hop limit exceeded in transit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TE\_FRAG@{ICMP6\_TE\_FRAG}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TE\_FRAG@{ICMP6\_TE\_FRAG}}}\mbox{\Hypertarget{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eaec493420d61c80a21981b1aa32befe1f}\label{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eaec493420d61c80a21981b1aa32befe1f}} 
+I\+C\+M\+P6\+\_\+\+T\+E\+\_\+\+F\+R\+AG&Fragment reassembly time exceeded \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 116 of file icmp6.\+h.
+
+\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858}} 
+\index{icmp6.h@{icmp6.h}!icmp6\_type@{icmp6\_type}}
+\index{icmp6\_type@{icmp6\_type}!icmp6.h@{icmp6.h}}
+\doxysubsubsection{\texorpdfstring{icmp6\_type}{icmp6\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858}{icmp6\+\_\+type}}}
+
+I\+C\+MP type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_DUR@{ICMP6\_TYPE\_DUR}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_DUR@{ICMP6\_TYPE\_DUR}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aad9d4f207459e4bbd0c33a25adf6fdd7}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aad9d4f207459e4bbd0c33a25adf6fdd7}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+D\+UR&Destination unreachable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_PTB@{ICMP6\_TYPE\_PTB}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_PTB@{ICMP6\_TYPE\_PTB}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1d52ef5024a5822bd622bcb0b9da323d}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1d52ef5024a5822bd622bcb0b9da323d}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+TB&Packet too big \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_TE@{ICMP6\_TYPE\_TE}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_TE@{ICMP6\_TYPE\_TE}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afae9848904bc4b4b4aa716a7a9a2d7fe}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afae9848904bc4b4b4aa716a7a9a2d7fe}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+TE&Time exceeded \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_PP@{ICMP6\_TYPE\_PP}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_PP@{ICMP6\_TYPE\_PP}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a63114feac8140031b74424d4a7cf6b26}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a63114feac8140031b74424d4a7cf6b26}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+PP&Parameter problem \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_PE1@{ICMP6\_TYPE\_PE1}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_PE1@{ICMP6\_TYPE\_PE1}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac7020c08a7b03ae2a198e4a8dcd31bd4}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac7020c08a7b03ae2a198e4a8dcd31bd4}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E1&Private experimentation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_PE2@{ICMP6\_TYPE\_PE2}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_PE2@{ICMP6\_TYPE\_PE2}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aed14d280e5911098af914a94bd3ab22b}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aed14d280e5911098af914a94bd3ab22b}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E2&Private experimentation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_RSV\_ERR@{ICMP6\_TYPE\_RSV\_ERR}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_RSV\_ERR@{ICMP6\_TYPE\_RSV\_ERR}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858abe61415e020b996220337f0cd002a28f}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858abe61415e020b996220337f0cd002a28f}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+S\+V\+\_\+\+E\+RR&Reserved for expansion of error messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_EREQ@{ICMP6\_TYPE\_EREQ}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_EREQ@{ICMP6\_TYPE\_EREQ}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae649aa45c97b885f28771688957528a3}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae649aa45c97b885f28771688957528a3}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+EQ&Echo request \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_EREP@{ICMP6\_TYPE\_EREP}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_EREP@{ICMP6\_TYPE\_EREP}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac6b91695c06bfc7fb2360310d7b8e78a}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac6b91695c06bfc7fb2360310d7b8e78a}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+E\+R\+EP&Echo reply \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_MLQ@{ICMP6\_TYPE\_MLQ}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_MLQ@{ICMP6\_TYPE\_MLQ}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ad9794ae12b9ca196cc4fafaf6d834375}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ad9794ae12b9ca196cc4fafaf6d834375}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+LQ&Multicast listener query \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_MLR@{ICMP6\_TYPE\_MLR}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_MLR@{ICMP6\_TYPE\_MLR}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a906dd689f0aa9b4796f49f299d4e3eb0}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a906dd689f0aa9b4796f49f299d4e3eb0}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+LR&Multicast listener report \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_MLD@{ICMP6\_TYPE\_MLD}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_MLD@{ICMP6\_TYPE\_MLD}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a04228a1d11f9f88bd165f3430188bfe7}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a04228a1d11f9f88bd165f3430188bfe7}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+LD&Multicast listener done \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_RS@{ICMP6\_TYPE\_RS}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_RS@{ICMP6\_TYPE\_RS}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a670d95494c9282f646ac442d81d9a780}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a670d95494c9282f646ac442d81d9a780}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+RS&Router solicitation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_RA@{ICMP6\_TYPE\_RA}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_RA@{ICMP6\_TYPE\_RA}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae4ae04be7df3a2cce614af0a5cdae951}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae4ae04be7df3a2cce614af0a5cdae951}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+RA&Router advertisement \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_NS@{ICMP6\_TYPE\_NS}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_NS@{ICMP6\_TYPE\_NS}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0d8d8717c6c34053d1101932c23929fe}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0d8d8717c6c34053d1101932c23929fe}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+NS&Neighbor solicitation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_NA@{ICMP6\_TYPE\_NA}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_NA@{ICMP6\_TYPE\_NA}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1f99d333f425c28d3840e029cc9c46f3}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1f99d333f425c28d3840e029cc9c46f3}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+NA&Neighbor advertisement \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_RD@{ICMP6\_TYPE\_RD}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_RD@{ICMP6\_TYPE\_RD}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0f6702d62de5f873e0afe7431d878207}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0f6702d62de5f873e0afe7431d878207}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+RD&Redirect \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_MRA@{ICMP6\_TYPE\_MRA}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_MRA@{ICMP6\_TYPE\_MRA}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a29281016d3bb58e3bfd90417bbce7aa0}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a29281016d3bb58e3bfd90417bbce7aa0}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+RA&Multicast router advertisement \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_MRS@{ICMP6\_TYPE\_MRS}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_MRS@{ICMP6\_TYPE\_MRS}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a425f4e64a7d1570228adbbe450650ab4}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a425f4e64a7d1570228adbbe450650ab4}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+RS&Multicast router solicitation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_MRT@{ICMP6\_TYPE\_MRT}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_MRT@{ICMP6\_TYPE\_MRT}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afb12a9d774f53deb15ec23041548f6fc}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afb12a9d774f53deb15ec23041548f6fc}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+M\+RT&Multicast router termination \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_PE3@{ICMP6\_TYPE\_PE3}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_PE3@{ICMP6\_TYPE\_PE3}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a9c9c358ebd5eb683a66819fd9ecf98c6}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a9c9c358ebd5eb683a66819fd9ecf98c6}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E3&Private experimentation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_PE4@{ICMP6\_TYPE\_PE4}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_PE4@{ICMP6\_TYPE\_PE4}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858af8ebe97c4f68b54c9ef0c43e98211df5}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858af8ebe97c4f68b54c9ef0c43e98211df5}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+E4&Private experimentation \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP6\_TYPE\_RSV\_INF@{ICMP6\_TYPE\_RSV\_INF}!icmp6.h@{icmp6.h}}\index{icmp6.h@{icmp6.h}!ICMP6\_TYPE\_RSV\_INF@{ICMP6\_TYPE\_RSV\_INF}}}\mbox{\Hypertarget{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a2c12d3244d837bd243ea647ec530600d}\label{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a2c12d3244d837bd243ea647ec530600d}} 
+I\+C\+M\+P6\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+S\+V\+\_\+\+I\+NF&Reserved for expansion of informational messages \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 47 of file icmp6.\+h.
+

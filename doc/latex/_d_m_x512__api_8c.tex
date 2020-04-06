@@ -1,0 +1,73 @@
+\hypertarget{_d_m_x512__api_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/\+D\+M\+X512\+\_\+engine/src/\+D\+M\+X512\+\_\+api.c File Reference}
+\label{_d_m_x512__api_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_api.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_api.c}}
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+engine.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}http\+\_\+server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}http\+\_\+defs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}http\+\_\+response.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}http\+\_\+request.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}jsonparser.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}errno.\+h\char`\"{}}\newline
+Include dependency graph for D\+M\+X512\+\_\+api.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_m_x512__api_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{_d_m_x512__api_8c_a8f7f97c599ba77f06ff0f559043259b6}{D\+M\+X512\+\_\+api\+\_\+get\+\_\+fixtures}} (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
+\begin{DoxyCompactList}\small\item\em Retrieves one or many fixture patched within the D\+M\+X512 engine\textquotesingle{}s. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{_d_m_x512__api_8c_a205067b163856de12eb7f79a7185d917}{D\+M\+X512\+\_\+api\+\_\+add\+\_\+fixture}} (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
+\begin{DoxyCompactList}\small\item\em Tries patching a fixture into the D\+M\+X512 engine fixture pool. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__api_ga0050db37233f52f4235a7912663a649d}{D\+M\+X512\+\_\+api\+\_\+router}} (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
+\begin{DoxyCompactList}\small\item\em Parses the current H\+T\+TP request method and U\+RI in order to route requests to a specific api function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_d_m_x512__api_8c_a205067b163856de12eb7f79a7185d917}\label{_d_m_x512__api_8c_a205067b163856de12eb7f79a7185d917}} 
+\index{DMX512\_api.c@{DMX512\_api.c}!DMX512\_api\_add\_fixture@{DMX512\_api\_add\_fixture}}
+\index{DMX512\_api\_add\_fixture@{DMX512\_api\_add\_fixture}!DMX512\_api.c@{DMX512\_api.c}}
+\doxysubsubsection{\texorpdfstring{DMX512\_api\_add\_fixture()}{DMX512\_api\_add\_fixture()}}
+{\footnotesize\ttfamily static void D\+M\+X512\+\_\+api\+\_\+add\+\_\+fixture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$}]{req }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tries patching a fixture into the D\+M\+X512 engine fixture pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$req} & pointer to the http request instance for retrieving uri parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{http__server_8h}{http\+\_\+server.\+h}} for further information relative to http requests parameter parsing and retrieval. 
+\end{DoxySeeAlso}
+
+
+Definition at line 129 of file D\+M\+X512\+\_\+api.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__api_8c_a8f7f97c599ba77f06ff0f559043259b6}\label{_d_m_x512__api_8c_a8f7f97c599ba77f06ff0f559043259b6}} 
+\index{DMX512\_api.c@{DMX512\_api.c}!DMX512\_api\_get\_fixtures@{DMX512\_api\_get\_fixtures}}
+\index{DMX512\_api\_get\_fixtures@{DMX512\_api\_get\_fixtures}!DMX512\_api.c@{DMX512\_api.c}}
+\doxysubsubsection{\texorpdfstring{DMX512\_api\_get\_fixtures()}{DMX512\_api\_get\_fixtures()}}
+{\footnotesize\ttfamily static void D\+M\+X512\+\_\+api\+\_\+get\+\_\+fixtures (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$}]{req }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retrieves one or many fixture patched within the D\+M\+X512 engine\textquotesingle{}s. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$req} & pointer to the http request instance for retrieving uri parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{http__server_8h}{http\+\_\+server.\+h}} for further information relative to http requests parameter parsing and retrieval. 
+\end{DoxySeeAlso}
+
+
+Definition at line 28 of file D\+M\+X512\+\_\+api.\+c.
+

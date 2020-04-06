@@ -1,0 +1,62 @@
+\hypertarget{prot_2autoip_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/prot/autoip.h File Reference}
+\label{prot_2autoip_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/autoip.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/autoip.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_ac19d92e0bfcb52079adbe92fb569d468}\label{prot_2autoip_8h_ac19d92e0bfcb52079adbe92fb569d468}} 
+\#define {\bfseries A\+U\+T\+O\+I\+P\+\_\+\+N\+ET}~0x\+A9\+F\+E0000
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a8b4506c8e0ab7631f49567f9b81779c6}\label{prot_2autoip_8h_a8b4506c8e0ab7631f49567f9b81779c6}} 
+\#define {\bfseries A\+U\+T\+O\+I\+P\+\_\+\+R\+A\+N\+G\+E\+\_\+\+S\+T\+A\+RT}~(A\+U\+T\+O\+I\+P\+\_\+\+N\+ET $\vert$ 0x0100)
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a84dec606d57f40eed1cdc782f702f161}\label{prot_2autoip_8h_a84dec606d57f40eed1cdc782f702f161}} 
+\#define {\bfseries A\+U\+T\+O\+I\+P\+\_\+\+R\+A\+N\+G\+E\+\_\+\+E\+ND}~(A\+U\+T\+O\+I\+P\+\_\+\+N\+ET $\vert$ 0x\+F\+E\+FF)
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_aecea6220ab7fcd0910262d5929eb5d95}\label{prot_2autoip_8h_aecea6220ab7fcd0910262d5929eb5d95}} 
+\#define {\bfseries P\+R\+O\+B\+E\+\_\+\+W\+A\+IT}~1   /$\ast$ second   (initial random delay)                 $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a959b454f842224af595205645244f946}\label{prot_2autoip_8h_a959b454f842224af595205645244f946}} 
+\#define {\bfseries P\+R\+O\+B\+E\+\_\+\+M\+IN}~1   /$\ast$ second   (minimum delay till repeated probe)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_ad408cf94a71b848cff8108dc5c1558e6}\label{prot_2autoip_8h_ad408cf94a71b848cff8108dc5c1558e6}} 
+\#define {\bfseries P\+R\+O\+B\+E\+\_\+\+M\+AX}~2   /$\ast$ seconds  (maximum delay till repeated probe)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a3a610440fbb8d2c6abb4aa9702f904ef}\label{prot_2autoip_8h_a3a610440fbb8d2c6abb4aa9702f904ef}} 
+\#define {\bfseries P\+R\+O\+B\+E\+\_\+\+N\+UM}~3   /$\ast$          (number of probe packets)              $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a29141f41d1391d34730b75539000f9ea}\label{prot_2autoip_8h_a29141f41d1391d34730b75539000f9ea}} 
+\#define {\bfseries A\+N\+N\+O\+U\+N\+C\+E\+\_\+\+N\+UM}~2   /$\ast$          (number of announcement packets)       $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a7ed8f0b9d3330a2967142e0e48b28521}\label{prot_2autoip_8h_a7ed8f0b9d3330a2967142e0e48b28521}} 
+\#define {\bfseries A\+N\+N\+O\+U\+N\+C\+E\+\_\+\+I\+N\+T\+E\+R\+V\+AL}~2   /$\ast$ seconds  (time between announcement packets)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a1a9b374b5e2e6da152f3a1556d09e6b3}\label{prot_2autoip_8h_a1a9b374b5e2e6da152f3a1556d09e6b3}} 
+\#define {\bfseries A\+N\+N\+O\+U\+N\+C\+E\+\_\+\+W\+A\+IT}~2   /$\ast$ seconds  (delay before announcing)              $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a14d30da6b838f3d718c0d92a9f3f3816}\label{prot_2autoip_8h_a14d30da6b838f3d718c0d92a9f3f3816}} 
+\#define {\bfseries M\+A\+X\+\_\+\+C\+O\+N\+F\+L\+I\+C\+TS}~10  /$\ast$          (max conflicts before rate limiting)   $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a420da51b5955d94c44d285638b3931bf}\label{prot_2autoip_8h_a420da51b5955d94c44d285638b3931bf}} 
+\#define {\bfseries R\+A\+T\+E\+\_\+\+L\+I\+M\+I\+T\+\_\+\+I\+N\+T\+E\+R\+V\+AL}~60  /$\ast$ seconds  (delay between successive attempts)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a5c21e0d4d66eb7056ba4d515d36f0a20}\label{prot_2autoip_8h_a5c21e0d4d66eb7056ba4d515d36f0a20}} 
+\#define {\bfseries D\+E\+F\+E\+N\+D\+\_\+\+I\+N\+T\+E\+R\+V\+AL}~10  /$\ast$ seconds  (min. wait between defensive A\+R\+Ps)     $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a1a27a030b740b1577f95d5aeb54a1a0c}\label{prot_2autoip_8h_a1a27a030b740b1577f95d5aeb54a1a0c}} 
+enum {\bfseries autoip\+\_\+state\+\_\+enum\+\_\+t} \{ \newline
+{\bfseries A\+U\+T\+O\+I\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF} = 0, 
+\newline
+{\bfseries A\+U\+T\+O\+I\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+R\+O\+B\+I\+NG} = 1, 
+\newline
+{\bfseries A\+U\+T\+O\+I\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+A\+N\+N\+O\+U\+N\+C\+I\+NG} = 2, 
+\newline
+{\bfseries A\+U\+T\+O\+I\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+O\+U\+ND} = 3
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Auto\+IP protocol definitions 

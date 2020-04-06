@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Dependencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -9,14 +9,12 @@
 #include "DMX512_scene_pool.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_scene_pool
- * @fn _DMX512_scene_pool_search
  * @brief Finds the array index of a scene
  *
  * @param id the scene's identifier
@@ -33,15 +31,13 @@ static int16_t _DMX512_scene_pool_search(DMX512_scene_pool_s *this, uint16_t id)
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_fixture_pool.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_scene_pool
- * @fn DMX512_scene_pool_new
  * @brief Creates a new scene pool instance
  *
  * @return DMX512_scene_pool_s* pointer to the created pool instance
@@ -54,8 +50,6 @@ DMX512_scene_pool_s *DMX512_scene_pool_new(void){
 }
 
 /**
- * @ingroup DMX512_scene_pool
- * @fn DMX512_scene_pool_add
  * @brief Adds a scene instance into the pool
  *
  * @param id the scene's idendifier
@@ -82,8 +76,6 @@ DMX512_engine_err_e DMX512_scene_pool_add(DMX512_scene_pool_s *this, DMX512_scen
 }
 
 /**
- * @ingroup DMX512_scene_pool
- * @fn DMX512_scene_pool_del
  * @brief Deletes a scene instance from the pool
  *
  * @param id the scene's idendifier
@@ -109,8 +101,6 @@ DMX512_engine_err_e DMX512_scene_pool_del(DMX512_scene_pool_s *this, uint16_t id
 }
 
 /**
- * @ingroup DMX512_scene_pool
- * @fn DMX512_scene_pool_get
  * @brief Gets a scene instance from the pool
  *
  * @param id the scene's identifier
@@ -126,8 +116,6 @@ DMX512_scene_s *DMX512_scene_pool_get(DMX512_scene_pool_s *this, uint16_t id){
 }
 
 /**
- * @ingroup DMX512_scene_pool
- * @fn DMX512_scene_pool_manage
  * @brief Manages all scenes contained within the pool
  *
  * @param this pointer to the instance pool

@@ -1,0 +1,5 @@
+<map id="_Q_UDP_client_discover_reply" name="_Q_UDP_client_discover_reply">
+<area shape="rect" id="node1" title="Sends a Q discoverp reply packet over UDP stream." alt="" coords="5,27,175,69"/>
+<area shape="rect" id="node2" href="$_q__client_8c.html#a94b117979dedfa3266809ee5eb983978" title=" " alt="" coords="255,5,361,32"/>
+<area shape="rect" id="node3" href="$_q__packet_8h.html#a7f9775f61b2db9c3bf01108e4e0b2702" title=" " alt="" coords="223,57,393,98"/>
+</map>

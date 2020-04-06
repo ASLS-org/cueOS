@@ -1,0 +1,44 @@
+\hypertarget{lwip_2init_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/init.h File Reference}
+\label{lwip_2init_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/init.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/init.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga4308c06ef36496e00c798d96d7d03246}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+M\+A\+J\+OR}}~2
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga1e596388c15ba81e753c5633fad1c034}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+M\+I\+N\+OR}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga0a57983df1b199cf39a2e6a2d90e3d50}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+R\+E\+V\+I\+S\+I\+ON}}~3
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+RC}}~\mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{L\+W\+I\+P\+\_\+\+R\+C\+\_\+\+R\+E\+L\+E\+A\+SE}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{L\+W\+I\+P\+\_\+\+R\+C\+\_\+\+R\+E\+L\+E\+A\+SE}}~255
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga9ca69b1a453eb72efd0bbda333f2a33b}{L\+W\+I\+P\+\_\+\+R\+C\+\_\+\+D\+E\+V\+E\+L\+O\+P\+M\+E\+NT}}~0
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+S\+\_\+\+R\+E\+L\+E\+A\+SE}~(\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+RC}} == \mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{L\+W\+I\+P\+\_\+\+R\+C\+\_\+\+R\+E\+L\+E\+A\+SE}})
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+S\+\_\+\+D\+E\+V\+E\+L\+O\+P\+M\+E\+NT}~(\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+RC}} == \mbox{\hyperlink{group__lwip__version_ga9ca69b1a453eb72efd0bbda333f2a33b}{L\+W\+I\+P\+\_\+\+R\+C\+\_\+\+D\+E\+V\+E\+L\+O\+P\+M\+E\+NT}})
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+I\+S\+\_\+\+RC}~((\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+RC}} != \mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{L\+W\+I\+P\+\_\+\+R\+C\+\_\+\+R\+E\+L\+E\+A\+SE}}) \&\& (\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+RC}} != \mbox{\hyperlink{group__lwip__version_ga9ca69b1a453eb72efd0bbda333f2a33b}{L\+W\+I\+P\+\_\+\+R\+C\+\_\+\+D\+E\+V\+E\+L\+O\+P\+M\+E\+NT}}))
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+T\+R2}(x)~\#x
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+TR}(x)~L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+T\+R2(x)
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+S\+U\+F\+F\+IX}~\char`\"{}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga0a0d322fad0a67aa5b8f1b8c9dfcfe59}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+ON}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_gab47e87bc38eef94486db402813183ba7}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+S\+T\+R\+I\+NG}}~L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+TR(\mbox{\hyperlink{group__lwip__version_ga4308c06ef36496e00c798d96d7d03246}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+M\+A\+J\+OR}}) \char`\"{}.\char`\"{} L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+TR(\mbox{\hyperlink{group__lwip__version_ga1e596388c15ba81e753c5633fad1c034}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+M\+I\+N\+OR}}) \char`\"{}.\char`\"{} L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+TR(\mbox{\hyperlink{group__lwip__version_ga0a57983df1b199cf39a2e6a2d90e3d50}{L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+R\+E\+V\+I\+S\+I\+ON}}) L\+W\+I\+P\+\_\+\+V\+E\+R\+S\+I\+O\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+S\+U\+F\+F\+IX
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwip_2init_8h_a0c1a18439524d2f4a5e51d25c0ca2ce9}\label{lwip_2init_8h_a0c1a18439524d2f4a5e51d25c0ca2ce9}} 
+void {\bfseries lwip\+\_\+init} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lw\+IP initialization A\+PI 

@@ -1,0 +1,239 @@
+\hypertarget{group__lwip__opts__stats}{}\doxysection{Statistics}
+\label{group__lwip__opts__stats}\index{Statistics@{Statistics}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga542b58734cc01902c5e099f6efdc5f1b}{L\+W\+I\+P\+\_\+\+S\+T\+A\+TS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gacdc38ed58d1900b5d3d109a65be1c3d1}{L\+W\+I\+P\+\_\+\+S\+T\+A\+T\+S\+\_\+\+D\+I\+S\+P\+L\+AY}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gae58b452782d0327ae728192686c5a84a}{L\+I\+N\+K\+\_\+\+S\+T\+A\+TS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga3a8359abf4fff8ffdc449e5007f93275}{E\+T\+H\+A\+R\+P\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__arp_ga9609a014bba4638cc191d6a8f9556c87}{L\+W\+I\+P\+\_\+\+A\+RP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaf50575a4895e26ea2c01d1f2269487be}{I\+P\+\_\+\+S\+T\+A\+TS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gac9a4fbb46df3c0f479a334d0e34fb74f}{I\+P\+F\+R\+A\+G\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__ipv4_ga1a31ab0e0f37b17d40fa7c35bc2c4f69}{I\+P\+\_\+\+R\+E\+A\+S\+S\+E\+M\+B\+LY}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv4_gaf85c8bdd5035b6cada790b4cc2a209a4}{I\+P\+\_\+\+F\+R\+AG}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga472ad3f6da741f5b287d66ad3051242b}{I\+C\+M\+P\+\_\+\+S\+T\+A\+TS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga4d12af1356b9fd60717984be51e27740}{I\+G\+M\+P\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__igmp_gadaf25915ae1fd69c0943ef68cbb38923}{L\+W\+I\+P\+\_\+\+I\+G\+MP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaef64b11bf71f0d6d5bafaf6092462276}{U\+D\+P\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__udp_gab6030e96e72df649d2650fd32d7a67b3}{L\+W\+I\+P\+\_\+\+U\+DP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaa02ec5c5bc0edebe418680c54d044f58}{T\+C\+P\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}{L\+W\+I\+P\+\_\+\+T\+CP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga61ec04a08c4fde690d10819e582656a7}{M\+E\+M\+\_\+\+S\+T\+A\+TS}}~((\mbox{\hyperlink{group__lwip__opts__mem_ga4ef345cc270912bd2230b1c5ec51dfc8}{M\+E\+M\+\_\+\+L\+I\+B\+C\+\_\+\+M\+A\+L\+L\+OC}} == 0) \&\& (\mbox{\hyperlink{group__lwip__opts__mem_gaddca3141bc7037241769eb152b6f89ba}{M\+E\+M\+\_\+\+U\+S\+E\+\_\+\+P\+O\+O\+LS}} == 0))
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gab8c2430be0e567a7499a95454aaa6041}{M\+E\+M\+P\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__mem_gae93af697d27bbcefa6a28052d90f2f38}{M\+E\+M\+P\+\_\+\+M\+E\+M\+\_\+\+M\+A\+L\+L\+OC}} == 0)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga0173549afa76553583e5a02c6a791218}{S\+Y\+S\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__nosys_gae00ba99de94a5bf84d832be8976df59b}{N\+O\+\_\+\+S\+YS}} == 0)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga6a211b787c97bce3af4273b29c95d9c2}{I\+P6\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga714006cd5c5b0eb333159d0f677616a0}{I\+C\+M\+P6\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}} \&\& \mbox{\hyperlink{group__lwip__opts__icmp6_ga65ac8bcbad242cba3a2b557e1574b21f}{L\+W\+I\+P\+\_\+\+I\+C\+M\+P6}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaaa08a181c11ff8b471549e8f52c9939b}{I\+P6\+\_\+\+F\+R\+A\+G\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}} \&\& (\mbox{\hyperlink{group__lwip__opts__ipv6_ga9ab6269f3087f6d9f7b2c7181ef043c3}{L\+W\+I\+P\+\_\+\+I\+P\+V6\+\_\+\+F\+R\+AG}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv6_gad0ef160d72e63b02c5e875b06ec53864}{L\+W\+I\+P\+\_\+\+I\+P\+V6\+\_\+\+R\+E\+A\+SS}}))
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaf263df10b63b38201cae3d2dd5fb0b9e}{M\+L\+D6\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}} \&\& \mbox{\hyperlink{group__lwip__opts__mld6_ga44d8f24eaebbc50221ac1336212a3528}{L\+W\+I\+P\+\_\+\+I\+P\+V6\+\_\+\+M\+LD}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga753161114df60299a28d51c092c756cf}{N\+D6\+\_\+\+S\+T\+A\+TS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga5b01047eeb149a0b0ffe33d760d8370f}{M\+I\+B2\+\_\+\+S\+T\+A\+TS}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__stats_ga3a8359abf4fff8ffdc449e5007f93275}\label{group__lwip__opts__stats_ga3a8359abf4fff8ffdc449e5007f93275}} 
+\index{Statistics@{Statistics}!ETHARP\_STATS@{ETHARP\_STATS}}
+\index{ETHARP\_STATS@{ETHARP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ETHARP\_STATS}{ETHARP\_STATS}}
+{\footnotesize\ttfamily \#define E\+T\+H\+A\+R\+P\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__arp_ga9609a014bba4638cc191d6a8f9556c87}{L\+W\+I\+P\+\_\+\+A\+RP}})}
+
+E\+T\+H\+A\+R\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable etharp stats. 
+
+Definition at line 1902 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga714006cd5c5b0eb333159d0f677616a0}\label{group__lwip__opts__stats_ga714006cd5c5b0eb333159d0f677616a0}} 
+\index{Statistics@{Statistics}!ICMP6\_STATS@{ICMP6\_STATS}}
+\index{ICMP6\_STATS@{ICMP6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ICMP6\_STATS}{ICMP6\_STATS}}
+{\footnotesize\ttfamily \#define I\+C\+M\+P6\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}} \&\& \mbox{\hyperlink{group__lwip__opts__icmp6_ga65ac8bcbad242cba3a2b557e1574b21f}{L\+W\+I\+P\+\_\+\+I\+C\+M\+P6}})}
+
+I\+C\+M\+P6\+\_\+\+S\+T\+A\+TS==1\+: Enable I\+C\+MP for I\+Pv6 stats. 
+
+Definition at line 1982 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga472ad3f6da741f5b287d66ad3051242b}\label{group__lwip__opts__stats_ga472ad3f6da741f5b287d66ad3051242b}} 
+\index{Statistics@{Statistics}!ICMP\_STATS@{ICMP\_STATS}}
+\index{ICMP\_STATS@{ICMP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ICMP\_STATS}{ICMP\_STATS}}
+{\footnotesize\ttfamily \#define I\+C\+M\+P\+\_\+\+S\+T\+A\+TS~1}
+
+I\+C\+M\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable I\+C\+MP stats. 
+
+Definition at line 1924 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga4d12af1356b9fd60717984be51e27740}\label{group__lwip__opts__stats_ga4d12af1356b9fd60717984be51e27740}} 
+\index{Statistics@{Statistics}!IGMP\_STATS@{IGMP\_STATS}}
+\index{IGMP\_STATS@{IGMP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IGMP\_STATS}{IGMP\_STATS}}
+{\footnotesize\ttfamily \#define I\+G\+M\+P\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__igmp_gadaf25915ae1fd69c0943ef68cbb38923}{L\+W\+I\+P\+\_\+\+I\+G\+MP}})}
+
+I\+G\+M\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable I\+G\+MP stats. 
+
+Definition at line 1931 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gaaa08a181c11ff8b471549e8f52c9939b}\label{group__lwip__opts__stats_gaaa08a181c11ff8b471549e8f52c9939b}} 
+\index{Statistics@{Statistics}!IP6\_FRAG\_STATS@{IP6\_FRAG\_STATS}}
+\index{IP6\_FRAG\_STATS@{IP6\_FRAG\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IP6\_FRAG\_STATS}{IP6\_FRAG\_STATS}}
+{\footnotesize\ttfamily \#define I\+P6\+\_\+\+F\+R\+A\+G\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}} \&\& (\mbox{\hyperlink{group__lwip__opts__ipv6_ga9ab6269f3087f6d9f7b2c7181ef043c3}{L\+W\+I\+P\+\_\+\+I\+P\+V6\+\_\+\+F\+R\+AG}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv6_gad0ef160d72e63b02c5e875b06ec53864}{L\+W\+I\+P\+\_\+\+I\+P\+V6\+\_\+\+R\+E\+A\+SS}}))}
+
+I\+P6\+\_\+\+F\+R\+A\+G\+\_\+\+S\+T\+A\+TS==1\+: Enable I\+Pv6 fragmentation stats. 
+
+Definition at line 1989 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga6a211b787c97bce3af4273b29c95d9c2}\label{group__lwip__opts__stats_ga6a211b787c97bce3af4273b29c95d9c2}} 
+\index{Statistics@{Statistics}!IP6\_STATS@{IP6\_STATS}}
+\index{IP6\_STATS@{IP6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IP6\_STATS}{IP6\_STATS}}
+{\footnotesize\ttfamily \#define I\+P6\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}})}
+
+I\+P6\+\_\+\+S\+T\+A\+TS==1\+: Enable I\+Pv6 stats. 
+
+Definition at line 1975 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gaf50575a4895e26ea2c01d1f2269487be}\label{group__lwip__opts__stats_gaf50575a4895e26ea2c01d1f2269487be}} 
+\index{Statistics@{Statistics}!IP\_STATS@{IP\_STATS}}
+\index{IP\_STATS@{IP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IP\_STATS}{IP\_STATS}}
+{\footnotesize\ttfamily \#define I\+P\+\_\+\+S\+T\+A\+TS~1}
+
+I\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable IP stats. 
+
+Definition at line 1909 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gac9a4fbb46df3c0f479a334d0e34fb74f}\label{group__lwip__opts__stats_gac9a4fbb46df3c0f479a334d0e34fb74f}} 
+\index{Statistics@{Statistics}!IPFRAG\_STATS@{IPFRAG\_STATS}}
+\index{IPFRAG\_STATS@{IPFRAG\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IPFRAG\_STATS}{IPFRAG\_STATS}}
+{\footnotesize\ttfamily \#define I\+P\+F\+R\+A\+G\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__ipv4_ga1a31ab0e0f37b17d40fa7c35bc2c4f69}{I\+P\+\_\+\+R\+E\+A\+S\+S\+E\+M\+B\+LY}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv4_gaf85c8bdd5035b6cada790b4cc2a209a4}{I\+P\+\_\+\+F\+R\+AG}})}
+
+I\+P\+F\+R\+A\+G\+\_\+\+S\+T\+A\+TS==1\+: Enable IP fragmentation stats. Default is on if using either frag or reass. 
+
+Definition at line 1917 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gae58b452782d0327ae728192686c5a84a}\label{group__lwip__opts__stats_gae58b452782d0327ae728192686c5a84a}} 
+\index{Statistics@{Statistics}!LINK\_STATS@{LINK\_STATS}}
+\index{LINK\_STATS@{LINK\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{LINK\_STATS}{LINK\_STATS}}
+{\footnotesize\ttfamily \#define L\+I\+N\+K\+\_\+\+S\+T\+A\+TS~1}
+
+L\+I\+N\+K\+\_\+\+S\+T\+A\+TS==1\+: Enable link stats. 
+
+Definition at line 1895 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga542b58734cc01902c5e099f6efdc5f1b}\label{group__lwip__opts__stats_ga542b58734cc01902c5e099f6efdc5f1b}} 
+\index{Statistics@{Statistics}!LWIP\_STATS@{LWIP\_STATS}}
+\index{LWIP\_STATS@{LWIP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{LWIP\_STATS}{LWIP\_STATS}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+S\+T\+A\+TS~1}
+
+L\+W\+I\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable statistics collection in lwip\+\_\+stats. 
+
+Definition at line 1879 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gacdc38ed58d1900b5d3d109a65be1c3d1}\label{group__lwip__opts__stats_gacdc38ed58d1900b5d3d109a65be1c3d1}} 
+\index{Statistics@{Statistics}!LWIP\_STATS\_DISPLAY@{LWIP\_STATS\_DISPLAY}}
+\index{LWIP\_STATS\_DISPLAY@{LWIP\_STATS\_DISPLAY}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{LWIP\_STATS\_DISPLAY}{LWIP\_STATS\_DISPLAY}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+S\+T\+A\+T\+S\+\_\+\+D\+I\+S\+P\+L\+AY~0}
+
+L\+W\+I\+P\+\_\+\+S\+T\+A\+T\+S\+\_\+\+D\+I\+S\+P\+L\+AY==1\+: Compile in the statistics output functions. 
+
+Definition at line 1888 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga61ec04a08c4fde690d10819e582656a7}\label{group__lwip__opts__stats_ga61ec04a08c4fde690d10819e582656a7}} 
+\index{Statistics@{Statistics}!MEM\_STATS@{MEM\_STATS}}
+\index{MEM\_STATS@{MEM\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MEM\_STATS}{MEM\_STATS}}
+{\footnotesize\ttfamily \#define M\+E\+M\+\_\+\+S\+T\+A\+TS~((\mbox{\hyperlink{group__lwip__opts__mem_ga4ef345cc270912bd2230b1c5ec51dfc8}{M\+E\+M\+\_\+\+L\+I\+B\+C\+\_\+\+M\+A\+L\+L\+OC}} == 0) \&\& (\mbox{\hyperlink{group__lwip__opts__mem_gaddca3141bc7037241769eb152b6f89ba}{M\+E\+M\+\_\+\+U\+S\+E\+\_\+\+P\+O\+O\+LS}} == 0))}
+
+M\+E\+M\+\_\+\+S\+T\+A\+TS==1\+: Enable mem.\+c stats. 
+
+Definition at line 1954 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gab8c2430be0e567a7499a95454aaa6041}\label{group__lwip__opts__stats_gab8c2430be0e567a7499a95454aaa6041}} 
+\index{Statistics@{Statistics}!MEMP\_STATS@{MEMP\_STATS}}
+\index{MEMP\_STATS@{MEMP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MEMP\_STATS}{MEMP\_STATS}}
+{\footnotesize\ttfamily \#define M\+E\+M\+P\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__mem_gae93af697d27bbcefa6a28052d90f2f38}{M\+E\+M\+P\+\_\+\+M\+E\+M\+\_\+\+M\+A\+L\+L\+OC}} == 0)}
+
+M\+E\+M\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable memp.\+c pool stats. 
+
+Definition at line 1961 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga5b01047eeb149a0b0ffe33d760d8370f}\label{group__lwip__opts__stats_ga5b01047eeb149a0b0ffe33d760d8370f}} 
+\index{Statistics@{Statistics}!MIB2\_STATS@{MIB2\_STATS}}
+\index{MIB2\_STATS@{MIB2\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MIB2\_STATS}{MIB2\_STATS}}
+{\footnotesize\ttfamily \#define M\+I\+B2\+\_\+\+S\+T\+A\+TS~0}
+
+M\+I\+B2\+\_\+\+S\+T\+A\+TS==1\+: Stats for S\+N\+MP M\+I\+B2. 
+
+Definition at line 2010 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gaf263df10b63b38201cae3d2dd5fb0b9e}\label{group__lwip__opts__stats_gaf263df10b63b38201cae3d2dd5fb0b9e}} 
+\index{Statistics@{Statistics}!MLD6\_STATS@{MLD6\_STATS}}
+\index{MLD6\_STATS@{MLD6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MLD6\_STATS}{MLD6\_STATS}}
+{\footnotesize\ttfamily \#define M\+L\+D6\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}} \&\& \mbox{\hyperlink{group__lwip__opts__mld6_ga44d8f24eaebbc50221ac1336212a3528}{L\+W\+I\+P\+\_\+\+I\+P\+V6\+\_\+\+M\+LD}})}
+
+M\+L\+D6\+\_\+\+S\+T\+A\+TS==1\+: Enable M\+LD for I\+Pv6 stats. 
+
+Definition at line 1996 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga753161114df60299a28d51c092c756cf}\label{group__lwip__opts__stats_ga753161114df60299a28d51c092c756cf}} 
+\index{Statistics@{Statistics}!ND6\_STATS@{ND6\_STATS}}
+\index{ND6\_STATS@{ND6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ND6\_STATS}{ND6\_STATS}}
+{\footnotesize\ttfamily \#define N\+D6\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{L\+W\+I\+P\+\_\+\+I\+P\+V6}})}
+
+N\+D6\+\_\+\+S\+T\+A\+TS==1\+: Enable Neighbor discovery for I\+Pv6 stats. 
+
+Definition at line 2003 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_ga0173549afa76553583e5a02c6a791218}\label{group__lwip__opts__stats_ga0173549afa76553583e5a02c6a791218}} 
+\index{Statistics@{Statistics}!SYS\_STATS@{SYS\_STATS}}
+\index{SYS\_STATS@{SYS\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{SYS\_STATS}{SYS\_STATS}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__nosys_gae00ba99de94a5bf84d832be8976df59b}{N\+O\+\_\+\+S\+YS}} == 0)}
+
+S\+Y\+S\+\_\+\+S\+T\+A\+TS==1\+: Enable system stats (sem and mbox counts, etc). 
+
+Definition at line 1968 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gaa02ec5c5bc0edebe418680c54d044f58}\label{group__lwip__opts__stats_gaa02ec5c5bc0edebe418680c54d044f58}} 
+\index{Statistics@{Statistics}!TCP\_STATS@{TCP\_STATS}}
+\index{TCP\_STATS@{TCP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{TCP\_STATS}{TCP\_STATS}}
+{\footnotesize\ttfamily \#define T\+C\+P\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}{L\+W\+I\+P\+\_\+\+T\+CP}})}
+
+T\+C\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable T\+CP stats. Default is on if T\+CP enabled, otherwise off. 
+
+Definition at line 1947 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__stats_gaef64b11bf71f0d6d5bafaf6092462276}\label{group__lwip__opts__stats_gaef64b11bf71f0d6d5bafaf6092462276}} 
+\index{Statistics@{Statistics}!UDP\_STATS@{UDP\_STATS}}
+\index{UDP\_STATS@{UDP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{UDP\_STATS}{UDP\_STATS}}
+{\footnotesize\ttfamily \#define U\+D\+P\+\_\+\+S\+T\+A\+TS~(\mbox{\hyperlink{group__lwip__opts__udp_gab6030e96e72df649d2650fd32d7a67b3}{L\+W\+I\+P\+\_\+\+U\+DP}})}
+
+U\+D\+P\+\_\+\+S\+T\+A\+TS==1\+: Enable U\+DP stats. Default is on if U\+DP enabled, otherwise off. 
+
+Definition at line 1939 of file opt.\+h.
+

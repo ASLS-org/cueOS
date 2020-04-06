@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Depedencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -9,9 +9,13 @@
 #include "cmsis_os.h"
 #include <string.h>
 
+
+/***============================================================================================================================
+ * Private functions definitions
+ * These functions are only accessible from within the file's scope
+ *=============================================================================================================================*/
+
 /**
- * @ingroup http_request
- * @fn _http_request_parse_method
  * @brief extracts http method from raw request buffer
  *
  * @param *req pointer to the HTTP request to be processed
@@ -39,8 +43,6 @@ static uint8_t _http_request_parse_method(http_request_s *req){
 }
 
 /**
- * @ingroup http_request
- * @fn _http_request_parse_uri
  * @brief extracts the URI and optionnal URI parameters from raw request buffer
  *
  * @param *req pointer to the HTTP request to be processed
@@ -117,8 +119,6 @@ static uint8_t _http_request_parse_uri(http_request_s *req){
 
 
 /**
- * @ingroup http_request
- * @fn _http_request_parse_http_version
  * @brief extracts the HTTP request version from raw request buffer
  *
  * @param *req pointer to the HTTP request to be processed
@@ -148,8 +148,6 @@ static uint8_t _http_request_parse_http_version(http_request_s *req){
 }
 
 /**
- * @ingroup http_request
- * @fn _http_request_parse_headers
  * @brief extracts the HTTP header field/value pairs from raw request buffer
  *
  * @param *req pointer to the HTTP request to be processed
@@ -181,8 +179,6 @@ static uint8_t _http_request_parse_headers(http_request_s *req){
 }
 
 /**
- * @ingroup http_request
- * @fn _http_request_parse_content
  * @brief extracts the HTTP content from raw request buffer
  *
  * @param *req pointer to the HTTP request to be processed
@@ -208,15 +204,14 @@ static uint8_t _http_request_parse_content(http_request_s *req){
 
 }
 
-/**============================================================================================================================
+
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see http_request.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup http_request
- * @fn http_request_new
  * @brief Creates a new HTTP request instance
  *
  * @param router The router function through which the request should be
@@ -243,8 +238,6 @@ http_request_s *http_request_new(router_fn router){
 }
 
 /**
- * @ingroup http_request
- * @fn http_request_free
  * @brief Safely frees an HTTP request instance
  *
  * @param req HTTP request instance to be freed
@@ -284,8 +277,6 @@ void http_request_free(http_request_s *req){
 }
 
 /**
- * @ingroup http_request
- * @fn http_request_parse
  * @brief Extracts and parses HTTP method headers and content from received data and calls
  * the router function defined during initialisation. router function is in charge
  * of generating response data. It is up to the user to implement such function

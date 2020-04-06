@@ -1,0 +1,121 @@
+\hypertarget{group__sys__sem}{}\doxysection{Semaphores}
+\label{group__sys__sem}\index{Semaphores@{Semaphores}}
+Collaboration diagram for Semaphores\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{group__sys__sem}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__sem_gaf99da9e34a71855285c535183133dfde}{sys\+\_\+sem\+\_\+new}} (sys\+\_\+sem\+\_\+t $\ast$sem, u8\+\_\+t count)
+\item 
+void \mbox{\hyperlink{group__sys__sem_gaaf800273061fcc3f8200fd4e1b9ca875}{sys\+\_\+sem\+\_\+signal}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait}} (sys\+\_\+sem\+\_\+t $\ast$sem, u32\+\_\+t timeout)
+\item 
+void \mbox{\hyperlink{group__sys__sem_ga83b781f96c30e915c752065a757da283}{sys\+\_\+sem\+\_\+free}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+int \mbox{\hyperlink{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+void \mbox{\hyperlink{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}\label{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}} 
+\index{Semaphores@{Semaphores}!sys\_arch\_sem\_wait@{sys\_arch\_sem\_wait}}
+\index{sys\_arch\_sem\_wait@{sys\_arch\_sem\_wait}!Semaphores@{Semaphores}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_sem\_wait()}{sys\_arch\_sem\_wait()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+sem\+\_\+wait (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem,  }\item[{u32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Wait for a semaphore for the specified timeout 
+\begin{DoxyParams}{Parameters}
+{\em sem} & the semaphore to wait for \\
+\hline
+{\em timeout} & timeout in milliseconds to wait (0 = wait forever) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time (in milliseconds) waited for the semaphore or S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT on timeout 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__sem_ga83b781f96c30e915c752065a757da283}\label{group__sys__sem_ga83b781f96c30e915c752065a757da283}} 
+\index{Semaphores@{Semaphores}!sys\_sem\_free@{sys\_sem\_free}}
+\index{sys\_sem\_free@{sys\_sem\_free}!Semaphores@{Semaphores}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_free()}{sys\_sem\_free()}}
+{\footnotesize\ttfamily void sys\+\_\+sem\+\_\+free (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Delete a semaphore 
+\begin{DoxyParams}{Parameters}
+{\em sem} & semaphore to delete \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 340 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__sem_gaf99da9e34a71855285c535183133dfde}\label{group__sys__sem_gaf99da9e34a71855285c535183133dfde}} 
+\index{Semaphores@{Semaphores}!sys\_sem\_new@{sys\_sem\_new}}
+\index{sys\_sem\_new@{sys\_sem\_new}!Semaphores@{Semaphores}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_new()}{sys\_sem\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+sem\+\_\+new (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem,  }\item[{u8\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+Create a new semaphore 
+\begin{DoxyParams}{Parameters}
+{\em sem} & pointer to the semaphore to create \\
+\hline
+{\em count} & initial count of the semaphore \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+OK if successful, another err\+\_\+t otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 243 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}\label{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}} 
+\index{Semaphores@{Semaphores}!sys\_sem\_set\_invalid@{sys\_sem\_set\_invalid}}
+\index{sys\_sem\_set\_invalid@{sys\_sem\_set\_invalid}!Semaphores@{Semaphores}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_set\_invalid()}{sys\_sem\_set\_invalid()}}
+{\footnotesize\ttfamily void sys\+\_\+sem\+\_\+set\+\_\+invalid (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Set a semaphore invalid so that sys\+\_\+sem\+\_\+valid returns 0 
+
+Definition at line 358 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__sem_gaaf800273061fcc3f8200fd4e1b9ca875}\label{group__sys__sem_gaaf800273061fcc3f8200fd4e1b9ca875}} 
+\index{Semaphores@{Semaphores}!sys\_sem\_signal@{sys\_sem\_signal}}
+\index{sys\_sem\_signal@{sys\_sem\_signal}!Semaphores@{Semaphores}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_signal()}{sys\_sem\_signal()}}
+{\footnotesize\ttfamily void sys\+\_\+sem\+\_\+signal (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Signals a semaphore 
+\begin{DoxyParams}{Parameters}
+{\em sem} & the semaphore to signal \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 333 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}\label{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}} 
+\index{Semaphores@{Semaphores}!sys\_sem\_valid@{sys\_sem\_valid}}
+\index{sys\_sem\_valid@{sys\_sem\_valid}!Semaphores@{Semaphores}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_valid()}{sys\_sem\_valid()}}
+{\footnotesize\ttfamily int sys\+\_\+sem\+\_\+valid (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Check if a semaphore is valid/allocated\+: return 1 for valid, 0 for invalid 
+
+Definition at line 349 of file sys\+\_\+arch.\+c.
+

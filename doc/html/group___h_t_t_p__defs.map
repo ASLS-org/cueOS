@@ -1,0 +1,4 @@
+<map id="HTTP_defs" name="HTTP_defs">
+<area shape="rect" id="node1" href="$group___h_t_t_p.html" title="Handles HTTP packet transactions." alt="" coords="5,5,63,31"/>
+<area shape="rect" id="node2" title="Definition of fundamental constant values to be used within the HTTP module." alt="" coords="111,5,200,31"/>
+</map>

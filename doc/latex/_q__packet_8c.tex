@@ -1,0 +1,79 @@
+\hypertarget{_q__packet_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/\+Q/utils/packet/src/\+Q\+\_\+packet.c File Reference}
+\label{_q__packet_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/Q/utils/packet/src/Q\_packet.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/Q/utils/packet/src/Q\_packet.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Q\+\_\+packet.\+h\char`\"{}}\newline
+Include dependency graph for Q\+\_\+packet.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_q__packet_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint8\+\_\+t \mbox{\hyperlink{_q__packet_8c_a370af2353a0217c65ac3bdff1cf506fe}{\+\_\+\+Q\+\_\+packet\+\_\+check\+\_\+validity}} (\mbox{\hyperlink{_q__packet_8h_aeba4588055dc100bba4e98a74b9ab70e}{Q\+\_\+packet\+\_\+s}} $\ast$packet)
+\item 
+\mbox{\hyperlink{_q__packet_8h_aeba4588055dc100bba4e98a74b9ab70e}{Q\+\_\+packet\+\_\+s}} $\ast$ \mbox{\hyperlink{_q__packet_8c_adb24db657934f6e9d6e6b13bb3860fcc}{Q\+\_\+packet\+\_\+parse}} (void $\ast$data, uint8\+\_\+t len)
+\item 
+void \mbox{\hyperlink{_q__packet_8c_ae68a10b34f7b6887aa58ba6ca3773784}{Q\+\_\+packet\+\_\+free}} (\mbox{\hyperlink{_q__packet_8h_aeba4588055dc100bba4e98a74b9ab70e}{Q\+\_\+packet\+\_\+s}} $\ast$packet)
+\item 
+char $\ast$ \mbox{\hyperlink{_q__packet_8c_a7f9775f61b2db9c3bf01108e4e0b2702}{Q\+\_\+packet\+\_\+forge\+\_\+discover\+\_\+reply}} (uint8\+\_\+t node\+\_\+id)
+\item 
+char $\ast$ \mbox{\hyperlink{_q__packet_8c_acc5716d9b13390f846f0d87b354b44e3}{Q\+\_\+packet\+\_\+forge\+\_\+poll\+\_\+reply}} (uint8\+\_\+t node\+\_\+id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_q__packet_8c_a370af2353a0217c65ac3bdff1cf506fe}\label{_q__packet_8c_a370af2353a0217c65ac3bdff1cf506fe}} 
+\index{Q\_packet.c@{Q\_packet.c}!\_Q\_packet\_check\_validity@{\_Q\_packet\_check\_validity}}
+\index{\_Q\_packet\_check\_validity@{\_Q\_packet\_check\_validity}!Q\_packet.c@{Q\_packet.c}}
+\doxysubsubsection{\texorpdfstring{\_Q\_packet\_check\_validity()}{\_Q\_packet\_check\_validity()}}
+{\footnotesize\ttfamily static uint8\+\_\+t \+\_\+\+Q\+\_\+packet\+\_\+check\+\_\+validity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_q__packet_8h_aeba4588055dc100bba4e98a74b9ab70e}{Q\+\_\+packet\+\_\+s}} $\ast$}]{packet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 25 of file Q\+\_\+packet.\+c.
+
+\mbox{\Hypertarget{_q__packet_8c_a7f9775f61b2db9c3bf01108e4e0b2702}\label{_q__packet_8c_a7f9775f61b2db9c3bf01108e4e0b2702}} 
+\index{Q\_packet.c@{Q\_packet.c}!Q\_packet\_forge\_discover\_reply@{Q\_packet\_forge\_discover\_reply}}
+\index{Q\_packet\_forge\_discover\_reply@{Q\_packet\_forge\_discover\_reply}!Q\_packet.c@{Q\_packet.c}}
+\doxysubsubsection{\texorpdfstring{Q\_packet\_forge\_discover\_reply()}{Q\_packet\_forge\_discover\_reply()}}
+{\footnotesize\ttfamily char$\ast$ Q\+\_\+packet\+\_\+forge\+\_\+discover\+\_\+reply (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{node\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 95 of file Q\+\_\+packet.\+c.
+
+\mbox{\Hypertarget{_q__packet_8c_acc5716d9b13390f846f0d87b354b44e3}\label{_q__packet_8c_acc5716d9b13390f846f0d87b354b44e3}} 
+\index{Q\_packet.c@{Q\_packet.c}!Q\_packet\_forge\_poll\_reply@{Q\_packet\_forge\_poll\_reply}}
+\index{Q\_packet\_forge\_poll\_reply@{Q\_packet\_forge\_poll\_reply}!Q\_packet.c@{Q\_packet.c}}
+\doxysubsubsection{\texorpdfstring{Q\_packet\_forge\_poll\_reply()}{Q\_packet\_forge\_poll\_reply()}}
+{\footnotesize\ttfamily char$\ast$ Q\+\_\+packet\+\_\+forge\+\_\+poll\+\_\+reply (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{node\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 109 of file Q\+\_\+packet.\+c.
+
+\mbox{\Hypertarget{_q__packet_8c_ae68a10b34f7b6887aa58ba6ca3773784}\label{_q__packet_8c_ae68a10b34f7b6887aa58ba6ca3773784}} 
+\index{Q\_packet.c@{Q\_packet.c}!Q\_packet\_free@{Q\_packet\_free}}
+\index{Q\_packet\_free@{Q\_packet\_free}!Q\_packet.c@{Q\_packet.c}}
+\doxysubsubsection{\texorpdfstring{Q\_packet\_free()}{Q\_packet\_free()}}
+{\footnotesize\ttfamily void Q\+\_\+packet\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_q__packet_8h_aeba4588055dc100bba4e98a74b9ab70e}{Q\+\_\+packet\+\_\+s}} $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Definition at line 79 of file Q\+\_\+packet.\+c.
+
+\mbox{\Hypertarget{_q__packet_8c_adb24db657934f6e9d6e6b13bb3860fcc}\label{_q__packet_8c_adb24db657934f6e9d6e6b13bb3860fcc}} 
+\index{Q\_packet.c@{Q\_packet.c}!Q\_packet\_parse@{Q\_packet\_parse}}
+\index{Q\_packet\_parse@{Q\_packet\_parse}!Q\_packet.c@{Q\_packet.c}}
+\doxysubsubsection{\texorpdfstring{Q\_packet\_parse()}{Q\_packet\_parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_q__packet_8h_aeba4588055dc100bba4e98a74b9ab70e}{Q\+\_\+packet\+\_\+s}}$\ast$ Q\+\_\+packet\+\_\+parse (\begin{DoxyParamCaption}\item[{void $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file Q\+\_\+packet.\+c.
+

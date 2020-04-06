@@ -1,0 +1,77 @@
+\hypertarget{init_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/src/core/init.c File Reference}
+\label{init_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/init.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/init.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/memp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/netif.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sockets.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/raw.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/udp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/tcp\+\_\+priv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/igmp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/dns.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/timeouts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/etharp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/nd6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mld6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}netif/ppp/ppp\+\_\+opts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}netif/ppp/ppp\+\_\+impl.\+h\char`\"{}}\newline
+Include dependency graph for init.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpacked__struct__test}{packed\+\_\+struct\+\_\+test}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{init_8c_afa3b6d3e87614ea5ab1aa9e7ac00cda4}\label{init_8c_afa3b6d3e87614ea5ab1aa9e7ac00cda4}} 
+\#define {\bfseries P\+A\+C\+K\+E\+D\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+T\+E\+S\+T\+\_\+\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+S\+I\+ZE}~5
+\item 
+\mbox{\Hypertarget{init_8c_a2fd90dfd6cee216d4a316078cc0ec2b9}\label{init_8c_a2fd90dfd6cee216d4a316078cc0ec2b9}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+T\+C\+P\+\_\+\+S\+A\+N\+I\+T\+Y\+\_\+\+C\+H\+E\+C\+KS}~0
+\item 
+\mbox{\Hypertarget{init_8c_ad76cb551defb63d2352d696afcb8ade6}\label{init_8c_ad76cb551defb63d2352d696afcb8ade6}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+D\+I\+S\+A\+B\+L\+E\+\_\+\+M\+E\+M\+P\+\_\+\+S\+A\+N\+I\+T\+Y\+\_\+\+C\+H\+E\+C\+KS}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{init_8c_a0c1a18439524d2f4a5e51d25c0ca2ce9}{lwip\+\_\+init}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{init_8c_a2457c50d3c04347155d7101316bbbc24}\label{init_8c_a2457c50d3c04347155d7101316bbbc24}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+E\+G\+IN}} struct \mbox{\hyperlink{structpacked__struct__test}{packed\+\_\+struct\+\_\+test}} {\bfseries P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+S\+T\+R\+U\+CT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Modules initialization 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{init_8c_a0c1a18439524d2f4a5e51d25c0ca2ce9}\label{init_8c_a0c1a18439524d2f4a5e51d25c0ca2ce9}} 
+\index{init.c@{init.c}!lwip\_init@{lwip\_init}}
+\index{lwip\_init@{lwip\_init}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{lwip\_init()}{lwip\_init()}}
+{\footnotesize\ttfamily void lwip\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize all modules. Use this in N\+O\+\_\+\+S\+YS mode. Use \mbox{\hyperlink{tcpip_8h_ac104b53faf0e3905ad0e970866835661}{tcpip\+\_\+init()}} otherwise. 
+
+Definition at line 337 of file init.\+c.
+

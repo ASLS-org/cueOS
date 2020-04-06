@@ -1,0 +1,147 @@
+\hypertarget{structnetif}{}\doxysection{netif Struct Reference}
+\label{structnetif}\index{netif@{netif}}
+
+
+{\ttfamily \#include $<$netif.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{structnetif_a72608bc752fe6268d382e5624ba4381d}{next}}
+\item 
+\mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}} \mbox{\hyperlink{structnetif_a8aaf0d8a095fbd84aa1a38998f039190}{input}}
+\item 
+\mbox{\hyperlink{netif_8h_ab75e9d808bc1b788bea84213e6a111ed}{netif\+\_\+linkoutput\+\_\+fn}} \mbox{\hyperlink{structnetif_a4a758a6b98ec0ba0225d5cd120bbf1ba}{linkoutput}}
+\item 
+void $\ast$ \mbox{\hyperlink{structnetif_a441a9214dea76f74bf9d8b392cf4d355}{state}}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structnetif_a30008eb1b9281853f44e3212ed8d54eb}{mtu}}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structnetif_a70a871553a056d9bb835e8e72ec07de9}{hwaddr\+\_\+len}}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structnetif_a51fe41429f305697adfd9d07f56107b9}{hwaddr}} \mbox{[}\mbox{\hyperlink{netif_8h_ab887a8ec553de1be1d04cf2961c63c41}{N\+E\+T\+I\+F\+\_\+\+M\+A\+X\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN}}\mbox{]}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structnetif_acdbb1031079f6bcd67096ea22e82edb4}{flags}}
+\item 
+char \mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}} \mbox{[}2\mbox{]}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structnetif_af8ffb2c1c1d08fafe1d0845d5296c9a8}{num}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generic data structure used for all lw\+IP network interfaces. The following fields should be filled in by the initialization function for the device driver\+: hwaddr\+\_\+len, hwaddr\mbox{[}\mbox{]}, mtu, flags 
+
+Definition at line 225 of file netif.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structnetif_acdbb1031079f6bcd67096ea22e82edb4}\label{structnetif_acdbb1031079f6bcd67096ea22e82edb4}} 
+\index{netif@{netif}!flags@{flags}}
+\index{flags@{flags}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily u8\+\_\+t flags}
+
+flags (\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__netif__flags}{Flags}}) 
+\end{DoxySeeAlso}
+
+
+Definition at line 305 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_a51fe41429f305697adfd9d07f56107b9}\label{structnetif_a51fe41429f305697adfd9d07f56107b9}} 
+\index{netif@{netif}!hwaddr@{hwaddr}}
+\index{hwaddr@{hwaddr}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{hwaddr}{hwaddr}}
+{\footnotesize\ttfamily u8\+\_\+t hwaddr\mbox{[}\mbox{\hyperlink{netif_8h_ab887a8ec553de1be1d04cf2961c63c41}{N\+E\+T\+I\+F\+\_\+\+M\+A\+X\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN}}\mbox{]}}
+
+link level hardware address of this interface 
+
+Definition at line 303 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_a70a871553a056d9bb835e8e72ec07de9}\label{structnetif_a70a871553a056d9bb835e8e72ec07de9}} 
+\index{netif@{netif}!hwaddr\_len@{hwaddr\_len}}
+\index{hwaddr\_len@{hwaddr\_len}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{hwaddr\_len}{hwaddr\_len}}
+{\footnotesize\ttfamily u8\+\_\+t hwaddr\+\_\+len}
+
+number of bytes used in hwaddr 
+
+Definition at line 301 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_a8aaf0d8a095fbd84aa1a38998f039190}\label{structnetif_a8aaf0d8a095fbd84aa1a38998f039190}} 
+\index{netif@{netif}!input@{input}}
+\index{input@{input}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}} input}
+
+This function is called by the network device driver to pass a packet up the T\+C\+P/\+IP stack. 
+
+Definition at line 244 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_a4a758a6b98ec0ba0225d5cd120bbf1ba}\label{structnetif_a4a758a6b98ec0ba0225d5cd120bbf1ba}} 
+\index{netif@{netif}!linkoutput@{linkoutput}}
+\index{linkoutput@{linkoutput}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{linkoutput}{linkoutput}}
+{\footnotesize\ttfamily \mbox{\hyperlink{netif_8h_ab75e9d808bc1b788bea84213e6a111ed}{netif\+\_\+linkoutput\+\_\+fn}} linkoutput}
+
+This function is called by ethernet\+\_\+output() when it wants to send a packet on the interface. This function outputs the pbuf as-\/is on the link medium. 
+
+Definition at line 255 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_a30008eb1b9281853f44e3212ed8d54eb}\label{structnetif_a30008eb1b9281853f44e3212ed8d54eb}} 
+\index{netif@{netif}!mtu@{mtu}}
+\index{mtu@{mtu}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{mtu}{mtu}}
+{\footnotesize\ttfamily u16\+\_\+t mtu}
+
+maximum transfer unit (in bytes) 
+
+Definition at line 299 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_ab2726dd451e7676f553e96d5620bdfe3}\label{structnetif_ab2726dd451e7676f553e96d5620bdfe3}} 
+\index{netif@{netif}!name@{name}}
+\index{name@{name}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char name\mbox{[}2\mbox{]}}
+
+descriptive abbreviation 
+
+Definition at line 307 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_a72608bc752fe6268d382e5624ba4381d}\label{structnetif_a72608bc752fe6268d382e5624ba4381d}} 
+\index{netif@{netif}!next@{next}}
+\index{next@{next}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structnetif}{netif}}$\ast$ next}
+
+pointer to next in linked list 
+
+Definition at line 227 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_af8ffb2c1c1d08fafe1d0845d5296c9a8}\label{structnetif_af8ffb2c1c1d08fafe1d0845d5296c9a8}} 
+\index{netif@{netif}!num@{num}}
+\index{num@{num}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{num}{num}}
+{\footnotesize\ttfamily u8\+\_\+t num}
+
+number of this interface 
+
+Definition at line 309 of file netif.\+h.
+
+\mbox{\Hypertarget{structnetif_a441a9214dea76f74bf9d8b392cf4d355}\label{structnetif_a441a9214dea76f74bf9d8b392cf4d355}} 
+\index{netif@{netif}!state@{state}}
+\index{state@{state}!netif@{netif}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily void$\ast$ state}
+
+This field can be set by the device driver and could point to state information for the device. 
+
+Definition at line 279 of file netif.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.\+4/cueos/net/inc/lwip/\mbox{\hyperlink{netif_8h}{netif.\+h}}\end{DoxyCompactItemize}

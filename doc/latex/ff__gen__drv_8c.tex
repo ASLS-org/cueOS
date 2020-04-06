@@ -1,0 +1,202 @@
+\hypertarget{ff__gen__drv_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/drivers/hl\+\_\+drivers/media/mmc/src/ff\+\_\+gen\+\_\+drv.c File Reference}
+\label{ff__gen__drv_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/drivers/hl\_drivers/media/mmc/src/ff\_gen\_drv.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/drivers/hl\_drivers/media/mmc/src/ff\_gen\_drv.c}}
+
+
+Fat\+Fs generic low level driver.  
+
+
+{\ttfamily \#include \char`\"{}ff\+\_\+gen\+\_\+drv.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{ff__gen__drv_8c_a98c3c80319173c9925bbeddd2ebe55f0}{F\+A\+T\+F\+S\+\_\+\+Link\+Driver\+Ex}} (const \mbox{\hyperlink{struct_diskio__drv_type_def}{Diskio\+\_\+drv\+Type\+Def}} $\ast$drv, char $\ast$path, uint8\+\_\+t lun)
+\begin{DoxyCompactList}\small\item\em Links a compatible diskio driver/lun id and increments the number of active linked drivers. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{ff__gen__drv_8c_a95dad42ba07bb7d48cb5fb5fd3c8ef6f}{F\+A\+T\+F\+S\+\_\+\+Link\+Driver}} (const \mbox{\hyperlink{struct_diskio__drv_type_def}{Diskio\+\_\+drv\+Type\+Def}} $\ast$drv, char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Links a compatible diskio driver and increments the number of active linked drivers. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{ff__gen__drv_8c_a6ee487f56c0548d0da207dcbbe9bfe14}{F\+A\+T\+F\+S\+\_\+\+Un\+Link\+Driver\+Ex}} (char $\ast$path, uint8\+\_\+t lun)
+\begin{DoxyCompactList}\small\item\em Unlinks a diskio driver and decrements the number of active linked drivers. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{ff__gen__drv_8c_a5f457aa4e15830f4c77a9fa766f761d3}{F\+A\+T\+F\+S\+\_\+\+Un\+Link\+Driver}} (char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Unlinks a diskio driver and decrements the number of active linked drivers. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{ff__gen__drv_8c_a66f8718ba181d2c58b7e512e7f5bbf26}{F\+A\+T\+F\+S\+\_\+\+Get\+Attached\+Drivers\+Nbr}} (void)
+\begin{DoxyCompactList}\small\item\em Gets number of linked drivers to the Fat\+Fs module. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_disk__drv_type_def}{Disk\+\_\+drv\+Type\+Def}} \mbox{\hyperlink{ff__gen__drv_8c_a8f7b47d38580804ca8176a57cc78cb89}{disk}} = \{\{0\},\{0\},\{0\},0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fat\+Fs generic low level driver. 
+
+\begin{DoxyAuthor}{Author}
+M\+CD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 S\+T\+Microelectronics. All rights reserved.
+
+This software component is licensed by ST under B\+SD 3-\/Clause license, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: opensource.\+org/licenses/\+B\+S\+D-\/3-\/\+Clause 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ff__gen__drv_8c_a66f8718ba181d2c58b7e512e7f5bbf26}\label{ff__gen__drv_8c_a66f8718ba181d2c58b7e512e7f5bbf26}} 
+\index{ff\_gen\_drv.c@{ff\_gen\_drv.c}!FATFS\_GetAttachedDriversNbr@{FATFS\_GetAttachedDriversNbr}}
+\index{FATFS\_GetAttachedDriversNbr@{FATFS\_GetAttachedDriversNbr}!ff\_gen\_drv.c@{ff\_gen\_drv.c}}
+\doxysubsubsection{\texorpdfstring{FATFS\_GetAttachedDriversNbr()}{FATFS\_GetAttachedDriversNbr()}}
+{\footnotesize\ttfamily uint8\+\_\+t F\+A\+T\+F\+S\+\_\+\+Get\+Attached\+Drivers\+Nbr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets number of linked drivers to the Fat\+Fs module. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Number} & of attached drivers. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 116 of file ff\+\_\+gen\+\_\+drv.\+c.
+
+\mbox{\Hypertarget{ff__gen__drv_8c_a95dad42ba07bb7d48cb5fb5fd3c8ef6f}\label{ff__gen__drv_8c_a95dad42ba07bb7d48cb5fb5fd3c8ef6f}} 
+\index{ff\_gen\_drv.c@{ff\_gen\_drv.c}!FATFS\_LinkDriver@{FATFS\_LinkDriver}}
+\index{FATFS\_LinkDriver@{FATFS\_LinkDriver}!ff\_gen\_drv.c@{ff\_gen\_drv.c}}
+\doxysubsubsection{\texorpdfstring{FATFS\_LinkDriver()}{FATFS\_LinkDriver()}}
+{\footnotesize\ttfamily uint8\+\_\+t F\+A\+T\+F\+S\+\_\+\+Link\+Driver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_diskio__drv_type_def}{Diskio\+\_\+drv\+Type\+Def}} $\ast$}]{drv,  }\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Links a compatible diskio driver and increments the number of active linked drivers. 
+
+\begin{DoxyNote}{Note}
+The number of linked drivers (volumes) is up to 10 due to Fat\+Fs limits 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & pointer to the disk IO Driver structure \\
+\hline
+{\em path} & pointer to the logical drive path \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & 0 in case of success, otherwise 1. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 68 of file ff\+\_\+gen\+\_\+drv.\+c.
+
+\mbox{\Hypertarget{ff__gen__drv_8c_a98c3c80319173c9925bbeddd2ebe55f0}\label{ff__gen__drv_8c_a98c3c80319173c9925bbeddd2ebe55f0}} 
+\index{ff\_gen\_drv.c@{ff\_gen\_drv.c}!FATFS\_LinkDriverEx@{FATFS\_LinkDriverEx}}
+\index{FATFS\_LinkDriverEx@{FATFS\_LinkDriverEx}!ff\_gen\_drv.c@{ff\_gen\_drv.c}}
+\doxysubsubsection{\texorpdfstring{FATFS\_LinkDriverEx()}{FATFS\_LinkDriverEx()}}
+{\footnotesize\ttfamily uint8\+\_\+t F\+A\+T\+F\+S\+\_\+\+Link\+Driver\+Ex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_diskio__drv_type_def}{Diskio\+\_\+drv\+Type\+Def}} $\ast$}]{drv,  }\item[{char $\ast$}]{path,  }\item[{uint8\+\_\+t}]{lun }\end{DoxyParamCaption})}
+
+
+
+Links a compatible diskio driver/lun id and increments the number of active linked drivers. 
+
+\begin{DoxyNote}{Note}
+The number of linked drivers (volumes) is up to 10 due to Fat\+Fs limits. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em drv} & pointer to the disk IO Driver structure \\
+\hline
+{\em path} & pointer to the logical drive path \\
+\hline
+{\em lun} & \+: only used for U\+SB Key Disk to add multi-\/lun management else the parameter must be equal to 0 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & 0 in case of success, otherwise 1. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 39 of file ff\+\_\+gen\+\_\+drv.\+c.
+
+\mbox{\Hypertarget{ff__gen__drv_8c_a5f457aa4e15830f4c77a9fa766f761d3}\label{ff__gen__drv_8c_a5f457aa4e15830f4c77a9fa766f761d3}} 
+\index{ff\_gen\_drv.c@{ff\_gen\_drv.c}!FATFS\_UnLinkDriver@{FATFS\_UnLinkDriver}}
+\index{FATFS\_UnLinkDriver@{FATFS\_UnLinkDriver}!ff\_gen\_drv.c@{ff\_gen\_drv.c}}
+\doxysubsubsection{\texorpdfstring{FATFS\_UnLinkDriver()}{FATFS\_UnLinkDriver()}}
+{\footnotesize\ttfamily uint8\+\_\+t F\+A\+T\+F\+S\+\_\+\+Un\+Link\+Driver (\begin{DoxyParamCaption}\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Unlinks a diskio driver and decrements the number of active linked drivers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & pointer to the logical drive path \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & 0 in case of success, otherwise 1. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 106 of file ff\+\_\+gen\+\_\+drv.\+c.
+
+\mbox{\Hypertarget{ff__gen__drv_8c_a6ee487f56c0548d0da207dcbbe9bfe14}\label{ff__gen__drv_8c_a6ee487f56c0548d0da207dcbbe9bfe14}} 
+\index{ff\_gen\_drv.c@{ff\_gen\_drv.c}!FATFS\_UnLinkDriverEx@{FATFS\_UnLinkDriverEx}}
+\index{FATFS\_UnLinkDriverEx@{FATFS\_UnLinkDriverEx}!ff\_gen\_drv.c@{ff\_gen\_drv.c}}
+\doxysubsubsection{\texorpdfstring{FATFS\_UnLinkDriverEx()}{FATFS\_UnLinkDriverEx()}}
+{\footnotesize\ttfamily uint8\+\_\+t F\+A\+T\+F\+S\+\_\+\+Un\+Link\+Driver\+Ex (\begin{DoxyParamCaption}\item[{char $\ast$}]{path,  }\item[{uint8\+\_\+t}]{lun }\end{DoxyParamCaption})}
+
+
+
+Unlinks a diskio driver and decrements the number of active linked drivers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & pointer to the logical drive path \\
+\hline
+{\em lun} & \+: not used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & 0 in case of success, otherwise 1. \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 80 of file ff\+\_\+gen\+\_\+drv.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ff__gen__drv_8c_a8f7b47d38580804ca8176a57cc78cb89}\label{ff__gen__drv_8c_a8f7b47d38580804ca8176a57cc78cb89}} 
+\index{ff\_gen\_drv.c@{ff\_gen\_drv.c}!disk@{disk}}
+\index{disk@{disk}!ff\_gen\_drv.c@{ff\_gen\_drv.c}}
+\doxysubsubsection{\texorpdfstring{disk}{disk}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_disk__drv_type_def}{Disk\+\_\+drv\+Type\+Def}} disk = \{\{0\},\{0\},\{0\},0\}}
+
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2017 S\+T\+Microelectronics International N.\+V. All rights reserved.\end{center} }
+
+Redistribution and use in source and binary forms, with or without modification, are permitted, provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistribution of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of S\+T\+Microelectronics nor the names of other contributors to this software may be used to endorse or promote products derived from this software without specific written permission.
+\item This software, including modifications and/or derivative works of this software, must execute solely and exclusively on microcontroller or microprocessor devices manufactured by or for S\+T\+Microelectronics.
+\item Redistribution and use of this software other than as permitted under this license is void and will automatically terminate your rights under this license.
+\end{DoxyEnumerate}
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY S\+T\+M\+I\+C\+R\+O\+E\+L\+E\+C\+T\+R\+O\+N\+I\+CS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS, I\+M\+P\+L\+I\+ED OR S\+T\+A\+T\+U\+T\+O\+RY W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY, F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+ND N\+O\+N-\/\+I\+N\+F\+R\+I\+N\+G\+E\+M\+E\+NT OF T\+H\+I\+RD P\+A\+R\+TY I\+N\+T\+E\+L\+L\+E\+C\+T\+U\+AL P\+R\+O\+P\+E\+R\+TY R\+I\+G\+H\+TS A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED TO T\+HE F\+U\+L\+L\+E\+ST E\+X\+T\+E\+NT P\+E\+R\+M\+I\+T\+T\+ED BY L\+AW. IN NO E\+V\+E\+NT S\+H\+A\+LL S\+T\+M\+I\+C\+R\+O\+E\+L\+E\+C\+T\+R\+O\+N\+I\+CS OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF T\+HE P\+O\+S\+S\+I\+B\+I\+L\+I\+TY OF S\+U\+CH D\+A\+M\+A\+GE. 
+
+Definition at line 24 of file ff\+\_\+gen\+\_\+drv.\+c.
+

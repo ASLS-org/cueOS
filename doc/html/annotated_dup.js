@@ -1,0 +1,26 @@
+var annotated_dup =
+[
+    [ "DMX512_chaser_pool_s", "struct_d_m_x512__chaser__pool__s.html", "struct_d_m_x512__chaser__pool__s" ],
+    [ "DMX512_chaser_s", "struct_d_m_x512__chaser__s.html", "struct_d_m_x512__chaser__s" ],
+    [ "DMX512_chaser_step_s", "struct_d_m_x512__chaser__step__s.html", "struct_d_m_x512__chaser__step__s" ],
+    [ "DMX512_engine_s", "struct_d_m_x512__engine__s.html", "struct_d_m_x512__engine__s" ],
+    [ "DMX512_fixture", "struct_d_m_x512__fixture.html", "struct_d_m_x512__fixture" ],
+    [ "DMX512_fixture_pool_s", "struct_d_m_x512__fixture__pool__s.html", "struct_d_m_x512__fixture__pool__s" ],
+    [ "DMX512_fixture_preset", "struct_d_m_x512__fixture__preset.html", "struct_d_m_x512__fixture__preset" ],
+    [ "DMX512_fixture_preset_s", "struct_d_m_x512__fixture__preset__s.html", null ],
+    [ "DMX512_preset", "struct_d_m_x512__preset.html", "struct_d_m_x512__preset" ],
+    [ "DMX512_scene_pool_s", "struct_d_m_x512__scene__pool__s.html", "struct_d_m_x512__scene__pool__s" ],
+    [ "DMX512_scene_s", "struct_d_m_x512__scene__s.html", "struct_d_m_x512__scene__s" ],
+    [ "DMX512_utils_mschronometer_s", "struct_d_m_x512__utils__mschronometer__s.html", "struct_d_m_x512__utils__mschronometer__s" ],
+    [ "fs_file", "structfs__file.html", "structfs__file" ],
+    [ "fsdata_file", "structfsdata__file.html", "structfsdata__file" ],
+    [ "http_param_s", "structhttp__param__s.html", "structhttp__param__s" ],
+    [ "http_request", "structhttp__request.html", "structhttp__request" ],
+    [ "http_response_s", "structhttp__response__s.html", "structhttp__response__s" ],
+    [ "http_server_s", "structhttp__server__s.html", "structhttp__server__s" ],
+    [ "jsonparser_json_object_s", "structjsonparser__json__object__s.html", "structjsonparser__json__object__s" ],
+    [ "jsonparser_json_param_s", "structjsonparser__json__param__s.html", "structjsonparser__json__param__s" ],
+    [ "jsonparser_json_string_s", "structjsonparser__json__string__s.html", "structjsonparser__json__string__s" ],
+    [ "Q_client", "struct_q__client.html", "struct_q__client" ],
+    [ "Q_packet", "struct_q__packet.html", "struct_q__packet" ]
+];

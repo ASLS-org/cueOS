@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Depedencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -14,7 +14,7 @@
 #include "DMX512_engine.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private variables definitions
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
@@ -23,14 +23,12 @@ static DMX512_engine_s this;
 static osThreadId_t DMX512engineThread = NULL;
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_engine
- * @fn _DMX512_engine_load_config_header
  * @brief Loads header information into the parser instance
  *
  * Data contained within a QLSF file header conveys information regarding
@@ -61,8 +59,6 @@ static DMX512_engine_err_e _DMX512_engine_load_config_header(FIL *config_file){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn _DMX512_engine_load_config_patch
  * @brief Loads patch defined within the config file into the DMX51 engine
  *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
@@ -99,8 +95,6 @@ static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn _DMX512_engine_load_config_scenes
  * @brief Loads scenes defined within the config file into the DMX512 engine
  *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
@@ -142,8 +136,6 @@ static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn _DMX512_engine_load_config_chasers
  * @brief Loads chasers defined within the config file into the DMX512 engine
  *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
@@ -195,8 +187,6 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn _DMX512_engine_manage
  * @brief Thread managing engine functions execution
  *
  * Currently available DMX512 functions include:
@@ -214,15 +204,13 @@ static void _DMX512_engine_manage(void *arg){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_engine.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_load_config
  * @brief Loads a show configuration from a QLSF file
  *
  * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
@@ -249,8 +237,6 @@ DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_init
  * @brief Initialises the DMX512 engine singleton.
  */
 void DMX512_engine_init(void){
@@ -274,8 +260,6 @@ void DMX512_engine_init(void){
 //TODO: maybe add a "started state" to prevent recursive calls to start/stop function
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_start
  * @brief Starts the DMX512 driver and launches the DMX512 engine management thread
  */
 void DMX512_engine_start(void){
@@ -284,8 +268,6 @@ void DMX512_engine_start(void){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_stop
  * @brief Stops the DMX512 driver and terminates the DMX512 engine management thread
  */
 void DMX512_engine_stop(void){
@@ -294,8 +276,6 @@ void DMX512_engine_stop(void){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_patch_add
  * @brief Wrapper for "DMX512_fixture_pool_add" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
@@ -311,8 +291,6 @@ DMX512_engine_err_e DMX512_engine_patch_add(uint16_t fixture_id, uint16_t addres
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_patch_get
  * @brief Wrapper for "DMX512_fixture_pool_get" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
@@ -325,8 +303,6 @@ DMX512_engine_err_e DMX512_engine_patch_get(uint16_t fixture_id, DMX512_fixture_
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_patch_get_all
  * @brief Returns the current engine fixture patch
  *
  * @return DMX512_fixture_pool_s* pointer to the engine's fixture pool
@@ -336,8 +312,6 @@ DMX512_fixture_pool_s *DMX512_engine_patch_get_all(void){
 }
 
 /**
- * @ingroup DMX512_engine
- * @fn DMX512_engine_patch_delete
  * @brief Wrapper for "DMX512_fixture_pool_del" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *

@@ -1,0 +1,54 @@
+\hypertarget{http__response_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/webapp/utils/http/inc/http\+\_\+response.h File Reference}
+\label{http__response_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/http/inc/http\_response.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/http/inc/http\_response.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}http\+\_\+defs.\+h\char`\"{}}\newline
+Include dependency graph for http\+\_\+response.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{http__response_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{http__response_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structhttp__response}{http\+\_\+response}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP response structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___h_t_t_p__response_ga635b033ca57c2eb0a66aff6449d09120}{H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structhttp__response}{http\+\_\+response}} \mbox{\hyperlink{group___h_t_t_p__response_gac24adf1be43d6eb76d349fe57c64785f}{http\+\_\+response\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP response structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___h_t_t_p__response_ga9b60ce6f72d88e26296b7993373b24bd}{http\+\_\+response\+\_\+static\+\_\+state}} \{ \newline
+\mbox{\hyperlink{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda2c0884088aea32889ba64065a36d2a27}{H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+I\+S\+\_\+\+D\+Y\+N\+A\+M\+IC}}, 
+\newline
+\mbox{\hyperlink{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda66586017b1df1dc8c597405991b62aaf}{H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+I\+S\+\_\+\+S\+T\+A\+T\+IC}}
+ \}
+\begin{DoxyCompactList}\small\item\em Whether the H\+T\+TP response conveys static data or not. This is very importnt as it will be used to allocate and free the response\textquotesingle{}s data pointer in case the response data needs to be dynamimc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___h_t_t_p__response_gac24adf1be43d6eb76d349fe57c64785f}{http\+\_\+response\+\_\+s}} $\ast$ \mbox{\hyperlink{group___h_t_t_p__response_ga685951b24716349dfe138c15e1b60b9d}{http\+\_\+response\+\_\+new}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new H\+T\+TP response instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_t_t_p__response_gaab40a9ae2a8e99f5360f7e062d310f5c}{http\+\_\+response\+\_\+free}} (\mbox{\hyperlink{group___h_t_t_p__response_gac24adf1be43d6eb76d349fe57c64785f}{http\+\_\+response\+\_\+s}} $\ast$res)
+\begin{DoxyCompactList}\small\item\em Safely frees an H\+T\+TP response instance. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_t_t_p__response_ga1bbefa15aee22dd8f2805ad7c4f119f8}{http\+\_\+response\+\_\+get\+\_\+bytes\+\_\+left}} (\mbox{\hyperlink{group___h_t_t_p__response_gac24adf1be43d6eb76d349fe57c64785f}{http\+\_\+response\+\_\+s}} $\ast$res)
+\begin{DoxyCompactList}\small\item\em Returns the amount of bytes left to be processed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_t_t_p__response_ga9d2d92cb07678772739b66a60e34d74c}{http\+\_\+response\+\_\+prepare\+\_\+dynamic}} (\mbox{\hyperlink{group___h_t_t_p__response_gac24adf1be43d6eb76d349fe57c64785f}{http\+\_\+response\+\_\+s}} $\ast$res, \mbox{\hyperlink{group___h_t_t_p__defs_ga07fab378dac3fa306f1ab07cc1ecee3f}{http\+\_\+status\+\_\+code\+\_\+e}} status\+\_\+code, \mbox{\hyperlink{group___h_t_t_p__defs_gaa1c9a0b25177692d56ce826455eca770}{http\+\_\+content\+\_\+types\+\_\+e}} content\+\_\+type, char $\ast$content)
+\begin{DoxyCompactList}\small\item\em Pre-\/formats response to H\+T\+TP response using provided response header parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}

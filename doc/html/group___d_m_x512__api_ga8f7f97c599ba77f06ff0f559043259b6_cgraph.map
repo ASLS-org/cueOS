@@ -1,0 +1,17 @@
+<map id="DMX512_api_get_fixtures" name="DMX512_api_get_fixtures">
+<area shape="rect" id="node1" title="Retrieves one or many fixture patched within the DMX512 engine&#39;s." alt="" coords="5,267,177,294"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__engine.html#ga4716f92ccafcbc0a543ed588af699bab" title="Wrapper for &quot;DMX512_fixture_pool_get&quot; function. Provides context to the specified function using DMX5..." alt="" coords="226,13,409,39"/>
+<area shape="rect" id="node5" href="$group___d_m_x512__engine.html#gaf935f32599ad62a93a8cb8668c1e3c4a" title="Returns the current engine fixture patch." alt="" coords="239,64,396,105"/>
+<area shape="rect" id="node6" href="$http__response_8h.html#a9d2d92cb07678772739b66a60e34d74c" title=" " alt="" coords="240,129,395,171"/>
+<area shape="rect" id="node8" href="$jsonparser_8h.html#a084da82bf0fcdc2a21f454e2d09546ed" title=" " alt="" coords="246,195,389,236"/>
+<area shape="rect" id="node9" href="$jsonparser_8h.html#ac023a560ca4eb78a36b6ba0a2c5bbace" title=" " alt="" coords="225,326,409,353"/>
+<area shape="rect" id="node12" href="$jsonparser_8h.html#a7d5de13c212ac321192dc07ea1f8826a" title=" " alt="" coords="226,509,409,535"/>
+<area shape="rect" id="node13" href="$jsonparser_8h.html#ad66569437587bfa9d5fa36c32671398c" title=" " alt="" coords="241,377,393,419"/>
+<area shape="rect" id="node14" href="$jsonparser_8h.html#a82d2ef1df30e6f56f8482d0bf24d40e4" title=" " alt="" coords="241,443,393,484"/>
+<area shape="rect" id="node15" href="$jsonparser_8h.html#a73e9fcd4c8fe1ac1e39ad4a3b82ea6fc" title=" " alt="" coords="241,260,393,301"/>
+<area shape="rect" id="node3" href="$group___d_m_x512__fixture__pool.html#gaeb1fc47ec330a480a68641e307e34a7e" title="Gets a fixture instance from the pool." alt="" coords="467,13,639,39"/>
+<area shape="rect" id="node4" href="$group___d_m_x512__fixture__pool.html#gaf090f5b2bf3ea4aaeeab2de32f256812" title="Finds the array index of a fixture." alt="" coords="697,5,852,47"/>
+<area shape="rect" id="node7" href="$http__response_8c.html#ade72c9f2ce711b17b98add81b314666e" title=" " alt="" coords="457,137,649,163"/>
+<area shape="rect" id="node10" href="$jsonparser_8c.html#a446c7edf84e2d854cf709f6cfd4183d0" title=" " alt="" coords="465,326,642,353"/>
+<area shape="rect" id="node11" href="$jsonparser_8c.html#a4182dd1caa1a680cf4366c227ae56a33" title=" " alt="" coords="477,377,629,419"/>
+</map>

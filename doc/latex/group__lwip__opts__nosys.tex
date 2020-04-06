@@ -1,0 +1,23 @@
+\hypertarget{group__lwip__opts__nosys}{}\doxysection{N\+O\+\_\+\+S\+YS}
+\label{group__lwip__opts__nosys}\index{NO\_SYS@{NO\_SYS}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nosys_gae00ba99de94a5bf84d832be8976df59b}{N\+O\+\_\+\+S\+YS}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__nosys_gae00ba99de94a5bf84d832be8976df59b}\label{group__lwip__opts__nosys_gae00ba99de94a5bf84d832be8976df59b}} 
+\index{NO\_SYS@{NO\_SYS}!NO\_SYS@{NO\_SYS}}
+\index{NO\_SYS@{NO\_SYS}!NO\_SYS@{NO\_SYS}}
+\doxysubsubsection{\texorpdfstring{NO\_SYS}{NO\_SYS}}
+{\footnotesize\ttfamily \#define N\+O\+\_\+\+S\+YS~0}
+
+N\+O\+\_\+\+S\+YS==1\+: Use lw\+IP without O\+S-\/awareness (no thread, semaphores, mutexes or mboxes). This means threaded A\+P\+Is cannot be used (socket, netconn, i.\+e. everything in the \textquotesingle{}api\textquotesingle{} folder), only the callback-\/style raw A\+PI is available (and you have to watch out for yourself that you don\textquotesingle{}t access lw\+IP functions/structures from more than one context at a time!) 
+
+Definition at line 89 of file opt.\+h.
+

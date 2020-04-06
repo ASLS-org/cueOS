@@ -1,3 +1,12 @@
+/**
+ * @ingroup DMX512_engine
+ * @defgroup DMX512_fixture_pool
+ * Fixture pools are used to store a universe's patch information. A patch is a pool of addressed fixtures
+ * which channel channel values must me comprised in within a 0-512 address value interval. A patched fixture's
+ * channels may not overlap over the channel addresses of another fixture member of the patch.
+ * @{
+ */
+
 #ifndef DMX512_fixture_pool_H
 #define DMX512_fixture_pool_H
 
@@ -5,14 +14,9 @@
 #include "DMX512_defs.h"
 #include "DMX512_fixture.h"
 
+
 /**
- * @ingroup DMX512_fixture_pool
- * @struct DMX512_fixture_pool_s
- * @brief Defines a DMX512 fixture pool object
- *
- * DMX512 fixtures may be patched over 512 channels universes. Fixture pools are used
- * to store a universe's patch information. What is referred as a patch here is
- * essentially of fixture objects.
+ * @brief DMX512 fixture pool structure object
  */
 typedef struct{
 	DMX512_fixture_s *fixtures;		/**< Pointer to a list of fixtures */
@@ -24,4 +28,10 @@ DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_
 DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_t id);
 DMX512_engine_err_e DMX512_fixture_pool_get(DMX512_fixture_pool_s *this, uint16_t id, DMX512_fixture_s **fixture);
 
+
 #endif
+
+/**
+ * @} Grouping in DMX512_fixture_pool submodule ends
+ * @} Grouping in DMX512_engine module ends
+ */

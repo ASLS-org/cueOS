@@ -1,0 +1,4 @@
+<map id="DMX512_chaser_manage" name="DMX512_chaser_manage">
+<area shape="rect" id="node1" title="Handles step selection and trigger over time." alt="" coords="5,13,177,39"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__chaser__step.html#ga9c4947753b1a96a2dad9473843891929" title="Chaser step state machine. Manage a chaser step&#39;s state over time." alt="" coords="225,5,376,47"/>
+</map>

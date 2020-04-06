@@ -1,0 +1,7 @@
+<map id="DMX512_engine_init" name="DMX512_engine_init">
+<area shape="rect" id="node1" title="Initialises the DMX512 engine singleton." alt="" coords="5,81,148,108"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__chaser__pool.html#ga7f5c53e597d0012be46c4dd12f210160" title="Creates a new chaser pool instance." alt="" coords="196,5,377,32"/>
+<area shape="rect" id="node3" href="$group___d_m_x512__engine.html#ga2796bcad64ff3b6a0098c19bfb8550f7" title="Starts the DMX512 driver and launches the DMX512 engine management thread." alt="" coords="211,56,362,83"/>
+<area shape="rect" id="node4" href="$group___d_m_x512__fixture__pool.html#ga86ee646e158b3e9b7a39357e7edd412b" title="Creates a new fixture pool instance." alt="" coords="197,107,376,133"/>
+<area shape="rect" id="node5" href="$group___d_m_x512__scene__pool.html#ga65322c937fa77e55771f9664aede63fd" title="Creates a new scene pool instance." alt="" coords="198,157,375,184"/>
+</map>

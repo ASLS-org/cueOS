@@ -11,7 +11,7 @@
 #include "Q_packet.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private variables definitions
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
@@ -19,7 +19,7 @@
 static Q_client_s this;
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
@@ -76,15 +76,13 @@ static void _Q_client_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, co
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_chaser_pool.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup Q_client
- * @fn Q_client_init
  * @brief Initialises Q client.
  *
  * @param groupcfg the group configuration byte to be used
@@ -98,8 +96,6 @@ void Q_client_init(void){
 }
 
 /**
- * @ingroup Q_client
- * @fn Q_client_send
  * @brief Sends a packet over UDP. Packet needs to be pre-formated in order
  * for it to be understood by concerned destinator. Q packets can be forged
  * using forging functions described within Q_packet.h/c files.
@@ -115,8 +111,6 @@ void Q_client_send(char *raw_packet, uint16_t len){
 }
 
 /**
- * @ingroup Q_client
- * @fn Q_client_bind
  * @brief Establishes a multicast join request over UDP. Multicast address is determined
  * by the group configuration byte provided during initialisation.
  *

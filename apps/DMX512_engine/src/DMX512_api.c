@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Depedencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -13,14 +13,12 @@
 #include "errno.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_api
- * @fn DMX512_api_get_fixtures
  * @brief Retrieves one or many fixture patched within the DMX512 engine's
  *
  * @param *req pointer to the http request instance for retrieving uri parameters
@@ -122,8 +120,6 @@ static void DMX512_api_get_fixtures(http_request_s *req){
 }
 
 /**
- * @ingroup DMX512_api
- * @fn DMX512_api_add_fixture
  * @brief Tries patching a fixture into the DMX512 engine fixture pool.
  *
  * @param *req pointer to the http request instance for retrieving uri parameters
@@ -142,11 +138,11 @@ static void DMX512_api_add_fixture(http_request_s *req){
 	jsonparser_json_string_s *res_body  = jsonparser_json_string_new();
 
 	for(uint8_t i=0; i<json_data->param_count;i++){
-		if(strcmp(json_data->params[i].arg, DMX512_api_args_str[DMX512_API_PARAM_ID]) == 0){
+		if(strcmp(json_data->params[i].key, DMX512_api_args_str[DMX512_API_PARAM_ID]) == 0){
 			fixture_id = atoi(json_data->params[i].val);
-		}else if(strcmp(json_data->params[i].arg, DMX512_api_args_str[DMX512_API_PARAM_ADDRESS]) == 0){
+		}else if(strcmp(json_data->params[i].key, DMX512_api_args_str[DMX512_API_PARAM_ADDRESS]) == 0){
 			fixture_addr = atoi(json_data->params[i].val);
-		}else if(strcmp(json_data->params[i].arg, DMX512_api_args_str[DMX512_API_PARAM_CHANNEL_COUNT]) == 0){
+		}else if(strcmp(json_data->params[i].key, DMX512_api_args_str[DMX512_API_PARAM_CHANNEL_COUNT]) == 0){
 			fixture_ch = atoi(json_data->params[i].val);
 		}
 	}
@@ -175,15 +171,13 @@ static void DMX512_api_add_fixture(http_request_s *req){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_api.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_api
- * @fn DMX512_api_router
  * @brief Parses the current HTTP request method and URI in order to route requests to a
  * specific api function.
  *
@@ -212,5 +206,4 @@ void DMX512_api_router(http_request_s *req){
 		default:
 			break;
 	}
-
 }

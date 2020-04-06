@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Dependencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -11,15 +11,13 @@
 #include "DMX512_chaser.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_chaser
- * @fn _DMX512_chaser_search
- * @briefFinds the array index of a fixture preset
+ * @brief Finds the array index of a fixture preset
  *
  * @param id the fixture preset's identifier
  * @return int16_t the array index of the fixture preset.
@@ -35,8 +33,6 @@ static int16_t _DMX512_chaser_search(DMX512_chaser_s *this, uint16_t fixture_id)
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn _DMX512_chaser_iterate_steps_forward
  * @brief Iterates throug steps in ascending order
  *
  * @param this pointer to the chaser instance
@@ -48,8 +44,6 @@ static void _DMX512_chaser_iterate_steps_forward(DMX512_chaser_s *this){
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn _DMX512_chaser_iterate_steps_backward
  * @brief Iterates through steps in descending order
  *
  * @param this pointer to the chaser instance
@@ -61,8 +55,6 @@ static void _DMX512_chaser_iterate_steps_backward(DMX512_chaser_s *this){
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn _DMX512_chaser_iterate_steps_pingpong
  * @brief Iterates through steps back and forth
  *
  * @param this pointer to the chaser instance
@@ -81,7 +73,7 @@ static void _DMX512_chaser_iterate_steps_pingpong(DMX512_chaser_s *this){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_chaser.h for declarations
@@ -90,8 +82,6 @@ static void _DMX512_chaser_iterate_steps_pingpong(DMX512_chaser_s *this){
 //TODO: Implement chaser fade-in fade-out
 
 /**
- * @ingroup DMX512_chaser
- * @fn DMX512_chaser_new
  * @brief Creates and initialises a new chaser instance
  *
  * @param id the chaser identifier (@see DMX512_chaser_pool.h)
@@ -109,8 +99,6 @@ DMX512_chaser_s DMX512_chaser_new(uint16_t id, DMX512_chaser_mode_e mode, DMX512
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn DMX512_chaser_add_step
  * @brief Adds a scene preset instance into the chaser
  *
  * @param this pointer to the chaser instance
@@ -137,8 +125,6 @@ DMX512_engine_err_e DMX512_chaser_add_step(DMX512_chaser_s *this, DMX512_chaser_
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn DMX512_chaser_del_step
  * @brief Deletes a fixture preset instance from the chaser
  *
  * @param id the fixture preset's idendifier
@@ -163,8 +149,6 @@ DMX512_engine_err_e DMX512_chaser_del_step(DMX512_chaser_s *this, uint16_t id){
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn DMX512_chaser_get_step
  * @brief Gets a fixture instance from the pool
  *
  * @param id the fixture preset identifier
@@ -180,8 +164,6 @@ DMX512_chaser_step_s *DMX512_chaser_get_step(DMX512_chaser_s *this, uint16_t id)
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn DMX512_chaser_manage
  * @brief Handles step selection and trigger over time
  *
  * @param this pointer to the chaser instance
@@ -201,8 +183,6 @@ void DMX512_chaser_manage(DMX512_chaser_s *this){
 }
 
 /**
- * @ingroup DMX512_chaser
- * @fn DMX512_chaser_start
  * @brief Starts a scene fade-in process
  *
  * @param this pointer to the scene instance

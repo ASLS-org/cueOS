@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Dependencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -11,14 +11,12 @@
 #include "DMX512_fixture_pool.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_fixture_pool
- * @fn _DMX512_fixture_pool_search
  * @brief Finds the array index of a fixture
  *
  * @param id the fixture's identifier
@@ -35,8 +33,6 @@ static int16_t _DMX512_fixture_pool_search(DMX512_fixture_pool_s *this, uint16_t
 }
 
 /**
- * @ingroup DMX512_fixture_pool
- * @fn _DMX512_fixture_pool_check
  * @brief Checks if a fixture can be added into the pool
  *
  * @param id the fixture's idendifier
@@ -66,15 +62,13 @@ static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fi
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_fixture_pool.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_fixture_pool
- * @fn DMX512_fixture_pool_new
  * @brief Creates a new fixture pool instance
  *
  * @return DMX512_fixture_pool_s the created pool instance
@@ -87,8 +81,6 @@ DMX512_fixture_pool_s *DMX512_fixture_pool_new(void){
 }
 
 /**
- * @ingroup DMX512_fixture_pool
- * @fn DMX512_fixture_pool_add
  * @brief Adds a fixture instance into the pool
  *
  * @param id the fixture's identifier
@@ -112,8 +104,6 @@ DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_
 }
 
 /**
- * @ingroup DMX512_fixture_pool
- * @fn DMX512_fixture_pool_del
  * @brief Deletes a fixture instance from the pool
  *
  * @param id the fixture's idendifier
@@ -138,8 +128,6 @@ DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_
 }
 
 /**
- * @ingroup DMX512_fixture_pool
- * @fn DMX512_fixture_pool_get
  * @brief Gets a fixture instance from the pool
  *
  * @param id the fixture's identifier

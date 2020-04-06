@@ -1,0 +1,4 @@
+<map id="DMX512_preset" name="DMX512_preset">
+<area shape="rect" id="node1" title=" " alt="" coords="5,96,121,123"/>
+<area shape="rect" id="node2" href="$struct_d_m_x512__fixture.html" title="DMX512 fixture structure object." alt="" coords="5,5,121,32"/>
+</map>

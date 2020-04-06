@@ -1,0 +1,380 @@
+\hypertarget{group___d_m_x512__chaser}{}\doxysection{D\+M\+X512\+\_\+chaser}
+\label{group___d_m_x512__chaser}\index{DMX512\_chaser@{DMX512\_chaser}}
+
+
+In a D\+MX lightshow, scenes may be chained and played back in a sequence called chaser. Scenes contained within a chaser are called \char`\"{}steps\char`\"{} and each individual steps conveys specific information regarding play-\/timings of the associated scene.  
+
+
+Collaboration diagram for D\+M\+X512\+\_\+chaser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___d_m_x512__chaser}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___d_m_x512__chaser__step}{D\+M\+X512\+\_\+chaser\+\_\+step}}
+\begin{DoxyCompactList}\small\item\em A chaser step represents a scene with additional information regarding its timing. Information such as fade in/out and hold time are used by a chaser to affect timings of scene\textquotesingle{}s playing sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em D\+M\+X512 chaser structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___d_m_x512__chaser_ga34952b0cbd1df49be8bd42c7d43e5862}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+E\+F\+A\+U\+LT}}~\{0, N\+U\+LL, \mbox{\hyperlink{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26a4e781e52bf4f5811ef88a3eee1801a82}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+L\+O\+OP}}, \mbox{\hyperlink{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca99b0d13354a763b582433a7c3c0bfbd4}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+F\+O\+R\+W\+A\+RD}}, 0, 0, \mbox{\hyperlink{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127a9bb208e7bf08ed4a5871087b3fc5be50}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+I\+D\+LE}}, \mbox{\hyperlink{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baad35f50f22ed686dea98171cb679abc54}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}}, \mbox{\hyperlink{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6aca6c645cab98cfd6316bbc98c6d859ec}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+I\+N\+G\+P\+O\+N\+G\+\_\+\+P\+I\+NG}}\}
+\begin{DoxyCompactList}\small\item\em chaser instance default values \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___d_m_x512__chaser_ga1d9e5a767af26a2881b57a8148e074ba}{D\+M\+X512\+\_\+chaser\+\_\+status\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baad35f50f22ed686dea98171cb679abc54}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baa5995d166ab8dcfa072f9fea7fbadfd87}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Status of a chaser instance. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___d_m_x512__chaser_gab0031330e0cb089bc3bd418492ee3e26}{D\+M\+X512\+\_\+chaser\+\_\+mode\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26a4e781e52bf4f5811ef88a3eee1801a82}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+L\+O\+OP}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26adbf401442416f4fb720d8fbf51798543}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Playing mode of a chsaer. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___d_m_x512__chaser_gab95551452bda6633238ded1083eea71c}{D\+M\+X512\+\_\+chaser\+\_\+direction\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca99b0d13354a763b582433a7c3c0bfbd4}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+F\+O\+R\+W\+A\+RD}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca82b60938a44bdbc949f5dd7d697916a1}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+B\+A\+C\+K\+W\+A\+RD}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca8ec0261983b5fd49fe78bc700e7ece2c}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+P\+I\+N\+G\+P\+O\+NG}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71caa58766b96454e107fb18facf7d7502f6}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+R\+A\+N\+D\+OM}}
+ \}
+\begin{DoxyCompactList}\small\item\em Playing direction of a chaser. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___d_m_x512__chaser_ga0feea1bd47614addaf8554dfd08f21d6}{D\+M\+X512\+\_\+chaser\+\_\+pingpong\+\_\+state\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6aca6c645cab98cfd6316bbc98c6d859ec}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+I\+N\+G\+P\+O\+N\+G\+\_\+\+P\+I\+NG}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6ae722ec2f72d5534426b6b5fb123c9911}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+I\+N\+G\+P\+O\+N\+G\+\_\+\+P\+O\+NG}}
+ \}
+\begin{DoxyCompactList}\small\item\em Current pingpong state. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___d_m_x512__chaser_ga02ff1fa7a9b5ec7b5d52d21fb3deb127}{D\+M\+X512\+\_\+chaser\+\_\+state\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127aafa36be9d5bb86892e52829c09dd16fb}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+L\+A\+Y\+I\+NG}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127a9bb208e7bf08ed4a5871087b3fc5be50}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+I\+D\+LE}}
+ \}
+\begin{DoxyCompactList}\small\item\em Current playing state of a chaser. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} \mbox{\hyperlink{group___d_m_x512__chaser_ga7410e8e5d5693b51ba5e54755f13a0ee}{D\+M\+X512\+\_\+chaser\+\_\+new}} (uint16\+\_\+t id, \mbox{\hyperlink{group___d_m_x512__chaser_gab0031330e0cb089bc3bd418492ee3e26}{D\+M\+X512\+\_\+chaser\+\_\+mode\+\_\+e}} mode, \mbox{\hyperlink{group___d_m_x512__chaser_gab95551452bda6633238ded1083eea71c}{D\+M\+X512\+\_\+chaser\+\_\+direction\+\_\+e}} direction)
+\begin{DoxyCompactList}\small\item\em Creates and initialises a new chaser instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__chaser_gaeb9c34496b361794cbe494ac01c4b506}{D\+M\+X512\+\_\+chaser\+\_\+add\+\_\+step}} (\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$this, \mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} step)
+\begin{DoxyCompactList}\small\item\em Adds a scene preset instance into the chaser. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__chaser_gab6389198536db1fd4fa941c932c55d30}{D\+M\+X512\+\_\+chaser\+\_\+del\+\_\+step}} (\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$this, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes a fixture preset instance from the chaser. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__chaser_ga0151ad5b7d584501fe7a4e377d74fe81}{D\+M\+X512\+\_\+chaser\+\_\+get\+\_\+step}} (\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$this, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets a fixture instance from the pool. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__chaser_ga5b7a6af82c9ebf2e8facc957ad534922}{D\+M\+X512\+\_\+chaser\+\_\+manage}} (\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$this)
+\begin{DoxyCompactList}\small\item\em Handles step selection and trigger over time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__chaser_ga82fe3051df6af5f15c71abb045747941}{D\+M\+X512\+\_\+chaser\+\_\+start}} (\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$this)
+\begin{DoxyCompactList}\small\item\em Starts a scene fade-\/in process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+In a D\+MX lightshow, scenes may be chained and played back in a sequence called chaser. Scenes contained within a chaser are called \char`\"{}steps\char`\"{} and each individual steps conveys specific information regarding play-\/timings of the associated scene. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga34952b0cbd1df49be8bd42c7d43e5862}\label{group___d_m_x512__chaser_ga34952b0cbd1df49be8bd42c7d43e5862}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_DEFAULT@{DMX512\_CHASER\_DEFAULT}}
+\index{DMX512\_CHASER\_DEFAULT@{DMX512\_CHASER\_DEFAULT}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_CHASER\_DEFAULT}{DMX512\_CHASER\_DEFAULT}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+E\+F\+A\+U\+LT~\{0, N\+U\+LL, \mbox{\hyperlink{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26a4e781e52bf4f5811ef88a3eee1801a82}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+L\+O\+OP}}, \mbox{\hyperlink{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca99b0d13354a763b582433a7c3c0bfbd4}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+F\+O\+R\+W\+A\+RD}}, 0, 0, \mbox{\hyperlink{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127a9bb208e7bf08ed4a5871087b3fc5be50}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+I\+D\+LE}}, \mbox{\hyperlink{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baad35f50f22ed686dea98171cb679abc54}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}}, \mbox{\hyperlink{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6aca6c645cab98cfd6316bbc98c6d859ec}{D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+I\+N\+G\+P\+O\+N\+G\+\_\+\+P\+I\+NG}}\}}
+
+
+
+chaser instance default values 
+
+Used during initialisation of a chaser instance, it lowers the risk of conflicts by ensuring that every parameters which will be set are correctly initialised. 
+
+Definition at line 27 of file D\+M\+X512\+\_\+chaser.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___d_m_x512__chaser_gab95551452bda6633238ded1083eea71c}\label{group___d_m_x512__chaser_gab95551452bda6633238ded1083eea71c}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_direction\_e@{DMX512\_chaser\_direction\_e}}
+\index{DMX512\_chaser\_direction\_e@{DMX512\_chaser\_direction\_e}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_direction\_e}{DMX512\_chaser\_direction\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__chaser_gab95551452bda6633238ded1083eea71c}{D\+M\+X512\+\_\+chaser\+\_\+direction\+\_\+e}}}
+
+
+
+Playing direction of a chaser. 
+
+Defines direction of the playing sequence of a chaser. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_DIRECTION\_FORWARD@{DMX512\_CHASER\_DIRECTION\_FORWARD}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_DIRECTION\_FORWARD@{DMX512\_CHASER\_DIRECTION\_FORWARD}}}\mbox{\Hypertarget{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca99b0d13354a763b582433a7c3c0bfbd4}\label{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca99b0d13354a763b582433a7c3c0bfbd4}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+F\+O\+R\+W\+A\+RD&Play consecutive steps in ascending order \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_DIRECTION\_BACKWARD@{DMX512\_CHASER\_DIRECTION\_BACKWARD}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_DIRECTION\_BACKWARD@{DMX512\_CHASER\_DIRECTION\_BACKWARD}}}\mbox{\Hypertarget{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca82b60938a44bdbc949f5dd7d697916a1}\label{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca82b60938a44bdbc949f5dd7d697916a1}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+B\+A\+C\+K\+W\+A\+RD&Play consecutive steps in descending order \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_DIRECTION\_PINGPONG@{DMX512\_CHASER\_DIRECTION\_PINGPONG}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_DIRECTION\_PINGPONG@{DMX512\_CHASER\_DIRECTION\_PINGPONG}}}\mbox{\Hypertarget{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca8ec0261983b5fd49fe78bc700e7ece2c}\label{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71ca8ec0261983b5fd49fe78bc700e7ece2c}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+P\+I\+N\+G\+P\+O\+NG&Play consecutive steps back and forth \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_DIRECTION\_RANDOM@{DMX512\_CHASER\_DIRECTION\_RANDOM}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_DIRECTION\_RANDOM@{DMX512\_CHASER\_DIRECTION\_RANDOM}}}\mbox{\Hypertarget{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71caa58766b96454e107fb18facf7d7502f6}\label{group___d_m_x512__chaser_ggab95551452bda6633238ded1083eea71caa58766b96454e107fb18facf7d7502f6}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+R\+A\+N\+D\+OM&Randomly pick steps to be played \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 55 of file D\+M\+X512\+\_\+chaser.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_gab0031330e0cb089bc3bd418492ee3e26}\label{group___d_m_x512__chaser_gab0031330e0cb089bc3bd418492ee3e26}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_mode\_e@{DMX512\_chaser\_mode\_e}}
+\index{DMX512\_chaser\_mode\_e@{DMX512\_chaser\_mode\_e}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_mode\_e}{DMX512\_chaser\_mode\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__chaser_gab0031330e0cb089bc3bd418492ee3e26}{D\+M\+X512\+\_\+chaser\+\_\+mode\+\_\+e}}}
+
+
+
+Playing mode of a chsaer. 
+
+Defines whether or not a chaser should be played in a loop or not \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_MODE\_LOOP@{DMX512\_CHASER\_MODE\_LOOP}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_MODE\_LOOP@{DMX512\_CHASER\_MODE\_LOOP}}}\mbox{\Hypertarget{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26a4e781e52bf4f5811ef88a3eee1801a82}\label{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26a4e781e52bf4f5811ef88a3eee1801a82}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+L\+O\+OP&Chaser is played in a loop \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_MODE\_SINGLE\_SHOT@{DMX512\_CHASER\_MODE\_SINGLE\_SHOT}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_MODE\_SINGLE\_SHOT@{DMX512\_CHASER\_MODE\_SINGLE\_SHOT}}}\mbox{\Hypertarget{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26adbf401442416f4fb720d8fbf51798543}\label{group___d_m_x512__chaser_ggab0031330e0cb089bc3bd418492ee3e26adbf401442416f4fb720d8fbf51798543}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+M\+O\+D\+E\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT&Chaser is only plaed once \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 45 of file D\+M\+X512\+\_\+chaser.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga0feea1bd47614addaf8554dfd08f21d6}\label{group___d_m_x512__chaser_ga0feea1bd47614addaf8554dfd08f21d6}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_pingpong\_state\_e@{DMX512\_chaser\_pingpong\_state\_e}}
+\index{DMX512\_chaser\_pingpong\_state\_e@{DMX512\_chaser\_pingpong\_state\_e}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_pingpong\_state\_e}{DMX512\_chaser\_pingpong\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__chaser_ga0feea1bd47614addaf8554dfd08f21d6}{D\+M\+X512\+\_\+chaser\+\_\+pingpong\+\_\+state\+\_\+e}}}
+
+
+
+Current pingpong state. 
+
+Provides information regarding the current pingpong state of a chaser when D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+E\+C\+T\+I\+O\+N\+\_\+\+P\+I\+N\+G\+P\+O\+NG is enables \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_PINGPONG\_PING@{DMX512\_CHASER\_PINGPONG\_PING}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_PINGPONG\_PING@{DMX512\_CHASER\_PINGPONG\_PING}}}\mbox{\Hypertarget{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6aca6c645cab98cfd6316bbc98c6d859ec}\label{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6aca6c645cab98cfd6316bbc98c6d859ec}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+I\+N\+G\+P\+O\+N\+G\+\_\+\+P\+I\+NG&chaser is playing steps in ascending order \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_PINGPONG\_PONG@{DMX512\_CHASER\_PINGPONG\_PONG}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_PINGPONG\_PONG@{DMX512\_CHASER\_PINGPONG\_PONG}}}\mbox{\Hypertarget{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6ae722ec2f72d5534426b6b5fb123c9911}\label{group___d_m_x512__chaser_gga0feea1bd47614addaf8554dfd08f21d6ae722ec2f72d5534426b6b5fb123c9911}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+I\+N\+G\+P\+O\+N\+G\+\_\+\+P\+O\+NG&chaser is playing steps in descending order \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 68 of file D\+M\+X512\+\_\+chaser.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga02ff1fa7a9b5ec7b5d52d21fb3deb127}\label{group___d_m_x512__chaser_ga02ff1fa7a9b5ec7b5d52d21fb3deb127}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_state\_e@{DMX512\_chaser\_state\_e}}
+\index{DMX512\_chaser\_state\_e@{DMX512\_chaser\_state\_e}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_state\_e}{DMX512\_chaser\_state\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__chaser_ga02ff1fa7a9b5ec7b5d52d21fb3deb127}{D\+M\+X512\+\_\+chaser\+\_\+state\+\_\+e}}}
+
+
+
+Current playing state of a chaser. 
+
+Used by the chaser state machine to determine the current operation to be done on the chaser based on its current state value. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_PLAYING@{DMX512\_CHASER\_PLAYING}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_PLAYING@{DMX512\_CHASER\_PLAYING}}}\mbox{\Hypertarget{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127aafa36be9d5bb86892e52829c09dd16fb}\label{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127aafa36be9d5bb86892e52829c09dd16fb}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+P\+L\+A\+Y\+I\+NG&The chaser is playing \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_IDLE@{DMX512\_CHASER\_IDLE}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_IDLE@{DMX512\_CHASER\_IDLE}}}\mbox{\Hypertarget{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127a9bb208e7bf08ed4a5871087b3fc5be50}\label{group___d_m_x512__chaser_gga02ff1fa7a9b5ec7b5d52d21fb3deb127a9bb208e7bf08ed4a5871087b3fc5be50}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+I\+D\+LE&The chaser is idle \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 79 of file D\+M\+X512\+\_\+chaser.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga1d9e5a767af26a2881b57a8148e074ba}\label{group___d_m_x512__chaser_ga1d9e5a767af26a2881b57a8148e074ba}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_status\_e@{DMX512\_chaser\_status\_e}}
+\index{DMX512\_chaser\_status\_e@{DMX512\_chaser\_status\_e}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_status\_e}{DMX512\_chaser\_status\_e}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__chaser_ga1d9e5a767af26a2881b57a8148e074ba}{D\+M\+X512\+\_\+chaser\+\_\+status\+\_\+e}}}
+
+
+
+Status of a chaser instance. 
+
+Defines whether or not a chaser instance has been correctly initialised. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_UNINITIALISED@{DMX512\_CHASER\_UNINITIALISED}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_UNINITIALISED@{DMX512\_CHASER\_UNINITIALISED}}}\mbox{\Hypertarget{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baad35f50f22ed686dea98171cb679abc54}\label{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baad35f50f22ed686dea98171cb679abc54}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED&The chaser is initialised \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_CHASER\_INITIALISED@{DMX512\_CHASER\_INITIALISED}!DMX512\_chaser@{DMX512\_chaser}}\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_CHASER\_INITIALISED@{DMX512\_CHASER\_INITIALISED}}}\mbox{\Hypertarget{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baa5995d166ab8dcfa072f9fea7fbadfd87}\label{group___d_m_x512__chaser_gga1d9e5a767af26a2881b57a8148e074baa5995d166ab8dcfa072f9fea7fbadfd87}} 
+D\+M\+X512\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED&The chaser is uninitialised \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 35 of file D\+M\+X512\+\_\+chaser.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___d_m_x512__chaser_gaeb9c34496b361794cbe494ac01c4b506}\label{group___d_m_x512__chaser_gaeb9c34496b361794cbe494ac01c4b506}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_add\_step@{DMX512\_chaser\_add\_step}}
+\index{DMX512\_chaser\_add\_step@{DMX512\_chaser\_add\_step}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_add\_step()}{DMX512\_chaser\_add\_step()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+chaser\+\_\+add\+\_\+step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$}]{this,  }\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}}}]{step }\end{DoxyParamCaption})}
+
+
+
+Adds a scene preset instance into the chaser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & pointer to the chaser instance \\
+\hline
+{\em id} & the scene\textquotesingle{}s idendifier \\
+\hline
+{\em values} & the list of values to be stored within the chaser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file D\+M\+X512\+\_\+chaser.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_gab6389198536db1fd4fa941c932c55d30}\label{group___d_m_x512__chaser_gab6389198536db1fd4fa941c932c55d30}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_del\_step@{DMX512\_chaser\_del\_step}}
+\index{DMX512\_chaser\_del\_step@{DMX512\_chaser\_del\_step}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_del\_step()}{DMX512\_chaser\_del\_step()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+chaser\+\_\+del\+\_\+step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$}]{this,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Deletes a fixture preset instance from the chaser. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the fixture preset\textquotesingle{}s idendifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call 
+\end{DoxyReturn}
+
+
+Definition at line 133 of file D\+M\+X512\+\_\+chaser.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga0151ad5b7d584501fe7a4e377d74fe81}\label{group___d_m_x512__chaser_ga0151ad5b7d584501fe7a4e377d74fe81}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_get\_step@{DMX512\_chaser\_get\_step}}
+\index{DMX512\_chaser\_get\_step@{DMX512\_chaser\_get\_step}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_get\_step()}{DMX512\_chaser\_get\_step()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}}$\ast$ D\+M\+X512\+\_\+chaser\+\_\+get\+\_\+step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$}]{this,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Gets a fixture instance from the pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the fixture preset identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$\ast$\+D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s pointer to the fixture preset instance 
+\end{DoxyReturn}
+
+
+Definition at line 157 of file D\+M\+X512\+\_\+chaser.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga5b7a6af82c9ebf2e8facc957ad534922}\label{group___d_m_x512__chaser_ga5b7a6af82c9ebf2e8facc957ad534922}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_manage@{DMX512\_chaser\_manage}}
+\index{DMX512\_chaser\_manage@{DMX512\_chaser\_manage}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_manage()}{DMX512\_chaser\_manage()}}
+{\footnotesize\ttfamily void D\+M\+X512\+\_\+chaser\+\_\+manage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+
+
+Handles step selection and trigger over time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & pointer to the chaser instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 171 of file D\+M\+X512\+\_\+chaser.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga7410e8e5d5693b51ba5e54755f13a0ee}\label{group___d_m_x512__chaser_ga7410e8e5d5693b51ba5e54755f13a0ee}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_new@{DMX512\_chaser\_new}}
+\index{DMX512\_chaser\_new@{DMX512\_chaser\_new}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_new()}{DMX512\_chaser\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} D\+M\+X512\+\_\+chaser\+\_\+new (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{group___d_m_x512__chaser_gab0031330e0cb089bc3bd418492ee3e26}{D\+M\+X512\+\_\+chaser\+\_\+mode\+\_\+e}}}]{mode,  }\item[{\mbox{\hyperlink{group___d_m_x512__chaser_gab95551452bda6633238ded1083eea71c}{D\+M\+X512\+\_\+chaser\+\_\+direction\+\_\+e}}}]{direction }\end{DoxyParamCaption})}
+
+
+
+Creates and initialises a new chaser instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the chaser identifier (\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_d_m_x512__chaser__pool_8h_source}{D\+M\+X512\+\_\+chaser\+\_\+pool.\+h}}) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & the chaser trigger mode \\
+\hline
+{\em dir} & the chaser step play direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} the created chaser 
+\end{DoxyReturn}
+
+
+Definition at line 92 of file D\+M\+X512\+\_\+chaser.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__chaser_ga82fe3051df6af5f15c71abb045747941}\label{group___d_m_x512__chaser_ga82fe3051df6af5f15c71abb045747941}} 
+\index{DMX512\_chaser@{DMX512\_chaser}!DMX512\_chaser\_start@{DMX512\_chaser\_start}}
+\index{DMX512\_chaser\_start@{DMX512\_chaser\_start}!DMX512\_chaser@{DMX512\_chaser}}
+\doxysubsubsection{\texorpdfstring{DMX512\_chaser\_start()}{DMX512\_chaser\_start()}}
+{\footnotesize\ttfamily void D\+M\+X512\+\_\+chaser\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__s}{D\+M\+X512\+\_\+chaser\+\_\+s}} $\ast$}]{this }\end{DoxyParamCaption})}
+
+
+
+Starts a scene fade-\/in process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & pointer to the scene instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 190 of file D\+M\+X512\+\_\+chaser.\+c.
+

@@ -1,0 +1,12 @@
+\hypertarget{group__netbuf}{}\doxysection{Network buffers}
+\label{group__netbuf}\index{Network buffers@{Network buffers}}
+Collaboration diagram for Network buffers\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{group__netbuf}
+\end{center}
+\end{figure}
+Network buffer descriptor for \mbox{\hyperlink{group__netconn}{Netconn A\+PI}}. Based on \mbox{\hyperlink{group__pbuf}{Packet buffers (P\+B\+UF)}} internally to avoid copying data around.~\newline
+Buffers must not be shared accross multiple threads, all functions except netbuf\+\_\+new() and netbuf\+\_\+delete() are not thread-\/safe. 

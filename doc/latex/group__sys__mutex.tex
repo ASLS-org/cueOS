@@ -1,0 +1,107 @@
+\hypertarget{group__sys__mutex}{}\doxysection{Mutexes}
+\label{group__sys__mutex}\index{Mutexes@{Mutexes}}
+Collaboration diagram for Mutexes\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{group__sys__mutex}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mutex_ga38e7dae1fd88b338eb1cd97f110f3897}{sys\+\_\+mutex\+\_\+new}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga4d4eb9afe5965fa2661dd54ff55d616a}{sys\+\_\+mutex\+\_\+lock}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga5568f68898fe9d5735f9ce2f665624fb}{sys\+\_\+mutex\+\_\+unlock}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga16336ce68b741e98204102ca4bc84dd9}{sys\+\_\+mutex\+\_\+free}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+int \mbox{\hyperlink{group__sys__mutex_gaebe83ba90a6d9c23cdb3eb5d49562c4a}{sys\+\_\+mutex\+\_\+valid}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga3f392725971dc837aa56dd7e45fa7ca8}{sys\+\_\+mutex\+\_\+set\+\_\+invalid}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mutexes are recommended to correctly handle priority inversion, especially if you use L\+W\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+NG . 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__sys__mutex_ga16336ce68b741e98204102ca4bc84dd9}\label{group__sys__mutex_ga16336ce68b741e98204102ca4bc84dd9}} 
+\index{Mutexes@{Mutexes}!sys\_mutex\_free@{sys\_mutex\_free}}
+\index{sys\_mutex\_free@{sys\_mutex\_free}!Mutexes@{Mutexes}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_free()}{sys\_mutex\_free()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+free (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Delete a semaphore 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & the mutex to delete \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 412 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mutex_ga4d4eb9afe5965fa2661dd54ff55d616a}\label{group__sys__mutex_ga4d4eb9afe5965fa2661dd54ff55d616a}} 
+\index{Mutexes@{Mutexes}!sys\_mutex\_lock@{sys\_mutex\_lock}}
+\index{sys\_mutex\_lock@{sys\_mutex\_lock}!Mutexes@{Mutexes}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_lock()}{sys\_mutex\_lock()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+lock (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Lock a mutex 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & the mutex to lock \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 422 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mutex_ga38e7dae1fd88b338eb1cd97f110f3897}\label{group__sys__mutex_ga38e7dae1fd88b338eb1cd97f110f3897}} 
+\index{Mutexes@{Mutexes}!sys\_mutex\_new@{sys\_mutex\_new}}
+\index{sys\_mutex\_new@{sys\_mutex\_new}!Mutexes@{Mutexes}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_new()}{sys\_mutex\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mutex\+\_\+new (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Create a new mutex. Note that mutexes are expected to not be taken recursively by the lw\+IP code, so both implementation types (recursive or non-\/recursive) should work. 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & pointer to the mutex to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+OK if successful, another err\+\_\+t otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 385 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mutex_ga3f392725971dc837aa56dd7e45fa7ca8}\label{group__sys__mutex_ga3f392725971dc837aa56dd7e45fa7ca8}} 
+\index{Mutexes@{Mutexes}!sys\_mutex\_set\_invalid@{sys\_mutex\_set\_invalid}}
+\index{sys\_mutex\_set\_invalid@{sys\_mutex\_set\_invalid}!Mutexes@{Mutexes}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_set\_invalid()}{sys\_mutex\_set\_invalid()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+set\+\_\+invalid (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Set a mutex invalid so that sys\+\_\+mutex\+\_\+valid returns 0 \mbox{\Hypertarget{group__sys__mutex_ga5568f68898fe9d5735f9ce2f665624fb}\label{group__sys__mutex_ga5568f68898fe9d5735f9ce2f665624fb}} 
+\index{Mutexes@{Mutexes}!sys\_mutex\_unlock@{sys\_mutex\_unlock}}
+\index{sys\_mutex\_unlock@{sys\_mutex\_unlock}!Mutexes@{Mutexes}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_unlock()}{sys\_mutex\_unlock()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+unlock (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Unlock a mutex 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & the mutex to unlock \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 433 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mutex_gaebe83ba90a6d9c23cdb3eb5d49562c4a}\label{group__sys__mutex_gaebe83ba90a6d9c23cdb3eb5d49562c4a}} 
+\index{Mutexes@{Mutexes}!sys\_mutex\_valid@{sys\_mutex\_valid}}
+\index{sys\_mutex\_valid@{sys\_mutex\_valid}!Mutexes@{Mutexes}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_valid()}{sys\_mutex\_valid()}}
+{\footnotesize\ttfamily int sys\+\_\+mutex\+\_\+valid (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Check if a mutex is valid/allocated\+: return 1 for valid, 0 for invalid 

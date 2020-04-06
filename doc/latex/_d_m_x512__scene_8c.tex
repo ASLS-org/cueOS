@@ -1,0 +1,103 @@
+\hypertarget{_d_m_x512__scene_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/\+D\+M\+X512\+\_\+engine/src/\+D\+M\+X512\+\_\+scene.c File Reference}
+\label{_d_m_x512__scene_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_scene.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_scene.c}}
+{\ttfamily \#include \char`\"{}cueos\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+scene.\+h\char`\"{}}\newline
+Include dependency graph for D\+M\+X512\+\_\+scene.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_m_x512__scene_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int16\+\_\+t \mbox{\hyperlink{_d_m_x512__scene_8c_a2b76470c95714d01de0973615737d8d1}{\+\_\+\+D\+M\+X512\+\_\+scene\+\_\+search}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, uint16\+\_\+t fixture\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Finds the array index of a fixture. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{_d_m_x512__scene_8c_a5052dcc633f6179939cc1a0ed351a243}{\+\_\+\+D\+M\+X512\+\_\+scene\+\_\+fadein}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Sets a scenes\textquotesingle{} fixtures channel values to their predefined preset values according to time. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{_d_m_x512__scene_8c_abeccf751e91d9baf1006808e026d7ee0}{\+\_\+\+D\+M\+X512\+\_\+scene\+\_\+fadeout}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Sets a scenes\textquotesingle{} fixtures channel values to their \char`\"{}\+O\+F\+F\char`\"{} values according to time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} \mbox{\hyperlink{group___d_m_x512__scene_ga4f16dc85762063fd71304d900b00e67d}{D\+M\+X512\+\_\+scene\+\_\+new}} (uint16\+\_\+t id, uint16\+\_\+t fadein\+\_\+time, uint16\+\_\+t fadeout\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Creates and initialises a new scene instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene_ga75fbeb849a11583bccd6e1a7e2d10342}{D\+M\+X512\+\_\+scene\+\_\+add\+\_\+preset}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, \mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}} preset)
+\begin{DoxyCompactList}\small\item\em Adds a fixture preset instance into the scene. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene_gac5876ae84846054a8d46b30ef24c43f4}{D\+M\+X512\+\_\+scene\+\_\+del\+\_\+preset}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes a fixture preset instance from the scene. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__scene_gad36bb487af543b95e4943f7b23febe69}{D\+M\+X512\+\_\+scene\+\_\+get\+\_\+preset}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets a fixture instance from the pool. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__scene_gaa2275abaa08e2991167e73f622cd669f}{D\+M\+X512\+\_\+scene\+\_\+start}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Starts a scene fade-\/in process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__scene_ga38ab54e8ce3cfd84da3ee5c0ad780c6a}{D\+M\+X512\+\_\+scene\+\_\+stop}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Starts a scene fade-\/out process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__scene_ga1f3da4003a0770b48407d0384d60afc6}{D\+M\+X512\+\_\+scene\+\_\+manage}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em State machine to manage scene at a given state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_d_m_x512__scene_8c_a5052dcc633f6179939cc1a0ed351a243}\label{_d_m_x512__scene_8c_a5052dcc633f6179939cc1a0ed351a243}} 
+\index{DMX512\_scene.c@{DMX512\_scene.c}!\_DMX512\_scene\_fadein@{\_DMX512\_scene\_fadein}}
+\index{\_DMX512\_scene\_fadein@{\_DMX512\_scene\_fadein}!DMX512\_scene.c@{DMX512\_scene.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_scene\_fadein()}{\_DMX512\_scene\_fadein()}}
+{\footnotesize\ttfamily static void \+\_\+\+D\+M\+X512\+\_\+scene\+\_\+fadein (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets a scenes\textquotesingle{} fixtures channel values to their predefined preset values according to time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & the scene instance to be faded in \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file D\+M\+X512\+\_\+scene.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__scene_8c_abeccf751e91d9baf1006808e026d7ee0}\label{_d_m_x512__scene_8c_abeccf751e91d9baf1006808e026d7ee0}} 
+\index{DMX512\_scene.c@{DMX512\_scene.c}!\_DMX512\_scene\_fadeout@{\_DMX512\_scene\_fadeout}}
+\index{\_DMX512\_scene\_fadeout@{\_DMX512\_scene\_fadeout}!DMX512\_scene.c@{DMX512\_scene.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_scene\_fadeout()}{\_DMX512\_scene\_fadeout()}}
+{\footnotesize\ttfamily static void \+\_\+\+D\+M\+X512\+\_\+scene\+\_\+fadeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$}]{scene }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets a scenes\textquotesingle{} fixtures channel values to their \char`\"{}\+O\+F\+F\char`\"{} values according to time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & the scene instance to be faded out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 64 of file D\+M\+X512\+\_\+scene.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__scene_8c_a2b76470c95714d01de0973615737d8d1}\label{_d_m_x512__scene_8c_a2b76470c95714d01de0973615737d8d1}} 
+\index{DMX512\_scene.c@{DMX512\_scene.c}!\_DMX512\_scene\_search@{\_DMX512\_scene\_search}}
+\index{\_DMX512\_scene\_search@{\_DMX512\_scene\_search}!DMX512\_scene.c@{DMX512\_scene.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_scene\_search()}{\_DMX512\_scene\_search()}}
+{\footnotesize\ttfamily static int16\+\_\+t \+\_\+\+D\+M\+X512\+\_\+scene\+\_\+search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$}]{scene,  }\item[{uint16\+\_\+t}]{fixture\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds the array index of a fixture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene} & pointer to the scene instance \\
+\hline
+{\em id} & the fixture\textquotesingle{}s identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t the array index of the fixture. -\/1 is returned if the fixture couldn\textquotesingle{}t be found 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file D\+M\+X512\+\_\+scene.\+c.
+

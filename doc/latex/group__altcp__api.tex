@@ -1,0 +1,54 @@
+\hypertarget{group__altcp__api}{}\doxysection{Application layered T\+CP Introduction}
+\label{group__altcp__api}\index{Application layered TCP Introduction@{Application layered TCP Introduction}}
+Collaboration diagram for Application layered T\+CP Introduction\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{group__altcp__api}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__altcp}{Application layered T\+C\+P Functions}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{group__altcp__api_autotoc_md63}{}\doxysubsubsection{Overview}\label{group__altcp__api_autotoc_md63}
+altcp (application layered T\+CP connection A\+PI; to be used from T\+C\+P\+IP thread) is an abstraction layer that prevents applications linking hard against the \mbox{\hyperlink{tcp_8h}{tcp.\+h}} functions while providing the same functionality. It is used to e.\+g. add S\+S\+L/\+T\+LS (see L\+W\+I\+P\+\_\+\+A\+L\+T\+C\+P\+\_\+\+T\+LS) or proxy-\/connect support to an application written for the tcp callback A\+PI without that application knowing the protocol details.
+
+
+\begin{DoxyItemize}
+\item This interface mimics the tcp callback A\+PI to the application while preventing direct linking (much like virtual functions).
+\item This way, an application can make use of other application layer protocols on top of T\+CP without knowing the details (e.\+g. T\+LS, proxy connection).
+\item This is achieved by simply including \char`\"{}lwip/altcp.\+h\char`\"{} instead of \char`\"{}lwip/tcp.\+h\char`\"{}, replacing \char`\"{}struct tcp\+\_\+pcb\char`\"{} with \char`\"{}struct altcp\+\_\+pcb\char`\"{} and prefixing all functions with \char`\"{}altcp\+\_\+\char`\"{} instead of \char`\"{}tcp\+\_\+\char`\"{}.
+\end{DoxyItemize}
+
+With altcp support disabled (L\+W\+I\+P\+\_\+\+A\+L\+T\+CP==0), applications written against the altcp A\+PI can still be compiled but are directly linked against the tcp.\+h callback A\+PI and then cannot use layered protocols. To minimize code changes in this case, the use of altcp\+\_\+allocators is strongly suggested.\hypertarget{group__altcp__api_autotoc_md64}{}\doxysubsubsection{Usage}\label{group__altcp__api_autotoc_md64}
+To make use of this A\+PI from an existing tcp raw A\+PI application\+:
+\begin{DoxyItemize}
+\item Include \char`\"{}lwip/altcp.\+h\char`\"{} instead of \char`\"{}lwip/tcp.\+h\char`\"{}
+\item Replace \char`\"{}struct tcp\+\_\+pcb\char`\"{} with \char`\"{}struct altcp\+\_\+pcb\char`\"{}
+\item Prefix all called tcp A\+PI functions with \char`\"{}altcp\+\_\+\char`\"{} instead of \char`\"{}tcp\+\_\+\char`\"{} to link against the altcp functions
+\item altcp\+\_\+new (and altcp\+\_\+new\+\_\+ip\+\_\+type/ altcp\+\_\+new\+\_\+ip6) take an altcp\+\_\+allocator\+\_\+t as an argument, whereas the original tcp A\+PI functions take no arguments.
+\item An altcp\+\_\+allocator\+\_\+t allocator is an object that holds a pointer to an allocator object and a corresponding state (e.\+g. for T\+LS, the corresponding state may hold certificates or keys). This way, the application does not even need to know if it uses T\+LS or pure T\+CP, this is handled at runtime by passing a specific allocator.
+\item An application can alternatively bind hard to the altcp\+\_\+tls A\+PI by calling altcp\+\_\+tls\+\_\+new or altcp\+\_\+tls\+\_\+wrap.
+\item The T\+LS layer is not directly implemented by lw\+IP, but a port to mbed\+T\+LS is provided.
+\item Another altcp layer is proxy-\/connect to use T\+LS behind a H\+T\+TP proxy (see altcp\+\_\+proxyconnect.\+h)
+\end{DoxyItemize}\hypertarget{group__altcp__api_autotoc_md65}{}\doxysubsubsection{altcp\+\_\+allocator\+\_\+t}\label{group__altcp__api_autotoc_md65}
+An altcp allocator is created by the application by combining an allocator callback function and a corresponding state, e.\+g.\+:
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} cert[] = \{0x2D, ... (see mbedTLS doc \textcolor{keywordflow}{for} how to create \textcolor{keyword}{this})\};}
+\DoxyCodeLine{\textcolor{keyword}{struct }altcp\_tls\_config * conf = altcp\_tls\_create\_config\_client(cert, \textcolor{keyword}{sizeof}(cert));}
+\DoxyCodeLine{altcp\_allocator\_t tls\_allocator = \{}
+\DoxyCodeLine{  altcp\_tls\_alloc, conf}
+\DoxyCodeLine{\};}
+\end{DoxyCode}
+\hypertarget{group__altcp__api_autotoc_md66}{}\doxysubsubsection{struct altcp\+\_\+tls\+\_\+config}\label{group__altcp__api_autotoc_md66}
+The struct altcp\+\_\+tls\+\_\+config holds state that is needed to create new T\+LS client or server connections (e.\+g. certificates and private keys).
+
+It is not defined by lw\+IP itself but by the T\+LS port (e.\+g. altcp\+\_\+tls to mbed\+T\+LS adaption). However, the parameters used to create it are defined in \mbox{\hyperlink{altcp__tls_8h}{altcp\+\_\+tls.\+h}} (see altcp\+\_\+tls\+\_\+create\+\_\+config\+\_\+server\+\_\+privkey\+\_\+cert for servers and altcp\+\_\+tls\+\_\+create\+\_\+config\+\_\+client/ altcp\+\_\+tls\+\_\+create\+\_\+config\+\_\+client\+\_\+2wayauth for clients).
+
+For mbed\+T\+LS, ensure that certificates can be parsed by \textquotesingle{}mbedtls\+\_\+x509\+\_\+crt\+\_\+parse()\textquotesingle{} and private keys can be parsed by \textquotesingle{}mbedtls\+\_\+pk\+\_\+parse\+\_\+key()\textquotesingle{}. 

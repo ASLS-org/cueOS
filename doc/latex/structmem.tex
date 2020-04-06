@@ -1,0 +1,56 @@
+\hypertarget{structmem}{}\doxysection{mem Struct Reference}
+\label{structmem}\index{mem@{mem}}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+mem\+\_\+size\+\_\+t \mbox{\hyperlink{structmem_a5e8c7afaded34af9a8b82737e37de145}{next}}
+\item 
+mem\+\_\+size\+\_\+t \mbox{\hyperlink{structmem_afba51d5e6bc25c1c1653970aa45c1e4f}{prev}}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structmem_a8029b57d367ecfe34e8c1691bb6333fe}{used}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The heap is made up as a list of structs of this type. This does not have to be aligned since for getting its size, we only use the macro S\+I\+Z\+E\+O\+F\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+M\+EM, which automatically aligns. 
+
+Definition at line 264 of file mem.\+c.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structmem_a5e8c7afaded34af9a8b82737e37de145}\label{structmem_a5e8c7afaded34af9a8b82737e37de145}} 
+\index{mem@{mem}!next@{next}}
+\index{next@{next}!mem@{mem}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily mem\+\_\+size\+\_\+t next}
+
+index (-\/$>$ ram\mbox{[}next\mbox{]}) of the next struct 
+
+Definition at line 266 of file mem.\+c.
+
+\mbox{\Hypertarget{structmem_afba51d5e6bc25c1c1653970aa45c1e4f}\label{structmem_afba51d5e6bc25c1c1653970aa45c1e4f}} 
+\index{mem@{mem}!prev@{prev}}
+\index{prev@{prev}!mem@{mem}}
+\doxysubsubsection{\texorpdfstring{prev}{prev}}
+{\footnotesize\ttfamily mem\+\_\+size\+\_\+t prev}
+
+index (-\/$>$ ram\mbox{[}prev\mbox{]}) of the previous struct 
+
+Definition at line 268 of file mem.\+c.
+
+\mbox{\Hypertarget{structmem_a8029b57d367ecfe34e8c1691bb6333fe}\label{structmem_a8029b57d367ecfe34e8c1691bb6333fe}} 
+\index{mem@{mem}!used@{used}}
+\index{used@{used}!mem@{mem}}
+\doxysubsubsection{\texorpdfstring{used}{used}}
+{\footnotesize\ttfamily u8\+\_\+t used}
+
+1\+: this area is used; 0\+: this area is unused 
+
+Definition at line 270 of file mem.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.\+4/cueos/net/src/core/\mbox{\hyperlink{mem_8c}{mem.\+c}}\end{DoxyCompactItemize}

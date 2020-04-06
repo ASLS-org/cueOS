@@ -1,0 +1,19 @@
+\hypertarget{tcp__in_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/src/core/tcp\+\_\+in.c File Reference}
+\label{tcp__in_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/tcp\_in.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/tcp\_in.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+Include dependency graph for tcp\+\_\+in.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tcp__in_8c__incl}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Detailed Description}
+Transmission Control Protocol, incoming traffic
+
+The input processing functions of the T\+CP layer.
+
+These functions are generally called in the order (ip\+\_\+input() -\/$>$) tcp\+\_\+input() -\/$>$ $\ast$ tcp\+\_\+process() -\/$>$ tcp\+\_\+receive() (-\/$>$ application). 

@@ -1,0 +1,61 @@
+\hypertarget{group__lwip__opts__lock}{}\doxysection{Core locking and M\+PU}
+\label{group__lwip__opts__lock}\index{Core locking and MPU@{Core locking and MPU}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_gae9afcefa5d233372abb9413188dd98c9}{L\+W\+I\+P\+\_\+\+M\+P\+U\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+LE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}{L\+W\+I\+P\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+NG}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_ga351beb1c06affe49e717bc9f76c66acf}{L\+W\+I\+P\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+N\+G\+\_\+\+I\+N\+P\+UT}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_gae85efb3a5fcf8585c94b3c2669978959}{S\+Y\+S\+\_\+\+L\+I\+G\+H\+T\+W\+E\+I\+G\+H\+T\+\_\+\+P\+R\+OT}}~1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__lock_gae9afcefa5d233372abb9413188dd98c9}\label{group__lwip__opts__lock_gae9afcefa5d233372abb9413188dd98c9}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_MPU\_COMPATIBLE@{LWIP\_MPU\_COMPATIBLE}}
+\index{LWIP\_MPU\_COMPATIBLE@{LWIP\_MPU\_COMPATIBLE}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MPU\_COMPATIBLE}{LWIP\_MPU\_COMPATIBLE}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+M\+P\+U\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+LE~0}
+
+L\+W\+I\+P\+\_\+\+M\+P\+U\+\_\+\+C\+O\+M\+P\+A\+T\+I\+B\+LE\+: enables special memory management mechanism which makes lwip able to work on M\+PU (Memory Protection Unit) system by not passing stack-\/pointers to other threads (this decreases performance as memory is allocated from pools instead of keeping it on the stack) 
+
+Definition at line 169 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}\label{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_TCPIP\_CORE\_LOCKING@{LWIP\_TCPIP\_CORE\_LOCKING}}
+\index{LWIP\_TCPIP\_CORE\_LOCKING@{LWIP\_TCPIP\_CORE\_LOCKING}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCPIP\_CORE\_LOCKING}{LWIP\_TCPIP\_CORE\_LOCKING}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+NG~1}
+
+L\+W\+I\+P\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+NG Creates a global mutex that is held during T\+C\+P\+IP thread operations. Can be locked by client code to perform lw\+IP operations without changing into T\+C\+P\+IP thread using callbacks. See L\+O\+C\+K\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E() and U\+N\+L\+O\+C\+K\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E(). Your system should provide mutexes supporting priority inversion to use this. 
+
+Definition at line 181 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__lock_ga351beb1c06affe49e717bc9f76c66acf}\label{group__lwip__opts__lock_ga351beb1c06affe49e717bc9f76c66acf}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_TCPIP\_CORE\_LOCKING\_INPUT@{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}}
+\index{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT@{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+N\+G\+\_\+\+I\+N\+P\+UT~0}
+
+L\+W\+I\+P\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+N\+G\+\_\+\+I\+N\+P\+UT\+: when L\+W\+I\+P\+\_\+\+T\+C\+P\+I\+P\+\_\+\+C\+O\+R\+E\+\_\+\+L\+O\+C\+K\+I\+NG is enabled, this lets tcpip\+\_\+input() grab the mutex for input packets as well, instead of allocating a message and passing it to tcpip\+\_\+thread.
+
+A\+T\+T\+E\+N\+T\+I\+ON\+: this does not work when tcpip\+\_\+input() is called from interrupt context! 
+
+Definition at line 193 of file opt.\+h.
+
+\mbox{\Hypertarget{group__lwip__opts__lock_gae85efb3a5fcf8585c94b3c2669978959}\label{group__lwip__opts__lock_gae85efb3a5fcf8585c94b3c2669978959}} 
+\index{Core locking and MPU@{Core locking and MPU}!SYS\_LIGHTWEIGHT\_PROT@{SYS\_LIGHTWEIGHT\_PROT}}
+\index{SYS\_LIGHTWEIGHT\_PROT@{SYS\_LIGHTWEIGHT\_PROT}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{SYS\_LIGHTWEIGHT\_PROT}{SYS\_LIGHTWEIGHT\_PROT}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+L\+I\+G\+H\+T\+W\+E\+I\+G\+H\+T\+\_\+\+P\+R\+OT~1}
+
+S\+Y\+S\+\_\+\+L\+I\+G\+H\+T\+W\+E\+I\+G\+H\+T\+\_\+\+P\+R\+OT==1\+: enable inter-\/task protection (and task-\/vs-\/interrupt protection) for certain critical regions during buffer allocation, deallocation and memory allocation and deallocation. A\+T\+T\+E\+N\+T\+I\+ON\+: This is required when using lw\+IP from more than one context! If you disable this, you must be sure what you are doing! 
+
+Definition at line 204 of file opt.\+h.
+

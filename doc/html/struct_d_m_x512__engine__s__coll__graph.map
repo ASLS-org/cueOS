@@ -1,0 +1,12 @@
+<map id="DMX512_engine_s" name="DMX512_engine_s">
+<area shape="rect" id="node1" title="Defines a DMX512 engine instance." alt="" coords="139,464,271,491"/>
+<area shape="rect" id="node2" href="$struct_d_m_x512__fixture__pool__s.html" title="DMX512 fixture pool structure object." alt="" coords="5,375,167,401"/>
+<area shape="rect" id="node3" href="$struct_d_m_x512__fixture.html" title="DMX512 fixture structure object." alt="" coords="28,285,144,312"/>
+<area shape="rect" id="node4" href="$struct_d_m_x512__chaser__pool__s.html" title="Defines a DMX512 chaser pool object." alt="" coords="243,375,407,401"/>
+<area shape="rect" id="node5" href="$struct_d_m_x512__chaser__s.html" title="DMX512 chaser structure object." alt="" coords="258,285,391,312"/>
+<area shape="rect" id="node6" href="$struct_d_m_x512__chaser__step__s.html" title="DMX512 chaser step structure object." alt="" coords="242,184,407,211"/>
+<area shape="rect" id="node7" href="$struct_d_m_x512__scene__s.html" title="DMX512 scene structure object." alt="" coords="151,95,280,121"/>
+<area shape="rect" id="node10" href="$struct_d_m_x512__scene__pool__s.html" title="DMX512 scene pool structure object." alt="" coords="125,235,285,261"/>
+<area shape="rect" id="node8" href="$struct_d_m_x512__fixture__preset__s.html" title="DMX512 fixture preset structure object." alt="" coords="37,5,210,32"/>
+<area shape="rect" id="node9" href="$struct_d_m_x512__utils__mschronometer__s.html" title="mschronometer structure object" alt="" coords="235,5,449,32"/>
+</map>

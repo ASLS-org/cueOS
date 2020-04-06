@@ -1,0 +1,567 @@
+\hypertarget{sys_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/sys.h File Reference}
+\label{sys_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/sys.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/sys.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arch/sys\+\_\+arch.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}{S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT}}~0xffffffff\+UL
+\item 
+\#define \mbox{\hyperlink{sys_8h_ab0571e67edca0132b144106e9b319ef9}{S\+Y\+S\+\_\+\+M\+B\+O\+X\+\_\+\+E\+M\+P\+TY}}~\mbox{\hyperlink{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}{S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT}}
+\item 
+\#define \mbox{\hyperlink{sys_8h_a7bada49634cd3b28b28bdcedd763a1e6}{L\+W\+I\+P\+\_\+\+C\+O\+M\+P\+A\+T\+\_\+\+M\+U\+T\+EX}}~0
+\item 
+\#define \mbox{\hyperlink{sys_8h_a84e7e4bc00255aee84e6e7289a985703}{sys\+\_\+sem\+\_\+wait}}(sem)~\mbox{\hyperlink{sys_8h_a8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait}}(sem, 0)
+\item 
+\#define \mbox{\hyperlink{sys_8h_a9e8ad541356786936f23ab83b8f550cc}{sys\+\_\+sem\+\_\+valid\+\_\+val}}(sem)~\mbox{\hyperlink{sys_8h_a09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid}}(\&(sem))
+\item 
+\#define \mbox{\hyperlink{sys_8h_a2556e570f6973a6f4d57d0e76ef190d8}{sys\+\_\+sem\+\_\+set\+\_\+invalid\+\_\+val}}(sem)~\mbox{\hyperlink{sys_8h_a42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid}}(\&(sem))
+\item 
+\#define \mbox{\hyperlink{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}{sys\+\_\+mbox\+\_\+tryfetch}}(mbox,  msg)~\mbox{\hyperlink{sys_8h_afab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}}(mbox, msg)
+\item 
+\mbox{\Hypertarget{sys_8h_a5bae9efa9c945dc810665dc4a7e60117}\label{sys_8h_a5bae9efa9c945dc810665dc4a7e60117}} 
+\#define {\bfseries sys\+\_\+mbox\+\_\+fetch}(mbox,  msg)~\mbox{\hyperlink{sys_8h_a6464cd77cf6799bd8b3d6c840166a2e8}{sys\+\_\+arch\+\_\+mbox\+\_\+fetch}}(mbox, msg, 0)
+\item 
+\#define \mbox{\hyperlink{sys_8h_aae82640d0bdbeec7b9b6511b3f8d99cb}{sys\+\_\+mbox\+\_\+valid\+\_\+val}}(mbox)~\mbox{\hyperlink{sys_8h_a8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}}(\&(mbox))
+\item 
+\#define \mbox{\hyperlink{sys_8h_ae293feebb61d36f2db99be53702b8203}{sys\+\_\+mbox\+\_\+set\+\_\+invalid\+\_\+val}}(mbox)~\mbox{\hyperlink{sys_8h_a53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}}(\&(mbox))
+\item 
+\#define \mbox{\hyperlink{sys_8h_a945395fa326214fc9736487242710a90}{S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+D\+E\+C\+L\+\_\+\+P\+R\+O\+T\+E\+CT}}(lev)
+\item 
+\mbox{\Hypertarget{sys_8h_a3d0e48feafd378e9c26c64567ecd8bab}\label{sys_8h_a3d0e48feafd378e9c26c64567ecd8bab}} 
+\#define {\bfseries S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+P\+R\+O\+T\+E\+CT}(lev)
+\item 
+\mbox{\Hypertarget{sys_8h_a2f48e97047945642ddeb27e65bf4ffe2}\label{sys_8h_a2f48e97047945642ddeb27e65bf4ffe2}} 
+\#define {\bfseries S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+U\+N\+P\+R\+O\+T\+E\+CT}(lev)
+\item 
+\#define {\bfseries S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+I\+NC}(var,  val)
+\item 
+\#define {\bfseries S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+D\+EC}(var,  val)
+\item 
+\#define {\bfseries S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+G\+ET}(var,  ret)
+\item 
+\#define {\bfseries S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+S\+ET}(var,  val)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}{lwip\+\_\+thread\+\_\+fn}}) (void $\ast$arg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{sys_8h_a38e7dae1fd88b338eb1cd97f110f3897}{sys\+\_\+mutex\+\_\+new}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{sys_8h_a4d4eb9afe5965fa2661dd54ff55d616a}{sys\+\_\+mutex\+\_\+lock}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{sys_8h_a5568f68898fe9d5735f9ce2f665624fb}{sys\+\_\+mutex\+\_\+unlock}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{sys_8h_a16336ce68b741e98204102ca4bc84dd9}{sys\+\_\+mutex\+\_\+free}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+int \mbox{\hyperlink{sys_8h_aebe83ba90a6d9c23cdb3eb5d49562c4a}{sys\+\_\+mutex\+\_\+valid}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{sys_8h_a3f392725971dc837aa56dd7e45fa7ca8}{sys\+\_\+mutex\+\_\+set\+\_\+invalid}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{sys_8h_af99da9e34a71855285c535183133dfde}{sys\+\_\+sem\+\_\+new}} (sys\+\_\+sem\+\_\+t $\ast$sem, u8\+\_\+t count)
+\item 
+void \mbox{\hyperlink{sys_8h_aaf800273061fcc3f8200fd4e1b9ca875}{sys\+\_\+sem\+\_\+signal}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+u32\+\_\+t \mbox{\hyperlink{sys_8h_a8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait}} (sys\+\_\+sem\+\_\+t $\ast$sem, u32\+\_\+t timeout)
+\item 
+void \mbox{\hyperlink{sys_8h_a83b781f96c30e915c752065a757da283}{sys\+\_\+sem\+\_\+free}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+int \mbox{\hyperlink{sys_8h_a09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+void \mbox{\hyperlink{sys_8h_a42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+void \mbox{\hyperlink{sys_8h_a6b8786f43e779953e8b74e983c88682e}{sys\+\_\+msleep}} (u32\+\_\+t ms)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{sys_8h_ab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, int size)
+\item 
+void \mbox{\hyperlink{sys_8h_a9d068386a3c53dd01b8af99c3ef77555}{sys\+\_\+mbox\+\_\+post}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{sys_8h_aa36345e48a49d67cbb0878cd4cbd2195}{sys\+\_\+mbox\+\_\+trypost}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+u32\+\_\+t \mbox{\hyperlink{sys_8h_a6464cd77cf6799bd8b3d6c840166a2e8}{sys\+\_\+arch\+\_\+mbox\+\_\+fetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg, u32\+\_\+t timeout)
+\item 
+u32\+\_\+t \mbox{\hyperlink{sys_8h_afab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg)
+\item 
+void \mbox{\hyperlink{sys_8h_ac641a45812155d2234ef80dd6412882f}{sys\+\_\+mbox\+\_\+free}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+int \mbox{\hyperlink{sys_8h_a8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+void \mbox{\hyperlink{sys_8h_a53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+sys\+\_\+thread\+\_\+t \mbox{\hyperlink{sys_8h_a0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new}} (const char $\ast$name, \mbox{\hyperlink{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}{lwip\+\_\+thread\+\_\+fn}} thread, void $\ast$arg, int stacksize, int prio)
+\item 
+\mbox{\Hypertarget{sys_8h_af411a8bc6b7ed4b0af9114e10c959448}\label{sys_8h_af411a8bc6b7ed4b0af9114e10c959448}} 
+void {\bfseries sys\+\_\+init} (void)
+\item 
+u32\+\_\+t \mbox{\hyperlink{sys_8h_ac89f307e8b360eaf821b461a4f26753a}{sys\+\_\+jiffies}} (void)
+\item 
+u32\+\_\+t \mbox{\hyperlink{sys_8h_a11316ac1e77418c6fa4ab8869e3fa199}{sys\+\_\+now}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+OS abstraction layer 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{sys_8h_a7bada49634cd3b28b28bdcedd763a1e6}\label{sys_8h_a7bada49634cd3b28b28bdcedd763a1e6}} 
+\index{sys.h@{sys.h}!LWIP\_COMPAT\_MUTEX@{LWIP\_COMPAT\_MUTEX}}
+\index{LWIP\_COMPAT\_MUTEX@{LWIP\_COMPAT\_MUTEX}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_COMPAT\_MUTEX}{LWIP\_COMPAT\_MUTEX}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+C\+O\+M\+P\+A\+T\+\_\+\+M\+U\+T\+EX~0}
+
+Define L\+W\+I\+P\+\_\+\+C\+O\+M\+P\+A\+T\+\_\+\+M\+U\+T\+EX if the port has no mutexes and binary semaphores should be used instead 
+
+Definition at line 108 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_aa9a585faa63acdd5d59ac5e7759a07c5}\label{sys_8h_aa9a585faa63acdd5d59ac5e7759a07c5}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_DEC@{SYS\_ARCH\_DEC}}
+\index{SYS\_ARCH\_DEC@{SYS\_ARCH\_DEC}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_DEC}{SYS\_ARCH\_DEC}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+D\+EC(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                var -\/= val; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+Definition at line 424 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_a945395fa326214fc9736487242710a90}\label{sys_8h_a945395fa326214fc9736487242710a90}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_DECL\_PROTECT@{SYS\_ARCH\_DECL\_PROTECT}}
+\index{SYS\_ARCH\_DECL\_PROTECT@{SYS\_ARCH\_DECL\_PROTECT}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_DECL\_PROTECT}{SYS\_ARCH\_DECL\_PROTECT}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+D\+E\+C\+L\+\_\+\+P\+R\+O\+T\+E\+CT(\begin{DoxyParamCaption}\item[{}]{lev }\end{DoxyParamCaption})}
+
+S\+Y\+S\+\_\+\+L\+I\+G\+H\+T\+W\+E\+I\+G\+H\+T\+\_\+\+P\+R\+OT define S\+Y\+S\+\_\+\+L\+I\+G\+H\+T\+W\+E\+I\+G\+H\+T\+\_\+\+P\+R\+OT in \mbox{\hyperlink{lwipopts_8h_source}{lwipopts.\+h}} if you want inter-\/task protection for certain critical regions during buffer allocation, deallocation and memory allocation and deallocation. 
+
+Definition at line 401 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_a0da95147531964d619be7744c7169986}\label{sys_8h_a0da95147531964d619be7744c7169986}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_GET@{SYS\_ARCH\_GET}}
+\index{SYS\_ARCH\_GET@{SYS\_ARCH\_GET}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_GET}{SYS\_ARCH\_GET}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+G\+ET(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{ret }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                ret = var; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+Definition at line 433 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_acc5f7f8cbd020de628d1e9a0443da4c7}\label{sys_8h_acc5f7f8cbd020de628d1e9a0443da4c7}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_INC@{SYS\_ARCH\_INC}}
+\index{SYS\_ARCH\_INC@{SYS\_ARCH\_INC}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_INC}{SYS\_ARCH\_INC}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+I\+NC(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                var += val; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+Definition at line 415 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_a24ff55288a4d9fa28100c78b2f4612f6}\label{sys_8h_a24ff55288a4d9fa28100c78b2f4612f6}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_SET@{SYS\_ARCH\_SET}}
+\index{SYS\_ARCH\_SET@{SYS\_ARCH\_SET}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_SET}{SYS\_ARCH\_SET}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+S\+ET(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                var = val; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+Definition at line 442 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}\label{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_TIMEOUT@{SYS\_ARCH\_TIMEOUT}}
+\index{SYS\_ARCH\_TIMEOUT@{SYS\_ARCH\_TIMEOUT}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_TIMEOUT}{SYS\_ARCH\_TIMEOUT}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT~0xffffffff\+UL}
+
+Return code for timeouts from sys\+\_\+arch\+\_\+mbox\+\_\+fetch and sys\+\_\+arch\+\_\+sem\+\_\+wait 
+
+Definition at line 87 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_ab0571e67edca0132b144106e9b319ef9}\label{sys_8h_ab0571e67edca0132b144106e9b319ef9}} 
+\index{sys.h@{sys.h}!SYS\_MBOX\_EMPTY@{SYS\_MBOX\_EMPTY}}
+\index{SYS\_MBOX\_EMPTY@{SYS\_MBOX\_EMPTY}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_MBOX\_EMPTY}{SYS\_MBOX\_EMPTY}}
+{\footnotesize\ttfamily \#define S\+Y\+S\+\_\+\+M\+B\+O\+X\+\_\+\+E\+M\+P\+TY~\mbox{\hyperlink{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}{S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT}}}
+
+\mbox{\hyperlink{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}{sys\+\_\+mbox\+\_\+tryfetch()}} returns S\+Y\+S\+\_\+\+M\+B\+O\+X\+\_\+\+E\+M\+P\+TY if appropriate. For now we use the same magic value, but we allow this to change in future. 
+
+Definition at line 92 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_ae293feebb61d36f2db99be53702b8203}\label{sys_8h_ae293feebb61d36f2db99be53702b8203}} 
+\index{sys.h@{sys.h}!sys\_mbox\_set\_invalid\_val@{sys\_mbox\_set\_invalid\_val}}
+\index{sys\_mbox\_set\_invalid\_val@{sys\_mbox\_set\_invalid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_set\_invalid\_val}{sys\_mbox\_set\_invalid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+mbox\+\_\+set\+\_\+invalid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{mbox }\end{DoxyParamCaption})~\mbox{\hyperlink{sys_8h_a53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}}(\&(mbox))}
+
+Same as \mbox{\hyperlink{sys_8h_a53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid()}} but taking a value, not a pointer 
+
+Definition at line 317 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}\label{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}} 
+\index{sys.h@{sys.h}!sys\_mbox\_tryfetch@{sys\_mbox\_tryfetch}}
+\index{sys\_mbox\_tryfetch@{sys\_mbox\_tryfetch}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_tryfetch}{sys\_mbox\_tryfetch}}
+{\footnotesize\ttfamily \#define sys\+\_\+mbox\+\_\+tryfetch(\begin{DoxyParamCaption}\item[{}]{mbox,  }\item[{}]{msg }\end{DoxyParamCaption})~\mbox{\hyperlink{sys_8h_afab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}}(mbox, msg)}
+
+For now, we map straight to sys\+\_\+arch implementation. 
+
+Definition at line 285 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_aae82640d0bdbeec7b9b6511b3f8d99cb}\label{sys_8h_aae82640d0bdbeec7b9b6511b3f8d99cb}} 
+\index{sys.h@{sys.h}!sys\_mbox\_valid\_val@{sys\_mbox\_valid\_val}}
+\index{sys\_mbox\_valid\_val@{sys\_mbox\_valid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_valid\_val}{sys\_mbox\_valid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+mbox\+\_\+valid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{mbox }\end{DoxyParamCaption})~\mbox{\hyperlink{sys_8h_a8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}}(\&(mbox))}
+
+Same as \mbox{\hyperlink{sys_8h_a8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid()}} but taking a value, not a pointer 
+
+Definition at line 311 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_a2556e570f6973a6f4d57d0e76ef190d8}\label{sys_8h_a2556e570f6973a6f4d57d0e76ef190d8}} 
+\index{sys.h@{sys.h}!sys\_sem\_set\_invalid\_val@{sys\_sem\_set\_invalid\_val}}
+\index{sys\_sem\_set\_invalid\_val@{sys\_sem\_set\_invalid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_set\_invalid\_val}{sys\_sem\_set\_invalid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+sem\+\_\+set\+\_\+invalid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{sem }\end{DoxyParamCaption})~\mbox{\hyperlink{sys_8h_a42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid}}(\&(sem))}
+
+Same as \mbox{\hyperlink{sys_8h_a42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid()}} but taking a value, not a pointer 
+
+Definition at line 223 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_a9e8ad541356786936f23ab83b8f550cc}\label{sys_8h_a9e8ad541356786936f23ab83b8f550cc}} 
+\index{sys.h@{sys.h}!sys\_sem\_valid\_val@{sys\_sem\_valid\_val}}
+\index{sys\_sem\_valid\_val@{sys\_sem\_valid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_valid\_val}{sys\_sem\_valid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+sem\+\_\+valid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{sem }\end{DoxyParamCaption})~\mbox{\hyperlink{sys_8h_a09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid}}(\&(sem))}
+
+Same as \mbox{\hyperlink{sys_8h_a09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid()}} but taking a value, not a pointer 
+
+Definition at line 217 of file sys.\+h.
+
+\mbox{\Hypertarget{sys_8h_a84e7e4bc00255aee84e6e7289a985703}\label{sys_8h_a84e7e4bc00255aee84e6e7289a985703}} 
+\index{sys.h@{sys.h}!sys\_sem\_wait@{sys\_sem\_wait}}
+\index{sys\_sem\_wait@{sys\_sem\_wait}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_wait}{sys\_sem\_wait}}
+{\footnotesize\ttfamily \#define sys\+\_\+sem\+\_\+wait(\begin{DoxyParamCaption}\item[{}]{sem }\end{DoxyParamCaption})~\mbox{\hyperlink{sys_8h_a8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait}}(sem, 0)}
+
+Wait for a semaphore -\/ forever/no timeout 
+
+Definition at line 198 of file sys.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}\label{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}} 
+\index{sys.h@{sys.h}!lwip\_thread\_fn@{lwip\_thread\_fn}}
+\index{lwip\_thread\_fn@{lwip\_thread\_fn}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{lwip\_thread\_fn}{lwip\_thread\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ lwip\+\_\+thread\+\_\+fn) (void $\ast$arg)}
+
+Function prototype for thread functions 
+
+Definition at line 98 of file sys.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sys_8h_a6464cd77cf6799bd8b3d6c840166a2e8}\label{sys_8h_a6464cd77cf6799bd8b3d6c840166a2e8}} 
+\index{sys.h@{sys.h}!sys\_arch\_mbox\_fetch@{sys\_arch\_mbox\_fetch}}
+\index{sys\_arch\_mbox\_fetch@{sys\_arch\_mbox\_fetch}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_mbox\_fetch()}{sys\_arch\_mbox\_fetch()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+mbox\+\_\+fetch (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$$\ast$}]{msg,  }\item[{u32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Wait for a new message to arrive in the mbox 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to get a message from \\
+\hline
+{\em msg} & pointer where the message is stored \\
+\hline
+{\em timeout} & maximum time (in milliseconds) to wait for a message (0 = wait forever) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time (in milliseconds) waited for a message, may be 0 if not waited or S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT on timeout The returned time has to be accurate to prevent timer jitter! 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sys_8h_afab441b130b4ec417012835dbe1e497c}\label{sys_8h_afab441b130b4ec417012835dbe1e497c}} 
+\index{sys.h@{sys.h}!sys\_arch\_mbox\_tryfetch@{sys\_arch\_mbox\_tryfetch}}
+\index{sys\_arch\_mbox\_tryfetch@{sys\_arch\_mbox\_tryfetch}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_mbox\_tryfetch()}{sys\_arch\_mbox\_tryfetch()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$$\ast$}]{msg }\end{DoxyParamCaption})}
+
+Wait for a new message to arrive in the mbox 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to get a message from \\
+\hline
+{\em msg} & pointer where the message is stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 (milliseconds) if a message has been received or S\+Y\+S\+\_\+\+M\+B\+O\+X\+\_\+\+E\+M\+P\+TY if the mailbox is empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sys_8h_a8d364c5037778acb21c3df675db81b4f}\label{sys_8h_a8d364c5037778acb21c3df675db81b4f}} 
+\index{sys.h@{sys.h}!sys\_arch\_sem\_wait@{sys\_arch\_sem\_wait}}
+\index{sys\_arch\_sem\_wait@{sys\_arch\_sem\_wait}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_sem\_wait()}{sys\_arch\_sem\_wait()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+sem\+\_\+wait (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem,  }\item[{u32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Wait for a semaphore for the specified timeout 
+\begin{DoxyParams}{Parameters}
+{\em sem} & the semaphore to wait for \\
+\hline
+{\em timeout} & timeout in milliseconds to wait (0 = wait forever) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time (in milliseconds) waited for the semaphore or S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT on timeout 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sys_8h_ac89f307e8b360eaf821b461a4f26753a}\label{sys_8h_ac89f307e8b360eaf821b461a4f26753a}} 
+\index{sys.h@{sys.h}!sys\_jiffies@{sys\_jiffies}}
+\index{sys\_jiffies@{sys\_jiffies}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_jiffies()}{sys\_jiffies()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+jiffies (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Ticks/jiffies since power up. \mbox{\Hypertarget{sys_8h_ac641a45812155d2234ef80dd6412882f}\label{sys_8h_ac641a45812155d2234ef80dd6412882f}} 
+\index{sys.h@{sys.h}!sys\_mbox\_free@{sys\_mbox\_free}}
+\index{sys\_mbox\_free@{sys\_mbox\_free}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_free()}{sys\_mbox\_free()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+free (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Delete an mbox 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_ab9793f30642de06ce87827e9adbe30cc}\label{sys_8h_ab9793f30642de06ce87827e9adbe30cc}} 
+\index{sys.h@{sys.h}!sys\_mbox\_new@{sys\_mbox\_new}}
+\index{sys\_mbox\_new@{sys\_mbox\_new}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_new()}{sys\_mbox\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mbox\+\_\+new (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Create a new mbox of specified size 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & pointer to the mbox to create \\
+\hline
+{\em size} & (minimum) number of messages in this mbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+OK if successful, another err\+\_\+t otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sys_8h_a9d068386a3c53dd01b8af99c3ef77555}\label{sys_8h_a9d068386a3c53dd01b8af99c3ef77555}} 
+\index{sys.h@{sys.h}!sys\_mbox\_post@{sys\_mbox\_post}}
+\index{sys\_mbox\_post@{sys\_mbox\_post}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_post()}{sys\_mbox\_post()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+post (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Post a message to an mbox -\/ may not fail -\/$>$ blocks if full, only used from tasks not from I\+SR 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to posts the message \\
+\hline
+{\em msg} & message to post (A\+T\+T\+E\+N\+T\+I\+ON\+: can be N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_a53ddec9d7f5500c5b1d982cd17493172}\label{sys_8h_a53ddec9d7f5500c5b1d982cd17493172}} 
+\index{sys.h@{sys.h}!sys\_mbox\_set\_invalid@{sys\_mbox\_set\_invalid}}
+\index{sys\_mbox\_set\_invalid@{sys\_mbox\_set\_invalid}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_set\_invalid()}{sys\_mbox\_set\_invalid()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+set\+\_\+invalid (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Set an mbox invalid so that sys\+\_\+mbox\+\_\+valid returns 0 \mbox{\Hypertarget{sys_8h_aa36345e48a49d67cbb0878cd4cbd2195}\label{sys_8h_aa36345e48a49d67cbb0878cd4cbd2195}} 
+\index{sys.h@{sys.h}!sys\_mbox\_trypost@{sys\_mbox\_trypost}}
+\index{sys\_mbox\_trypost@{sys\_mbox\_trypost}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_trypost()}{sys\_mbox\_trypost()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mbox\+\_\+trypost (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Try to post a message to an mbox -\/ may fail if full or I\+SR 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to posts the message \\
+\hline
+{\em msg} & message to post (A\+T\+T\+E\+N\+T\+I\+ON\+: can be N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_a8bcfab4bd791dd33f69a778e7585275d}\label{sys_8h_a8bcfab4bd791dd33f69a778e7585275d}} 
+\index{sys.h@{sys.h}!sys\_mbox\_valid@{sys\_mbox\_valid}}
+\index{sys\_mbox\_valid@{sys\_mbox\_valid}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_valid()}{sys\_mbox\_valid()}}
+{\footnotesize\ttfamily int sys\+\_\+mbox\+\_\+valid (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Check if an mbox is valid/allocated\+: return 1 for valid, 0 for invalid \mbox{\Hypertarget{sys_8h_a6b8786f43e779953e8b74e983c88682e}\label{sys_8h_a6b8786f43e779953e8b74e983c88682e}} 
+\index{sys.h@{sys.h}!sys\_msleep@{sys\_msleep}}
+\index{sys\_msleep@{sys\_msleep}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_msleep()}{sys\_msleep()}}
+{\footnotesize\ttfamily void sys\+\_\+msleep (\begin{DoxyParamCaption}\item[{u32\+\_\+t}]{ms }\end{DoxyParamCaption})}
+
+Sleep for specified number of ms \mbox{\Hypertarget{sys_8h_a16336ce68b741e98204102ca4bc84dd9}\label{sys_8h_a16336ce68b741e98204102ca4bc84dd9}} 
+\index{sys.h@{sys.h}!sys\_mutex\_free@{sys\_mutex\_free}}
+\index{sys\_mutex\_free@{sys\_mutex\_free}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_free()}{sys\_mutex\_free()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+free (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Delete a semaphore 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & the mutex to delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_a4d4eb9afe5965fa2661dd54ff55d616a}\label{sys_8h_a4d4eb9afe5965fa2661dd54ff55d616a}} 
+\index{sys.h@{sys.h}!sys\_mutex\_lock@{sys\_mutex\_lock}}
+\index{sys\_mutex\_lock@{sys\_mutex\_lock}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_lock()}{sys\_mutex\_lock()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+lock (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Lock a mutex 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & the mutex to lock \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_a38e7dae1fd88b338eb1cd97f110f3897}\label{sys_8h_a38e7dae1fd88b338eb1cd97f110f3897}} 
+\index{sys.h@{sys.h}!sys\_mutex\_new@{sys\_mutex\_new}}
+\index{sys\_mutex\_new@{sys\_mutex\_new}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_new()}{sys\_mutex\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mutex\+\_\+new (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Create a new mutex. Note that mutexes are expected to not be taken recursively by the lw\+IP code, so both implementation types (recursive or non-\/recursive) should work. 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & pointer to the mutex to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+OK if successful, another err\+\_\+t otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sys_8h_a3f392725971dc837aa56dd7e45fa7ca8}\label{sys_8h_a3f392725971dc837aa56dd7e45fa7ca8}} 
+\index{sys.h@{sys.h}!sys\_mutex\_set\_invalid@{sys\_mutex\_set\_invalid}}
+\index{sys\_mutex\_set\_invalid@{sys\_mutex\_set\_invalid}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_set\_invalid()}{sys\_mutex\_set\_invalid()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+set\+\_\+invalid (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Set a mutex invalid so that sys\+\_\+mutex\+\_\+valid returns 0 \mbox{\Hypertarget{sys_8h_a5568f68898fe9d5735f9ce2f665624fb}\label{sys_8h_a5568f68898fe9d5735f9ce2f665624fb}} 
+\index{sys.h@{sys.h}!sys\_mutex\_unlock@{sys\_mutex\_unlock}}
+\index{sys\_mutex\_unlock@{sys\_mutex\_unlock}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_unlock()}{sys\_mutex\_unlock()}}
+{\footnotesize\ttfamily void sys\+\_\+mutex\+\_\+unlock (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Unlock a mutex 
+\begin{DoxyParams}{Parameters}
+{\em mutex} & the mutex to unlock \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_aebe83ba90a6d9c23cdb3eb5d49562c4a}\label{sys_8h_aebe83ba90a6d9c23cdb3eb5d49562c4a}} 
+\index{sys.h@{sys.h}!sys\_mutex\_valid@{sys\_mutex\_valid}}
+\index{sys\_mutex\_valid@{sys\_mutex\_valid}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mutex\_valid()}{sys\_mutex\_valid()}}
+{\footnotesize\ttfamily int sys\+\_\+mutex\+\_\+valid (\begin{DoxyParamCaption}\item[{sys\+\_\+mutex\+\_\+t $\ast$}]{mutex }\end{DoxyParamCaption})}
+
+Check if a mutex is valid/allocated\+: return 1 for valid, 0 for invalid \mbox{\Hypertarget{sys_8h_a11316ac1e77418c6fa4ab8869e3fa199}\label{sys_8h_a11316ac1e77418c6fa4ab8869e3fa199}} 
+\index{sys.h@{sys.h}!sys\_now@{sys\_now}}
+\index{sys\_now@{sys\_now}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_now()}{sys\_now()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+now (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns the current time in milliseconds, may be the same as sys\+\_\+jiffies or at least based on it. \mbox{\Hypertarget{sys_8h_a83b781f96c30e915c752065a757da283}\label{sys_8h_a83b781f96c30e915c752065a757da283}} 
+\index{sys.h@{sys.h}!sys\_sem\_free@{sys\_sem\_free}}
+\index{sys\_sem\_free@{sys\_sem\_free}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_free()}{sys\_sem\_free()}}
+{\footnotesize\ttfamily void sys\+\_\+sem\+\_\+free (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Delete a semaphore 
+\begin{DoxyParams}{Parameters}
+{\em sem} & semaphore to delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_af99da9e34a71855285c535183133dfde}\label{sys_8h_af99da9e34a71855285c535183133dfde}} 
+\index{sys.h@{sys.h}!sys\_sem\_new@{sys\_sem\_new}}
+\index{sys\_sem\_new@{sys\_sem\_new}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_new()}{sys\_sem\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+sem\+\_\+new (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem,  }\item[{u8\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+Create a new semaphore 
+\begin{DoxyParams}{Parameters}
+{\em sem} & pointer to the semaphore to create \\
+\hline
+{\em count} & initial count of the semaphore \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+OK if successful, another err\+\_\+t otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{sys_8h_a42a2ab32afbf41a4146a9d135224ef33}\label{sys_8h_a42a2ab32afbf41a4146a9d135224ef33}} 
+\index{sys.h@{sys.h}!sys\_sem\_set\_invalid@{sys\_sem\_set\_invalid}}
+\index{sys\_sem\_set\_invalid@{sys\_sem\_set\_invalid}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_set\_invalid()}{sys\_sem\_set\_invalid()}}
+{\footnotesize\ttfamily void sys\+\_\+sem\+\_\+set\+\_\+invalid (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Set a semaphore invalid so that sys\+\_\+sem\+\_\+valid returns 0 \mbox{\Hypertarget{sys_8h_aaf800273061fcc3f8200fd4e1b9ca875}\label{sys_8h_aaf800273061fcc3f8200fd4e1b9ca875}} 
+\index{sys.h@{sys.h}!sys\_sem\_signal@{sys\_sem\_signal}}
+\index{sys\_sem\_signal@{sys\_sem\_signal}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_signal()}{sys\_sem\_signal()}}
+{\footnotesize\ttfamily void sys\+\_\+sem\+\_\+signal (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Signals a semaphore 
+\begin{DoxyParams}{Parameters}
+{\em sem} & the semaphore to signal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sys_8h_a09a6c052ddaf799139efc56adfa087e4}\label{sys_8h_a09a6c052ddaf799139efc56adfa087e4}} 
+\index{sys.h@{sys.h}!sys\_sem\_valid@{sys\_sem\_valid}}
+\index{sys\_sem\_valid@{sys\_sem\_valid}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_valid()}{sys\_sem\_valid()}}
+{\footnotesize\ttfamily int sys\+\_\+sem\+\_\+valid (\begin{DoxyParamCaption}\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Check if a semaphore is valid/allocated\+: return 1 for valid, 0 for invalid \mbox{\Hypertarget{sys_8h_a0d596afdd8dbcfad320172d39b0f607a}\label{sys_8h_a0d596afdd8dbcfad320172d39b0f607a}} 
+\index{sys.h@{sys.h}!sys\_thread\_new@{sys\_thread\_new}}
+\index{sys\_thread\_new@{sys\_thread\_new}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_thread\_new()}{sys\_thread\_new()}}
+{\footnotesize\ttfamily sys\+\_\+thread\+\_\+t sys\+\_\+thread\+\_\+new (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{\mbox{\hyperlink{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}{lwip\+\_\+thread\+\_\+fn}}}]{thread,  }\item[{void $\ast$}]{arg,  }\item[{int}]{stacksize,  }\item[{int}]{prio }\end{DoxyParamCaption})}
+
+The only thread function\+: Creates a new thread A\+T\+T\+E\+N\+T\+I\+ON\+: although this function returns a value, it M\+U\+ST N\+OT F\+A\+IL (ports have to assert this!) 
+\begin{DoxyParams}{Parameters}
+{\em name} & human-\/readable name for the thread (used for debugging purposes) \\
+\hline
+{\em thread} & thread-\/function \\
+\hline
+{\em arg} & parameter passed to \textquotesingle{}thread\textquotesingle{} \\
+\hline
+{\em stacksize} & stack size in bytes for the new thread (may be ignored by ports) \\
+\hline
+{\em prio} & priority of the new thread (may be ignored by ports) \\
+\hline
+\end{DoxyParams}

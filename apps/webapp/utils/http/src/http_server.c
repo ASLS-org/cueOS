@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Depedencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -10,14 +10,12 @@
 #include "htmlfs.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup http_server
- * @fn _http_close
  * @brief Closes TCP connection. finalises write operation and
  * sends FIN ACK to distant connection
  *
@@ -41,8 +39,6 @@ static void _http_close(struct altcp_pcb *pcb, http_request_s *req){
 }
 
 /**
- * @ingroup http_server
- * @fn _http_send
  * @brief Handles response data writing over tcp.
  *
  * @param *pcb tcp procol control block
@@ -90,8 +86,6 @@ static err_t _http_send(struct altcp_pcb *pcb, http_request_s *req){
 
 
 /**
- * @ingroup http_server
- * @fn _http_receive
  * @brief Function called at data reception
  *
  * @param arg http server instance
@@ -125,8 +119,6 @@ static err_t _http_receive(void *arg, struct altcp_pcb *pcb,struct pbuf *p, err_
 }
 
 /**
- * @ingroup http_server
- * @fn _http_sent
  * @brief Function called following write operation
  *
  * @param arg http request instance
@@ -144,8 +136,6 @@ static err_t _http_sent(void *arg, struct altcp_pcb *pcb, uint16_t len){
 }
 
 /**
- * @ingroup http_server
- * @fn _http_poll
  * @brief Manages application state at pre-defined intervals. retries sending left response data
  * and handles connection closing once a maximum retry increment value has been reached
  *
@@ -179,8 +169,6 @@ static err_t _http_poll(void *arg, struct altcp_pcb *pcb){
 }
 
 /**
- * @ingroup http_server
- * @fn _http_error
  * @brief Frees ressources on TCP/IP stack error
  *
  * @param arg http request instance
@@ -195,8 +183,6 @@ static void _http_error(void *arg, err_t err){
 }
 
 /**
- * @ingroup http_server
- * @fn _http_accept
  * @brief Function called during new connection attempt to the server
  *
  * @param arg http server instance
@@ -232,8 +218,6 @@ static err_t _http_accept(void *arg, struct altcp_pcb *pcb, err_t err){
 }
 
 /**
- * @ingroup http_server
- * @fn _http_prepare_pcb
  * @brief Prepares a server's tcp procol control block
  *
  * @param server http server instance
@@ -256,15 +240,14 @@ static void _http_prepare_pcb(http_server_s *server){
 
 }
 
-/**============================================================================================================================
+
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_chaser_pool.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup http_server
- * @fn http_server_init
  * @brief Initialises a new HTTP server instance
  *
  * @param port the server's port number

@@ -1,0 +1,102 @@
+\hypertarget{def_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/def.h File Reference}
+\label{def_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/def.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/def.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{def_8h_aa1d6977095e51331f65dcfb2b076da52}\label{def_8h_aa1d6977095e51331f65dcfb2b076da52}} 
+\#define {\bfseries P\+E\+R\+F\+\_\+\+S\+T\+A\+RT}~/$\ast$ null definition $\ast$/
+\item 
+\mbox{\Hypertarget{def_8h_a8ac3afe5d720793a229fbf70a78eb82f}\label{def_8h_a8ac3afe5d720793a229fbf70a78eb82f}} 
+\#define {\bfseries P\+E\+R\+F\+\_\+\+S\+T\+OP}(x)~/$\ast$ null definition $\ast$/
+\item 
+\mbox{\Hypertarget{def_8h_a21ea174d374106caeafb4aa3a24fbd2b}\label{def_8h_a21ea174d374106caeafb4aa3a24fbd2b}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+AX}(x,  y)~(((x) $>$ (y)) ? (x) \+: (y))
+\item 
+\mbox{\Hypertarget{def_8h_a748f5df614a3fc989e8900fd229d6e4e}\label{def_8h_a748f5df614a3fc989e8900fd229d6e4e}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+IN}(x,  y)~(((x) $<$ (y)) ? (x) \+: (y))
+\item 
+\mbox{\Hypertarget{def_8h_a4abb61f4c9339d8a0a0c63b4fbfe6a37}\label{def_8h_a4abb61f4c9339d8a0a0c63b4fbfe6a37}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+A\+R\+R\+A\+Y\+S\+I\+ZE}(x)~(sizeof(x)/sizeof((x)\mbox{[}0\mbox{]}))
+\item 
+\#define \mbox{\hyperlink{def_8h_acf56d3da92a0a7a8a62a617e793e948c}{L\+W\+I\+P\+\_\+\+M\+A\+K\+E\+U32}}(a,  b,  c,  d)
+\item 
+\mbox{\Hypertarget{def_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}\label{def_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}} 
+\#define {\bfseries N\+U\+LL}~((void $\ast$)0)
+\item 
+\mbox{\Hypertarget{def_8h_a3cdda64857295e6661fb7962f66adfb9}\label{def_8h_a3cdda64857295e6661fb7962f66adfb9}} 
+\#define {\bfseries lwip\+\_\+htons}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_ac642bf6057869696d7807564d8309ffc}\label{def_8h_ac642bf6057869696d7807564d8309ffc}} 
+\#define {\bfseries lwip\+\_\+ntohs}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_a9c0cf5ec6af0664ca8cea5bcf6319a56}\label{def_8h_a9c0cf5ec6af0664ca8cea5bcf6319a56}} 
+\#define {\bfseries lwip\+\_\+htonl}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_a56098407d66feb75806f655bafbee81d}\label{def_8h_a56098407d66feb75806f655bafbee81d}} 
+\#define {\bfseries lwip\+\_\+ntohl}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_a0dfd02d7c09f9c698a5a7ecc0b7287ad}\label{def_8h_a0dfd02d7c09f9c698a5a7ecc0b7287ad}} 
+\#define {\bfseries P\+P\+\_\+\+H\+T\+O\+NS}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_a7d17b88eabf7766c0bfa89d8f965f67e}\label{def_8h_a7d17b88eabf7766c0bfa89d8f965f67e}} 
+\#define {\bfseries P\+P\+\_\+\+N\+T\+O\+HS}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_afea9c21aa1f56180cdf6fb42ef14a294}\label{def_8h_afea9c21aa1f56180cdf6fb42ef14a294}} 
+\#define {\bfseries P\+P\+\_\+\+H\+T\+O\+NL}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_a632e77d07286fb8a0926d8aac7aae89f}\label{def_8h_a632e77d07286fb8a0926d8aac7aae89f}} 
+\#define {\bfseries P\+P\+\_\+\+N\+T\+O\+HL}(x)~(x)
+\item 
+\mbox{\Hypertarget{def_8h_a51799f5ebb4c7228ef7e95c247030f42}\label{def_8h_a51799f5ebb4c7228ef7e95c247030f42}} 
+\#define {\bfseries htons}(x)~lwip\+\_\+htons(x)
+\item 
+\mbox{\Hypertarget{def_8h_ada37feda716b4ba89cf9dba34288141d}\label{def_8h_ada37feda716b4ba89cf9dba34288141d}} 
+\#define {\bfseries ntohs}(x)~lwip\+\_\+ntohs(x)
+\item 
+\mbox{\Hypertarget{def_8h_ae4027a6ad07f13aa12eab285a1b46019}\label{def_8h_ae4027a6ad07f13aa12eab285a1b46019}} 
+\#define {\bfseries htonl}(x)~lwip\+\_\+htonl(x)
+\item 
+\mbox{\Hypertarget{def_8h_ac317b3e903719ba02894f1710f7f2439}\label{def_8h_ac317b3e903719ba02894f1710f7f2439}} 
+\#define {\bfseries ntohl}(x)~lwip\+\_\+ntohl(x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{def_8h_af15b4fbaaae5bb7f6da4301f3f979284}\label{def_8h_af15b4fbaaae5bb7f6da4301f3f979284}} 
+void {\bfseries lwip\+\_\+itoa} (char $\ast$result, size\+\_\+t bufsize, int number)
+\item 
+\mbox{\Hypertarget{def_8h_a997dcc49451121d4ed755b33bc7bd26a}\label{def_8h_a997dcc49451121d4ed755b33bc7bd26a}} 
+int {\bfseries lwip\+\_\+strnicmp} (const char $\ast$str1, const char $\ast$str2, size\+\_\+t len)
+\item 
+\mbox{\Hypertarget{def_8h_a263cbafcb697eff964139a9998a6668a}\label{def_8h_a263cbafcb697eff964139a9998a6668a}} 
+int {\bfseries lwip\+\_\+stricmp} (const char $\ast$str1, const char $\ast$str2)
+\item 
+\mbox{\Hypertarget{def_8h_aeece028198cdaea2f0d2f1d691752c02}\label{def_8h_aeece028198cdaea2f0d2f1d691752c02}} 
+char $\ast$ {\bfseries lwip\+\_\+strnstr} (const char $\ast$buffer, const char $\ast$token, size\+\_\+t n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+various utility macros 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{def_8h_acf56d3da92a0a7a8a62a617e793e948c}\label{def_8h_acf56d3da92a0a7a8a62a617e793e948c}} 
+\index{def.h@{def.h}!LWIP\_MAKEU32@{LWIP\_MAKEU32}}
+\index{LWIP\_MAKEU32@{LWIP\_MAKEU32}!def.h@{def.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MAKEU32}{LWIP\_MAKEU32}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+M\+A\+K\+E\+U32(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((u32\_t)((a) \& 0xff) << 24) | \(\backslash\)}
+\DoxyCodeLine{                               ((u32\_t)((b) \& 0xff) << 16) | \(\backslash\)}
+\DoxyCodeLine{                               ((u32\_t)((c) \& 0xff) << 8)  | \(\backslash\)}
+\DoxyCodeLine{                                (u32\_t)((d) \& 0xff))}
+
+\end{DoxyCode}
+Create u32\+\_\+t value from bytes 
+
+Definition at line 61 of file def.\+h.
+

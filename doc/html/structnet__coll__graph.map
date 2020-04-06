@@ -1,0 +1,5 @@
+<map id="net" name="net">
+<area shape="rect" id="node1" title=" " alt="" coords="9,201,49,228"/>
+<area shape="rect" id="node2" href="$structnetif.html" title=" " alt="" coords="5,96,52,123"/>
+<area shape="rect" id="node3" href="$structpbuf.html" title=" " alt="" coords="5,5,52,32"/>
+</map>

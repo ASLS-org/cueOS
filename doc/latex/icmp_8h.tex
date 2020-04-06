@@ -1,0 +1,98 @@
+\hypertarget{icmp_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/icmp.h File Reference}
+\label{icmp_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/icmp.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/icmp.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip\+\_\+addr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/netif.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/prot/icmp.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{icmp_8h_a8d52f47a3b8237697544280c22f2925e}\label{icmp_8h_a8d52f47a3b8237697544280c22f2925e}} 
+\#define {\bfseries icmp\+\_\+port\+\_\+unreach}(isipv6,  \mbox{\hyperlink{structpbuf}{pbuf}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5}{icmp\+\_\+dur\+\_\+type}} \{ \newline
+\mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5a3cc3714544e123bdef2eadb1a4d320e3}{I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+N\+ET}} = 0, 
+\newline
+\mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5a648ab915a76dfb7b9568e94de00da1e7}{I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+H\+O\+ST}} = 1, 
+\newline
+\mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5a3c7bbd13b613990413ef167017dfbcef}{I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+P\+R\+O\+TO}} = 2, 
+\newline
+\mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5ac973dd9b04e094043ccc4cf875ef5644}{I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+P\+O\+RT}} = 3, 
+\newline
+\mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5a8be2bc49d42aa1a6ee1da93a8700ef5f}{I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+F\+R\+AG}} = 4, 
+\newline
+\mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5af63296fc25f79e56946a56a8da132c13}{I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+SR}} = 5
+ \}
+\item 
+enum \mbox{\hyperlink{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324a}{icmp\+\_\+te\+\_\+type}} \{ \newline
+\mbox{\hyperlink{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324aa827a1f8705826a6cc3c22e2571acf02c}{I\+C\+M\+P\+\_\+\+T\+E\+\_\+\+T\+TL}} = 0, 
+\newline
+\mbox{\hyperlink{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324aa4d351874c3e2d4a4cf46569df28cd796}{I\+C\+M\+P\+\_\+\+T\+E\+\_\+\+F\+R\+AG}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I\+C\+MP A\+PI 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{icmp_8h_a17637465f209385e5d19ef47fd9266a5}\label{icmp_8h_a17637465f209385e5d19ef47fd9266a5}} 
+\index{icmp.h@{icmp.h}!icmp\_dur\_type@{icmp\_dur\_type}}
+\index{icmp\_dur\_type@{icmp\_dur\_type}!icmp.h@{icmp.h}}
+\doxysubsubsection{\texorpdfstring{icmp\_dur\_type}{icmp\_dur\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{icmp_8h_a17637465f209385e5d19ef47fd9266a5}{icmp\+\_\+dur\+\_\+type}}}
+
+I\+C\+MP destination unreachable codes \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_DUR\_NET@{ICMP\_DUR\_NET}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_DUR\_NET@{ICMP\_DUR\_NET}}}\mbox{\Hypertarget{icmp_8h_a17637465f209385e5d19ef47fd9266a5a3cc3714544e123bdef2eadb1a4d320e3}\label{icmp_8h_a17637465f209385e5d19ef47fd9266a5a3cc3714544e123bdef2eadb1a4d320e3}} 
+I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+N\+ET&net unreachable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_DUR\_HOST@{ICMP\_DUR\_HOST}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_DUR\_HOST@{ICMP\_DUR\_HOST}}}\mbox{\Hypertarget{icmp_8h_a17637465f209385e5d19ef47fd9266a5a648ab915a76dfb7b9568e94de00da1e7}\label{icmp_8h_a17637465f209385e5d19ef47fd9266a5a648ab915a76dfb7b9568e94de00da1e7}} 
+I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+H\+O\+ST&host unreachable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_DUR\_PROTO@{ICMP\_DUR\_PROTO}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_DUR\_PROTO@{ICMP\_DUR\_PROTO}}}\mbox{\Hypertarget{icmp_8h_a17637465f209385e5d19ef47fd9266a5a3c7bbd13b613990413ef167017dfbcef}\label{icmp_8h_a17637465f209385e5d19ef47fd9266a5a3c7bbd13b613990413ef167017dfbcef}} 
+I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+P\+R\+O\+TO&protocol unreachable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_DUR\_PORT@{ICMP\_DUR\_PORT}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_DUR\_PORT@{ICMP\_DUR\_PORT}}}\mbox{\Hypertarget{icmp_8h_a17637465f209385e5d19ef47fd9266a5ac973dd9b04e094043ccc4cf875ef5644}\label{icmp_8h_a17637465f209385e5d19ef47fd9266a5ac973dd9b04e094043ccc4cf875ef5644}} 
+I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+P\+O\+RT&port unreachable \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_DUR\_FRAG@{ICMP\_DUR\_FRAG}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_DUR\_FRAG@{ICMP\_DUR\_FRAG}}}\mbox{\Hypertarget{icmp_8h_a17637465f209385e5d19ef47fd9266a5a8be2bc49d42aa1a6ee1da93a8700ef5f}\label{icmp_8h_a17637465f209385e5d19ef47fd9266a5a8be2bc49d42aa1a6ee1da93a8700ef5f}} 
+I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+F\+R\+AG&fragmentation needed and DF set \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_DUR\_SR@{ICMP\_DUR\_SR}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_DUR\_SR@{ICMP\_DUR\_SR}}}\mbox{\Hypertarget{icmp_8h_a17637465f209385e5d19ef47fd9266a5af63296fc25f79e56946a56a8da132c13}\label{icmp_8h_a17637465f209385e5d19ef47fd9266a5af63296fc25f79e56946a56a8da132c13}} 
+I\+C\+M\+P\+\_\+\+D\+U\+R\+\_\+\+SR&source route failed \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 55 of file icmp.\+h.
+
+\mbox{\Hypertarget{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324a}\label{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324a}} 
+\index{icmp.h@{icmp.h}!icmp\_te\_type@{icmp\_te\_type}}
+\index{icmp\_te\_type@{icmp\_te\_type}!icmp.h@{icmp.h}}
+\doxysubsubsection{\texorpdfstring{icmp\_te\_type}{icmp\_te\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324a}{icmp\+\_\+te\+\_\+type}}}
+
+I\+C\+MP time exceeded codes \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_TE\_TTL@{ICMP\_TE\_TTL}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_TE\_TTL@{ICMP\_TE\_TTL}}}\mbox{\Hypertarget{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324aa827a1f8705826a6cc3c22e2571acf02c}\label{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324aa827a1f8705826a6cc3c22e2571acf02c}} 
+I\+C\+M\+P\+\_\+\+T\+E\+\_\+\+T\+TL&time to live exceeded in transit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ICMP\_TE\_FRAG@{ICMP\_TE\_FRAG}!icmp.h@{icmp.h}}\index{icmp.h@{icmp.h}!ICMP\_TE\_FRAG@{ICMP\_TE\_FRAG}}}\mbox{\Hypertarget{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324aa4d351874c3e2d4a4cf46569df28cd796}\label{icmp_8h_a058d0a0769bd38db99fc6fd1dad1324aa4d351874c3e2d4a4cf46569df28cd796}} 
+I\+C\+M\+P\+\_\+\+T\+E\+\_\+\+F\+R\+AG&fragment reassembly time exceeded \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 71 of file icmp.\+h.
+

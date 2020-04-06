@@ -1,0 +1,91 @@
+\hypertarget{_d_m_x512__chaser__step_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/\+D\+M\+X512\+\_\+engine/src/\+D\+M\+X512\+\_\+chaser\+\_\+step.c File Reference}
+\label{_d_m_x512__chaser__step_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_chaser\_step.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_chaser\_step.c}}
+{\ttfamily \#include \char`\"{}cueos\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+chaser\+\_\+step.\+h\char`\"{}}\newline
+Include dependency graph for D\+M\+X512\+\_\+chaser\+\_\+step.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_m_x512__chaser__step_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{_d_m_x512__chaser__step_8c_a5d0f8bcb828ef0568458498bf95b51c3}{\+\_\+\+D\+M\+X512\+\_\+step\+\_\+fadein}} (\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}})
+\begin{DoxyCompactList}\small\item\em Sets a chaser step\textquotesingle{}s fixtures channel values to their predefined preset values according to time. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{_d_m_x512__chaser__step_8c_a79363818840f6a4f7bd533bf907bbc87}{\+\_\+\+D\+M\+X512\+\_\+step\+\_\+hold}} (\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}})
+\begin{DoxyCompactList}\small\item\em Holds a chaser step\textquotesingle{}s faded in values during a certain amount of time. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{_d_m_x512__chaser__step_8c_a7d96146634ebe8e74841dbd3d812f317}{\+\_\+\+D\+M\+X512\+\_\+step\+\_\+fadeout}} (\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}})
+\begin{DoxyCompactList}\small\item\em Sets a chaser step\textquotesingle{}s fixtures channel values to their \char`\"{}\+O\+F\+F\char`\"{} values according to time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} \mbox{\hyperlink{group___d_m_x512__chaser__step_gabdec023df5ad3f0b75ef3a79ae0057cb}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+init}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, uint16\+\_\+t fadein\+\_\+time, uint16\+\_\+t fadeout\+\_\+time, uint16\+\_\+t hold\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Creates a new chaser step instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__chaser__step_ga9c4947753b1a96a2dad9473843891929}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+manage}} (\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}})
+\begin{DoxyCompactList}\small\item\em Chaser step state machine. Manage a chaser step\textquotesingle{}s state over time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__chaser__step_gab802e922e8fddf036a83927b53e4d9b7}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+start}} (\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}})
+\begin{DoxyCompactList}\small\item\em Starts a chaser step by assigning it to its fade\+\_\+in state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__chaser__step_ga564938337349dbd261a36409f484474f}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+stop}} (\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}})
+\begin{DoxyCompactList}\small\item\em Stops a chaser step by assigning it to its idle state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_d_m_x512__chaser__step_8c_a5d0f8bcb828ef0568458498bf95b51c3}\label{_d_m_x512__chaser__step_8c_a5d0f8bcb828ef0568458498bf95b51c3}} 
+\index{DMX512\_chaser\_step.c@{DMX512\_chaser\_step.c}!\_DMX512\_step\_fadein@{\_DMX512\_step\_fadein}}
+\index{\_DMX512\_step\_fadein@{\_DMX512\_step\_fadein}!DMX512\_chaser\_step.c@{DMX512\_chaser\_step.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_step\_fadein()}{\_DMX512\_step\_fadein()}}
+{\footnotesize\ttfamily static void \+\_\+\+D\+M\+X512\+\_\+step\+\_\+fadein (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$}]{this }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets a chaser step\textquotesingle{}s fixtures channel values to their predefined preset values according to time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & the chaser step instance to be faded in \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file D\+M\+X512\+\_\+chaser\+\_\+step.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__chaser__step_8c_a7d96146634ebe8e74841dbd3d812f317}\label{_d_m_x512__chaser__step_8c_a7d96146634ebe8e74841dbd3d812f317}} 
+\index{DMX512\_chaser\_step.c@{DMX512\_chaser\_step.c}!\_DMX512\_step\_fadeout@{\_DMX512\_step\_fadeout}}
+\index{\_DMX512\_step\_fadeout@{\_DMX512\_step\_fadeout}!DMX512\_chaser\_step.c@{DMX512\_chaser\_step.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_step\_fadeout()}{\_DMX512\_step\_fadeout()}}
+{\footnotesize\ttfamily static void \+\_\+\+D\+M\+X512\+\_\+step\+\_\+fadeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$}]{this }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets a chaser step\textquotesingle{}s fixtures channel values to their \char`\"{}\+O\+F\+F\char`\"{} values according to time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & the chaser step instance to be faded out \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 57 of file D\+M\+X512\+\_\+chaser\+\_\+step.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__chaser__step_8c_a79363818840f6a4f7bd533bf907bbc87}\label{_d_m_x512__chaser__step_8c_a79363818840f6a4f7bd533bf907bbc87}} 
+\index{DMX512\_chaser\_step.c@{DMX512\_chaser\_step.c}!\_DMX512\_step\_hold@{\_DMX512\_step\_hold}}
+\index{\_DMX512\_step\_hold@{\_DMX512\_step\_hold}!DMX512\_chaser\_step.c@{DMX512\_chaser\_step.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_step\_hold()}{\_DMX512\_step\_hold()}}
+{\footnotesize\ttfamily static void \+\_\+\+D\+M\+X512\+\_\+step\+\_\+hold (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__chaser__step__s}{D\+M\+X512\+\_\+chaser\+\_\+step\+\_\+s}} $\ast$}]{this }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Holds a chaser step\textquotesingle{}s faded in values during a certain amount of time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em this} & the chaser step instance to be held \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 46 of file D\+M\+X512\+\_\+chaser\+\_\+step.\+c.
+

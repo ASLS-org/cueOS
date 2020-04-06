@@ -1,3 +1,15 @@
+/**
+ * TODO: add doxygen comments
+ * @ingroup webapp_utils
+ * @defgroup HTML_FS
+ * Static files file system. Manages files compiled within htmlgen.c file.
+ * htmlgen.c file contains a compiled minified version of the files contained within the
+ * "htmlgen" "/dist" subfolder. the content of this subfolder may be modified and recompiled
+ * into a readable stream of bytes by calling htmlgen.sh script placed at the root of
+ * the htmlgen subfolder.
+ * @{
+ */
+
 /*
  * Copyright (c) 2001-2003 Swedish Institute of Computer Science.
  * All rights reserved. 
@@ -29,14 +41,11 @@
  * Author: Adam Dunkels <adam@sics.se>
  *
  */
+
 #ifndef LWIP_HDR_APPS_FS_H
 #define LWIP_HDR_APPS_FS_H
 
 #include "lwip/err.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #define FS_READ_EOF     -1
 #define FS_READ_DELAYED -2
@@ -46,9 +55,7 @@ extern "C" {
 #define FS_FILE_FLAGS_HEADER_HTTPVER_1_1  0x04
 #define FS_FILE_FLAGS_SSI                 0x08
 
-/** Define FS_FILE_EXTENSION_T_DEFINED if you have typedef'ed to your private
- * pointer type (defaults to 'void' so the default usage is 'void*')
- */
+
 #ifndef FS_FILE_EXTENSION_T_DEFINED
 typedef void fs_file_extension;
 #endif
@@ -57,8 +64,6 @@ typedef struct fs_file {
   const char *data;
   int len;
   int index;
-  /* pextension is free for implementations to hold private (extensional)
-     arbitrary data, e.g. holding some file state or file system handle */
   fs_file_extension *pextension;
   u8_t flags;
 }fs_file_s;
@@ -77,3 +82,8 @@ struct fsdata_file {
 };
 
 #endif
+
+/**
+ * @} Grouping in FTML_FS submodule ends
+ * @} Grouping in webapp_utils module ends
+ **/

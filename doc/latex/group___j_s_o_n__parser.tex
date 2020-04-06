@@ -1,0 +1,262 @@
+\hypertarget{group___j_s_o_n__parser}{}\doxysection{J\+S\+O\+N\+\_\+parser}
+\label{group___j_s_o_n__parser}\index{JSON\_parser@{JSON\_parser}}
+
+
+Module dedicated to J\+S\+ON parsing and string formating.  
+
+
+Collaboration diagram for J\+S\+O\+N\+\_\+parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{group___j_s_o_n__parser}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structjsonparser__json__param__s}{jsonparser\+\_\+json\+\_\+param\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em J\+S\+ON parameter structure object. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjsonparser__json__object__s}{jsonparser\+\_\+json\+\_\+object\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em J\+S\+ON Objects structure object. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em J\+S\+ON String structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___j_s_o_n__parser_gab4648729eb433225c17f6a29d3f075fa}\label{group___j_s_o_n__parser_gab4648729eb433225c17f6a29d3f075fa}} 
+\#define {\bfseries J\+S\+O\+N\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+D\+E\+L\+I\+M\+I\+T\+OR}~\char`\"{}\mbox{[}\char`\"{}
+\item 
+\mbox{\Hypertarget{group___j_s_o_n__parser_gac54c5c34acb20a9bdc16f16bf1493876}\label{group___j_s_o_n__parser_gac54c5c34acb20a9bdc16f16bf1493876}} 
+\#define {\bfseries J\+S\+O\+N\+\_\+\+A\+R\+R\+A\+Y\+\_\+\+T\+E\+R\+M\+I\+N\+A\+T\+OR}~\char`\"{}\mbox{]}\char`\"{}
+\item 
+\mbox{\Hypertarget{group___j_s_o_n__parser_gae8b65170690cccade05f05b810429068}\label{group___j_s_o_n__parser_gae8b65170690cccade05f05b810429068}} 
+\#define {\bfseries J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+D\+E\+L\+I\+M\+I\+T\+OR}~\char`\"{}\{\char`\"{}
+\item 
+\mbox{\Hypertarget{group___j_s_o_n__parser_gaf9fccc893b8fedb621cb9f8a1075d7a2}\label{group___j_s_o_n__parser_gaf9fccc893b8fedb621cb9f8a1075d7a2}} 
+\#define {\bfseries J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+T\+E\+R\+M\+I\+N\+A\+T\+OR}~\char`\"{}\}\char`\"{}
+\item 
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga13c2e76825d17d999f02de380f8c2fc0}\label{group___j_s_o_n__parser_ga13c2e76825d17d999f02de380f8c2fc0}} 
+\#define {\bfseries J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+D\+E\+L\+I\+M\+I\+T\+OR}~\char`\"{}\textbackslash{}\char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{group___j_s_o_n__parser_gaeb23d66ed51f2003227b9712c1a23fb4}\label{group___j_s_o_n__parser_gaeb23d66ed51f2003227b9712c1a23fb4}} 
+\#define {\bfseries J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+E\+N\+T\+R\+Y\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR}~\char`\"{}\+:\char`\"{}
+\item 
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga4f5aa81c742e65fb363313959b0e5c08}\label{group___j_s_o_n__parser_ga4f5aa81c742e65fb363313959b0e5c08}} 
+\#define {\bfseries J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+P\+A\+I\+R\+\_\+\+S\+E\+P\+A\+R\+A\+T\+OR}~\char`\"{},\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga82d2ef1df30e6f56f8482d0bf24d40e4}{jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+int\+\_\+pair}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, char $\ast$key, uint16\+\_\+t val, uint8\+\_\+t is\+\_\+initial, uint8\+\_\+t is\+\_\+final)
+\begin{DoxyCompactList}\small\item\em Puts a J\+S\+ON key/(integer)value pair into a provided json string object;. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc}{jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+str\+\_\+pair}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, char $\ast$key, char $\ast$val, uint8\+\_\+t is\+\_\+final, uint8\+\_\+t is\+\_\+initial)
+\begin{DoxyCompactList}\small\item\em Puts a J\+S\+ON key/(string)value pair into a provided json string object;. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_gac023a560ca4eb78a36b6ba0a2c5bbace}{jsonparser\+\_\+json\+\_\+string\+\_\+nest}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, char $\ast$key, \mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$nested\+\_\+json\+\_\+string, uint8\+\_\+t is\+\_\+initial, uint8\+\_\+t is\+\_\+final)
+\begin{DoxyCompactList}\small\item\em Nests a child J\+S\+ON string into a parent J\+S\+ON string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_gad66569437587bfa9d5fa36c32671398c}{jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+array\+\_\+object}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, \mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+object, uint8\+\_\+t is\+\_\+initial, uint8\+\_\+t is\+\_\+final)
+\begin{DoxyCompactList}\small\item\em Nests a child J\+S\+ON string into a parent J\+S\+ON array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structjsonparser__json__object__s}{jsonparser\+\_\+json\+\_\+object\+\_\+s}} $\ast$ \mbox{\hyperlink{group___j_s_o_n__parser_ga171913e44bd232c6568b3d945ef5073f}{jsonparser\+\_\+parse}} (char $\ast$json\+\_\+string, uint16\+\_\+t json\+\_\+string\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Retrieves key/value pairs from a J\+S\+ON encoded string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$ \mbox{\hyperlink{group___j_s_o_n__parser_ga7d5de13c212ac321192dc07ea1f8826a}{jsonparser\+\_\+json\+\_\+string\+\_\+new}} (void)
+\begin{DoxyCompactList}\small\item\em Creates and initialises a new json string instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga2cb0ccbc3fe7d584c4a299280f702830}{jsonparser\+\_\+free\+\_\+json\+\_\+object}} (\mbox{\hyperlink{structjsonparser__json__object__s}{jsonparser\+\_\+json\+\_\+object\+\_\+s}} $\ast$json\+\_\+object)
+\begin{DoxyCompactList}\small\item\em Frees a parsed json object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga084da82bf0fcdc2a21f454e2d09546ed}{jsonparser\+\_\+free\+\_\+json\+\_\+string}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Frees a json string instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module dedicated to J\+S\+ON parsing and string formating. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga2cb0ccbc3fe7d584c4a299280f702830}\label{group___j_s_o_n__parser_ga2cb0ccbc3fe7d584c4a299280f702830}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_free\_json\_object@{jsonparser\_free\_json\_object}}
+\index{jsonparser\_free\_json\_object@{jsonparser\_free\_json\_object}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_free\_json\_object()}{jsonparser\_free\_json\_object()}}
+{\footnotesize\ttfamily void jsonparser\+\_\+free\+\_\+json\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__object__s}{jsonparser\+\_\+json\+\_\+object\+\_\+s}} $\ast$}]{json\+\_\+object }\end{DoxyParamCaption})}
+
+
+
+Frees a parsed json object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+object} & pointer to json object instance to be freed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 232 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga084da82bf0fcdc2a21f454e2d09546ed}\label{group___j_s_o_n__parser_ga084da82bf0fcdc2a21f454e2d09546ed}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_free\_json\_string@{jsonparser\_free\_json\_string}}
+\index{jsonparser\_free\_json\_string@{jsonparser\_free\_json\_string}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_free\_json\_string()}{jsonparser\_free\_json\_string()}}
+{\footnotesize\ttfamily void jsonparser\+\_\+free\+\_\+json\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+string }\end{DoxyParamCaption})}
+
+
+
+Frees a json string instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$jsonparser\+\_\+json\+\_\+string\+\_\+s} & pointer to json string instance to be freed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 263 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{group___j_s_o_n__parser_gac023a560ca4eb78a36b6ba0a2c5bbace}\label{group___j_s_o_n__parser_gac023a560ca4eb78a36b6ba0a2c5bbace}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_json\_string\_nest@{jsonparser\_json\_string\_nest}}
+\index{jsonparser\_json\_string\_nest@{jsonparser\_json\_string\_nest}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_json\_string\_nest()}{jsonparser\_json\_string\_nest()}}
+{\footnotesize\ttfamily void jsonparser\+\_\+json\+\_\+string\+\_\+nest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+string,  }\item[{char $\ast$}]{key,  }\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{nested\+\_\+json\+\_\+string,  }\item[{uint8\+\_\+t}]{is\+\_\+initial,  }\item[{uint8\+\_\+t}]{is\+\_\+final }\end{DoxyParamCaption})}
+
+
+
+Nests a child J\+S\+ON string into a parent J\+S\+ON string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+string} & pointer to a json string instance \\
+\hline
+{\em $\ast$key} & pointer to the J\+S\+ON key string \\
+\hline
+{\em $\ast$nested\+\_\+json\+\_\+string} & pointer to the json string value to be nested and associated to the provided J\+S\+ON key \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON string delimitor \char`\"{}\{\char`\"{} should be prefixing the key/value pair. (the json string starts) \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON string terminator \char`\"{}\}\textbackslash{}0\char`\"{} should be suffixing the key/value pair. (the json string stops) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga7d5de13c212ac321192dc07ea1f8826a}\label{group___j_s_o_n__parser_ga7d5de13c212ac321192dc07ea1f8826a}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_json\_string\_new@{jsonparser\_json\_string\_new}}
+\index{jsonparser\_json\_string\_new@{jsonparser\_json\_string\_new}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_json\_string\_new()}{jsonparser\_json\_string\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}}$\ast$ jsonparser\+\_\+json\+\_\+string\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates and initialises a new json string instance. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$ pointer to the created json string instance 
+\end{DoxyReturn}
+
+
+Definition at line 251 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{group___j_s_o_n__parser_gad66569437587bfa9d5fa36c32671398c}\label{group___j_s_o_n__parser_gad66569437587bfa9d5fa36c32671398c}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_json\_string\_put\_array\_object@{jsonparser\_json\_string\_put\_array\_object}}
+\index{jsonparser\_json\_string\_put\_array\_object@{jsonparser\_json\_string\_put\_array\_object}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_json\_string\_put\_array\_object()}{jsonparser\_json\_string\_put\_array\_object()}}
+{\footnotesize\ttfamily void jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+array\+\_\+object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+string,  }\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+object,  }\item[{uint8\+\_\+t}]{is\+\_\+initial,  }\item[{uint8\+\_\+t}]{is\+\_\+final }\end{DoxyParamCaption})}
+
+
+
+Nests a child J\+S\+ON string into a parent J\+S\+ON array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+string} & pointer to a json string instance (array) \\
+\hline
+{\em $\ast$json\+\_\+object} & pointer to the json string value to be nested into the json array \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON array delimitor \char`\"{}\mbox{[}\char`\"{} should be prefixing the key/value pair. (the json string starts) \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON array terminator \char`\"{}\mbox{]}\textbackslash{}0\char`\"{} should be suffixing the key/value pair. (the json string stops) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 150 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga82d2ef1df30e6f56f8482d0bf24d40e4}\label{group___j_s_o_n__parser_ga82d2ef1df30e6f56f8482d0bf24d40e4}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_json\_string\_put\_int\_pair@{jsonparser\_json\_string\_put\_int\_pair}}
+\index{jsonparser\_json\_string\_put\_int\_pair@{jsonparser\_json\_string\_put\_int\_pair}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_json\_string\_put\_int\_pair()}{jsonparser\_json\_string\_put\_int\_pair()}}
+{\footnotesize\ttfamily void jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+int\+\_\+pair (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+string,  }\item[{char $\ast$}]{key,  }\item[{uint16\+\_\+t}]{val,  }\item[{uint8\+\_\+t}]{is\+\_\+initial,  }\item[{uint8\+\_\+t}]{is\+\_\+final }\end{DoxyParamCaption})}
+
+
+
+Puts a J\+S\+ON key/(integer)value pair into a provided json string object;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+string} & pointer to a json string instance \\
+\hline
+{\em $\ast$key} & pointer to the J\+S\+ON key string \\
+\hline
+{\em val} & integer value to be associated to the provided J\+S\+ON key \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON string delimitor \char`\"{}\{\char`\"{} should be prefixing the key/value pair. (the json string starts) \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON string terminator \char`\"{}\}\textbackslash{}0\char`\"{} should be suffixing the key/value pair. (the json string stops) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc}\label{group___j_s_o_n__parser_ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_json\_string\_put\_str\_pair@{jsonparser\_json\_string\_put\_str\_pair}}
+\index{jsonparser\_json\_string\_put\_str\_pair@{jsonparser\_json\_string\_put\_str\_pair}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_json\_string\_put\_str\_pair()}{jsonparser\_json\_string\_put\_str\_pair()}}
+{\footnotesize\ttfamily void jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+str\+\_\+pair (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+string,  }\item[{char $\ast$}]{key,  }\item[{char $\ast$}]{val,  }\item[{uint8\+\_\+t}]{is\+\_\+initial,  }\item[{uint8\+\_\+t}]{is\+\_\+final }\end{DoxyParamCaption})}
+
+
+
+Puts a J\+S\+ON key/(string)value pair into a provided json string object;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+string} & pointer to a json string instance \\
+\hline
+{\em $\ast$key} & pointer to the J\+S\+ON key string \\
+\hline
+{\em $\ast$val} & pointer to the string value to be associated to the provided J\+S\+ON key \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON string delimitor \char`\"{}\{\char`\"{} should be prefixing the key/value pair. (the json string starts) \\
+\hline
+{\em is\+\_\+initial} & determines if a J\+S\+ON string terminator \char`\"{}\}\textbackslash{}0\char`\"{} should be suffixing the key/value pair. (the json string stops) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{group___j_s_o_n__parser_ga171913e44bd232c6568b3d945ef5073f}\label{group___j_s_o_n__parser_ga171913e44bd232c6568b3d945ef5073f}} 
+\index{JSON\_parser@{JSON\_parser}!jsonparser\_parse@{jsonparser\_parse}}
+\index{jsonparser\_parse@{jsonparser\_parse}!JSON\_parser@{JSON\_parser}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_parse()}{jsonparser\_parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structjsonparser__json__object__s}{jsonparser\+\_\+json\+\_\+object\+\_\+s}}$\ast$ jsonparser\+\_\+parse (\begin{DoxyParamCaption}\item[{char $\ast$}]{json\+\_\+string,  }\item[{uint16\+\_\+t}]{json\+\_\+string\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+Retrieves key/value pairs from a J\+S\+ON encoded string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+string} & pointer to the J\+S\+ON string to be parsed \\
+\hline
+{\em json\+\_\+string\+\_\+len} & length (in bytes) of the provided J\+S\+ON string (H\+T\+TP content\+\_\+length header value) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+jsonparser\+\_\+json\+\_\+object\+\_\+s$\ast$ pointer to the parsed J\+S\+ON object instance 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+this is parser cannot (yet ?) parse J\+S\+ON arrays. When provided with a J\+S\+ON array, it will simply chain the array values to the parser pairs as if the array did not exist 
+\end{DoxyWarning}
+
+
+Definition at line 176 of file jsonparser.\+c.
+

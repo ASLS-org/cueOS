@@ -1,0 +1,4 @@
+<map id="Webapp_static" name="Webapp_static">
+<area shape="rect" id="node1" title="Module for serving the system&#39;s web applicaion user&#45;interface static files over HTTP." alt="" coords="124,5,233,31"/>
+<area shape="rect" id="node2" href="$group__webapp.html" title="Definition of a suite of WEB services enabling remote device configuration through the use of HTTP se..." alt="" coords="5,5,76,31"/>
+</map>

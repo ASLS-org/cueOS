@@ -1,3 +1,14 @@
+/**
+ * @ingroup apps
+ * @defgroup Q
+ * Q is an UDP based protocol which aims for a more universal approach of Show Control.
+ * TODO: Clean comment definitions, i'm tired and it's shit
+ * @{
+ *
+ * @defgroup Q_client
+ * UDP client for parsing Q packets.
+ * @{
+ */
 
 #ifndef _Q_UDP_CLIENT_H_
 #define _Q_UDP_CLIENT_H_
@@ -21,8 +32,6 @@
 
 
 /**
- * @ingroup Q_client
- * @enum Q_client_groupcfg_e
  * @brief List of node group configurations used to
  * 		  determine a node's multicast address
  */
@@ -36,8 +45,6 @@ typedef enum{
 
 
 /**
- * @ingroup Q_client
- * @struct Q_client_s
  * @brief Defines a Q client. Q is a UDP-only protocol specifically
  *  	  deficated to show control an automatisation.
  */
@@ -53,3 +60,8 @@ void Q_client_send(char *raw_packet, uint16_t len);
 void Q_client_bind(void);
 
 #endif
+
+/**
+ * @} Grouping in Q_client submodule ends
+ * @} Grouping in Q module ends
+ **/

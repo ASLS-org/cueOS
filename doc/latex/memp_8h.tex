@@ -1,0 +1,144 @@
+\hypertarget{memp_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/memp.h File Reference}
+\label{memp_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/memp.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/memp.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/memp\+\_\+std.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/memp\+\_\+priv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}\label{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+OL}(name,  num,  size,  desc)
+\item 
+\mbox{\Hypertarget{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}\label{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+OL}(name,  num,  size,  desc)~M\+E\+M\+P\+\_\+\#\#name,
+\item 
+\#define \mbox{\hyperlink{memp_8h_a92fc8c29d0e2654f2a2ecc43b2b7fb13}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+P\+R\+O\+T\+O\+T\+Y\+PE}}(name)~extern const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} memp\+\_\+ \#\# name
+\item 
+\#define \mbox{\hyperlink{memp_8h_a5b1fb3ce7942432d87cc948b1c5ed6cb}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+D\+E\+C\+L\+A\+RE}}(name,  num,  size,  desc)
+\item 
+\#define \mbox{\hyperlink{memp_8h_a60b51c06d276f525b35d8b7abd4dcb41}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+I\+N\+IT}}(name)~memp\+\_\+init\+\_\+pool(\&memp\+\_\+ \#\# name)
+\item 
+\#define \mbox{\hyperlink{memp_8h_a5e2498f6c17746c1fe7153de5f7f275a}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+A\+L\+L\+OC}}(name)~memp\+\_\+malloc\+\_\+pool(\&memp\+\_\+ \#\# name)
+\item 
+\#define \mbox{\hyperlink{memp_8h_aa43d114dd702fbd8f1db18474ea93a04}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+F\+R\+EE}}(name,  x)~memp\+\_\+free\+\_\+pool(\&memp\+\_\+ \#\# name, (x))
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}} \{ {\bfseries M\+E\+M\+P\+\_\+\+M\+AX}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp_8h_a9693e5b1ac2c6b9c0e7870522d45efa2}\label{memp_8h_a9693e5b1ac2c6b9c0e7870522d45efa2}} 
+void {\bfseries memp\+\_\+init} (void)
+\item 
+\mbox{\Hypertarget{memp_8h_a2b00593d086313c267b54a976bf67aa5}\label{memp_8h_a2b00593d086313c267b54a976bf67aa5}} 
+void $\ast$ {\bfseries memp\+\_\+malloc} (\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}} type)
+\item 
+\mbox{\Hypertarget{memp_8h_aecd94926b7c2a0e23ae195f4ae97581f}\label{memp_8h_aecd94926b7c2a0e23ae195f4ae97581f}} 
+void {\bfseries memp\+\_\+free} (\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}} type, void $\ast$mem)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp_8h_ad78a1f656a766f2c6341aa466762b883}\label{memp_8h_ad78a1f656a766f2c6341aa466762b883}} 
+const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$const {\bfseries memp\+\_\+pools} \mbox{[}M\+E\+M\+P\+\_\+\+M\+AX\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Memory pool A\+PI 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{memp_8h_a5e2498f6c17746c1fe7153de5f7f275a}\label{memp_8h_a5e2498f6c17746c1fe7153de5f7f275a}} 
+\index{memp.h@{memp.h}!LWIP\_MEMPOOL\_ALLOC@{LWIP\_MEMPOOL\_ALLOC}}
+\index{LWIP\_MEMPOOL\_ALLOC@{LWIP\_MEMPOOL\_ALLOC}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_ALLOC}{LWIP\_MEMPOOL\_ALLOC}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+A\+L\+L\+OC(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~memp\+\_\+malloc\+\_\+pool(\&memp\+\_\+ \#\# name)}
+
+Allocate from a private memory pool 
+
+Definition at line 122 of file memp.\+h.
+
+\mbox{\Hypertarget{memp_8h_a5b1fb3ce7942432d87cc948b1c5ed6cb}\label{memp_8h_a5b1fb3ce7942432d87cc948b1c5ed6cb}} 
+\index{memp.h@{memp.h}!LWIP\_MEMPOOL\_DECLARE@{LWIP\_MEMPOOL\_DECLARE}}
+\index{LWIP\_MEMPOOL\_DECLARE@{LWIP\_MEMPOOL\_DECLARE}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_DECLARE}{LWIP\_MEMPOOL\_DECLARE}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+D\+E\+C\+L\+A\+RE(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{num,  }\item[{}]{size,  }\item[{}]{desc }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__compiler__abstraction_ga651bb349041669fe717b19f127ef16c0}{LWIP\_DECLARE\_MEMORY\_ALIGNED}}(memp\_memory\_ \#\# \mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}} \#\# \_base, ((\mbox{\hyperlink{structnetif_af8ffb2c1c1d08fafe1d0845d5296c9a8}{num}}) * (MEMP\_SIZE + MEMP\_ALIGN\_SIZE(size)))); \(\backslash\)}
+\DoxyCodeLine{    \(\backslash\)}
+\DoxyCodeLine{  LWIP\_MEMPOOL\_DECLARE\_STATS\_INSTANCE(memp\_stats\_ \#\# \mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}}) \(\backslash\)}
+\DoxyCodeLine{    \(\backslash\)}
+\DoxyCodeLine{  static \textcolor{keyword}{struct }\mbox{\hyperlink{structmemp}{memp}} *memp\_tab\_ \#\# name; \(\backslash\)}
+\DoxyCodeLine{    \(\backslash\)}
+\DoxyCodeLine{  const \textcolor{keyword}{struct }\mbox{\hyperlink{structmemp__desc}{memp\_desc}} memp\_ \#\# name = \{ \(\backslash\)}
+\DoxyCodeLine{    DECLARE\_LWIP\_MEMPOOL\_DESC(desc) \(\backslash\)}
+\DoxyCodeLine{    LWIP\_MEMPOOL\_DECLARE\_STATS\_REFERENCE(memp\_stats\_ \#\# name) \(\backslash\)}
+\DoxyCodeLine{    LWIP\_MEM\_ALIGN\_SIZE(\mbox{\hyperlink{structmemp__desc_af3c5e245bf61a395e5dcdfd3bcfcda49}{size}}), \(\backslash\)}
+\DoxyCodeLine{    (\mbox{\hyperlink{structmemp__desc_aadcaebf71818621d23d7abe8891a9807}{num}}), \(\backslash\)}
+\DoxyCodeLine{    memp\_memory\_ \#\# name \#\# \_base, \(\backslash\)}
+\DoxyCodeLine{    \&memp\_tab\_ \#\# name \(\backslash\)}
+\DoxyCodeLine{  \};}
+
+\end{DoxyCode}
+Declare a private memory pool Private mempools example\+: .h\+: only when pool is used in multiple .c files\+: \mbox{\hyperlink{memp_8h_a92fc8c29d0e2654f2a2ecc43b2b7fb13}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+P\+R\+O\+T\+O\+T\+Y\+P\+E(my\+\_\+private\+\_\+pool)}}; .c\+:
+\begin{DoxyItemize}
+\item in global variables section\+: L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+D\+E\+C\+L\+A\+RE(my\+\_\+private\+\_\+pool, 10, sizeof(foo), \char`\"{}\+Some description\char`\"{})
+\item call O\+N\+CE before using pool (e.\+g. in some init() function)\+: \mbox{\hyperlink{memp_8h_a60b51c06d276f525b35d8b7abd4dcb41}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+I\+N\+I\+T(my\+\_\+private\+\_\+pool)}};
+\item allocate\+: void$\ast$ my\+\_\+new\+\_\+mem = \mbox{\hyperlink{memp_8h_a5e2498f6c17746c1fe7153de5f7f275a}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+A\+L\+L\+O\+C(my\+\_\+private\+\_\+pool)}};
+\item free\+: \mbox{\hyperlink{memp_8h_aa43d114dd702fbd8f1db18474ea93a04}{L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+F\+R\+E\+E(my\+\_\+private\+\_\+pool, my\+\_\+new\+\_\+mem)}};
+\end{DoxyItemize}
+
+To relocate a pool, declare it as extern in \mbox{\hyperlink{cc_8h_source}{cc.\+h}}. Example for G\+CC\+: extern u8\+\_\+t {\bfseries{attribute}}((section(\char`\"{}.\+onchip\+\_\+mem\char`\"{}))) memp\+\_\+memory\+\_\+my\+\_\+private\+\_\+pool\mbox{[}\mbox{]}; 
+
+Definition at line 95 of file memp.\+h.
+
+\mbox{\Hypertarget{memp_8h_aa43d114dd702fbd8f1db18474ea93a04}\label{memp_8h_aa43d114dd702fbd8f1db18474ea93a04}} 
+\index{memp.h@{memp.h}!LWIP\_MEMPOOL\_FREE@{LWIP\_MEMPOOL\_FREE}}
+\index{LWIP\_MEMPOOL\_FREE@{LWIP\_MEMPOOL\_FREE}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_FREE}{LWIP\_MEMPOOL\_FREE}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+F\+R\+EE(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{x }\end{DoxyParamCaption})~memp\+\_\+free\+\_\+pool(\&memp\+\_\+ \#\# name, (x))}
+
+Free element from a private memory pool 
+
+Definition at line 127 of file memp.\+h.
+
+\mbox{\Hypertarget{memp_8h_a60b51c06d276f525b35d8b7abd4dcb41}\label{memp_8h_a60b51c06d276f525b35d8b7abd4dcb41}} 
+\index{memp.h@{memp.h}!LWIP\_MEMPOOL\_INIT@{LWIP\_MEMPOOL\_INIT}}
+\index{LWIP\_MEMPOOL\_INIT@{LWIP\_MEMPOOL\_INIT}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_INIT}{LWIP\_MEMPOOL\_INIT}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+I\+N\+IT(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~memp\+\_\+init\+\_\+pool(\&memp\+\_\+ \#\# name)}
+
+Initialize a private memory pool 
+
+Definition at line 117 of file memp.\+h.
+
+\mbox{\Hypertarget{memp_8h_a92fc8c29d0e2654f2a2ecc43b2b7fb13}\label{memp_8h_a92fc8c29d0e2654f2a2ecc43b2b7fb13}} 
+\index{memp.h@{memp.h}!LWIP\_MEMPOOL\_PROTOTYPE@{LWIP\_MEMPOOL\_PROTOTYPE}}
+\index{LWIP\_MEMPOOL\_PROTOTYPE@{LWIP\_MEMPOOL\_PROTOTYPE}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_PROTOTYPE}{LWIP\_MEMPOOL\_PROTOTYPE}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+P\+R\+O\+T\+O\+T\+Y\+PE(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~extern const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} memp\+\_\+ \#\# name}
+
+Declare prototype for private memory pool if it is used in multiple files 
+
+Definition at line 67 of file memp.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{memp_8h_a85a164b1f7764951cc685ea525114e57}\label{memp_8h_a85a164b1f7764951cc685ea525114e57}} 
+\index{memp.h@{memp.h}!memp\_t@{memp\_t}}
+\index{memp\_t@{memp\_t}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{memp\_t}{memp\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}}}
+
+Create the list of all memory pools managed by memp. M\+E\+M\+P\+\_\+\+M\+AX represents a N\+U\+LL pool at the end 
+
+Definition at line 52 of file memp.\+h.
+

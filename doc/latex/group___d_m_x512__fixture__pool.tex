@@ -1,0 +1,132 @@
+\hypertarget{group___d_m_x512__fixture__pool}{}\doxysection{D\+M\+X512\+\_\+fixture\+\_\+pool}
+\label{group___d_m_x512__fixture__pool}\index{DMX512\_fixture\_pool@{DMX512\_fixture\_pool}}
+
+
+Fixture pools are used to store a universe\textquotesingle{}s patch information. A patch is a pool of addressed fixtures which channel channel values must me comprised in within a 0-\/512 address value interval. A patched fixture\textquotesingle{}s channels may not overlap over the channel addresses of another fixture member of the patch.  
+
+
+Collaboration diagram for D\+M\+X512\+\_\+fixture\+\_\+pool\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___d_m_x512__fixture__pool}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___d_m_x512__fixture}{D\+M\+X512\+\_\+fixture}}
+\begin{DoxyCompactList}\small\item\em Fixtures are machines daisy chained together to form a D\+M\+X512 universe. Each fixture is addressed over a range of up to 512 addresses. A fixture\textquotesingle{}s channel count defines its address footprint in a D\+M\+X512 universe and fixture addresses and hannels may not overlap one into another. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em D\+M\+X512 fixture pool structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__fixture__pool_ga86ee646e158b3e9b7a39357e7edd412b}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+new}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new fixture pool instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__fixture__pool_ga9c98ee96d0e79d2a2ad1ad3cee8b9222}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+add}} (\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$this, \mbox{\hyperlink{group___d_m_x512__fixture_ga095951a0fe2b02457c9957776b3bdf71}{D\+M\+X512\+\_\+fixture\+\_\+s}} fixture)
+\begin{DoxyCompactList}\small\item\em Adds a fixture instance into the pool. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__fixture__pool_ga2fb160747991b4d38d850ea6ecdc5987}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+del}} (\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$this, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes a fixture instance from the pool. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__fixture__pool_gaeb1fc47ec330a480a68641e307e34a7e}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+get}} (\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$this, uint16\+\_\+t id, \mbox{\hyperlink{group___d_m_x512__fixture_ga095951a0fe2b02457c9957776b3bdf71}{D\+M\+X512\+\_\+fixture\+\_\+s}} $\ast$$\ast$fixture)
+\begin{DoxyCompactList}\small\item\em Gets a fixture instance from the pool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fixture pools are used to store a universe\textquotesingle{}s patch information. A patch is a pool of addressed fixtures which channel channel values must me comprised in within a 0-\/512 address value interval. A patched fixture\textquotesingle{}s channels may not overlap over the channel addresses of another fixture member of the patch. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___d_m_x512__fixture__pool_ga9c98ee96d0e79d2a2ad1ad3cee8b9222}\label{group___d_m_x512__fixture__pool_ga9c98ee96d0e79d2a2ad1ad3cee8b9222}} 
+\index{DMX512\_fixture\_pool@{DMX512\_fixture\_pool}!DMX512\_fixture\_pool\_add@{DMX512\_fixture\_pool\_add}}
+\index{DMX512\_fixture\_pool\_add@{DMX512\_fixture\_pool\_add}!DMX512\_fixture\_pool@{DMX512\_fixture\_pool}}
+\doxysubsubsection{\texorpdfstring{DMX512\_fixture\_pool\_add()}{DMX512\_fixture\_pool\_add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$}]{this,  }\item[{\mbox{\hyperlink{group___d_m_x512__fixture_ga095951a0fe2b02457c9957776b3bdf71}{D\+M\+X512\+\_\+fixture\+\_\+s}}}]{fixture }\end{DoxyParamCaption})}
+
+
+
+Adds a fixture instance into the pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the fixture\textquotesingle{}s identifier \\
+\hline
+{\em addr} & fixture\textquotesingle{}s first channel address \\
+\hline
+{\em ch\+\_\+stop} & fixture\textquotesingle{}s last channel address \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file D\+M\+X512\+\_\+fixture\+\_\+pool.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__fixture__pool_ga2fb160747991b4d38d850ea6ecdc5987}\label{group___d_m_x512__fixture__pool_ga2fb160747991b4d38d850ea6ecdc5987}} 
+\index{DMX512\_fixture\_pool@{DMX512\_fixture\_pool}!DMX512\_fixture\_pool\_del@{DMX512\_fixture\_pool\_del}}
+\index{DMX512\_fixture\_pool\_del@{DMX512\_fixture\_pool\_del}!DMX512\_fixture\_pool@{DMX512\_fixture\_pool}}
+\doxysubsubsection{\texorpdfstring{DMX512\_fixture\_pool\_del()}{DMX512\_fixture\_pool\_del()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+del (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$}]{this,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Deletes a fixture instance from the pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the fixture\textquotesingle{}s idendifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call 
+\end{DoxyReturn}
+
+
+Definition at line 112 of file D\+M\+X512\+\_\+fixture\+\_\+pool.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__fixture__pool_gaeb1fc47ec330a480a68641e307e34a7e}\label{group___d_m_x512__fixture__pool_gaeb1fc47ec330a480a68641e307e34a7e}} 
+\index{DMX512\_fixture\_pool@{DMX512\_fixture\_pool}!DMX512\_fixture\_pool\_get@{DMX512\_fixture\_pool\_get}}
+\index{DMX512\_fixture\_pool\_get@{DMX512\_fixture\_pool\_get}!DMX512\_fixture\_pool@{DMX512\_fixture\_pool}}
+\doxysubsubsection{\texorpdfstring{DMX512\_fixture\_pool\_get()}{DMX512\_fixture\_pool\_get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$}]{this,  }\item[{uint16\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{group___d_m_x512__fixture_ga095951a0fe2b02457c9957776b3bdf71}{D\+M\+X512\+\_\+fixture\+\_\+s}} $\ast$$\ast$}]{fixture }\end{DoxyParamCaption})}
+
+
+
+Gets a fixture instance from the pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the fixture\textquotesingle{}s identifier \\
+\hline
+{\em $\ast$$\ast$fixture} & pointer to the fixture \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e E\+R\+R\+\_\+\+OK if fixture was found, D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+I\+N\+S\+T\+A\+N\+C\+E\+\_\+\+U\+N\+D\+E\+F\+I\+N\+ED otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 137 of file D\+M\+X512\+\_\+fixture\+\_\+pool.\+c.
+
+\mbox{\Hypertarget{group___d_m_x512__fixture__pool_ga86ee646e158b3e9b7a39357e7edd412b}\label{group___d_m_x512__fixture__pool_ga86ee646e158b3e9b7a39357e7edd412b}} 
+\index{DMX512\_fixture\_pool@{DMX512\_fixture\_pool}!DMX512\_fixture\_pool\_new@{DMX512\_fixture\_pool\_new}}
+\index{DMX512\_fixture\_pool\_new@{DMX512\_fixture\_pool\_new}!DMX512\_fixture\_pool@{DMX512\_fixture\_pool}}
+\doxysubsubsection{\texorpdfstring{DMX512\_fixture\_pool\_new()}{DMX512\_fixture\_pool\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}}$\ast$ D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new fixture pool instance. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} the created pool instance 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file D\+M\+X512\+\_\+fixture\+\_\+pool.\+c.
+

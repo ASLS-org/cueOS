@@ -9,14 +9,12 @@
 #include "Q_packet.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup Q_packet
- * @fn _Q_packet_check_validity
  * @brief Checks the integrity of a packet by checting packet id string and opcode
  *
  * @param *packet pointer to packet instance to be checked
@@ -32,15 +30,13 @@ static uint8_t _Q_packet_check_validity(Q_packet_s *packet){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see Q_packet.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup Q_packet
- * @fn Q_packet_parse
  * @brief parses and converts received data into a Q_packet instance
  *
  * @param *data pointer to data buffer
@@ -70,8 +66,6 @@ Q_packet_s *Q_packet_parse(void *data, uint8_t len){
 }
 
 /**
- * @ingroup Q_packet
- * @fn Q_packet_free
  * @brief Frees packet's dynamically allocated ressources
  *
  * @param *packet pointer to packet instance to be freed
@@ -85,8 +79,6 @@ void Q_packet_free(Q_packet_s *packet){
 }
 
 /**
- * @ingroup Q_packet
- * @fn Q_packet_free
  * @brief Forges a discover reply packet using provided node's id
  *
  * @param node_id node identifier
@@ -99,8 +91,6 @@ char *Q_packet_forge_discover_reply(uint8_t node_id){
 }
 
 /**
- * @ingroup Q_packet
- * @fn Q_packet_forge_poll_reply
  * @brief Forges a poll reply packet using provided node's id
  *
  * @param node_id node identifier

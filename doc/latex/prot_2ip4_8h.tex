@@ -1,0 +1,96 @@
+\hypertarget{prot_2ip4_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/prot/ip4.h File Reference}
+\label{prot_2ip4_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/ip4.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/ip4.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip4\+\_\+addr.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structip4__addr__packed}{ip4\+\_\+addr\+\_\+packed}}
+\item 
+struct \mbox{\hyperlink{structip__hdr}{ip\+\_\+hdr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_ad76777d4d34f33ab5f715f9ca15503c3}\label{prot_2ip4_8h_ad76777d4d34f33ab5f715f9ca15503c3}} 
+\#define {\bfseries I\+P\+\_\+\+H\+L\+EN}~20
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a895709708f8f909cf7b7459491d549e7}\label{prot_2ip4_8h_a895709708f8f909cf7b7459491d549e7}} 
+\#define {\bfseries I\+P\+\_\+\+RF}~0x8000U        /$\ast$ reserved fragment flag $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_ae2473f4a88d141d5298f92a4335b714a}\label{prot_2ip4_8h_ae2473f4a88d141d5298f92a4335b714a}} 
+\#define {\bfseries I\+P\+\_\+\+DF}~0x4000U        /$\ast$ don\textquotesingle{}t fragment flag $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_ae8afe1e04bb9bad791443556c3b2cd73}\label{prot_2ip4_8h_ae8afe1e04bb9bad791443556c3b2cd73}} 
+\#define {\bfseries I\+P\+\_\+\+MF}~0x2000U        /$\ast$ more fragments flag $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_ad059798b16d1f615b5af8770175121ba}\label{prot_2ip4_8h_ad059798b16d1f615b5af8770175121ba}} 
+\#define {\bfseries I\+P\+\_\+\+O\+F\+F\+M\+A\+SK}~0x1fffU   /$\ast$ mask for fragmenting bits $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a05a9e8ecf4eff38244b4c13c7e70094c}\label{prot_2ip4_8h_a05a9e8ecf4eff38244b4c13c7e70094c}} 
+\#define {\bfseries I\+P\+H\+\_\+V}(hdr)~((hdr)-\/$>$\+\_\+v\+\_\+hl $>$$>$ 4)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a7c60caeb708571a07a44309c10ec3a01}\label{prot_2ip4_8h_a7c60caeb708571a07a44309c10ec3a01}} 
+\#define {\bfseries I\+P\+H\+\_\+\+HL}(hdr)~((hdr)-\/$>$\+\_\+v\+\_\+hl \& 0x0f)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a13fb5476ab97db9c5de6c1f5ca0d82e6}\label{prot_2ip4_8h_a13fb5476ab97db9c5de6c1f5ca0d82e6}} 
+\#define {\bfseries I\+P\+H\+\_\+\+T\+OS}(hdr)~((hdr)-\/$>$\+\_\+tos)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_aec0328fe4711b8c1ef4dd6709e4fd6d5}\label{prot_2ip4_8h_aec0328fe4711b8c1ef4dd6709e4fd6d5}} 
+\#define {\bfseries I\+P\+H\+\_\+\+L\+EN}(hdr)~((hdr)-\/$>$\+\_\+len)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_ae79eaecc0bf9e4dbb9e47ea56ad2157a}\label{prot_2ip4_8h_ae79eaecc0bf9e4dbb9e47ea56ad2157a}} 
+\#define {\bfseries I\+P\+H\+\_\+\+ID}(hdr)~((hdr)-\/$>$\+\_\+id)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a559dce3878f1d6a46bcb4cb312962397}\label{prot_2ip4_8h_a559dce3878f1d6a46bcb4cb312962397}} 
+\#define {\bfseries I\+P\+H\+\_\+\+O\+F\+F\+S\+ET}(hdr)~((hdr)-\/$>$\+\_\+offset)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a0d8238411ce35a007170f652e62209b3}\label{prot_2ip4_8h_a0d8238411ce35a007170f652e62209b3}} 
+\#define {\bfseries I\+P\+H\+\_\+\+T\+TL}(hdr)~((hdr)-\/$>$\+\_\+ttl)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_aa2de6f9d35337b4be67d799805665e11}\label{prot_2ip4_8h_aa2de6f9d35337b4be67d799805665e11}} 
+\#define {\bfseries I\+P\+H\+\_\+\+P\+R\+O\+TO}(hdr)~((hdr)-\/$>$\+\_\+proto)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a773b96f54c75b35bcd24e7f857fcf988}\label{prot_2ip4_8h_a773b96f54c75b35bcd24e7f857fcf988}} 
+\#define {\bfseries I\+P\+H\+\_\+\+C\+H\+K\+S\+UM}(hdr)~((hdr)-\/$>$\+\_\+chksum)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a037908f4291c62a7336362506cea01af}\label{prot_2ip4_8h_a037908f4291c62a7336362506cea01af}} 
+\#define {\bfseries I\+P\+H\+\_\+\+V\+H\+L\+\_\+\+S\+ET}(hdr,  v,  hl)~(hdr)-\/$>$\+\_\+v\+\_\+hl = (u8\+\_\+t)((((v) $<$$<$ 4) $\vert$ (hl)))
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_af4e4d0cbbb1de541eea2b53b91e8b172}\label{prot_2ip4_8h_af4e4d0cbbb1de541eea2b53b91e8b172}} 
+\#define {\bfseries I\+P\+H\+\_\+\+T\+O\+S\+\_\+\+S\+ET}(hdr,  tos)~(hdr)-\/$>$\+\_\+tos = (tos)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a069cb9b3765c4bdd63d13efb2df0206e}\label{prot_2ip4_8h_a069cb9b3765c4bdd63d13efb2df0206e}} 
+\#define {\bfseries I\+P\+H\+\_\+\+L\+E\+N\+\_\+\+S\+ET}(hdr,  len)~(hdr)-\/$>$\+\_\+len = (len)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a3b2c57b6a9dc9cc32fc2f145a96bbf8f}\label{prot_2ip4_8h_a3b2c57b6a9dc9cc32fc2f145a96bbf8f}} 
+\#define {\bfseries I\+P\+H\+\_\+\+I\+D\+\_\+\+S\+ET}(hdr,  id)~(hdr)-\/$>$\+\_\+id = (id)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a4c2189e1400dca1c0f785de96ceda2b6}\label{prot_2ip4_8h_a4c2189e1400dca1c0f785de96ceda2b6}} 
+\#define {\bfseries I\+P\+H\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+S\+ET}(hdr,  off)~(hdr)-\/$>$\+\_\+offset = (off)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_aa0e49f03bd4c3144e3548a0db72d1deb}\label{prot_2ip4_8h_aa0e49f03bd4c3144e3548a0db72d1deb}} 
+\#define {\bfseries I\+P\+H\+\_\+\+T\+T\+L\+\_\+\+S\+ET}(hdr,  ttl)~(hdr)-\/$>$\+\_\+ttl = (u8\+\_\+t)(ttl)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a49753f7668f741b1877340bff6fb97c3}\label{prot_2ip4_8h_a49753f7668f741b1877340bff6fb97c3}} 
+\#define {\bfseries I\+P\+H\+\_\+\+P\+R\+O\+T\+O\+\_\+\+S\+ET}(hdr,  proto)~(hdr)-\/$>$\+\_\+proto = (u8\+\_\+t)(proto)
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_aec30403fb98b013bd094688de55cdaef}\label{prot_2ip4_8h_aec30403fb98b013bd094688de55cdaef}} 
+\#define {\bfseries I\+P\+H\+\_\+\+C\+H\+K\+S\+U\+M\+\_\+\+S\+ET}(hdr,  chksum)~(hdr)-\/$>$\+\_\+chksum = (chksum)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_ae5011654fcbadf6b6582b8d49446107f}\label{prot_2ip4_8h_ae5011654fcbadf6b6582b8d49446107f}} 
+typedef typedef\+P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+E\+ND struct \mbox{\hyperlink{structip4__addr__packed}{ip4\+\_\+addr\+\_\+packed}} {\bfseries ip4\+\_\+addr\+\_\+p\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2ip4_8h_a7082e3ecbecbf496df63fda29a1e0f06}\label{prot_2ip4_8h_a7082e3ecbecbf496df63fda29a1e0f06}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+E\+G\+IN}} struct \mbox{\hyperlink{structip4__addr__packed}{ip4\+\_\+addr\+\_\+packed}} {\bfseries P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+S\+T\+R\+U\+CT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I\+Pv4 protocol definitions 

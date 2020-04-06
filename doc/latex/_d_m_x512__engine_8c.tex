@@ -1,0 +1,199 @@
+\hypertarget{_d_m_x512__engine_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/\+D\+M\+X512\+\_\+engine/src/\+D\+M\+X512\+\_\+engine.c File Reference}
+\label{_d_m_x512__engine_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_engine.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_engine.c}}
+{\ttfamily \#include \char`\"{}cueos\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+engine.\+h\char`\"{}}\newline
+Include dependency graph for D\+M\+X512\+\_\+engine.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_m_x512__engine_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{_d_m_x512__engine_8c_afd2b164582674fdd3d0aeed1d4d0c58f}{\+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+header}} (F\+IL $\ast$config\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Loads header information into the parser instance. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{_d_m_x512__engine_8c_a92a8fc31aa978f827db597644e04d4f3}{\+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+patch}} (F\+IL $\ast$config\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Loads patch defined within the config file into the D\+M\+X51 engine. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{_d_m_x512__engine_8c_abfcbcc0133d54343c296241c53d1d99c}{\+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+scenes}} (F\+IL $\ast$config\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Loads scenes defined within the config file into the D\+M\+X512 engine. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{_d_m_x512__engine_8c_a6c87b9f9b9ec0e660ccddf7393a99ff7}{\+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+chasers}} (F\+IL $\ast$config\+\_\+file)
+\begin{DoxyCompactList}\small\item\em Loads chasers defined within the config file into the D\+M\+X512 engine. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{_d_m_x512__engine_8c_a5dd2b622e042497c9b04b3813878f1e3}{\+\_\+\+D\+M\+X512\+\_\+engine\+\_\+manage}} (void $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Thread managing engine functions execution. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{_d_m_x512__engine_8c_acdb835b749a63267b764ccad771881fd}{D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config}} (T\+C\+H\+AR $\ast$config\+\_\+file\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Loads a show configuration from a Q\+L\+SF file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__engine_gaab4923cc6a030d8626c2de32cd7aea06}{D\+M\+X512\+\_\+engine\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises the D\+M\+X512 engine singleton. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__engine_ga2796bcad64ff3b6a0098c19bfb8550f7}{D\+M\+X512\+\_\+engine\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts the D\+M\+X512 driver and launches the D\+M\+X512 engine management thread. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__engine_gabba8497987ad60914b85b2158d92f51d}{D\+M\+X512\+\_\+engine\+\_\+stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the D\+M\+X512 driver and terminates the D\+M\+X512 engine management thread. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__engine_ga358f285473ab09a89787f7e041905aef}{D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+add}} (uint16\+\_\+t fixture\+\_\+id, uint16\+\_\+t address, uint16\+\_\+t ch\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Wrapper for \char`\"{}\+D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+add\char`\"{} function. Provides context to the specified function using D\+M\+X512 engine\textquotesingle{}s singleton parameter \char`\"{}fixtures\char`\"{} as argument. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__engine_ga4716f92ccafcbc0a543ed588af699bab}{D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+get}} (uint16\+\_\+t fixture\+\_\+id, \mbox{\hyperlink{group___d_m_x512__fixture_ga095951a0fe2b02457c9957776b3bdf71}{D\+M\+X512\+\_\+fixture\+\_\+s}} $\ast$$\ast$fixture)
+\begin{DoxyCompactList}\small\item\em Wrapper for \char`\"{}\+D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+get\char`\"{} function. Provides context to the specified function using D\+M\+X512 engine\textquotesingle{}s singleton parameter \char`\"{}fixtures\char`\"{} as argument. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__engine_gaf935f32599ad62a93a8cb8668c1e3c4a}{D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+get\+\_\+all}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current engine fixture patch. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__engine_gada3ed7df3b9e4c9d9dd4c6df00f4e4c6}{D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+delete}} (uint16\+\_\+t fixture\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Wrapper for \char`\"{}\+D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+del\char`\"{} function. Provides context to the specified function using D\+M\+X512 engine\textquotesingle{}s singleton parameter \char`\"{}fixtures\char`\"{} as argument. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{struct_d_m_x512__engine__s}{D\+M\+X512\+\_\+engine\+\_\+s}} \mbox{\hyperlink{_d_m_x512__engine_8c_a4a95c79903033ccc1b756789c364f371}{this}}
+\item 
+static os\+Thread\+Id\+\_\+t \mbox{\hyperlink{_d_m_x512__engine_8c_a94800444846d91e4d8dd8470c28f099a}{D\+M\+X512engine\+Thread}} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_d_m_x512__engine_8c_a6c87b9f9b9ec0e660ccddf7393a99ff7}\label{_d_m_x512__engine_8c_a6c87b9f9b9ec0e660ccddf7393a99ff7}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!\_DMX512\_engine\_load\_config\_chasers@{\_DMX512\_engine\_load\_config\_chasers}}
+\index{\_DMX512\_engine\_load\_config\_chasers@{\_DMX512\_engine\_load\_config\_chasers}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_engine\_load\_config\_chasers()}{\_DMX512\_engine\_load\_config\_chasers()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+chasers (\begin{DoxyParamCaption}\item[{F\+IL $\ast$}]{config\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads chasers defined within the config file into the D\+M\+X512 engine. 
+
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+OK on success, specific error code otherwise 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_d_m_x512__engine_8h}{D\+M\+X512\+\_\+engine.\+h}} for further information regarding error codes 
+\end{DoxySeeAlso}
+
+
+Definition at line 145 of file D\+M\+X512\+\_\+engine.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__engine_8c_afd2b164582674fdd3d0aeed1d4d0c58f}\label{_d_m_x512__engine_8c_afd2b164582674fdd3d0aeed1d4d0c58f}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!\_DMX512\_engine\_load\_config\_header@{\_DMX512\_engine\_load\_config\_header}}
+\index{\_DMX512\_engine\_load\_config\_header@{\_DMX512\_engine\_load\_config\_header}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_engine\_load\_config\_header()}{\_DMX512\_engine\_load\_config\_header()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+header (\begin{DoxyParamCaption}\item[{F\+IL $\ast$}]{config\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads header information into the parser instance. 
+
+Data contained within a Q\+L\+SF file header conveys information regarding the size of each groups of data chunks, thus enabling a parser to lookup for show-\/relative information fast.
+
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+OK on success, specific error code otherwise 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_d_m_x512__engine_8h}{D\+M\+X512\+\_\+engine.\+h}} for further information regarding error codes 
+\end{DoxySeeAlso}
+
+
+Definition at line 41 of file D\+M\+X512\+\_\+engine.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__engine_8c_a92a8fc31aa978f827db597644e04d4f3}\label{_d_m_x512__engine_8c_a92a8fc31aa978f827db597644e04d4f3}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!\_DMX512\_engine\_load\_config\_patch@{\_DMX512\_engine\_load\_config\_patch}}
+\index{\_DMX512\_engine\_load\_config\_patch@{\_DMX512\_engine\_load\_config\_patch}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_engine\_load\_config\_patch()}{\_DMX512\_engine\_load\_config\_patch()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+patch (\begin{DoxyParamCaption}\item[{F\+IL $\ast$}]{config\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads patch defined within the config file into the D\+M\+X51 engine. 
+
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+OK on success, specific error code otherwise 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_d_m_x512__engine_8h}{D\+M\+X512\+\_\+engine.\+h}} for further information regarding error codes 
+\end{DoxySeeAlso}
+
+
+Definition at line 67 of file D\+M\+X512\+\_\+engine.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__engine_8c_abfcbcc0133d54343c296241c53d1d99c}\label{_d_m_x512__engine_8c_abfcbcc0133d54343c296241c53d1d99c}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!\_DMX512\_engine\_load\_config\_scenes@{\_DMX512\_engine\_load\_config\_scenes}}
+\index{\_DMX512\_engine\_load\_config\_scenes@{\_DMX512\_engine\_load\_config\_scenes}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_engine\_load\_config\_scenes()}{\_DMX512\_engine\_load\_config\_scenes()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \+\_\+\+D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config\+\_\+scenes (\begin{DoxyParamCaption}\item[{F\+IL $\ast$}]{config\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads scenes defined within the config file into the D\+M\+X512 engine. 
+
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+OK on success, specific error code otherwise 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_d_m_x512__engine_8h}{D\+M\+X512\+\_\+engine.\+h}} for further information regarding error codes 
+\end{DoxySeeAlso}
+
+
+Definition at line 104 of file D\+M\+X512\+\_\+engine.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__engine_8c_a5dd2b622e042497c9b04b3813878f1e3}\label{_d_m_x512__engine_8c_a5dd2b622e042497c9b04b3813878f1e3}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!\_DMX512\_engine\_manage@{\_DMX512\_engine\_manage}}
+\index{\_DMX512\_engine\_manage@{\_DMX512\_engine\_manage}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_engine\_manage()}{\_DMX512\_engine\_manage()}}
+{\footnotesize\ttfamily static void \+\_\+\+D\+M\+X512\+\_\+engine\+\_\+manage (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Thread managing engine functions execution. 
+
+Currently available D\+M\+X512 functions include\+: Scene\+: a set of predefined values for one or many fixtures Chaser\+: a chained set of scenes defined as \char`\"{}steps\char`\"{} executed sequentially Effect\+: a set of mathematical function used as individual channel actuator for one or many fixtures 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$arg} & pointer to argument passed during thread creation. Not used here. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 198 of file D\+M\+X512\+\_\+engine.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__engine_8c_acdb835b749a63267b764ccad771881fd}\label{_d_m_x512__engine_8c_acdb835b749a63267b764ccad771881fd}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!DMX512\_engine\_load\_config@{DMX512\_engine\_load\_config}}
+\index{DMX512\_engine\_load\_config@{DMX512\_engine\_load\_config}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{DMX512\_engine\_load\_config()}{DMX512\_engine\_load\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+engine\+\_\+load\+\_\+config (\begin{DoxyParamCaption}\item[{T\+C\+H\+AR $\ast$}]{config\+\_\+file\+\_\+path }\end{DoxyParamCaption})}
+
+
+
+Loads a show configuration from a Q\+L\+SF file. 
+
+\begin{DoxyReturn}{Returns}
+D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+OK on success, specific error code otherwise 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_d_m_x512__defs_8h}{D\+M\+X512\+\_\+defs.\+h}} for further information regarding error codes 
+\end{DoxySeeAlso}
+
+
+Definition at line 219 of file D\+M\+X512\+\_\+engine.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_d_m_x512__engine_8c_a94800444846d91e4d8dd8470c28f099a}\label{_d_m_x512__engine_8c_a94800444846d91e4d8dd8470c28f099a}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!DMX512engineThread@{DMX512engineThread}}
+\index{DMX512engineThread@{DMX512engineThread}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{DMX512engineThread}{DMX512engineThread}}
+{\footnotesize\ttfamily os\+Thread\+Id\+\_\+t D\+M\+X512engine\+Thread = N\+U\+LL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 23 of file D\+M\+X512\+\_\+engine.\+c.
+
+\mbox{\Hypertarget{_d_m_x512__engine_8c_a4a95c79903033ccc1b756789c364f371}\label{_d_m_x512__engine_8c_a4a95c79903033ccc1b756789c364f371}} 
+\index{DMX512\_engine.c@{DMX512\_engine.c}!this@{this}}
+\index{this@{this}!DMX512\_engine.c@{DMX512\_engine.c}}
+\doxysubsubsection{\texorpdfstring{this}{this}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__engine__s}{D\+M\+X512\+\_\+engine\+\_\+s}} this\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 22 of file D\+M\+X512\+\_\+engine.\+c.
+

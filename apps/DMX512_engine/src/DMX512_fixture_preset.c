@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Dependencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -11,14 +11,12 @@
 #include "DMX512_fixture_preset.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_fixture_preset
- * @fn _DMX512_fixture_preset_check
  * @brief Checks whether or not provided fixture preset arguments are correct
  *
  * @param *fixture pointer to the fixture instance to be referenced
@@ -40,15 +38,13 @@ static uint8_t _DMX512_fixture_preset_check(DMX512_fixture_s *fixture, uint16_t 
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_fixture.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_fixture_preset
- * @fn DMX512_fixture_preset_new
  * @brief Creates a new scene fixture preset instance
  *
  * @param *fixture pointer to the fixture instance to be referenced

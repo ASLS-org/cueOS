@@ -1,0 +1,182 @@
+\hypertarget{structhttp__request__s}{}\doxysection{http\+\_\+request\+\_\+s Struct Reference}
+\label{structhttp__request__s}\index{http\_request\_s@{http\_request\_s}}
+
+
+H\+T\+TP request object.  
+
+
+
+
+{\ttfamily \#include $<$http\+\_\+request.\+h$>$}
+
+
+
+Collaboration diagram for http\+\_\+request\+\_\+s\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{structhttp__request__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \mbox{\hyperlink{structhttp__request__s_adde7d660d08f35d6a0165836959192ac}{raw\+\_\+data}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structhttp__request__s_ae45e50472cf1438f32343bf1b77c233f}{raw\+\_\+len}}
+\item 
+char $\ast$ \mbox{\hyperlink{structhttp__request__s_af98b83cec5342c54027dd92f7357d6e6}{uri}}
+\item 
+char $\ast$ \mbox{\hyperlink{structhttp__request__s_ab0746fb6288bd31fd0d505fab48d8785}{content}}
+\item 
+\mbox{\hyperlink{group___h_t_t_p__defs_ga43d17339ae0c54fb1b72ec6bb73285ec}{http\+\_\+method\+\_\+e}} \mbox{\hyperlink{structhttp__request__s_a611889e20b792cf1f51a335deae8c96e}{method}}
+\item 
+\mbox{\hyperlink{group___h_t_t_p__defs_ga89dab14d01c4401a0da6509b4a9d1da5}{http\+\_\+version\+\_\+e}} \mbox{\hyperlink{structhttp__request__s_a1fa32dbd5692ff9282704eb3845c554c}{http\+\_\+version}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structhttp__request__s_a0983534f2c3c357407a4faa286946143}{param\+\_\+count}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structhttp__request__s_ad7f3b7d0c00bba5352cf56e5ecd54519}{retry\+\_\+count}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structhttp__request__s_aa4e06185d3f561b99351945988a99d67}{content\+\_\+length}}
+\item 
+router\+\_\+fn \mbox{\hyperlink{structhttp__request__s_acada276a7a97bcab2ca29b2a4497ebef}{router}}
+\item 
+\mbox{\hyperlink{structhttp__param__s}{http\+\_\+param\+\_\+s}} $\ast$ \mbox{\hyperlink{structhttp__request__s_aa125457e0d32301b5ec741ec27ec3405}{params}}
+\item 
+\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$ \mbox{\hyperlink{structhttp__request__s_ac14bda1275ac1a7ad5e218e76e0ed9ae}{res}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+H\+T\+TP request object. 
+
+Definition at line 44 of file http\+\_\+request.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structhttp__request__s_ab0746fb6288bd31fd0d505fab48d8785}\label{structhttp__request__s_ab0746fb6288bd31fd0d505fab48d8785}} 
+\index{http\_request\_s@{http\_request\_s}!content@{content}}
+\index{content@{content}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{content}{content}}
+{\footnotesize\ttfamily char$\ast$ content}
+
+The requeste\textquotesingle{}s content buffer 
+
+Definition at line 48 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_aa4e06185d3f561b99351945988a99d67}\label{structhttp__request__s_aa4e06185d3f561b99351945988a99d67}} 
+\index{http\_request\_s@{http\_request\_s}!content\_length@{content\_length}}
+\index{content\_length@{content\_length}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{content\_length}{content\_length}}
+{\footnotesize\ttfamily uint16\+\_\+t content\+\_\+length}
+
+Length of the request\textquotesingle{}s content 
+
+Definition at line 53 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_a1fa32dbd5692ff9282704eb3845c554c}\label{structhttp__request__s_a1fa32dbd5692ff9282704eb3845c554c}} 
+\index{http\_request\_s@{http\_request\_s}!http\_version@{http\_version}}
+\index{http\_version@{http\_version}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{http\_version}{http\_version}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___h_t_t_p__defs_ga89dab14d01c4401a0da6509b4a9d1da5}{http\+\_\+version\+\_\+e}} http\+\_\+version}
+
+H\+T\+TP version conveyed in the H\+T\+TP request frame 
+
+Definition at line 50 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_a611889e20b792cf1f51a335deae8c96e}\label{structhttp__request__s_a611889e20b792cf1f51a335deae8c96e}} 
+\index{http\_request\_s@{http\_request\_s}!method@{method}}
+\index{method@{method}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{method}{method}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___h_t_t_p__defs_ga43d17339ae0c54fb1b72ec6bb73285ec}{http\+\_\+method\+\_\+e}} method}
+
+H\+T\+TP method conveyed in the H\+T\+TP request frame 
+
+Definition at line 49 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_a0983534f2c3c357407a4faa286946143}\label{structhttp__request__s_a0983534f2c3c357407a4faa286946143}} 
+\index{http\_request\_s@{http\_request\_s}!param\_count@{param\_count}}
+\index{param\_count@{param\_count}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{param\_count}{param\_count}}
+{\footnotesize\ttfamily uint8\+\_\+t param\+\_\+count}
+
+Counter for U\+RI parameters 
+
+Definition at line 51 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_aa125457e0d32301b5ec741ec27ec3405}\label{structhttp__request__s_aa125457e0d32301b5ec741ec27ec3405}} 
+\index{http\_request\_s@{http\_request\_s}!params@{params}}
+\index{params@{params}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{params}{params}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhttp__param__s}{http\+\_\+param\+\_\+s}}$\ast$ params}
+
+List of U\+RI paramters 
+
+Definition at line 55 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_adde7d660d08f35d6a0165836959192ac}\label{structhttp__request__s_adde7d660d08f35d6a0165836959192ac}} 
+\index{http\_request\_s@{http\_request\_s}!raw\_data@{raw\_data}}
+\index{raw\_data@{raw\_data}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{raw\_data}{raw\_data}}
+{\footnotesize\ttfamily char$\ast$ raw\+\_\+data}
+
+pointer to the raw data as forwarded by the T\+C\+P/\+IP stack 
+
+Definition at line 45 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_ae45e50472cf1438f32343bf1b77c233f}\label{structhttp__request__s_ae45e50472cf1438f32343bf1b77c233f}} 
+\index{http\_request\_s@{http\_request\_s}!raw\_len@{raw\_len}}
+\index{raw\_len@{raw\_len}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{raw\_len}{raw\_len}}
+{\footnotesize\ttfamily uint16\+\_\+t raw\+\_\+len}
+
+Length of the raw data forwarded by the T\+C\+P/\+IP stack 
+
+Definition at line 46 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_ac14bda1275ac1a7ad5e218e76e0ed9ae}\label{structhttp__request__s_ac14bda1275ac1a7ad5e218e76e0ed9ae}} 
+\index{http\_request\_s@{http\_request\_s}!res@{res}}
+\index{res@{res}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{res}{res}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}}$\ast$ res}
+
+P\+Ointer to H\+T\+TP response which should be processed within the router function 
+
+Definition at line 56 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_ad7f3b7d0c00bba5352cf56e5ecd54519}\label{structhttp__request__s_ad7f3b7d0c00bba5352cf56e5ecd54519}} 
+\index{http\_request\_s@{http\_request\_s}!retry\_count@{retry\_count}}
+\index{retry\_count@{retry\_count}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{retry\_count}{retry\_count}}
+{\footnotesize\ttfamily uint8\+\_\+t retry\+\_\+count}
+
+Count for the number of retries for processing request 
+
+Definition at line 52 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_acada276a7a97bcab2ca29b2a4497ebef}\label{structhttp__request__s_acada276a7a97bcab2ca29b2a4497ebef}} 
+\index{http\_request\_s@{http\_request\_s}!router@{router}}
+\index{router@{router}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{router}{router}}
+{\footnotesize\ttfamily router\+\_\+fn router}
+
+Function callback used to process request 
+
+Definition at line 54 of file http\+\_\+request.\+h.
+
+\mbox{\Hypertarget{structhttp__request__s_af98b83cec5342c54027dd92f7357d6e6}\label{structhttp__request__s_af98b83cec5342c54027dd92f7357d6e6}} 
+\index{http\_request\_s@{http\_request\_s}!uri@{uri}}
+\index{uri@{uri}!http\_request\_s@{http\_request\_s}}
+\doxysubsubsection{\texorpdfstring{uri}{uri}}
+{\footnotesize\ttfamily char$\ast$ uri}
+
+The requested U\+RI buffer 
+
+Definition at line 47 of file http\+\_\+request.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.\+4/cueos/apps/webapp/utils/http/inc/http\+\_\+request.\+h\end{DoxyCompactItemize}

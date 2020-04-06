@@ -1,0 +1,215 @@
+\hypertarget{lwip_2prot_2ethernet_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/prot/ethernet.h File Reference}
+\label{lwip_2prot_2ethernet_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/ethernet.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/ethernet.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}}
+\item 
+struct \mbox{\hyperlink{structeth__hdr}{eth\+\_\+hdr}}
+\item 
+struct \mbox{\hyperlink{structeth__vlan__hdr}{eth\+\_\+vlan\+\_\+hdr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_ac9426049770b40fcd9556ffbd7e56907}\label{lwip_2prot_2ethernet_8h_ac9426049770b40fcd9556ffbd7e56907}} 
+\#define {\bfseries E\+T\+H\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN}~6
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a85d254d78726c038270fe87905845e75}\label{lwip_2prot_2ethernet_8h_a85d254d78726c038270fe87905845e75}} 
+\#define {\bfseries S\+I\+Z\+E\+O\+F\+\_\+\+E\+T\+H\+\_\+\+H\+DR}~(14 + \mbox{\hyperlink{group__lwip__opts__arp_gad7fa3b356ca7e603e848b069c4cc6276}{E\+T\+H\+\_\+\+P\+A\+D\+\_\+\+S\+I\+ZE}})
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a2443b91084b01e4f22423d74d3ae19fe}\label{lwip_2prot_2ethernet_8h_a2443b91084b01e4f22423d74d3ae19fe}} 
+\#define {\bfseries S\+I\+Z\+E\+O\+F\+\_\+\+V\+L\+A\+N\+\_\+\+H\+DR}~4
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_aa36e5e552e17cea1828f0a6792eb29d4}\label{lwip_2prot_2ethernet_8h_aa36e5e552e17cea1828f0a6792eb29d4}} 
+\#define {\bfseries V\+L\+A\+N\+\_\+\+ID}(vlan\+\_\+hdr)~(lwip\+\_\+htons((vlan\+\_\+hdr)-\/$>$prio\+\_\+vid) \& 0x\+F\+FF)
+\item 
+\#define \mbox{\hyperlink{lwip_2prot_2ethernet_8h_afaf6cbccf9477c3505660e3a17860e07}{L\+L\+\_\+\+I\+P4\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+A\+D\+D\+R\+\_\+0}}~0x01
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_ac08b2a99f6ff9cbafaa1cb5a6405d225}\label{lwip_2prot_2ethernet_8h_ac08b2a99f6ff9cbafaa1cb5a6405d225}} 
+\#define {\bfseries L\+L\+\_\+\+I\+P4\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+A\+D\+D\+R\+\_\+1}~0x00
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a98285b6f76c2eb6b6c738da62176bce0}\label{lwip_2prot_2ethernet_8h_a98285b6f76c2eb6b6c738da62176bce0}} 
+\#define {\bfseries L\+L\+\_\+\+I\+P4\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+A\+D\+D\+R\+\_\+2}~0x5e
+\item 
+\#define \mbox{\hyperlink{lwip_2prot_2ethernet_8h_a8ebe93c6ad2d743e6c952539257679b6}{L\+L\+\_\+\+I\+P6\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+A\+D\+D\+R\+\_\+0}}~0x33
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_acf77751aed309653aaa33032732dd243}\label{lwip_2prot_2ethernet_8h_acf77751aed309653aaa33032732dd243}} 
+\#define {\bfseries L\+L\+\_\+\+I\+P6\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+A\+D\+D\+R\+\_\+1}~0x33
+\item 
+\#define \mbox{\hyperlink{lwip_2prot_2ethernet_8h_a0622da8fb6eb72cd4cd7c3ea4f5a5b79}{E\+T\+H\+A\+D\+D\+R32\+\_\+\+C\+O\+PY}}(dst,  src)~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{S\+M\+E\+M\+C\+PY}}(dst, src, E\+T\+H\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN)
+\item 
+\#define \mbox{\hyperlink{lwip_2prot_2ethernet_8h_a10cbd9cd91e7e0ebed3a1159e385c037}{E\+T\+H\+A\+D\+D\+R16\+\_\+\+C\+O\+PY}}(dst,  src)~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{S\+M\+E\+M\+C\+PY}}(dst, src, E\+T\+H\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN)
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_aa19e3e4c174d49c6062f463dfa68bbbc}\label{lwip_2prot_2ethernet_8h_aa19e3e4c174d49c6062f463dfa68bbbc}} 
+\#define {\bfseries eth\+\_\+addr\+\_\+cmp}(addr1,  addr2)~(memcmp((addr1)-\/$>$addr, (addr2)-\/$>$addr, E\+T\+H\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN) == 0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339}{eth\+\_\+type}} \{ \newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ac95756b20fde70b868ef4185dd221c79}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+IP}} = 0x0800U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a41217db03576ea59c44b28b248c39be5}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+A\+RP}} = 0x0806U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a530a30feb9b87fd993da2bf83776cf9b}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+W\+OL}} = 0x0842U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a14292184cb41b279249319896d0e2b1f}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+R\+A\+RP}} = 0x8035U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ad8f84826d52d92ac24a477d1f03e7903}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+V\+L\+AN}} = 0x8100U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339aab26004eed559217be5dd466a79b1383}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+I\+P\+V6}} = 0x86\+D\+DU, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a58c6f40d7cc3edb9455762938f3f6569}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+P\+P\+O\+E\+D\+I\+SC}} = 0x8863U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a8c0e8f68b90134eb4f1f17d3d2eb6f8c}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+P\+P\+OE}} = 0x8864U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a2511e8a31961bd742363b11b274b9dd1}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+J\+U\+M\+BO}} = 0x8870U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a889eb8f716238d16ee3408f16a5cf19d}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+R\+O\+F\+I\+N\+ET}} = 0x8892U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a5085a5fd5f9c9506124e93ea43ad2d7c}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+E\+T\+H\+E\+R\+C\+AT}} = 0x88\+A4U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a02eab0dd87f222a2d555ca38b1b8afcc}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+L\+L\+DP}} = 0x88\+C\+CU, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ab93419f8edf5692e91629ab92fce8a14}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+S\+E\+R\+C\+OS}} = 0x88\+C\+DU, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ad36caec44d8db59ff433a8bd3e92ad3e}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+M\+RP}} = 0x88\+E3U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339aa3e9e834eef932d073028e28eb8793dc}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+TP}} = 0x88\+F7U, 
+\newline
+\mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a39a18006412cbb57536535bd9d378394}{E\+T\+H\+T\+Y\+P\+E\+\_\+\+Q\+I\+NQ}} = 0x9100U
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_aafd4aa713559fd4dfdeaa60f9c7b6c2d}\label{lwip_2prot_2ethernet_8h_aafd4aa713559fd4dfdeaa60f9c7b6c2d}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+E\+G\+IN}} struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} {\bfseries P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+S\+T\+R\+U\+CT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Ethernet protocol definitions 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a10cbd9cd91e7e0ebed3a1159e385c037}\label{lwip_2prot_2ethernet_8h_a10cbd9cd91e7e0ebed3a1159e385c037}} 
+\index{ethernet.h@{ethernet.h}!ETHADDR16\_COPY@{ETHADDR16\_COPY}}
+\index{ETHADDR16\_COPY@{ETHADDR16\_COPY}!ethernet.h@{ethernet.h}}
+\doxysubsubsection{\texorpdfstring{ETHADDR16\_COPY}{ETHADDR16\_COPY}}
+{\footnotesize\ttfamily \#define E\+T\+H\+A\+D\+D\+R16\+\_\+\+C\+O\+PY(\begin{DoxyParamCaption}\item[{}]{dst,  }\item[{}]{src }\end{DoxyParamCaption})~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{S\+M\+E\+M\+C\+PY}}(dst, src, E\+T\+H\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN)}
+
+M\+E\+M\+C\+P\+Y-\/like macro to copy to/from struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}}\textquotesingle{}s that are no local variables and known to be 16-\/bit aligned within the protocol header. 
+
+Definition at line 161 of file ethernet.\+h.
+
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a0622da8fb6eb72cd4cd7c3ea4f5a5b79}\label{lwip_2prot_2ethernet_8h_a0622da8fb6eb72cd4cd7c3ea4f5a5b79}} 
+\index{ethernet.h@{ethernet.h}!ETHADDR32\_COPY@{ETHADDR32\_COPY}}
+\index{ETHADDR32\_COPY@{ETHADDR32\_COPY}!ethernet.h@{ethernet.h}}
+\doxysubsubsection{\texorpdfstring{ETHADDR32\_COPY}{ETHADDR32\_COPY}}
+{\footnotesize\ttfamily \#define E\+T\+H\+A\+D\+D\+R32\+\_\+\+C\+O\+PY(\begin{DoxyParamCaption}\item[{}]{dst,  }\item[{}]{src }\end{DoxyParamCaption})~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{S\+M\+E\+M\+C\+PY}}(dst, src, E\+T\+H\+\_\+\+H\+W\+A\+D\+D\+R\+\_\+\+L\+EN)}
+
+M\+E\+M\+C\+P\+Y-\/like macro to copy to/from struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}}\textquotesingle{}s that are local variables or known to be 32-\/bit aligned within the protocol header. 
+
+Definition at line 155 of file ethernet.\+h.
+
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_afaf6cbccf9477c3505660e3a17860e07}\label{lwip_2prot_2ethernet_8h_afaf6cbccf9477c3505660e3a17860e07}} 
+\index{ethernet.h@{ethernet.h}!LL\_IP4\_MULTICAST\_ADDR\_0@{LL\_IP4\_MULTICAST\_ADDR\_0}}
+\index{LL\_IP4\_MULTICAST\_ADDR\_0@{LL\_IP4\_MULTICAST\_ADDR\_0}!ethernet.h@{ethernet.h}}
+\doxysubsubsection{\texorpdfstring{LL\_IP4\_MULTICAST\_ADDR\_0}{LL\_IP4\_MULTICAST\_ADDR\_0}}
+{\footnotesize\ttfamily \#define L\+L\+\_\+\+I\+P4\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+A\+D\+D\+R\+\_\+0~0x01}
+
+The 24-\/bit I\+A\+NA I\+Pv4-\/multicast O\+UI is 01-\/00-\/5e\+: 
+
+Definition at line 144 of file ethernet.\+h.
+
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a8ebe93c6ad2d743e6c952539257679b6}\label{lwip_2prot_2ethernet_8h_a8ebe93c6ad2d743e6c952539257679b6}} 
+\index{ethernet.h@{ethernet.h}!LL\_IP6\_MULTICAST\_ADDR\_0@{LL\_IP6\_MULTICAST\_ADDR\_0}}
+\index{LL\_IP6\_MULTICAST\_ADDR\_0@{LL\_IP6\_MULTICAST\_ADDR\_0}!ethernet.h@{ethernet.h}}
+\doxysubsubsection{\texorpdfstring{LL\_IP6\_MULTICAST\_ADDR\_0}{LL\_IP6\_MULTICAST\_ADDR\_0}}
+{\footnotesize\ttfamily \#define L\+L\+\_\+\+I\+P6\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+A\+D\+D\+R\+\_\+0~0x33}
+
+I\+Pv6 multicast uses this prefix 
+
+Definition at line 149 of file ethernet.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339}} 
+\index{ethernet.h@{ethernet.h}!eth\_type@{eth\_type}}
+\index{eth\_type@{eth\_type}!ethernet.h@{ethernet.h}}
+\doxysubsubsection{\texorpdfstring{eth\_type}{eth\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339}{eth\+\_\+type}}}
+
+A list of often ethtypes (although lw\+IP does not use all of them)\+: \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_IP@{ETHTYPE\_IP}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_IP@{ETHTYPE\_IP}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ac95756b20fde70b868ef4185dd221c79}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ac95756b20fde70b868ef4185dd221c79}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+IP&Internet protocol v4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_ARP@{ETHTYPE\_ARP}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_ARP@{ETHTYPE\_ARP}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a41217db03576ea59c44b28b248c39be5}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a41217db03576ea59c44b28b248c39be5}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+A\+RP&Address resolution protocol \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_WOL@{ETHTYPE\_WOL}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_WOL@{ETHTYPE\_WOL}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a530a30feb9b87fd993da2bf83776cf9b}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a530a30feb9b87fd993da2bf83776cf9b}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+W\+OL&Wake on lan \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_RARP@{ETHTYPE\_RARP}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_RARP@{ETHTYPE\_RARP}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a14292184cb41b279249319896d0e2b1f}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a14292184cb41b279249319896d0e2b1f}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+R\+A\+RP&R\+A\+RP \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_VLAN@{ETHTYPE\_VLAN}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_VLAN@{ETHTYPE\_VLAN}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ad8f84826d52d92ac24a477d1f03e7903}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ad8f84826d52d92ac24a477d1f03e7903}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+V\+L\+AN&Virtual local area network \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_IPV6@{ETHTYPE\_IPV6}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_IPV6@{ETHTYPE\_IPV6}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339aab26004eed559217be5dd466a79b1383}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339aab26004eed559217be5dd466a79b1383}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+I\+P\+V6&Internet protocol v6 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_PPPOEDISC@{ETHTYPE\_PPPOEDISC}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_PPPOEDISC@{ETHTYPE\_PPPOEDISC}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a58c6f40d7cc3edb9455762938f3f6569}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a58c6f40d7cc3edb9455762938f3f6569}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+P\+P\+O\+E\+D\+I\+SC&P\+PP Over Ethernet Discovery Stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_PPPOE@{ETHTYPE\_PPPOE}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_PPPOE@{ETHTYPE\_PPPOE}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a8c0e8f68b90134eb4f1f17d3d2eb6f8c}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a8c0e8f68b90134eb4f1f17d3d2eb6f8c}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+P\+P\+OE&P\+PP Over Ethernet Session Stage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_JUMBO@{ETHTYPE\_JUMBO}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_JUMBO@{ETHTYPE\_JUMBO}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a2511e8a31961bd742363b11b274b9dd1}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a2511e8a31961bd742363b11b274b9dd1}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+J\+U\+M\+BO&Jumbo Frames \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_PROFINET@{ETHTYPE\_PROFINET}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_PROFINET@{ETHTYPE\_PROFINET}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a889eb8f716238d16ee3408f16a5cf19d}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a889eb8f716238d16ee3408f16a5cf19d}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+R\+O\+F\+I\+N\+ET&Process field network \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_ETHERCAT@{ETHTYPE\_ETHERCAT}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_ETHERCAT@{ETHTYPE\_ETHERCAT}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a5085a5fd5f9c9506124e93ea43ad2d7c}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a5085a5fd5f9c9506124e93ea43ad2d7c}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+E\+T\+H\+E\+R\+C\+AT&Ethernet for control automation technology \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_LLDP@{ETHTYPE\_LLDP}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_LLDP@{ETHTYPE\_LLDP}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a02eab0dd87f222a2d555ca38b1b8afcc}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a02eab0dd87f222a2d555ca38b1b8afcc}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+L\+L\+DP&Link layer discovery protocol \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_SERCOS@{ETHTYPE\_SERCOS}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_SERCOS@{ETHTYPE\_SERCOS}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ab93419f8edf5692e91629ab92fce8a14}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ab93419f8edf5692e91629ab92fce8a14}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+S\+E\+R\+C\+OS&Serial real-\/time communication system \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_MRP@{ETHTYPE\_MRP}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_MRP@{ETHTYPE\_MRP}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ad36caec44d8db59ff433a8bd3e92ad3e}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339ad36caec44d8db59ff433a8bd3e92ad3e}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+M\+RP&Media redundancy protocol \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_PTP@{ETHTYPE\_PTP}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_PTP@{ETHTYPE\_PTP}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339aa3e9e834eef932d073028e28eb8793dc}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339aa3e9e834eef932d073028e28eb8793dc}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+P\+TP&Precision time protocol \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ETHTYPE\_QINQ@{ETHTYPE\_QINQ}!ethernet.h@{ethernet.h}}\index{ethernet.h@{ethernet.h}!ETHTYPE\_QINQ@{ETHTYPE\_QINQ}}}\mbox{\Hypertarget{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a39a18006412cbb57536535bd9d378394}\label{lwip_2prot_2ethernet_8h_a4f8559808037803168499a3803900339a39a18006412cbb57536535bd9d378394}} 
+E\+T\+H\+T\+Y\+P\+E\+\_\+\+Q\+I\+NQ&Q-\/in-\/Q, 802.\+1ad \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 108 of file ethernet.\+h.
+

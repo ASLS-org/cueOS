@@ -1,0 +1,166 @@
+\hypertarget{group__sys__mbox}{}\doxysection{Mailboxes}
+\label{group__sys__mbox}\index{Mailboxes@{Mailboxes}}
+Collaboration diagram for Mailboxes\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{group__sys__mbox}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, int size)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}{sys\+\_\+mbox\+\_\+post}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}{sys\+\_\+mbox\+\_\+trypost}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}{sys\+\_\+arch\+\_\+mbox\+\_\+fetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg, u32\+\_\+t timeout)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}{sys\+\_\+mbox\+\_\+free}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+int \mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}\label{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}} 
+\index{Mailboxes@{Mailboxes}!sys\_arch\_mbox\_fetch@{sys\_arch\_mbox\_fetch}}
+\index{sys\_arch\_mbox\_fetch@{sys\_arch\_mbox\_fetch}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_mbox\_fetch()}{sys\_arch\_mbox\_fetch()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+mbox\+\_\+fetch (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$$\ast$}]{msg,  }\item[{u32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Wait for a new message to arrive in the mbox 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to get a message from \\
+\hline
+{\em msg} & pointer where the message is stored \\
+\hline
+{\em timeout} & maximum time (in milliseconds) to wait for a message (0 = wait forever) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+time (in milliseconds) waited for a message, may be 0 if not waited or S\+Y\+S\+\_\+\+A\+R\+C\+H\+\_\+\+T\+I\+M\+E\+O\+UT on timeout The returned time has to be accurate to prevent timer jitter! 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}\label{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}} 
+\index{Mailboxes@{Mailboxes}!sys\_arch\_mbox\_tryfetch@{sys\_arch\_mbox\_tryfetch}}
+\index{sys\_arch\_mbox\_tryfetch@{sys\_arch\_mbox\_tryfetch}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_mbox\_tryfetch()}{sys\_arch\_mbox\_tryfetch()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$$\ast$}]{msg }\end{DoxyParamCaption})}
+
+Wait for a new message to arrive in the mbox 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to get a message from \\
+\hline
+{\em msg} & pointer where the message is stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 (milliseconds) if a message has been received or S\+Y\+S\+\_\+\+M\+B\+O\+X\+\_\+\+E\+M\+P\+TY if the mailbox is empty 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}\label{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_free@{sys\_mbox\_free}}
+\index{sys\_mbox\_free@{sys\_mbox\_free}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_free()}{sys\_mbox\_free()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+free (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Delete an mbox 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to delete \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}\label{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_new@{sys\_mbox\_new}}
+\index{sys\_mbox\_new@{sys\_mbox\_new}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_new()}{sys\_mbox\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mbox\+\_\+new (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Create a new mbox of specified size 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & pointer to the mbox to create \\
+\hline
+{\em size} & (minimum) number of messages in this mbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+OK if successful, another err\+\_\+t otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}\label{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_post@{sys\_mbox\_post}}
+\index{sys\_mbox\_post@{sys\_mbox\_post}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_post()}{sys\_mbox\_post()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+post (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Post a message to an mbox -\/ may not fail -\/$>$ blocks if full, only used from tasks not from I\+SR 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to posts the message \\
+\hline
+{\em msg} & message to post (A\+T\+T\+E\+N\+T\+I\+ON\+: can be N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 104 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}\label{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_set\_invalid@{sys\_mbox\_set\_invalid}}
+\index{sys\_mbox\_set\_invalid@{sys\_mbox\_set\_invalid}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_set\_invalid()}{sys\_mbox\_set\_invalid()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+set\+\_\+invalid (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Set an mbox invalid so that sys\+\_\+mbox\+\_\+valid returns 0 
+
+Definition at line 235 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}\label{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_trypost@{sys\_mbox\_trypost}}
+\index{sys\_mbox\_trypost@{sys\_mbox\_trypost}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_trypost()}{sys\_mbox\_trypost()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mbox\+\_\+trypost (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Try to post a message to an mbox -\/ may fail if full or I\+SR 
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to posts the message \\
+\hline
+{\em msg} & message to post (A\+T\+T\+E\+N\+T\+I\+ON\+: can be N\+U\+LL) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 116 of file sys\+\_\+arch.\+c.
+
+\mbox{\Hypertarget{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}\label{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_valid@{sys\_mbox\_valid}}
+\index{sys\_mbox\_valid@{sys\_mbox\_valid}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_valid()}{sys\_mbox\_valid()}}
+{\footnotesize\ttfamily int sys\+\_\+mbox\+\_\+valid (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Check if an mbox is valid/allocated\+: return 1 for valid, 0 for invalid 
+
+Definition at line 227 of file sys\+\_\+arch.\+c.
+

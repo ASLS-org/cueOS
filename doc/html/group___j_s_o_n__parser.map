@@ -1,0 +1,4 @@
+<map id="JSON_parser" name="JSON_parser">
+<area shape="rect" id="node1" title="Module dedicated to JSON parsing and string formating." alt="" coords="155,5,256,31"/>
+<area shape="rect" id="node2" href="$group__webapp__utils.html" title="Tools and helpers to be used by the webapp module." alt="" coords="5,5,107,31"/>
+</map>

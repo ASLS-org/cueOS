@@ -1,0 +1,6 @@
+<map id="DMX512_scene_manage" name="DMX512_scene_manage">
+<area shape="rect" id="node1" title="State machine to manage scene at a given state." alt="" coords="5,31,173,57"/>
+<area shape="rect" id="node2" href="$_d_m_x512__scene_8c.html#a5052dcc633f6179939cc1a0ed351a243" title="Sets a scenes&#39; fixtures channel values to their predefined preset values according to time." alt="" coords="225,5,389,32"/>
+<area shape="rect" id="node4" href="$_d_m_x512__scene_8c.html#abeccf751e91d9baf1006808e026d7ee0" title="Sets a scenes&#39; fixtures channel values to their &quot;OFF&quot; values according to time." alt="" coords="221,56,393,83"/>
+<area shape="rect" id="node3" href="$group__mschronometer.html#ga62473952fd29ca3c8fbc766107af9f29" title="Returns elapsed time in milliseconds since last reset." alt="" coords="441,23,643,65"/>
+</map>

@@ -1,0 +1,55 @@
+\hypertarget{htmlfs_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/webapp/utils/fs/inc/htmlfs.h File Reference}
+\label{htmlfs_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/fs/inc/htmlfs.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/fs/inc/htmlfs.h}}
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+Include dependency graph for htmlfs.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{htmlfs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{htmlfs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}}
+\item 
+struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___h_t_m_l___f_s_ga05d23b3c867c1f9d701efa0d6d0db92d}{F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+E\+OF}}~-\/1
+\item 
+\#define \mbox{\hyperlink{group___h_t_m_l___f_s_ga3f90d15249e0bc12ed287140356f71dc}{F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+D\+E\+L\+A\+Y\+ED}}~-\/2
+\item 
+\#define \mbox{\hyperlink{group___h_t_m_l___f_s_ga7e36694e0257a7642d41ffda5bf03634}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+I\+N\+C\+L\+U\+D\+ED}}~0x01
+\item 
+\#define \mbox{\hyperlink{group___h_t_m_l___f_s_ga95e84b4ba432cf58a59f14ba85733584}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+NT}}~0x02
+\item 
+\#define \mbox{\hyperlink{group___h_t_m_l___f_s_ga3d3830c1e5b9f68e4ae346d0e3f750e9}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+H\+T\+T\+P\+V\+E\+R\+\_\+1\+\_\+1}}~0x04
+\item 
+\#define \mbox{\hyperlink{group___h_t_m_l___f_s_gaec7ecbdfe4b0bb159437065b1a8f3d3f}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+S\+SI}}~0x08
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void \mbox{\hyperlink{group___h_t_m_l___f_s_ga52dc8f2fdce986194d606ac05bbac116}{fs\+\_\+file\+\_\+extension}}
+\item 
+typedef struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} \mbox{\hyperlink{group___h_t_m_l___f_s_ga0f48b2c138dc27f9779dd358b35fdb52}{fs\+\_\+file\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+err\+\_\+t \mbox{\hyperlink{group___h_t_m_l___f_s_ga594058d3f4dd9f333c51b7e5ca910ac3}{fs\+\_\+open}} (struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} $\ast$file, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em opens a pre-\/compiled file located in \mbox{\hyperlink{htmlgen_8c}{htmlgen.\+c}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_t_m_l___f_s_ga742b1911f18d0c780436b7a6abb08c70}{fs\+\_\+close}} (struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} $\ast$file)
+\item 
+int \mbox{\hyperlink{group___h_t_m_l___f_s_ga3a7ab7c6c0ddd559030d8e91d94ea02b}{fs\+\_\+bytes\+\_\+left}} (struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} $\ast$file)
+\end{DoxyCompactItemize}

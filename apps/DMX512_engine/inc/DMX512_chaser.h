@@ -1,3 +1,13 @@
+/**
+ * @ingroup DMX512_chaser_pool
+ * @defgroup DMX512_chaser
+ * In a DMX lightshow, scenes may be chained and played back in a sequence called chaser.
+ * Scenes contained within a chaser are called "steps" and each individual steps conveys
+ * specific information regarding play-timings of the associated scene.
+ * @see DMX512_chaser_step_s
+ * @{
+ **/
+
 #ifndef DMX512_CHASER_H
 #define DMX512_CHASER_H
 
@@ -9,8 +19,6 @@
 
 
 /**
- * @ingroup DMX512_chaser
- * @def DMX512_CHASER_DEFAULT
  * @brief chaser instance default values
  *
  * Used during initialisation of a chaser instance, it lowers the risk of conflicts
@@ -20,32 +28,26 @@
 
 
 /**
- * @ingroup DMX512_chaser
- * @enum DMX512_chaser_status_e
  * @brief Status of a chaser instance
  *
  * Defines whether or not a chaser instance has been correctly initialised.
  */
 typedef enum{
-	DMX512_CHASER_UNINITIALISED,
-	DMX512_CHASER_INITIALISED
+	DMX512_CHASER_UNINITIALISED,				/**< The chaser is initialised*/
+	DMX512_CHASER_INITIALISED					/**< The chaser is uninitialised*/
 }DMX512_chaser_status_e;
 
 /**
- * @ingroup DMX512_chaser
- * @enum DMX512_chaser_mode_e
  * @brief Playing mode of a chsaer
  *
  * Defines whether or not a chaser should be played in a loop or not
  */
 typedef enum{
-	DMX512_CHASER_MODE_LOOP,					/**< */
-	DMX512_CHASER_MODE_SINGLE_SHOT,				/**< */
+	DMX512_CHASER_MODE_LOOP,					/**< Chaser is played in a loop*/
+	DMX512_CHASER_MODE_SINGLE_SHOT,				/**< Chaser is only plaed once**/
 }DMX512_chaser_mode_e;
 
 /**
- * @ingroup DMX512_chaser
- * @enum DMX512_chaser_direction_e
  * @brief Playing direction of a chaser
  *
  * Defines direction of the playing sequence of a chaser.
@@ -58,8 +60,6 @@ typedef enum{
 }DMX512_chaser_direction_e;
 
 /**
- * @ingroup DMX512_chaser
- * @enum DMX512_chaser_pingpong_state_e
  * @brief Current pingpong state
  *
  * Provides information regarding the current pingpong state of
@@ -71,8 +71,6 @@ typedef enum{
 }DMX512_chaser_pingpong_state_e;
 
 /**
- * @ingroup DMX512_chaser
- * @enum DMX512_chaser_step_state_e
  * @brief Current playing state of a chaser
  *
  * Used by the chaser state machine to determine the current operation to
@@ -85,14 +83,7 @@ typedef enum{
 
 
 /**
- * @ingroup DMX512_chaser
- * @struct DMX512_chaser_s
- * @brief Defines a DMX512 chaser object
- *
- * In a DMX lightshow, scenes may be chained and played back in a sequence called chaser.
- * Scenes contained within a chaser are called "steps" and each individual steps conveys
- * specific information regarding play-timings of the asociated scene.
- * @see DMX512_chaser_step_s
+ * @brief DMX512 chaser structure object
  */
 typedef struct{
 	uint16_t id;								/**< Chaser's unique identifier */
@@ -106,6 +97,7 @@ typedef struct{
 	DMX512_chaser_pingpong_state_e pingpong;	/**< Current pingpong state (this will be changed) @see DMX512_chaser_pingpong_state_e */
 }DMX512_chaser_s;
 
+
 DMX512_chaser_s DMX512_chaser_new(uint16_t id, DMX512_chaser_mode_e mode, DMX512_chaser_direction_e direction);
 DMX512_engine_err_e DMX512_chaser_add_step(DMX512_chaser_s *this, DMX512_chaser_step_s step);
 DMX512_engine_err_e DMX512_chaser_del_step(DMX512_chaser_s *this, uint16_t id);
@@ -114,3 +106,8 @@ void DMX512_chaser_manage(DMX512_chaser_s *this);
 void DMX512_chaser_start(DMX512_chaser_s *this);
 
 #endif
+
+/**
+ * @} Grouping in DMX512_chaser submodule ends
+ * @} Grouping in DMX512_engine module ends
+ */

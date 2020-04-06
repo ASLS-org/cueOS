@@ -1,0 +1,174 @@
+\hypertarget{group___h_t_t_p__response}{}\doxysection{H\+T\+T\+P\+\_\+response}
+\label{group___h_t_t_p__response}\index{HTTP\_response@{HTTP\_response}}
+
+
+Handles generation of both static and dynamic H\+T\+TP repsponse frames. Currently supported H\+T\+TP versions\+: H\+T\+T\+P/0.\+9 and H\+T\+T\+P/1.\+1.  
+
+
+Collaboration diagram for H\+T\+T\+P\+\_\+response\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{group___h_t_t_p__response}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP response structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_t_t_p__response_ga635b033ca57c2eb0a66aff6449d09120}\label{group___h_t_t_p__response_ga635b033ca57c2eb0a66aff6449d09120}} 
+\#define {\bfseries H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+C\+O\+N\+T\+E\+N\+T\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___h_t_t_p__response_ga9b60ce6f72d88e26296b7993373b24bd}{http\+\_\+response\+\_\+static\+\_\+state}} \{ \newline
+\mbox{\hyperlink{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda2c0884088aea32889ba64065a36d2a27}{H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+I\+S\+\_\+\+D\+Y\+N\+A\+M\+IC}}, 
+\newline
+\mbox{\hyperlink{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda66586017b1df1dc8c597405991b62aaf}{H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+I\+S\+\_\+\+S\+T\+A\+T\+IC}}
+ \}
+\begin{DoxyCompactList}\small\item\em Whether the H\+T\+TP response conveys static data or not. This is very importnt as it will be used to allocate and free the response\textquotesingle{}s data pointer in case the response data needs to be dynamimc. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$ \mbox{\hyperlink{group___h_t_t_p__response_ga685951b24716349dfe138c15e1b60b9d}{http\+\_\+response\+\_\+new}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new H\+T\+TP response instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_t_t_p__response_gaab40a9ae2a8e99f5360f7e062d310f5c}{http\+\_\+response\+\_\+free}} (\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$res)
+\begin{DoxyCompactList}\small\item\em Safely frees an H\+T\+TP response instance. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_t_t_p__response_ga1bbefa15aee22dd8f2805ad7c4f119f8}{http\+\_\+response\+\_\+get\+\_\+bytes\+\_\+left}} (\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$res)
+\begin{DoxyCompactList}\small\item\em Returns the amount of bytes left to be processed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_t_t_p__response_ga9d2d92cb07678772739b66a60e34d74c}{http\+\_\+response\+\_\+prepare\+\_\+dynamic}} (\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$res, \mbox{\hyperlink{group___h_t_t_p__defs_ga07fab378dac3fa306f1ab07cc1ecee3f}{http\+\_\+status\+\_\+code\+\_\+e}} status\+\_\+code, \mbox{\hyperlink{group___h_t_t_p__defs_gaa1c9a0b25177692d56ce826455eca770}{http\+\_\+content\+\_\+types\+\_\+e}} content\+\_\+type, char $\ast$content)
+\begin{DoxyCompactList}\small\item\em Pre-\/formats response to H\+T\+TP response using provided response header parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles generation of both static and dynamic H\+T\+TP repsponse frames. Currently supported H\+T\+TP versions\+: H\+T\+T\+P/0.\+9 and H\+T\+T\+P/1.\+1. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___h_t_t_p__response_ga9b60ce6f72d88e26296b7993373b24bd}\label{group___h_t_t_p__response_ga9b60ce6f72d88e26296b7993373b24bd}} 
+\index{HTTP\_response@{HTTP\_response}!http\_response\_static\_state@{http\_response\_static\_state}}
+\index{http\_response\_static\_state@{http\_response\_static\_state}!HTTP\_response@{HTTP\_response}}
+\doxysubsubsection{\texorpdfstring{http\_response\_static\_state}{http\_response\_static\_state}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___h_t_t_p__response_ga9b60ce6f72d88e26296b7993373b24bd}{http\+\_\+response\+\_\+static\+\_\+state}}}
+
+
+
+Whether the H\+T\+TP response conveys static data or not. This is very importnt as it will be used to allocate and free the response\textquotesingle{}s data pointer in case the response data needs to be dynamimc. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HTTP\_RESPONSE\_IS\_DYNAMIC@{HTTP\_RESPONSE\_IS\_DYNAMIC}!HTTP\_response@{HTTP\_response}}\index{HTTP\_response@{HTTP\_response}!HTTP\_RESPONSE\_IS\_DYNAMIC@{HTTP\_RESPONSE\_IS\_DYNAMIC}}}\mbox{\Hypertarget{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda2c0884088aea32889ba64065a36d2a27}\label{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda2c0884088aea32889ba64065a36d2a27}} 
+H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+I\+S\+\_\+\+D\+Y\+N\+A\+M\+IC&Sets the H\+T\+TP response to be dynamic (enable data pointer memory allocation) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HTTP\_RESPONSE\_IS\_STATIC@{HTTP\_RESPONSE\_IS\_STATIC}!HTTP\_response@{HTTP\_response}}\index{HTTP\_response@{HTTP\_response}!HTTP\_RESPONSE\_IS\_STATIC@{HTTP\_RESPONSE\_IS\_STATIC}}}\mbox{\Hypertarget{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda66586017b1df1dc8c597405991b62aaf}\label{group___h_t_t_p__response_gga9b60ce6f72d88e26296b7993373b24bda66586017b1df1dc8c597405991b62aaf}} 
+H\+T\+T\+P\+\_\+\+R\+E\+S\+P\+O\+N\+S\+E\+\_\+\+I\+S\+\_\+\+S\+T\+A\+T\+IC&Sets the H\+T\+TP response to be static (disable data pointer memory allocation) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 26 of file http\+\_\+response.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___h_t_t_p__response_gaab40a9ae2a8e99f5360f7e062d310f5c}\label{group___h_t_t_p__response_gaab40a9ae2a8e99f5360f7e062d310f5c}} 
+\index{HTTP\_response@{HTTP\_response}!http\_response\_free@{http\_response\_free}}
+\index{http\_response\_free@{http\_response\_free}!HTTP\_response@{HTTP\_response}}
+\doxysubsubsection{\texorpdfstring{http\_response\_free()}{http\_response\_free()}}
+{\footnotesize\ttfamily void http\+\_\+response\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Safely frees an H\+T\+TP response instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em res} & H\+T\+TP response instance to be freed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file http\+\_\+response.\+c.
+
+\mbox{\Hypertarget{group___h_t_t_p__response_ga1bbefa15aee22dd8f2805ad7c4f119f8}\label{group___h_t_t_p__response_ga1bbefa15aee22dd8f2805ad7c4f119f8}} 
+\index{HTTP\_response@{HTTP\_response}!http\_response\_get\_bytes\_left@{http\_response\_get\_bytes\_left}}
+\index{http\_response\_get\_bytes\_left@{http\_response\_get\_bytes\_left}!HTTP\_response@{HTTP\_response}}
+\doxysubsubsection{\texorpdfstring{http\_response\_get\_bytes\_left()}{http\_response\_get\_bytes\_left()}}
+{\footnotesize\ttfamily uint32\+\_\+t http\+\_\+response\+\_\+get\+\_\+bytes\+\_\+left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Returns the amount of bytes left to be processed. 
+
+\begin{DoxyWarning}{Warning}
+this function does not affect the current instance data pointer index. this parameter is incremented during the server send process.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em res} & H\+T\+TP response instance to be freed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t bytes ledt count 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file http\+\_\+response.\+c.
+
+\mbox{\Hypertarget{group___h_t_t_p__response_ga685951b24716349dfe138c15e1b60b9d}\label{group___h_t_t_p__response_ga685951b24716349dfe138c15e1b60b9d}} 
+\index{HTTP\_response@{HTTP\_response}!http\_response\_new@{http\_response\_new}}
+\index{http\_response\_new@{http\_response\_new}!HTTP\_response@{HTTP\_response}}
+\doxysubsubsection{\texorpdfstring{http\_response\_new()}{http\_response\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}}$\ast$ http\+\_\+response\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new H\+T\+TP response instance. 
+
+\begin{DoxyReturn}{Returns}
+http\+\_\+response\+\_\+s$\ast$ pointer to the created H\+T\+TP response instance 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file http\+\_\+response.\+c.
+
+\mbox{\Hypertarget{group___h_t_t_p__response_ga9d2d92cb07678772739b66a60e34d74c}\label{group___h_t_t_p__response_ga9d2d92cb07678772739b66a60e34d74c}} 
+\index{HTTP\_response@{HTTP\_response}!http\_response\_prepare\_dynamic@{http\_response\_prepare\_dynamic}}
+\index{http\_response\_prepare\_dynamic@{http\_response\_prepare\_dynamic}!HTTP\_response@{HTTP\_response}}
+\doxysubsubsection{\texorpdfstring{http\_response\_prepare\_dynamic()}{http\_response\_prepare\_dynamic()}}
+{\footnotesize\ttfamily void http\+\_\+response\+\_\+prepare\+\_\+dynamic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structhttp__response__s}{http\+\_\+response\+\_\+s}} $\ast$}]{res,  }\item[{\mbox{\hyperlink{group___h_t_t_p__defs_ga07fab378dac3fa306f1ab07cc1ecee3f}{http\+\_\+status\+\_\+code\+\_\+e}}}]{status\+\_\+code,  }\item[{\mbox{\hyperlink{group___h_t_t_p__defs_gaa1c9a0b25177692d56ce826455eca770}{http\+\_\+content\+\_\+types\+\_\+e}}}]{content\+\_\+type,  }\item[{char $\ast$}]{content }\end{DoxyParamCaption})}
+
+
+
+Pre-\/formats response to H\+T\+TP response using provided response header parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$res} & pointer to the response to be prepared \\
+\hline
+{\em status} & code response\textquotesingle{}s H\+T\+TP status code \\
+\hline
+{\em content\+\_\+type} & the response\textquotesingle{}s content type \\
+\hline
+{\em content\+\_\+length} & the response\textquotesingle{}s content length in bytes \\
+\hline
+{\em content} & the response\textquotesingle{}s content \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+while it might be tempting, DO N\+OT U\+SE S\+T\+R\+I\+NG F\+U\+N\+C\+T\+I\+O\+NS, they are not thread safe and therefore not suitable to be used within the execution of the T\+C\+P/\+IP task thread. http\+\_\+response\+\_\+dynamic\+\_\+cat function will help dynamically allocating and concatenating new string valuehttp\+\_\+response\+\_\+prepare\+\_\+dynamics to the responses\textquotesingle{} data pointer. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{http__defs_8h_source}{http\+\_\+defs.\+h}} for further information regarding \mbox{\hyperlink{group___h_t_t_p}{H\+T\+TP}} header definitions 
+\end{DoxySeeAlso}
+
+
+Definition at line 103 of file http\+\_\+response.\+c.
+

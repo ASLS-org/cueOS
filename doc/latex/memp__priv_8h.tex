@@ -1,0 +1,45 @@
+\hypertarget{memp__priv_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/priv/memp\+\_\+priv.h File Reference}
+\label{memp__priv_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/priv/memp\_priv.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/priv/memp\_priv.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mem.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmemp}{memp}}
+\item 
+struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a7f8c378e0581aa2dc491cff52ae4fce2}\label{memp__priv_8h_a7f8c378e0581aa2dc491cff52ae4fce2}} 
+\#define {\bfseries M\+E\+M\+P\+\_\+\+S\+I\+ZE}~0
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a12e0cfbac9c8263e5a1fb319b92338e7}\label{memp__priv_8h_a12e0cfbac9c8263e5a1fb319b92338e7}} 
+\#define {\bfseries M\+E\+M\+P\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE}(x)~(\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE}}(x))
+\item 
+\mbox{\Hypertarget{memp__priv_8h_aabec8ab3418486aed704fb8bb933da42}\label{memp__priv_8h_aabec8ab3418486aed704fb8bb933da42}} 
+\#define {\bfseries D\+E\+C\+L\+A\+R\+E\+\_\+\+L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+D\+E\+SC}(desc)
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a9373cb7cc6e658a60cec6ca57173a72d}\label{memp__priv_8h_a9373cb7cc6e658a60cec6ca57173a72d}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+I\+N\+S\+T\+A\+N\+CE}(name)
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a46723c1d1d900d5f23e5bde91d22d8be}\label{memp__priv_8h_a46723c1d1d900d5f23e5bde91d22d8be}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+S\+T\+A\+T\+S\+\_\+\+R\+E\+F\+E\+R\+E\+N\+CE}(name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a6416303426d05526bed33f241fa6ecd7}\label{memp__priv_8h_a6416303426d05526bed33f241fa6ecd7}} 
+void {\bfseries memp\+\_\+init\+\_\+pool} (const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$desc)
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a348c83ee972f1edf7296a1cdf1d75f22}\label{memp__priv_8h_a348c83ee972f1edf7296a1cdf1d75f22}} 
+void $\ast$ {\bfseries memp\+\_\+malloc\+\_\+pool} (const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$desc)
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a62f8c3c907743e34eee3cdac7fa1eaa5}\label{memp__priv_8h_a62f8c3c907743e34eee3cdac7fa1eaa5}} 
+void {\bfseries memp\+\_\+free\+\_\+pool} (const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$desc, void $\ast$mem)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+memory pools lw\+IP internal implementations (do not use in application code) 

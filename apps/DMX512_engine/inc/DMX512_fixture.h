@@ -1,3 +1,13 @@
+/**
+ * @ingroup DMX512_fixture_pool
+ * @defgroup DMX512_fixture
+ * Fixtures are machines daisy chained together to form a DMX512 universe.
+ * Each fixture is addressed over a range of up to 512 addresses. A fixture's
+ * channel count defines its address footprint in a DMX512 universe and fixture addresses
+ * and hannels may not overlap one into another.
+ * @{
+ **/
+
 #ifndef DMX512_fixture_H
 #define DMX512_fixture_H
 
@@ -5,16 +15,8 @@
 #include <stdlib.h>
 #include "DMX512_defs.h"
 
-
 /**
- * @ingroup DMX512_fixture
- * @struct DMX512_fixture_s
- * @brief Defines a DMX512 fixture object
- *
- * Fixtures are machines daisy chained together to form a DMX512 universe.
- * Each fixture is addressed over a range of up to 512 addresses. A fixture's
- * channel count defines its address footprint in a DMX512 universe and fixture addresses
- * and hannels may not overlap one into another.
+ * @brief DMX512 fixture structure object
  */
 typedef struct DMX512_fixture{
 	uint16_t id;				/**< the fixture's unique identifier */
@@ -26,3 +28,8 @@ typedef struct DMX512_fixture{
 DMX512_fixture_s DMX512_fixture_new(uint16_t id, uint16_t addr, uint16_t ch_count);
 
 #endif
+
+/**
+ * @} Grouping in DMX512_fixture submodule ends
+ * @} Grouping in DMX512_engine module ends
+ */

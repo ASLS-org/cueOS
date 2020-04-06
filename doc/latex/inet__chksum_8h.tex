@@ -1,0 +1,56 @@
+\hypertarget{inet__chksum_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/inet\+\_\+chksum.h File Reference}
+\label{inet__chksum_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/inet\_chksum.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/inet\_chksum.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip\+\_\+addr.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{inet__chksum_8h_a0196bd603262882d16b5264b52eafe18}{S\+W\+A\+P\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+I\+N\+\_\+\+W\+O\+RD}}(w)~(((w) \& 0xff) $<$$<$ 8) $\vert$ (((w) \& 0xff00) $>$$>$ 8)
+\item 
+\#define \mbox{\hyperlink{inet__chksum_8h_a6ffe83b4bdd1784a0671ee4778966a01}{F\+O\+L\+D\+\_\+\+U32T}}(u)~(((u) $>$$>$ 16) + ((u) \& 0x0000ffff\+UL))
+\item 
+\mbox{\Hypertarget{inet__chksum_8h_a8b8abbe02c3da468346b45f3d5a356a3}\label{inet__chksum_8h_a8b8abbe02c3da468346b45f3d5a356a3}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+C\+H\+K\+S\+U\+M\+\_\+\+C\+O\+P\+Y\+\_\+\+A\+L\+G\+O\+R\+I\+T\+HM}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{inet__chksum_8h_a34f1aa1587562a09e11b704b51bab043}\label{inet__chksum_8h_a34f1aa1587562a09e11b704b51bab043}} 
+u16\+\_\+t {\bfseries inet\+\_\+chksum} (const void $\ast$dataptr, u16\+\_\+t len)
+\item 
+\mbox{\Hypertarget{inet__chksum_8h_ab35967a50418358e194e8f80fdc3c865}\label{inet__chksum_8h_ab35967a50418358e194e8f80fdc3c865}} 
+u16\+\_\+t {\bfseries inet\+\_\+chksum\+\_\+pbuf} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+\mbox{\Hypertarget{inet__chksum_8h_aa13cda42e7c262f5dee243ff6c28422f}\label{inet__chksum_8h_aa13cda42e7c262f5dee243ff6c28422f}} 
+u16\+\_\+t {\bfseries ip\+\_\+chksum\+\_\+pseudo} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u8\+\_\+t proto, u16\+\_\+t proto\+\_\+len, const ip\+\_\+addr\+\_\+t $\ast$src, const ip\+\_\+addr\+\_\+t $\ast$dest)
+\item 
+\mbox{\Hypertarget{inet__chksum_8h_acfe7ab6c63ef998210c66bb4822b03b2}\label{inet__chksum_8h_acfe7ab6c63ef998210c66bb4822b03b2}} 
+u16\+\_\+t {\bfseries ip\+\_\+chksum\+\_\+pseudo\+\_\+partial} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u8\+\_\+t proto, u16\+\_\+t proto\+\_\+len, u16\+\_\+t chksum\+\_\+len, const ip\+\_\+addr\+\_\+t $\ast$src, const ip\+\_\+addr\+\_\+t $\ast$dest)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+IP checksum calculation functions 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{inet__chksum_8h_a6ffe83b4bdd1784a0671ee4778966a01}\label{inet__chksum_8h_a6ffe83b4bdd1784a0671ee4778966a01}} 
+\index{inet\_chksum.h@{inet\_chksum.h}!FOLD\_U32T@{FOLD\_U32T}}
+\index{FOLD\_U32T@{FOLD\_U32T}!inet\_chksum.h@{inet\_chksum.h}}
+\doxysubsubsection{\texorpdfstring{FOLD\_U32T}{FOLD\_U32T}}
+{\footnotesize\ttfamily \#define F\+O\+L\+D\+\_\+\+U32T(\begin{DoxyParamCaption}\item[{}]{u }\end{DoxyParamCaption})~(((u) $>$$>$ 16) + ((u) \& 0x0000ffff\+UL))}
+
+Split an u32\+\_\+t in two u16\+\_\+ts and add them up 
+
+Definition at line 52 of file inet\+\_\+chksum.\+h.
+
+\mbox{\Hypertarget{inet__chksum_8h_a0196bd603262882d16b5264b52eafe18}\label{inet__chksum_8h_a0196bd603262882d16b5264b52eafe18}} 
+\index{inet\_chksum.h@{inet\_chksum.h}!SWAP\_BYTES\_IN\_WORD@{SWAP\_BYTES\_IN\_WORD}}
+\index{SWAP\_BYTES\_IN\_WORD@{SWAP\_BYTES\_IN\_WORD}!inet\_chksum.h@{inet\_chksum.h}}
+\doxysubsubsection{\texorpdfstring{SWAP\_BYTES\_IN\_WORD}{SWAP\_BYTES\_IN\_WORD}}
+{\footnotesize\ttfamily \#define S\+W\+A\+P\+\_\+\+B\+Y\+T\+E\+S\+\_\+\+I\+N\+\_\+\+W\+O\+RD(\begin{DoxyParamCaption}\item[{}]{w }\end{DoxyParamCaption})~(((w) \& 0xff) $<$$<$ 8) $\vert$ (((w) \& 0xff00) $>$$>$ 8)}
+
+Swap the bytes in an u16\+\_\+t\+: much like lwip\+\_\+htons() for little-\/endian 
+
+Definition at line 47 of file inet\+\_\+chksum.\+h.
+

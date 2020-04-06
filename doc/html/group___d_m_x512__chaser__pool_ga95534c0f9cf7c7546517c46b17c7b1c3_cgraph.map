@@ -1,0 +1,4 @@
+<map id="DMX512_chaser_pool_add" name="DMX512_chaser_pool_add">
+<area shape="rect" id="node1" title="Adds a chaser instance into the pool." alt="" coords="5,13,184,39"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__chaser__pool.html#gabe25251ef91f2358328c8a5f67b5243c" title="Finds the array index of a chaser." alt="" coords="232,5,389,47"/>
+</map>

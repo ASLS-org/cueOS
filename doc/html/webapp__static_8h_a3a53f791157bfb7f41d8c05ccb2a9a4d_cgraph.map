@@ -1,0 +1,4 @@
+<map id="webapp_static_start" name="webapp_static_start">
+<area shape="rect" id="node1" title="Starts static HTTP server on port 80. This server is ONLY dedicated to serve compiled HTML static fil..." alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node2" href="$http__server_8h.html#ad387e3a8770141b5574464a143164b16" title=" " alt="" coords="192,5,303,32"/>
+</map>

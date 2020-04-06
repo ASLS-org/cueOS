@@ -1,0 +1,5 @@
+<map id="DMX512_chaser_pool_manage" name="DMX512_chaser_pool_manage">
+<area shape="rect" id="node1" title="Manages execution of chaser instances for a whole pool." alt="" coords="5,5,156,47"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__chaser.html#ga5b7a6af82c9ebf2e8facc957ad534922" title="Handles step selection and trigger over time." alt="" coords="204,13,376,39"/>
+<area shape="rect" id="node3" href="$group___d_m_x512__chaser__step.html#ga9c4947753b1a96a2dad9473843891929" title="Chaser step state machine. Manage a chaser step&#39;s state over time." alt="" coords="424,5,575,47"/>
+</map>

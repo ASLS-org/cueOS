@@ -1,0 +1,5 @@
+<map id="DMX512_chaser_start" name="DMX512_chaser_start">
+<area shape="rect" id="node1" title="Starts a scene fade&#45;in process." alt="" coords="5,13,157,39"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__chaser__step.html#gab802e922e8fddf036a83927b53e4d9b7" title="Starts a chaser step by assigning it to its fade_in state." alt="" coords="205,5,356,47"/>
+<area shape="rect" id="node3" href="$group__mschronometer.html#ga1388d95d740fcaa0e663bba0864b1f9b" title="Resets an mschronometer instance time delta to zero." alt="" coords="404,5,605,47"/>
+</map>

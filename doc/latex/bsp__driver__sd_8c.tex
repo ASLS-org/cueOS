@@ -1,0 +1,464 @@
+\hypertarget{bsp__driver__sd_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/drivers/hl\+\_\+drivers/media/mmc/src/bsp\+\_\+driver\+\_\+sd.c File Reference}
+\label{bsp__driver__sd_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/drivers/hl\_drivers/media/mmc/src/bsp\_driver\_sd.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/drivers/hl\_drivers/media/mmc/src/bsp\_driver\_sd.c}}
+
+
+This file includes a generic u\+SD card driver. To be completed by the user according to the board used for the project.  
+
+
+{\ttfamily \#include \char`\"{}bsp\+\_\+driver\+\_\+sd.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_afe208758d02f97e12c2eecbf604c1726}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the SD card device. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_aa1acca35f0ecac51c2afdf8458050f8b}{B\+S\+P\+\_\+\+S\+D\+\_\+\+I\+T\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em Configures Interrupt mode for SD detection pin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{bsp__driver__sd_8c_af002b1a41c38a9bfe7f0c9ae242f021f}\label{bsp__driver__sd_8c_af002b1a41c38a9bfe7f0c9ae242f021f}} 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{bsp__driver__sd_8c_af002b1a41c38a9bfe7f0c9ae242f021f}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Detect\+IT}} (void)
+\begin{DoxyCompactList}\small\item\em SD detect IT treatment. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_afe23f41939f1b8aa1f609fcf3e71be84}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Read\+Blocks}} (uint32\+\_\+t $\ast$p\+Data, uint32\+\_\+t Read\+Addr, uint32\+\_\+t Num\+Of\+Blocks, uint32\+\_\+t Timeout)
+\begin{DoxyCompactList}\small\item\em Reads block(s) from a specified address in an SD card, in polling mode. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_a6d88090464978ec87aa1cbca9f810495}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Write\+Blocks}} (uint32\+\_\+t $\ast$p\+Data, uint32\+\_\+t Write\+Addr, uint32\+\_\+t Num\+Of\+Blocks, uint32\+\_\+t Timeout)
+\begin{DoxyCompactList}\small\item\em Writes block(s) to a specified address in an SD card, in polling mode. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_aa907652a44281179bcb9bc575e3e8709}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Read\+Blocks\+\_\+\+D\+MA}} (uint32\+\_\+t $\ast$p\+Data, uint32\+\_\+t Read\+Addr, uint32\+\_\+t Num\+Of\+Blocks)
+\begin{DoxyCompactList}\small\item\em Reads block(s) from a specified address in an SD card, in D\+MA mode. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_af3e90e60fd1aa25bdbd57c4e7bd62558}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Write\+Blocks\+\_\+\+D\+MA}} (uint32\+\_\+t $\ast$p\+Data, uint32\+\_\+t Write\+Addr, uint32\+\_\+t Num\+Of\+Blocks)
+\begin{DoxyCompactList}\small\item\em Writes block(s) to a specified address in an SD card, in D\+MA mode. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_aeaa35023e9428a9c31e693bcdadeb3d6}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Erase}} (uint32\+\_\+t Start\+Addr, uint32\+\_\+t End\+Addr)
+\begin{DoxyCompactList}\small\item\em Erases the specified memory area of the given SD card. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_ad7cfcf73b9f505d0675ec1c2516dbd4c}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Get\+Card\+State}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the current SD card data status. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{bsp__driver__sd_8c_a17b5e6325eebcd997d540f304d7a35b1}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Get\+Card\+Info}} (H\+A\+L\+\_\+\+S\+D\+\_\+\+Card\+Info\+Type\+Def $\ast$Card\+Info)
+\begin{DoxyCompactList}\small\item\em Get SD information about specific SD card. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__driver__sd_8c_a52a463063ce8c6f1e8910f30dd4e8376}{H\+A\+L\+\_\+\+S\+D\+\_\+\+Abort\+Callback}} (S\+D\+\_\+\+Handle\+Type\+Def $\ast$hsd)
+\begin{DoxyCompactList}\small\item\em SD Abort callbacks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__driver__sd_8c_a7f42b31026c697fea97c132e9aed15e2}{H\+A\+L\+\_\+\+S\+D\+\_\+\+Tx\+Cplt\+Callback}} (S\+D\+\_\+\+Handle\+Type\+Def $\ast$hsd)
+\begin{DoxyCompactList}\small\item\em Tx Transfer completed callback. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bsp__driver__sd_8c_a1720dc3a0e88b26e557ae63fad3a382d}{H\+A\+L\+\_\+\+S\+D\+\_\+\+Rx\+Cplt\+Callback}} (S\+D\+\_\+\+Handle\+Type\+Def $\ast$hsd)
+\begin{DoxyCompactList}\small\item\em Rx Transfer completed callback. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{bsp__driver__sd_8c_a93d832f6829fdec979a7df3944084512}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Abort\+Callback}} (void)
+\begin{DoxyCompactList}\small\item\em B\+SP SD Abort callback. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{bsp__driver__sd_8c_a2e6559fa7b5164071baafa3b3f668e3f}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Write\+Cplt\+Callback}} (void)
+\begin{DoxyCompactList}\small\item\em B\+SP Tx Transfer completed callback. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{bsp__driver__sd_8c_aeb3eb4ab76f0acd225bddf68199e6f3c}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Read\+Cplt\+Callback}} (void)
+\begin{DoxyCompactList}\small\item\em B\+SP Rx Transfer completed callback. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint8\+\_\+t \mbox{\hyperlink{bsp__driver__sd_8c_a80c0a2c6722e29b76aa3e3d8a57ee27a}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Is\+Detected}} (void)
+\begin{DoxyCompactList}\small\item\em Detects if SD card is correctly plugged in the memory slot or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bsp__driver__sd_8c_ae81fa362038e2e56bce3dd2e6416c78e}\label{bsp__driver__sd_8c_ae81fa362038e2e56bce3dd2e6416c78e}} 
+S\+D\+\_\+\+Handle\+Type\+Def {\bfseries hsd}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file includes a generic u\+SD card driver. To be completed by the user according to the board used for the project. 
+
+for F4 (based on stm324x9i\+\_\+eval\+\_\+sd.\+c) \begin{DoxyNote}{Note}
+Some functions generated as weak\+: they can be overriden by
+\begin{DoxyItemize}
+\item code in user files
+\item or B\+SP code from the FW pack files if such files are added to the generated project (by the user).
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2020 S\+T\+Microelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under Ultimate Liberty license S\+L\+A0044, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: www.\+st.\+com/\+S\+L\+A0044 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{bsp__driver__sd_8c_a93d832f6829fdec979a7df3944084512}\label{bsp__driver__sd_8c_a93d832f6829fdec979a7df3944084512}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_AbortCallback@{BSP\_SD\_AbortCallback}}
+\index{BSP\_SD\_AbortCallback@{BSP\_SD\_AbortCallback}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_AbortCallback()}{BSP\_SD\_AbortCallback()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void B\+S\+P\+\_\+\+S\+D\+\_\+\+Abort\+Callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+B\+SP SD Abort callback. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+empty (up to the user to fill it in or to remove it if useless) 
+\end{DoxyNote}
+
+
+Definition at line 269 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_aeaa35023e9428a9c31e693bcdadeb3d6}\label{bsp__driver__sd_8c_aeaa35023e9428a9c31e693bcdadeb3d6}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_Erase@{BSP\_SD\_Erase}}
+\index{BSP\_SD\_Erase@{BSP\_SD\_Erase}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_Erase()}{BSP\_SD\_Erase()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Erase (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Start\+Addr,  }\item[{uint32\+\_\+t}]{End\+Addr }\end{DoxyParamCaption})}
+
+
+
+Erases the specified memory area of the given SD card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Start\+Addr} & Start byte address \\
+\hline
+{\em End\+Addr} & End byte address \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em SD} & status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 194 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_a17b5e6325eebcd997d540f304d7a35b1}\label{bsp__driver__sd_8c_a17b5e6325eebcd997d540f304d7a35b1}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_GetCardInfo@{BSP\_SD\_GetCardInfo}}
+\index{BSP\_SD\_GetCardInfo@{BSP\_SD\_GetCardInfo}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_GetCardInfo()}{BSP\_SD\_GetCardInfo()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void B\+S\+P\+\_\+\+S\+D\+\_\+\+Get\+Card\+Info (\begin{DoxyParamCaption}\item[{H\+A\+L\+\_\+\+S\+D\+\_\+\+Card\+Info\+Type\+Def $\ast$}]{Card\+Info }\end{DoxyParamCaption})}
+
+
+
+Get SD information about specific SD card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Card\+Info} & Pointer to H\+A\+L\+\_\+\+S\+D\+\_\+\+Card\+Info\+Typedef structure \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 224 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_ad7cfcf73b9f505d0675ec1c2516dbd4c}\label{bsp__driver__sd_8c_ad7cfcf73b9f505d0675ec1c2516dbd4c}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_GetCardState@{BSP\_SD\_GetCardState}}
+\index{BSP\_SD\_GetCardState@{BSP\_SD\_GetCardState}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_GetCardState()}{BSP\_SD\_GetCardState()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Get\+Card\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current SD card data status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Data} & transfer state. This value can be one of the following values\+: \begin{DoxyItemize}
+\item S\+D\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+OK\+: No data transfer is acting \item S\+D\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R\+\_\+\+B\+U\+SY\+: Data transfer is acting \end{DoxyItemize}
+\\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 214 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_afe208758d02f97e12c2eecbf604c1726}\label{bsp__driver__sd_8c_afe208758d02f97e12c2eecbf604c1726}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_Init@{BSP\_SD\_Init}}
+\index{BSP\_SD\_Init@{BSP\_SD\_Init}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_Init()}{BSP\_SD\_Init()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the SD card device. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em SD} & status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 47 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_a80c0a2c6722e29b76aa3e3d8a57ee27a}\label{bsp__driver__sd_8c_a80c0a2c6722e29b76aa3e3d8a57ee27a}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_IsDetected@{BSP\_SD\_IsDetected}}
+\index{BSP\_SD\_IsDetected@{BSP\_SD\_IsDetected}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_IsDetected()}{BSP\_SD\_IsDetected()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Is\+Detected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Detects if SD card is correctly plugged in the memory slot or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & if SD is detected or not \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 301 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_aa1acca35f0ecac51c2afdf8458050f8b}\label{bsp__driver__sd_8c_aa1acca35f0ecac51c2afdf8458050f8b}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_ITConfig@{BSP\_SD\_ITConfig}}
+\index{BSP\_SD\_ITConfig@{BSP\_SD\_ITConfig}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_ITConfig()}{BSP\_SD\_ITConfig()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+I\+T\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Configures Interrupt mode for SD detection pin. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & 0 \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 78 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_afe23f41939f1b8aa1f609fcf3e71be84}\label{bsp__driver__sd_8c_afe23f41939f1b8aa1f609fcf3e71be84}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_ReadBlocks@{BSP\_SD\_ReadBlocks}}
+\index{BSP\_SD\_ReadBlocks@{BSP\_SD\_ReadBlocks}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_ReadBlocks()}{BSP\_SD\_ReadBlocks()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Read\+Blocks (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{p\+Data,  }\item[{uint32\+\_\+t}]{Read\+Addr,  }\item[{uint32\+\_\+t}]{Num\+Of\+Blocks,  }\item[{uint32\+\_\+t}]{Timeout }\end{DoxyParamCaption})}
+
+
+
+Reads block(s) from a specified address in an SD card, in polling mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Pointer to the buffer that will contain the data to transmit \\
+\hline
+{\em Read\+Addr} & Address from where data is to be read \\
+\hline
+{\em Num\+Of\+Blocks} & Number of SD blocks to read \\
+\hline
+{\em Timeout} & Timeout for read operation \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em SD} & status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 104 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_aa907652a44281179bcb9bc575e3e8709}\label{bsp__driver__sd_8c_aa907652a44281179bcb9bc575e3e8709}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_ReadBlocks\_DMA@{BSP\_SD\_ReadBlocks\_DMA}}
+\index{BSP\_SD\_ReadBlocks\_DMA@{BSP\_SD\_ReadBlocks\_DMA}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_ReadBlocks\_DMA()}{BSP\_SD\_ReadBlocks\_DMA()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Read\+Blocks\+\_\+\+D\+MA (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{p\+Data,  }\item[{uint32\+\_\+t}]{Read\+Addr,  }\item[{uint32\+\_\+t}]{Num\+Of\+Blocks }\end{DoxyParamCaption})}
+
+
+
+Reads block(s) from a specified address in an SD card, in D\+MA mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Pointer to the buffer that will contain the data to transmit \\
+\hline
+{\em Read\+Addr} & Address from where data is to be read \\
+\hline
+{\em Num\+Of\+Blocks} & Number of SD blocks to read \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em SD} & status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 149 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_aeb3eb4ab76f0acd225bddf68199e6f3c}\label{bsp__driver__sd_8c_aeb3eb4ab76f0acd225bddf68199e6f3c}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_ReadCpltCallback@{BSP\_SD\_ReadCpltCallback}}
+\index{BSP\_SD\_ReadCpltCallback@{BSP\_SD\_ReadCpltCallback}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_ReadCpltCallback()}{BSP\_SD\_ReadCpltCallback()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void B\+S\+P\+\_\+\+S\+D\+\_\+\+Read\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+B\+SP Rx Transfer completed callback. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+empty (up to the user to fill it in or to remove it if useless) 
+\end{DoxyNote}
+
+
+Definition at line 289 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_a6d88090464978ec87aa1cbca9f810495}\label{bsp__driver__sd_8c_a6d88090464978ec87aa1cbca9f810495}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_WriteBlocks@{BSP\_SD\_WriteBlocks}}
+\index{BSP\_SD\_WriteBlocks@{BSP\_SD\_WriteBlocks}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_WriteBlocks()}{BSP\_SD\_WriteBlocks()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Write\+Blocks (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{p\+Data,  }\item[{uint32\+\_\+t}]{Write\+Addr,  }\item[{uint32\+\_\+t}]{Num\+Of\+Blocks,  }\item[{uint32\+\_\+t}]{Timeout }\end{DoxyParamCaption})}
+
+
+
+Writes block(s) to a specified address in an SD card, in polling mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Pointer to the buffer that will contain the data to transmit \\
+\hline
+{\em Write\+Addr} & Address from where data is to be written \\
+\hline
+{\em Num\+Of\+Blocks} & Number of SD blocks to write \\
+\hline
+{\em Timeout} & Timeout for write operation \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em SD} & status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 127 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_af3e90e60fd1aa25bdbd57c4e7bd62558}\label{bsp__driver__sd_8c_af3e90e60fd1aa25bdbd57c4e7bd62558}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_WriteBlocks\_DMA@{BSP\_SD\_WriteBlocks\_DMA}}
+\index{BSP\_SD\_WriteBlocks\_DMA@{BSP\_SD\_WriteBlocks\_DMA}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_WriteBlocks\_DMA()}{BSP\_SD\_WriteBlocks\_DMA()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint8\+\_\+t B\+S\+P\+\_\+\+S\+D\+\_\+\+Write\+Blocks\+\_\+\+D\+MA (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{p\+Data,  }\item[{uint32\+\_\+t}]{Write\+Addr,  }\item[{uint32\+\_\+t}]{Num\+Of\+Blocks }\end{DoxyParamCaption})}
+
+
+
+Writes block(s) to a specified address in an SD card, in D\+MA mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Data} & Pointer to the buffer that will contain the data to transmit \\
+\hline
+{\em Write\+Addr} & Address from where data is to be written \\
+\hline
+{\em Num\+Of\+Blocks} & Number of SD blocks to write \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em SD} & status \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 172 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_a2e6559fa7b5164071baafa3b3f668e3f}\label{bsp__driver__sd_8c_a2e6559fa7b5164071baafa3b3f668e3f}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!BSP\_SD\_WriteCpltCallback@{BSP\_SD\_WriteCpltCallback}}
+\index{BSP\_SD\_WriteCpltCallback@{BSP\_SD\_WriteCpltCallback}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_SD\_WriteCpltCallback()}{BSP\_SD\_WriteCpltCallback()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void B\+S\+P\+\_\+\+S\+D\+\_\+\+Write\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+B\+SP Tx Transfer completed callback. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+empty (up to the user to fill it in or to remove it if useless) 
+\end{DoxyNote}
+
+
+Definition at line 279 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_a52a463063ce8c6f1e8910f30dd4e8376}\label{bsp__driver__sd_8c_a52a463063ce8c6f1e8910f30dd4e8376}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!HAL\_SD\_AbortCallback@{HAL\_SD\_AbortCallback}}
+\index{HAL\_SD\_AbortCallback@{HAL\_SD\_AbortCallback}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_SD\_AbortCallback()}{HAL\_SD\_AbortCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+D\+\_\+\+Abort\+Callback (\begin{DoxyParamCaption}\item[{S\+D\+\_\+\+Handle\+Type\+Def $\ast$}]{hsd }\end{DoxyParamCaption})}
+
+
+
+SD Abort callbacks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hsd} & SD handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 238 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_a1720dc3a0e88b26e557ae63fad3a382d}\label{bsp__driver__sd_8c_a1720dc3a0e88b26e557ae63fad3a382d}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!HAL\_SD\_RxCpltCallback@{HAL\_SD\_RxCpltCallback}}
+\index{HAL\_SD\_RxCpltCallback@{HAL\_SD\_RxCpltCallback}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_SD\_RxCpltCallback()}{HAL\_SD\_RxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+D\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{S\+D\+\_\+\+Handle\+Type\+Def $\ast$}]{hsd }\end{DoxyParamCaption})}
+
+
+
+Rx Transfer completed callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hsd} & SD handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 258 of file bsp\+\_\+driver\+\_\+sd.\+c.
+
+\mbox{\Hypertarget{bsp__driver__sd_8c_a7f42b31026c697fea97c132e9aed15e2}\label{bsp__driver__sd_8c_a7f42b31026c697fea97c132e9aed15e2}} 
+\index{bsp\_driver\_sd.c@{bsp\_driver\_sd.c}!HAL\_SD\_TxCpltCallback@{HAL\_SD\_TxCpltCallback}}
+\index{HAL\_SD\_TxCpltCallback@{HAL\_SD\_TxCpltCallback}!bsp\_driver\_sd.c@{bsp\_driver\_sd.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_SD\_TxCpltCallback()}{HAL\_SD\_TxCpltCallback()}}
+{\footnotesize\ttfamily void H\+A\+L\+\_\+\+S\+D\+\_\+\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{S\+D\+\_\+\+Handle\+Type\+Def $\ast$}]{hsd }\end{DoxyParamCaption})}
+
+
+
+Tx Transfer completed callback. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hsd} & SD handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 248 of file bsp\+\_\+driver\+\_\+sd.\+c.
+

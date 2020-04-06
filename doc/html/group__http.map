@@ -1,0 +1,5 @@
+<map id="Http" name="Http">
+<area shape="rect" id="node1" href="$group__http__response.html" title=" " alt="" coords="100,5,207,31"/>
+<area shape="rect" id="node2" title="Handles HTTP packet transactions." alt="" coords="5,31,52,56"/>
+<area shape="rect" id="node3" href="$group__http__server.html" title=" " alt="" coords="108,55,199,80"/>
+</map>

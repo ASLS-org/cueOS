@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Depedencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -9,9 +9,12 @@
 #include <string.h>
 
 
+/***============================================================================================================================
+ * Private functions definitions
+ * These functions are only accessible from within the file's scope
+ *=============================================================================================================================*/
+
 /**
- * @ingroup http_response
- * @fn _http_response_dynamic_cat
  * @brief Concatenates a provided string to the response's data pointer and
  * automatically reallocates data pointer's size to fit the provided
  * string.
@@ -27,15 +30,12 @@ static void _http_response_dynamic_cat(http_response_s *res, char *data){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
- * @see http_response.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup http_response
- * @fn http_response_new
  * @brief Creates a new HTTP response instance
  *
  * @return http_response_s* pointer to the created HTTP response instance
@@ -46,7 +46,6 @@ http_response_s *http_response_new(void){
 
 	res->data_ptr 		= NULL;
 	res->is_static      = 1;
-	res->buf_index 		= 0;
 	res->data_ptr_index = 0;
 	res->data_len		= 0;
 
@@ -55,8 +54,6 @@ http_response_s *http_response_new(void){
 }
 
 /**
- * @ingroup http_response
- * @fn http_response_free
  * @brief Safely frees an HTTP response instance
  *
  * @param res HTTP response instance to be freed
@@ -68,7 +65,6 @@ void http_response_free(http_response_s *res){
 	}
 
 	res->data_ptr 		= NULL;
-	res->buf_index 		= 0;
 	res->data_ptr_index = 0;
 	res->data_len		= 0;
 
@@ -77,8 +73,6 @@ void http_response_free(http_response_s *res){
 }
 
 /**
- * @ingroup http_response
- * @fn http_response_get_bytes_left
  * @brief Returns the amount of bytes left to be processed
  * @warning this function does not affect the current
  * 			instance data pointer index. this parameter
@@ -92,8 +86,6 @@ uint32_t http_response_get_bytes_left(http_response_s *res){
 }
 
 /**
- * @ingroup http_response
- * @fn http_response_prepare_dynamic
  * @brief Pre-formats response to HTTP response using provided response header parameters
  *
  * @param *res pointer to the response to be prepared

@@ -1,0 +1,129 @@
+\hypertarget{altcp_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/altcp.h File Reference}
+\label{altcp_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/altcp.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/altcp.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/tcp.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{altcp_8h_a5d82fb33bbd78e2f528619d4f07f9463}\label{altcp_8h_a5d82fb33bbd78e2f528619d4f07f9463}} 
+\#define {\bfseries altcp\+\_\+accept\+\_\+fn}~tcp\+\_\+accept\+\_\+fn
+\item 
+\mbox{\Hypertarget{altcp_8h_aeac8b817672e6bdf609a0f9e54adfa8b}\label{altcp_8h_aeac8b817672e6bdf609a0f9e54adfa8b}} 
+\#define {\bfseries altcp\+\_\+connected\+\_\+fn}~tcp\+\_\+connected\+\_\+fn
+\item 
+\mbox{\Hypertarget{altcp_8h_a4c6376ddf365f7305ff7bfd707d807de}\label{altcp_8h_a4c6376ddf365f7305ff7bfd707d807de}} 
+\#define {\bfseries altcp\+\_\+recv\+\_\+fn}~tcp\+\_\+recv\+\_\+fn
+\item 
+\mbox{\Hypertarget{altcp_8h_acbb1f7d41bdd90718a034a31635b6358}\label{altcp_8h_acbb1f7d41bdd90718a034a31635b6358}} 
+\#define {\bfseries altcp\+\_\+sent\+\_\+fn}~tcp\+\_\+sent\+\_\+fn
+\item 
+\mbox{\Hypertarget{altcp_8h_a131518dda56bad63c12fe919aa503e64}\label{altcp_8h_a131518dda56bad63c12fe919aa503e64}} 
+\#define {\bfseries altcp\+\_\+poll\+\_\+fn}~tcp\+\_\+poll\+\_\+fn
+\item 
+\mbox{\Hypertarget{altcp_8h_a79b933a3f5512368a31c3f4168cdd149}\label{altcp_8h_a79b933a3f5512368a31c3f4168cdd149}} 
+\#define {\bfseries altcp\+\_\+err\+\_\+fn}~tcp\+\_\+err\+\_\+fn
+\item 
+\mbox{\Hypertarget{altcp_8h_aca3acf3638505cceb454a0d0cf6d2a54}\label{altcp_8h_aca3acf3638505cceb454a0d0cf6d2a54}} 
+\#define {\bfseries altcp\+\_\+pcb}~tcp\+\_\+pcb
+\item 
+\mbox{\Hypertarget{altcp_8h_afab2ceba836907ed8bfda538545530a4}\label{altcp_8h_afab2ceba836907ed8bfda538545530a4}} 
+\#define {\bfseries altcp\+\_\+tcp\+\_\+new\+\_\+ip\+\_\+type}~tcp\+\_\+new\+\_\+ip\+\_\+type
+\item 
+\mbox{\Hypertarget{altcp_8h_a77d9253419ad98d535f78e09308c2219}\label{altcp_8h_a77d9253419ad98d535f78e09308c2219}} 
+\#define {\bfseries altcp\+\_\+tcp\+\_\+new}~tcp\+\_\+new
+\item 
+\mbox{\Hypertarget{altcp_8h_ab330a41939797d02c3742c7b82bea760}\label{altcp_8h_ab330a41939797d02c3742c7b82bea760}} 
+\#define {\bfseries altcp\+\_\+tcp\+\_\+new\+\_\+ip6}~tcp\+\_\+new\+\_\+ip6
+\item 
+\mbox{\Hypertarget{altcp_8h_af191ca23efa5d60df687d35e3e5c067e}\label{altcp_8h_af191ca23efa5d60df687d35e3e5c067e}} 
+\#define {\bfseries altcp\+\_\+new}(allocator)~tcp\+\_\+new()
+\item 
+\mbox{\Hypertarget{altcp_8h_af9cf07a6b8753c72bc722837251a6346}\label{altcp_8h_af9cf07a6b8753c72bc722837251a6346}} 
+\#define {\bfseries altcp\+\_\+new\+\_\+ip6}(allocator)~tcp\+\_\+new\+\_\+ip6()
+\item 
+\mbox{\Hypertarget{altcp_8h_a07b82d6a6979a73d31e8e11a78b7cffb}\label{altcp_8h_a07b82d6a6979a73d31e8e11a78b7cffb}} 
+\#define {\bfseries altcp\+\_\+new\+\_\+ip\+\_\+type}(allocator,  ip\+\_\+type)~tcp\+\_\+new\+\_\+ip\+\_\+type(ip\+\_\+type)
+\item 
+\mbox{\Hypertarget{altcp_8h_a59a0b4fd2801ffaf01593bf8c8696b68}\label{altcp_8h_a59a0b4fd2801ffaf01593bf8c8696b68}} 
+\#define {\bfseries altcp\+\_\+arg}~tcp\+\_\+arg
+\item 
+\mbox{\Hypertarget{altcp_8h_a00224e8a67586b9af3538a4ced666979}\label{altcp_8h_a00224e8a67586b9af3538a4ced666979}} 
+\#define {\bfseries altcp\+\_\+accept}~tcp\+\_\+accept
+\item 
+\mbox{\Hypertarget{altcp_8h_ac44c476419b38234b99d4f0238c4af8c}\label{altcp_8h_ac44c476419b38234b99d4f0238c4af8c}} 
+\#define {\bfseries altcp\+\_\+recv}~tcp\+\_\+recv
+\item 
+\mbox{\Hypertarget{altcp_8h_a7eb170c97b65af98308fcad158fdc810}\label{altcp_8h_a7eb170c97b65af98308fcad158fdc810}} 
+\#define {\bfseries altcp\+\_\+sent}~tcp\+\_\+sent
+\item 
+\mbox{\Hypertarget{altcp_8h_a78c4d136d3ab0796b7f66042f2f615bf}\label{altcp_8h_a78c4d136d3ab0796b7f66042f2f615bf}} 
+\#define {\bfseries altcp\+\_\+poll}~tcp\+\_\+poll
+\item 
+\mbox{\Hypertarget{altcp_8h_aa1961bb5bc5b2c74dd6fd7a7ab04bff9}\label{altcp_8h_aa1961bb5bc5b2c74dd6fd7a7ab04bff9}} 
+\#define {\bfseries altcp\+\_\+err}~tcp\+\_\+err
+\item 
+\mbox{\Hypertarget{altcp_8h_af3511e6a623512c93fc5ec7c61ae1e68}\label{altcp_8h_af3511e6a623512c93fc5ec7c61ae1e68}} 
+\#define {\bfseries altcp\+\_\+recved}~tcp\+\_\+recved
+\item 
+\mbox{\Hypertarget{altcp_8h_afdf5d826f78a7a261af83585e7200060}\label{altcp_8h_afdf5d826f78a7a261af83585e7200060}} 
+\#define {\bfseries altcp\+\_\+bind}~tcp\+\_\+bind
+\item 
+\mbox{\Hypertarget{altcp_8h_a5f10c918b43e14d3c97901b74dc4ed9d}\label{altcp_8h_a5f10c918b43e14d3c97901b74dc4ed9d}} 
+\#define {\bfseries altcp\+\_\+connect}~tcp\+\_\+connect
+\item 
+\mbox{\Hypertarget{altcp_8h_a805944d1ce2baa7b6d1913270f1f3370}\label{altcp_8h_a805944d1ce2baa7b6d1913270f1f3370}} 
+\#define {\bfseries altcp\+\_\+listen\+\_\+with\+\_\+backlog\+\_\+and\+\_\+err}~tcp\+\_\+listen\+\_\+with\+\_\+backlog\+\_\+and\+\_\+err
+\item 
+\mbox{\Hypertarget{altcp_8h_a179225bdf4dc25e0955cbc37826397ba}\label{altcp_8h_a179225bdf4dc25e0955cbc37826397ba}} 
+\#define {\bfseries altcp\+\_\+listen\+\_\+with\+\_\+backlog}~tcp\+\_\+listen\+\_\+with\+\_\+backlog
+\item 
+\mbox{\Hypertarget{altcp_8h_a80c18c1adf535d0bb7e19af4bdd6e508}\label{altcp_8h_a80c18c1adf535d0bb7e19af4bdd6e508}} 
+\#define {\bfseries altcp\+\_\+listen}~tcp\+\_\+listen
+\item 
+\mbox{\Hypertarget{altcp_8h_ad286f70cb9fbb8d0904c68a74efe7b42}\label{altcp_8h_ad286f70cb9fbb8d0904c68a74efe7b42}} 
+\#define {\bfseries altcp\+\_\+abort}~tcp\+\_\+abort
+\item 
+\mbox{\Hypertarget{altcp_8h_ad2696eff214b7a27d435b343c2269d3f}\label{altcp_8h_ad2696eff214b7a27d435b343c2269d3f}} 
+\#define {\bfseries altcp\+\_\+close}~tcp\+\_\+close
+\item 
+\mbox{\Hypertarget{altcp_8h_a6ffa93dfe3b081f8cffbbc1886098a02}\label{altcp_8h_a6ffa93dfe3b081f8cffbbc1886098a02}} 
+\#define {\bfseries altcp\+\_\+shutdown}~tcp\+\_\+shutdown
+\item 
+\mbox{\Hypertarget{altcp_8h_a1067a72928fadeb44336678fff1704b1}\label{altcp_8h_a1067a72928fadeb44336678fff1704b1}} 
+\#define {\bfseries altcp\+\_\+write}~tcp\+\_\+write
+\item 
+\mbox{\Hypertarget{altcp_8h_a113a5bd7156a32daf1587ed9d367e7e9}\label{altcp_8h_a113a5bd7156a32daf1587ed9d367e7e9}} 
+\#define {\bfseries altcp\+\_\+output}~tcp\+\_\+output
+\item 
+\mbox{\Hypertarget{altcp_8h_a47e3ca166e343c194df0e06253f1f1e3}\label{altcp_8h_a47e3ca166e343c194df0e06253f1f1e3}} 
+\#define {\bfseries altcp\+\_\+mss}~tcp\+\_\+mss
+\item 
+\mbox{\Hypertarget{altcp_8h_a6a0ff24142b92004374f56ad0ec9fd6c}\label{altcp_8h_a6a0ff24142b92004374f56ad0ec9fd6c}} 
+\#define {\bfseries altcp\+\_\+sndbuf}~tcp\+\_\+sndbuf
+\item 
+\mbox{\Hypertarget{altcp_8h_a3ea3e96b237a4be0eb3df4dd4645de81}\label{altcp_8h_a3ea3e96b237a4be0eb3df4dd4645de81}} 
+\#define {\bfseries altcp\+\_\+sndqueuelen}~tcp\+\_\+sndqueuelen
+\item 
+\mbox{\Hypertarget{altcp_8h_a94560f05362a7f2a8597fc237b013aa2}\label{altcp_8h_a94560f05362a7f2a8597fc237b013aa2}} 
+\#define {\bfseries altcp\+\_\+nagle\+\_\+disable}~tcp\+\_\+nagle\+\_\+disable
+\item 
+\mbox{\Hypertarget{altcp_8h_a7ee1986c2f3edb3dec816c9f35330fba}\label{altcp_8h_a7ee1986c2f3edb3dec816c9f35330fba}} 
+\#define {\bfseries altcp\+\_\+nagle\+\_\+enable}~tcp\+\_\+nagle\+\_\+enable
+\item 
+\mbox{\Hypertarget{altcp_8h_a8292ed211d87e2d7d16bfcc75ba56e44}\label{altcp_8h_a8292ed211d87e2d7d16bfcc75ba56e44}} 
+\#define {\bfseries altcp\+\_\+nagle\+\_\+disabled}~tcp\+\_\+nagle\+\_\+disabled
+\item 
+\mbox{\Hypertarget{altcp_8h_a8648fc67c61d03f6a56c1d6ded3aae68}\label{altcp_8h_a8648fc67c61d03f6a56c1d6ded3aae68}} 
+\#define {\bfseries altcp\+\_\+setprio}~tcp\+\_\+setprio
+\item 
+\mbox{\Hypertarget{altcp_8h_a984985219af41a3d1a90b1bb024143cc}\label{altcp_8h_a984985219af41a3d1a90b1bb024143cc}} 
+\#define {\bfseries altcp\+\_\+get\+\_\+tcp\+\_\+addrinfo}~tcp\+\_\+get\+\_\+tcp\+\_\+addrinfo
+\item 
+\mbox{\Hypertarget{altcp_8h_a3a0289151139f19b9b31677fc01ff7bc}\label{altcp_8h_a3a0289151139f19b9b31677fc01ff7bc}} 
+\#define {\bfseries altcp\+\_\+get\+\_\+ip}(pcb,  local)~((local) ? (\&(pcb)-\/$>$local\+\_\+ip) \+: (\&(pcb)-\/$>$remote\+\_\+ip))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Application layered T\+CP connection A\+PI (to be used from T\+C\+P\+IP thread)~\newline
+ This file contains the generic A\+PI. For more details see altcp\+\_\+api. 

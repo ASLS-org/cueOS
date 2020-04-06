@@ -1,0 +1,136 @@
+\hypertarget{group___q__client}{}\doxysection{Q\+\_\+client}
+\label{group___q__client}\index{Q\_client@{Q\_client}}
+
+
+U\+DP client for parsing Q packets.  
+
+
+Collaboration diagram for Q\+\_\+client\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{group___q__client}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_q__client}{Q\+\_\+client}}
+\begin{DoxyCompactList}\small\item\em Defines a Q client. Q is a U\+D\+P-\/only protocol specifically deficated to show control an automatisation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___q__client_ga92a846f1a4b29c41af19d97e3ad4c574}\label{group___q__client_ga92a846f1a4b29c41af19d97e3ad4c574}} 
+\#define {\bfseries Q\+\_\+\+U\+D\+P\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+O\+RT}~5214
+\item 
+\mbox{\Hypertarget{group___q__client_ga782ecae376e02d47c356586dde918a12}\label{group___q__client_ga782ecae376e02d47c356586dde918a12}} 
+\#define {\bfseries Q\+\_\+\+U\+D\+P\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+D\+E\+F\+A\+U\+LT}~\{N\+U\+LL,N\+U\+LL,N\+U\+LL,\{\},\{\},\{\},Q\+\_\+\+U\+D\+P\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+U\+N\+B\+O\+U\+ND,N\+U\+LL\}
+\item 
+\mbox{\Hypertarget{group___q__client_ga54f7ee84dc93b9346b40e6e13c6d73cc}\label{group___q__client_ga54f7ee84dc93b9346b40e6e13c6d73cc}} 
+\#define {\bfseries Q\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+G\+R\+O\+U\+P\+C\+FG}~Q\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+G\+R\+O\+U\+P\+C\+F\+G\+\_\+\+C\+T\+RL
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___q__client_gaeb32beee560042ccdca39eaa2c3e8655}\label{group___q__client_gaeb32beee560042ccdca39eaa2c3e8655}} 
+typedef struct \mbox{\hyperlink{struct_q__client}{Q\+\_\+client}} \mbox{\hyperlink{group___q__client_gaeb32beee560042ccdca39eaa2c3e8655}{Q\+\_\+client\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em Defines a Q client. Q is a U\+D\+P-\/only protocol specifically deficated to show control an automatisation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___q__client_gad9823c18f69d924bcec053ef679c0d97}\label{group___q__client_gad9823c18f69d924bcec053ef679c0d97}} 
+enum \mbox{\hyperlink{group___q__client_gad9823c18f69d924bcec053ef679c0d97}{Q\+\_\+client\+\_\+groupcfg\+\_\+e}} \{ \newline
+{\bfseries Q\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+G\+R\+O\+U\+P\+C\+F\+G\+\_\+\+C\+T\+RL} = 200, 
+\newline
+{\bfseries Q\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+G\+R\+O\+U\+P\+C\+F\+G\+\_\+\+D\+MX} = 201, 
+\newline
+{\bfseries Q\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+G\+R\+O\+U\+P\+C\+F\+G\+\_\+\+P\+Y\+RO} = 202, 
+\newline
+{\bfseries Q\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+G\+R\+O\+U\+P\+C\+F\+G\+\_\+\+M\+E\+D\+IA} = 203, 
+\newline
+{\bfseries Q\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+G\+R\+O\+U\+P\+C\+F\+G\+\_\+\+O\+T\+H\+ER} = 204
+ \}
+\begin{DoxyCompactList}\small\item\em List of node group configurations used to determine a node\textquotesingle{}s multicast address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___q__client_ga45d15779b911acaa3b1ec88e5a194bf9}{Q\+\_\+client\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialises Q client. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___q__client_ga94b117979dedfa3266809ee5eb983978}{Q\+\_\+client\+\_\+send}} (char $\ast$raw\+\_\+packet, uint16\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Sends a packet over U\+DP. Packet needs to be pre-\/formated in order for it to be understood by concerned destinator. Q packets can be forged using forging functions described within \mbox{\hyperlink{_q__packet_8h_source}{Q\+\_\+packet.\+h}}/c files. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___q__client_gacd4f5e9f426708aa5c88de5b29cfd4c6}{Q\+\_\+client\+\_\+bind}} (void)
+\begin{DoxyCompactList}\small\item\em Establishes a multicast join request over U\+DP. Multicast address is determined by the group configuration byte provided during initialisation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___q__client_ga86fcd92a3175734b5dffe6bd05ef79b2}\label{group___q__client_ga86fcd92a3175734b5dffe6bd05ef79b2}} 
+static void \mbox{\hyperlink{group___q__client_ga86fcd92a3175734b5dffe6bd05ef79b2}{\+\_\+\+Q\+\_\+\+U\+D\+P\+\_\+client\+\_\+poll\+\_\+reply}} (void)
+\begin{DoxyCompactList}\small\item\em Sends a Q poll reply packet over U\+DP stream. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___q__client_ga4ef2e636001019a47b6ba90a15f91e09}\label{group___q__client_ga4ef2e636001019a47b6ba90a15f91e09}} 
+static void \mbox{\hyperlink{group___q__client_ga4ef2e636001019a47b6ba90a15f91e09}{\+\_\+\+Q\+\_\+\+U\+D\+P\+\_\+client\+\_\+discover\+\_\+reply}} (void)
+\begin{DoxyCompactList}\small\item\em Sends a Q discoverp reply packet over U\+DP stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+U\+DP client for parsing Q packets. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___q__client_gacd4f5e9f426708aa5c88de5b29cfd4c6}\label{group___q__client_gacd4f5e9f426708aa5c88de5b29cfd4c6}} 
+\index{Q\_client@{Q\_client}!Q\_client\_bind@{Q\_client\_bind}}
+\index{Q\_client\_bind@{Q\_client\_bind}!Q\_client@{Q\_client}}
+\doxysubsubsection{\texorpdfstring{Q\_client\_bind()}{Q\_client\_bind()}}
+{\footnotesize\ttfamily void Q\+\_\+client\+\_\+bind (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Establishes a multicast join request over U\+DP. Multicast address is determined by the group configuration byte provided during initialisation. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_q__client_8h_source}{Q\+\_\+client.\+h}} for further information regarding group configuration options 
+\end{DoxySeeAlso}
+
+
+Definition at line 119 of file Q\+\_\+client.\+c.
+
+\mbox{\Hypertarget{group___q__client_ga45d15779b911acaa3b1ec88e5a194bf9}\label{group___q__client_ga45d15779b911acaa3b1ec88e5a194bf9}} 
+\index{Q\_client@{Q\_client}!Q\_client\_init@{Q\_client\_init}}
+\index{Q\_client\_init@{Q\_client\_init}!Q\_client@{Q\_client}}
+\doxysubsubsection{\texorpdfstring{Q\_client\_init()}{Q\_client\_init()}}
+{\footnotesize\ttfamily void Q\+\_\+client\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Initialises Q client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em groupcfg} & the group configuration byte to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_q__client_8h_source}{Q\+\_\+client.\+h}} for further information regarding group configuration byte 
+\end{DoxySeeAlso}
+
+
+Definition at line 91 of file Q\+\_\+client.\+c.
+
+\mbox{\Hypertarget{group___q__client_ga94b117979dedfa3266809ee5eb983978}\label{group___q__client_ga94b117979dedfa3266809ee5eb983978}} 
+\index{Q\_client@{Q\_client}!Q\_client\_send@{Q\_client\_send}}
+\index{Q\_client\_send@{Q\_client\_send}!Q\_client@{Q\_client}}
+\doxysubsubsection{\texorpdfstring{Q\_client\_send()}{Q\_client\_send()}}
+{\footnotesize\ttfamily void Q\+\_\+client\+\_\+send (\begin{DoxyParamCaption}\item[{char $\ast$}]{raw\+\_\+packet,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Sends a packet over U\+DP. Packet needs to be pre-\/formated in order for it to be understood by concerned destinator. Q packets can be forged using forging functions described within \mbox{\hyperlink{_q__packet_8h_source}{Q\+\_\+packet.\+h}}/c files. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$raw\+\_\+packet} & pointer to the raw packet data \\
+\hline
+{\em len} & length of the packet in bytes \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file Q\+\_\+client.\+c.
+

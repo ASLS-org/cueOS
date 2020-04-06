@@ -1,0 +1,100 @@
+\hypertarget{debug_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/debug.h File Reference}
+\label{debug_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/debug.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/debug.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+M\+A\+S\+K\+\_\+\+L\+E\+V\+EL}~0x03
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+O\+FF}~\mbox{\hyperlink{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+A\+LL}}
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+A\+S\+S\+E\+RT}(message,  assertion)
+\item 
+\mbox{\Hypertarget{debug_8h_a451cdce6343503ea686ff5e4eff37d3c}\label{debug_8h_a451cdce6343503ea686ff5e4eff37d3c}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+P\+L\+A\+T\+F\+O\+R\+M\+\_\+\+E\+R\+R\+OR}(message)~\mbox{\hyperlink{group__compiler__abstraction_ga7e8bcd0282525704d6dd596bdd1b47d0}{L\+W\+I\+P\+\_\+\+P\+L\+A\+T\+F\+O\+R\+M\+\_\+\+A\+S\+S\+E\+RT}}(message)
+\item 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+E\+R\+R\+OR}(message,  expression,  handler)
+\item 
+\#define \mbox{\hyperlink{debug_8h_a63a04edf7ff63c951bd8706711956cdb}{L\+W\+I\+P\+\_\+\+D\+E\+B\+U\+GF}}(debug,  message)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Debug level (L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+M\+I\+N\+\_\+\+L\+E\+V\+EL)}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+A\+LL}}~0x00
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga77c491e468bf7d9a1bc48430c1866a96}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+W\+A\+R\+N\+I\+NG}}~0x01
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga0269bdc51f1e8a5ecf9af72c6e1c996c}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+S\+E\+R\+I\+O\+US}}~0x02
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gaab41143277cd38047b6660d90e9cec3b}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+S\+E\+V\+E\+RE}}~0x03
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Enable/disable debug messages completely (L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+ON)}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga9e31b7cbbc8f46af8e62b548079acd4e}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+ON}}~0x80U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+O\+FF}}~0x00U
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Debug message types (L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+T\+Y\+P\+E\+S\+\_\+\+ON)}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga988147559b78642ac881815b66023646}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+T\+R\+A\+CE}}~0x40U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga511ee3deb3240635f5ec6a1709c6d741}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+S\+T\+A\+TE}}~0x20U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga7d44d1804fa5e747aed86816e2a6cae0}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+F\+R\+E\+SH}}~0x10U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gab0a296414983155b30ad51871606b90f}{L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+H\+A\+LT}}~0x08U
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Debug messages infrastructure 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{debug_8h_a94ad086267808462beae2b38f91996ed}\label{debug_8h_a94ad086267808462beae2b38f91996ed}} 
+\index{debug.h@{debug.h}!LWIP\_ASSERT@{LWIP\_ASSERT}}
+\index{LWIP\_ASSERT@{LWIP\_ASSERT}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ASSERT}{LWIP\_ASSERT}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+A\+S\+S\+E\+RT(\begin{DoxyParamCaption}\item[{}]{message,  }\item[{}]{assertion }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{ \textcolor{keywordflow}{if} (!(assertion)) \{ \(\backslash\)}
+\DoxyCodeLine{  LWIP\_PLATFORM\_ASSERT(message); \}\} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+Definition at line 116 of file debug.\+h.
+
+\mbox{\Hypertarget{debug_8h_a63a04edf7ff63c951bd8706711956cdb}\label{debug_8h_a63a04edf7ff63c951bd8706711956cdb}} 
+\index{debug.h@{debug.h}!LWIP\_DEBUGF@{LWIP\_DEBUGF}}
+\index{LWIP\_DEBUGF@{LWIP\_DEBUGF}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DEBUGF}{LWIP\_DEBUGF}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+D\+E\+B\+U\+GF(\begin{DoxyParamCaption}\item[{}]{debug,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+Enable debug message printing, but only if debug message type is enabled A\+ND is of correct type A\+ND is at least L\+W\+I\+P\+\_\+\+D\+B\+G\+\_\+\+L\+E\+V\+EL. 
+
+Definition at line 164 of file debug.\+h.
+
+\mbox{\Hypertarget{debug_8h_a827bc03cd7889e7c007df39d33b33d18}\label{debug_8h_a827bc03cd7889e7c007df39d33b33d18}} 
+\index{debug.h@{debug.h}!LWIP\_ERROR@{LWIP\_ERROR}}
+\index{LWIP\_ERROR@{LWIP\_ERROR}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ERROR}{LWIP\_ERROR}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+E\+R\+R\+OR(\begin{DoxyParamCaption}\item[{}]{message,  }\item[{}]{expression,  }\item[{}]{handler }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{ \textcolor{keywordflow}{if} (!(expression)) \{ \(\backslash\)}
+\DoxyCodeLine{  LWIP\_PLATFORM\_ERROR(message); handler;\}\} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+Definition at line 135 of file debug.\+h.
+

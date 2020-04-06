@@ -1,0 +1,122 @@
+\hypertarget{struct_d_m_x512__engine__s}{}\doxysection{D\+M\+X512\+\_\+engine\+\_\+s Struct Reference}
+\label{struct_d_m_x512__engine__s}\index{DMX512\_engine\_s@{DMX512\_engine\_s}}
+
+
+Defines a D\+M\+X512 engine instance.  
+
+
+
+
+{\ttfamily \#include $<$D\+M\+X512\+\_\+engine.\+h$>$}
+
+
+
+Collaboration diagram for D\+M\+X512\+\_\+engine\+\_\+s\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_d_m_x512__engine__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}} $\ast$ \mbox{\hyperlink{struct_d_m_x512__engine__s_a204e9956dd4978b3caa3a6cf67228b44}{fixtures}}
+\item 
+\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$ \mbox{\hyperlink{struct_d_m_x512__engine__s_a7aa0e7b55b9d560629a382a290faa903}{scenes}}
+\item 
+\mbox{\hyperlink{struct_d_m_x512__chaser__pool__s}{D\+M\+X512\+\_\+chaser\+\_\+pool\+\_\+s}} $\ast$ \mbox{\hyperlink{struct_d_m_x512__engine__s_a0981734e2aeea3b5c1ef8fed0a01c0c4}{chasers}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__engine__s_a649ac5b3316593ac0932808121def0b6}{fixture\+\_\+count}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__engine__s_a7c094411c4ce1bbf332f7636a40cb185}{scene\+\_\+count}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__engine__s_a813c4496d7f0f1554d0cd54ee691047e}{chaser\+\_\+count}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__engine__s_a0feb7d84b22a61f15c758697c27a802b}{effect\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Defines a D\+M\+X512 engine instance. 
+
+Definition at line 116 of file D\+M\+X512\+\_\+engine.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_d_m_x512__engine__s_a813c4496d7f0f1554d0cd54ee691047e}\label{struct_d_m_x512__engine__s_a813c4496d7f0f1554d0cd54ee691047e}} 
+\index{DMX512\_engine\_s@{DMX512\_engine\_s}!chaser\_count@{chaser\_count}}
+\index{chaser\_count@{chaser\_count}!DMX512\_engine\_s@{DMX512\_engine\_s}}
+\doxysubsubsection{\texorpdfstring{chaser\_count}{chaser\_count}}
+{\footnotesize\ttfamily uint16\+\_\+t chaser\+\_\+count}
+
+Expected chaser count extracted from a Q\+L\+SF header 
+
+Definition at line 122 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{struct_d_m_x512__engine__s_a0981734e2aeea3b5c1ef8fed0a01c0c4}\label{struct_d_m_x512__engine__s_a0981734e2aeea3b5c1ef8fed0a01c0c4}} 
+\index{DMX512\_engine\_s@{DMX512\_engine\_s}!chasers@{chasers}}
+\index{chasers@{chasers}!DMX512\_engine\_s@{DMX512\_engine\_s}}
+\doxysubsubsection{\texorpdfstring{chasers}{chasers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__chaser__pool__s}{D\+M\+X512\+\_\+chaser\+\_\+pool\+\_\+s}}$\ast$ chasers}
+
+list of the engine\textquotesingle{}s chasers 
+
+Definition at line 119 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{struct_d_m_x512__engine__s_a0feb7d84b22a61f15c758697c27a802b}\label{struct_d_m_x512__engine__s_a0feb7d84b22a61f15c758697c27a802b}} 
+\index{DMX512\_engine\_s@{DMX512\_engine\_s}!effect\_count@{effect\_count}}
+\index{effect\_count@{effect\_count}!DMX512\_engine\_s@{DMX512\_engine\_s}}
+\doxysubsubsection{\texorpdfstring{effect\_count}{effect\_count}}
+{\footnotesize\ttfamily uint16\+\_\+t effect\+\_\+count}
+
+Expected effect count extracted from a Q\+L\+SF header 
+
+Definition at line 123 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{struct_d_m_x512__engine__s_a649ac5b3316593ac0932808121def0b6}\label{struct_d_m_x512__engine__s_a649ac5b3316593ac0932808121def0b6}} 
+\index{DMX512\_engine\_s@{DMX512\_engine\_s}!fixture\_count@{fixture\_count}}
+\index{fixture\_count@{fixture\_count}!DMX512\_engine\_s@{DMX512\_engine\_s}}
+\doxysubsubsection{\texorpdfstring{fixture\_count}{fixture\_count}}
+{\footnotesize\ttfamily uint16\+\_\+t fixture\+\_\+count}
+
+Expected fixture count extracted from a Q\+L\+SF header 
+
+Definition at line 120 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{struct_d_m_x512__engine__s_a204e9956dd4978b3caa3a6cf67228b44}\label{struct_d_m_x512__engine__s_a204e9956dd4978b3caa3a6cf67228b44}} 
+\index{DMX512\_engine\_s@{DMX512\_engine\_s}!fixtures@{fixtures}}
+\index{fixtures@{fixtures}!DMX512\_engine\_s@{DMX512\_engine\_s}}
+\doxysubsubsection{\texorpdfstring{fixtures}{fixtures}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}}$\ast$ fixtures}
+
+list of the engine\textquotesingle{}s fixtures (patch) 
+
+Definition at line 117 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{struct_d_m_x512__engine__s_a7c094411c4ce1bbf332f7636a40cb185}\label{struct_d_m_x512__engine__s_a7c094411c4ce1bbf332f7636a40cb185}} 
+\index{DMX512\_engine\_s@{DMX512\_engine\_s}!scene\_count@{scene\_count}}
+\index{scene\_count@{scene\_count}!DMX512\_engine\_s@{DMX512\_engine\_s}}
+\doxysubsubsection{\texorpdfstring{scene\_count}{scene\_count}}
+{\footnotesize\ttfamily uint16\+\_\+t scene\+\_\+count}
+
+Expected scene count extracted from a Q\+L\+SF header 
+
+Definition at line 121 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{struct_d_m_x512__engine__s_a7aa0e7b55b9d560629a382a290faa903}\label{struct_d_m_x512__engine__s_a7aa0e7b55b9d560629a382a290faa903}} 
+\index{DMX512\_engine\_s@{DMX512\_engine\_s}!scenes@{scenes}}
+\index{scenes@{scenes}!DMX512\_engine\_s@{DMX512\_engine\_s}}
+\doxysubsubsection{\texorpdfstring{scenes}{scenes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}}$\ast$ scenes}
+
+list of the engine\textquotesingle{}s scenes 
+
+Definition at line 118 of file D\+M\+X512\+\_\+engine.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.\+4/cueos/apps/\+D\+M\+X512\+\_\+engine/inc/D\+M\+X512\+\_\+engine.\+h\end{DoxyCompactItemize}

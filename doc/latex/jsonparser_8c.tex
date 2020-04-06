@@ -1,0 +1,80 @@
+\hypertarget{jsonparser_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/webapp/utils/jsonparser/src/jsonparser.c File Reference}
+\label{jsonparser_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/jsonparser/src/jsonparser.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/jsonparser/src/jsonparser.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}jsonparser.\+h\char`\"{}}\newline
+Include dependency graph for jsonparser.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jsonparser_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{jsonparser_8c_a446c7edf84e2d854cf709f6cfd4183d0}{jsonparser\+\_\+json\+\_\+string\+\_\+cat}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, char $\ast$data)
+\begin{DoxyCompactList}\small\item\em Concatenates a provided string of character to a json string instance. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{jsonparser_8c_a4182dd1caa1a680cf4366c227ae56a33}{jsonparser\+\_\+json\+\_\+string\+\_\+terminate}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Terminates json string instance by puting a N\+UL character into its last given index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga82d2ef1df30e6f56f8482d0bf24d40e4}{jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+int\+\_\+pair}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, char $\ast$key, uint16\+\_\+t val, uint8\+\_\+t is\+\_\+initial, uint8\+\_\+t is\+\_\+final)
+\begin{DoxyCompactList}\small\item\em Puts a J\+S\+ON key/(integer)value pair into a provided json string object;. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga73e9fcd4c8fe1ac1e39ad4a3b82ea6fc}{jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+str\+\_\+pair}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, char $\ast$key, char $\ast$val, uint8\+\_\+t is\+\_\+initial, uint8\+\_\+t is\+\_\+final)
+\begin{DoxyCompactList}\small\item\em Puts a J\+S\+ON key/(string)value pair into a provided json string object;. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_gac023a560ca4eb78a36b6ba0a2c5bbace}{jsonparser\+\_\+json\+\_\+string\+\_\+nest}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, char $\ast$key, \mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$nested\+\_\+json\+\_\+string, uint8\+\_\+t is\+\_\+initial, uint8\+\_\+t is\+\_\+final)
+\begin{DoxyCompactList}\small\item\em Nests a child J\+S\+ON string into a parent J\+S\+ON string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_gad66569437587bfa9d5fa36c32671398c}{jsonparser\+\_\+json\+\_\+string\+\_\+put\+\_\+array\+\_\+object}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string, \mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+object, uint8\+\_\+t is\+\_\+initial, uint8\+\_\+t is\+\_\+final)
+\begin{DoxyCompactList}\small\item\em Nests a child J\+S\+ON string into a parent J\+S\+ON array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structjsonparser__json__object__s}{jsonparser\+\_\+json\+\_\+object\+\_\+s}} $\ast$ \mbox{\hyperlink{group___j_s_o_n__parser_ga171913e44bd232c6568b3d945ef5073f}{jsonparser\+\_\+parse}} (char $\ast$json\+\_\+string, uint16\+\_\+t json\+\_\+string\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Retrieves key/value pairs from a J\+S\+ON encoded string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga2cb0ccbc3fe7d584c4a299280f702830}{jsonparser\+\_\+free\+\_\+json\+\_\+object}} (\mbox{\hyperlink{structjsonparser__json__object__s}{jsonparser\+\_\+json\+\_\+object\+\_\+s}} $\ast$json\+\_\+object)
+\begin{DoxyCompactList}\small\item\em Frees a parsed json object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$ \mbox{\hyperlink{group___j_s_o_n__parser_ga7d5de13c212ac321192dc07ea1f8826a}{jsonparser\+\_\+json\+\_\+string\+\_\+new}} (void)
+\begin{DoxyCompactList}\small\item\em Creates and initialises a new json string instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___j_s_o_n__parser_ga084da82bf0fcdc2a21f454e2d09546ed}{jsonparser\+\_\+free\+\_\+json\+\_\+string}} (\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$json\+\_\+string)
+\begin{DoxyCompactList}\small\item\em Frees a json string instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{jsonparser_8c_a446c7edf84e2d854cf709f6cfd4183d0}\label{jsonparser_8c_a446c7edf84e2d854cf709f6cfd4183d0}} 
+\index{jsonparser.c@{jsonparser.c}!jsonparser\_json\_string\_cat@{jsonparser\_json\_string\_cat}}
+\index{jsonparser\_json\_string\_cat@{jsonparser\_json\_string\_cat}!jsonparser.c@{jsonparser.c}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_json\_string\_cat()}{jsonparser\_json\_string\_cat()}}
+{\footnotesize\ttfamily static void jsonparser\+\_\+json\+\_\+string\+\_\+cat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+string,  }\item[{char $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Concatenates a provided string of character to a json string instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+string} & pointer to the J\+S\+ON string instance to be changed \\
+\hline
+{\em $\ast$data} & pointer to the string of character to be concatenated to the J\+S\+ON string instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file jsonparser.\+c.
+
+\mbox{\Hypertarget{jsonparser_8c_a4182dd1caa1a680cf4366c227ae56a33}\label{jsonparser_8c_a4182dd1caa1a680cf4366c227ae56a33}} 
+\index{jsonparser.c@{jsonparser.c}!jsonparser\_json\_string\_terminate@{jsonparser\_json\_string\_terminate}}
+\index{jsonparser\_json\_string\_terminate@{jsonparser\_json\_string\_terminate}!jsonparser.c@{jsonparser.c}}
+\doxysubsubsection{\texorpdfstring{jsonparser\_json\_string\_terminate()}{jsonparser\_json\_string\_terminate()}}
+{\footnotesize\ttfamily static void jsonparser\+\_\+json\+\_\+string\+\_\+terminate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structjsonparser__json__string__s}{jsonparser\+\_\+json\+\_\+string\+\_\+s}} $\ast$}]{json\+\_\+string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Terminates json string instance by puting a N\+UL character into its last given index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$json\+\_\+string} & pointer to the J\+S\+ON string instance to be terminated \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file jsonparser.\+c.
+

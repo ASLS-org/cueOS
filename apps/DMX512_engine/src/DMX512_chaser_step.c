@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Dependencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependencies declarations as possible
  *=============================================================================================================================*/
@@ -11,14 +11,12 @@
 #include "DMX512_chaser_step.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_chaser_step
- * @fn _DMX512_step_fadein
  * @brief Sets a chaser step's fixtures channel values to their predefined preset values according to time
  *
  * @param this the chaser step instance to be faded in
@@ -41,8 +39,6 @@ static void _DMX512_step_fadein(DMX512_chaser_step_s *this){
 }
 
 /**
- * @ingroup DMX512_chaser_step
- * @fn _DMX512_step_hold
  * @brief Holds a chaser step's faded in values during a certain amount of time
  *
  * @param this the chaser step instance to be held
@@ -54,8 +50,6 @@ static void _DMX512_step_hold(DMX512_chaser_step_s *this){
 }
 
 /**
- * @ingroup DMX512_chaser_step
- * @fn _DMX512_step_fadeout
  * @brief Sets a chaser step's fixtures channel values to their "OFF" values according to time
  *
  * @param this the chaser step instance to be faded out
@@ -78,15 +72,12 @@ static void _DMX512_step_fadeout(DMX512_chaser_step_s *this){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
- * @see DMX512_chaser.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_chaser_step
- * @fn DMX512_chaser_step_init
  * @brief Creates a new chaser step instance
  *
  * @param *scene pointer to the scene instance to be referenced
@@ -112,8 +103,6 @@ DMX512_chaser_step_s DMX512_chaser_step_init(DMX512_scene_s *scene, uint16_t fad
 }
 
 /**
- * @ingroup DMX512_chaser_step
- * @fn DMX512_chaser_step_manage
  * @brief Chaser step state machine. Manage a chaser step's state over time.
  *
  * @param this the chaser step instance to be held
@@ -128,8 +117,6 @@ void DMX512_chaser_step_manage(DMX512_chaser_step_s *this){
 }
 
 /**
- * @ingroup DMX512_chaser_step
- * @fn DMX512_chaser_step_start
  * @brief Starts a chaser step by assigning it to its fade_in state.
  *
  * @param this the chaser step instance to be started
@@ -140,8 +127,6 @@ void DMX512_chaser_step_start(DMX512_chaser_step_s *this){
 }
 
 /**
- * @ingroup DMX512_chaser_step
- * @fn DMX512_chaser_step_stop
  * @brief Stops a chaser step by assigning it to its idle state.
  *
  * @param this the chaser step instance to be stopped

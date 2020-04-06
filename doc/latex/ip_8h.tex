@@ -1,0 +1,238 @@
+\hypertarget{ip_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/ip.h File Reference}
+\label{ip_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/ip.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/ip.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip\+\_\+addr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/netif.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip4.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/prot/ip.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structip__pcb}{ip\+\_\+pcb}}
+\item 
+struct \mbox{\hyperlink{structip__globals}{ip\+\_\+globals}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ip_8h_a2b7dff1859ced5f2be3fc3da231819d7}\label{ip_8h_a2b7dff1859ced5f2be3fc3da231819d7}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+I\+P\+\_\+\+H\+D\+R\+I\+N\+CL}~N\+U\+LL
+\item 
+\#define \mbox{\hyperlink{ip_8h_a355679dba1c0d8ef07ce3abcd28e3063}{L\+W\+I\+P\+\_\+\+I\+P\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+B\+U\+F\+\_\+\+R\+E\+F\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+O\+R\+\_\+\+TX}}(p)~L\+W\+I\+P\+\_\+\+A\+S\+S\+E\+RT(\char`\"{}p-\/$>$ref == 1\char`\"{}, (p)-\/$>$ref == 1)
+\item 
+\mbox{\Hypertarget{ip_8h_a19a7497f9c87e25b66382e1b92f56382}\label{ip_8h_a19a7497f9c87e25b66382e1b92f56382}} 
+\#define {\bfseries I\+P\+\_\+\+P\+C\+B\+\_\+\+A\+D\+D\+R\+H\+I\+NT}
+\item 
+\#define \mbox{\hyperlink{ip_8h_a8bdf4b5f674375e76cdd968826d80e53}{I\+P\+\_\+\+P\+CB}}
+\item 
+\mbox{\Hypertarget{ip_8h_aa40b3366a7939ec3a60e9a7d239575e2}\label{ip_8h_aa40b3366a7939ec3a60e9a7d239575e2}} 
+\#define {\bfseries S\+O\+F\+\_\+\+R\+E\+U\+S\+E\+A\+D\+DR}~0x04U  /$\ast$ allow local address reuse $\ast$/
+\item 
+\mbox{\Hypertarget{ip_8h_a1f7f7efb095c77c06af5c5e8ba558d45}\label{ip_8h_a1f7f7efb095c77c06af5c5e8ba558d45}} 
+\#define {\bfseries S\+O\+F\+\_\+\+K\+E\+E\+P\+A\+L\+I\+VE}~0x08U  /$\ast$ keep connections alive $\ast$/
+\item 
+\mbox{\Hypertarget{ip_8h_ac8c7ccdad2d7d3a264bd8cfc57140ca8}\label{ip_8h_ac8c7ccdad2d7d3a264bd8cfc57140ca8}} 
+\#define {\bfseries S\+O\+F\+\_\+\+B\+R\+O\+A\+D\+C\+A\+ST}~0x20U  /$\ast$ permit to send and to receive broadcast messages (see \mbox{\hyperlink{group__lwip__opts__ipv4_ga0b2c993fd940f5774108298933310384}{I\+P\+\_\+\+S\+O\+F\+\_\+\+B\+R\+O\+A\+D\+C\+A\+ST}} option) $\ast$/
+\item 
+\mbox{\Hypertarget{ip_8h_ae4bbdf8a2e757d758ec0e1c91b58893f}\label{ip_8h_ae4bbdf8a2e757d758ec0e1c91b58893f}} 
+\#define {\bfseries S\+O\+F\+\_\+\+I\+N\+H\+E\+R\+I\+T\+ED}~(S\+O\+F\+\_\+\+R\+E\+U\+S\+E\+A\+D\+DR$\vert$S\+O\+F\+\_\+\+K\+E\+E\+P\+A\+L\+I\+VE)
+\item 
+\#define \mbox{\hyperlink{ip_8h_aabecef3c7653a9767c79245c44fcab9f}{ip\+\_\+current\+\_\+netif}}()~(ip\+\_\+data.\+current\+\_\+netif)
+\item 
+\#define \mbox{\hyperlink{ip_8h_ae214afa9d3f1b26fc8d538436b8fa3c4}{ip\+\_\+current\+\_\+input\+\_\+netif}}()~(ip\+\_\+data.\+current\+\_\+input\+\_\+netif)
+\item 
+\#define \mbox{\hyperlink{ip_8h_a2ca15ea285a10982294378cd7b8e83e2}{ip\+\_\+current\+\_\+header\+\_\+tot\+\_\+len}}()~(ip\+\_\+data.\+current\+\_\+ip\+\_\+header\+\_\+tot\+\_\+len)
+\item 
+\#define \mbox{\hyperlink{ip_8h_a4e35b7692c228c98e738892f0a215647}{ip\+\_\+current\+\_\+src\+\_\+addr}}()~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+src)
+\item 
+\#define \mbox{\hyperlink{ip_8h_a9135977868017c3deeec86b525e13997}{ip\+\_\+current\+\_\+dest\+\_\+addr}}()~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+dest)
+\item 
+\#define \mbox{\hyperlink{ip_8h_a4e35b7692c228c98e738892f0a215647}{ip\+\_\+current\+\_\+src\+\_\+addr}}()~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+src)
+\item 
+\#define \mbox{\hyperlink{ip_8h_a9135977868017c3deeec86b525e13997}{ip\+\_\+current\+\_\+dest\+\_\+addr}}()~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+dest)
+\item 
+\#define \mbox{\hyperlink{ip_8h_a26e077f52de4a97ff89c02415c084518}{ip\+\_\+get\+\_\+option}}(pcb,  opt)~((pcb)-\/$>$so\+\_\+options \& (opt))
+\item 
+\#define \mbox{\hyperlink{ip_8h_a13f48cf825c7f074dc05bea54e9d6a93}{ip\+\_\+set\+\_\+option}}(pcb,  opt)~((pcb)-\/$>$so\+\_\+options $\vert$= (opt))
+\item 
+\#define \mbox{\hyperlink{ip_8h_a441c63f00c4b0cb69fc34ca6b55307cc}{ip\+\_\+reset\+\_\+option}}(pcb,  opt)~((pcb)-\/$>$so\+\_\+options \&= $\sim$(opt))
+\item 
+\#define {\bfseries ip\+\_\+route\+\_\+get\+\_\+local\+\_\+ip}(src,  dest,  \mbox{\hyperlink{structnetif}{netif}},  ipaddr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ip_8h_ac944fb6564f181bc90bc7c2b8b00d94c}\label{ip_8h_ac944fb6564f181bc90bc7c2b8b00d94c}} 
+struct \mbox{\hyperlink{structip__globals}{ip\+\_\+globals}} {\bfseries ip\+\_\+data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+IP A\+PI 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ip_8h_a9135977868017c3deeec86b525e13997}\label{ip_8h_a9135977868017c3deeec86b525e13997}} 
+\index{ip.h@{ip.h}!ip\_current\_dest\_addr@{ip\_current\_dest\_addr}}
+\index{ip\_current\_dest\_addr@{ip\_current\_dest\_addr}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_current\_dest\_addr}{ip\_current\_dest\_addr}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define ip\+\_\+current\+\_\+dest\+\_\+addr(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+dest)}
+
+Destination IP address of current\+\_\+header
+
+Union destination address of current\+\_\+header 
+
+Definition at line 212 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a9135977868017c3deeec86b525e13997}\label{ip_8h_a9135977868017c3deeec86b525e13997}} 
+\index{ip.h@{ip.h}!ip\_current\_dest\_addr@{ip\_current\_dest\_addr}}
+\index{ip\_current\_dest\_addr@{ip\_current\_dest\_addr}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_current\_dest\_addr}{ip\_current\_dest\_addr}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define ip\+\_\+current\+\_\+dest\+\_\+addr(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+dest)}
+
+Destination IP address of current\+\_\+header
+
+Union destination address of current\+\_\+header 
+
+Definition at line 212 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a2ca15ea285a10982294378cd7b8e83e2}\label{ip_8h_a2ca15ea285a10982294378cd7b8e83e2}} 
+\index{ip.h@{ip.h}!ip\_current\_header\_tot\_len@{ip\_current\_header\_tot\_len}}
+\index{ip\_current\_header\_tot\_len@{ip\_current\_header\_tot\_len}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_current\_header\_tot\_len}{ip\_current\_header\_tot\_len}}
+{\footnotesize\ttfamily \#define ip\+\_\+current\+\_\+header\+\_\+tot\+\_\+len(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(ip\+\_\+data.\+current\+\_\+ip\+\_\+header\+\_\+tot\+\_\+len)}
+
+Total header length of ip(6)\+\_\+current\+\_\+header() (i.\+e. after this, the U\+D\+P/\+T\+CP header starts) 
+
+Definition at line 139 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_ae214afa9d3f1b26fc8d538436b8fa3c4}\label{ip_8h_ae214afa9d3f1b26fc8d538436b8fa3c4}} 
+\index{ip.h@{ip.h}!ip\_current\_input\_netif@{ip\_current\_input\_netif}}
+\index{ip\_current\_input\_netif@{ip\_current\_input\_netif}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_current\_input\_netif}{ip\_current\_input\_netif}}
+{\footnotesize\ttfamily \#define ip\+\_\+current\+\_\+input\+\_\+netif(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(ip\+\_\+data.\+current\+\_\+input\+\_\+netif)}
+
+Get the interface that received the current packet. This function must only be called from a receive callback (udp\+\_\+recv, raw\+\_\+recv, tcp\+\_\+accept). It will return N\+U\+LL otherwise. 
+
+Definition at line 137 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_aabecef3c7653a9767c79245c44fcab9f}\label{ip_8h_aabecef3c7653a9767c79245c44fcab9f}} 
+\index{ip.h@{ip.h}!ip\_current\_netif@{ip\_current\_netif}}
+\index{ip\_current\_netif@{ip\_current\_netif}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_current\_netif}{ip\_current\_netif}}
+{\footnotesize\ttfamily \#define ip\+\_\+current\+\_\+netif(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(ip\+\_\+data.\+current\+\_\+netif)}
+
+Get the interface that accepted the current packet. This may or may not be the receiving netif, depending on your netif/network setup. This function must only be called from a receive callback (udp\+\_\+recv, raw\+\_\+recv, tcp\+\_\+accept). It will return N\+U\+LL otherwise. 
+
+Definition at line 133 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a4e35b7692c228c98e738892f0a215647}\label{ip_8h_a4e35b7692c228c98e738892f0a215647}} 
+\index{ip.h@{ip.h}!ip\_current\_src\_addr@{ip\_current\_src\_addr}}
+\index{ip\_current\_src\_addr@{ip\_current\_src\_addr}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_current\_src\_addr}{ip\_current\_src\_addr}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define ip\+\_\+current\+\_\+src\+\_\+addr(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+src)}
+
+Source IP address of current\+\_\+header
+
+Union source address of current\+\_\+header 
+
+Definition at line 210 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a4e35b7692c228c98e738892f0a215647}\label{ip_8h_a4e35b7692c228c98e738892f0a215647}} 
+\index{ip.h@{ip.h}!ip\_current\_src\_addr@{ip\_current\_src\_addr}}
+\index{ip\_current\_src\_addr@{ip\_current\_src\_addr}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_current\_src\_addr}{ip\_current\_src\_addr}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define ip\+\_\+current\+\_\+src\+\_\+addr(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~(\&ip\+\_\+data.\+current\+\_\+iphdr\+\_\+src)}
+
+Source IP address of current\+\_\+header
+
+Union source address of current\+\_\+header 
+
+Definition at line 210 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a26e077f52de4a97ff89c02415c084518}\label{ip_8h_a26e077f52de4a97ff89c02415c084518}} 
+\index{ip.h@{ip.h}!ip\_get\_option@{ip\_get\_option}}
+\index{ip\_get\_option@{ip\_get\_option}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_get\_option}{ip\_get\_option}}
+{\footnotesize\ttfamily \#define ip\+\_\+get\+\_\+option(\begin{DoxyParamCaption}\item[{}]{pcb,  }\item[{}]{opt }\end{DoxyParamCaption})~((pcb)-\/$>$so\+\_\+options \& (opt))}
+
+Gets an IP pcb option (S\+O\+F\+\_\+$\ast$ flags) 
+
+Definition at line 215 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a8bdf4b5f674375e76cdd968826d80e53}\label{ip_8h_a8bdf4b5f674375e76cdd968826d80e53}} 
+\index{ip.h@{ip.h}!IP\_PCB@{IP\_PCB}}
+\index{IP\_PCB@{IP\_PCB}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{IP\_PCB}{IP\_PCB}}
+{\footnotesize\ttfamily \#define I\+P\+\_\+\+P\+CB}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/* ip addresses in network byte order */} \(\backslash\)}
+\DoxyCodeLine{  ip\_addr\_t local\_ip; \(\backslash\)}
+\DoxyCodeLine{  ip\_addr\_t remote\_ip; \(\backslash\)}
+\DoxyCodeLine{   \textcolor{comment}{/* Socket options */}  \(\backslash\)}
+\DoxyCodeLine{  u8\_t so\_options;      \(\backslash\)}
+\DoxyCodeLine{   \textcolor{comment}{/* Type Of Service */} \(\backslash\)}
+\DoxyCodeLine{  u8\_t tos;              \(\backslash\)}
+\DoxyCodeLine{  \textcolor{comment}{/* Time To Live */}     \(\backslash\)}
+\DoxyCodeLine{  u8\_t ttl               \(\backslash\)}
+\DoxyCodeLine{  \textcolor{comment}{/* link layer address resolution hint */} \(\backslash\)}
+\DoxyCodeLine{  IP\_PCB\_ADDRHINT}
+
+\end{DoxyCode}
+This is the common part of all P\+CB types. It needs to be at the beginning of a P\+CB type definition. It is located here so that changes to this common part are made in one location instead of having to change all P\+CB structs. 
+
+Definition at line 76 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a441c63f00c4b0cb69fc34ca6b55307cc}\label{ip_8h_a441c63f00c4b0cb69fc34ca6b55307cc}} 
+\index{ip.h@{ip.h}!ip\_reset\_option@{ip\_reset\_option}}
+\index{ip\_reset\_option@{ip\_reset\_option}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_reset\_option}{ip\_reset\_option}}
+{\footnotesize\ttfamily \#define ip\+\_\+reset\+\_\+option(\begin{DoxyParamCaption}\item[{}]{pcb,  }\item[{}]{opt }\end{DoxyParamCaption})~((pcb)-\/$>$so\+\_\+options \&= $\sim$(opt))}
+
+Resets an IP pcb option (S\+O\+F\+\_\+$\ast$ flags) 
+
+Definition at line 219 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_ae392fc1ebc42a4b08f73d42c04089be9}\label{ip_8h_ae392fc1ebc42a4b08f73d42c04089be9}} 
+\index{ip.h@{ip.h}!ip\_route\_get\_local\_ip@{ip\_route\_get\_local\_ip}}
+\index{ip\_route\_get\_local\_ip@{ip\_route\_get\_local\_ip}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_route\_get\_local\_ip}{ip\_route\_get\_local\_ip}}
+{\footnotesize\ttfamily \#define ip\+\_\+route\+\_\+get\+\_\+local\+\_\+ip(\begin{DoxyParamCaption}\item[{}]{src,  }\item[{}]{dest,  }\item[{}]{\mbox{\hyperlink{structnetif}{netif}},  }\item[{}]{ipaddr }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{  (\mbox{\hyperlink{structnetif}{netif}}) = ip\_route(src, dest); \(\backslash\)}
+\DoxyCodeLine{  (ipaddr) = ip\_netif\_get\_local\_ip(\mbox{\hyperlink{structnetif}{netif}}, dest); \(\backslash\)}
+\DoxyCodeLine{\}\textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+Definition at line 308 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a13f48cf825c7f074dc05bea54e9d6a93}\label{ip_8h_a13f48cf825c7f074dc05bea54e9d6a93}} 
+\index{ip.h@{ip.h}!ip\_set\_option@{ip\_set\_option}}
+\index{ip\_set\_option@{ip\_set\_option}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{ip\_set\_option}{ip\_set\_option}}
+{\footnotesize\ttfamily \#define ip\+\_\+set\+\_\+option(\begin{DoxyParamCaption}\item[{}]{pcb,  }\item[{}]{opt }\end{DoxyParamCaption})~((pcb)-\/$>$so\+\_\+options $\vert$= (opt))}
+
+Sets an IP pcb option (S\+O\+F\+\_\+$\ast$ flags) 
+
+Definition at line 217 of file ip.\+h.
+
+\mbox{\Hypertarget{ip_8h_a355679dba1c0d8ef07ce3abcd28e3063}\label{ip_8h_a355679dba1c0d8ef07ce3abcd28e3063}} 
+\index{ip.h@{ip.h}!LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX@{LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX}}
+\index{LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX@{LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX}{LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX}}
+{\footnotesize\ttfamily \#define L\+W\+I\+P\+\_\+\+I\+P\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+B\+U\+F\+\_\+\+R\+E\+F\+\_\+\+C\+O\+U\+N\+T\+\_\+\+F\+O\+R\+\_\+\+TX(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~L\+W\+I\+P\+\_\+\+A\+S\+S\+E\+RT(\char`\"{}p-\/$>$ref == 1\char`\"{}, (p)-\/$>$ref == 1)}
+
+pbufs passed to IP must have a ref-\/count of 1 as their payload pointer gets altered as the packet is passed down the stack 
+
+Definition at line 63 of file ip.\+h.
+

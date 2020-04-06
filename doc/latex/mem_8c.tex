@@ -1,0 +1,198 @@
+\hypertarget{mem_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/src/core/mem.c File Reference}
+\label{mem_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/mem.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/mem.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for mem.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mem_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmem}{mem}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mem_8c_a278694c2333c9826f21ddd2c2d220f66}{M\+I\+N\+\_\+\+S\+I\+ZE}}~12
+\item 
+\mbox{\Hypertarget{mem_8c_a97c704b85f71b6e61b0098b4a0a743cd}\label{mem_8c_a97c704b85f71b6e61b0098b4a0a743cd}} 
+\#define {\bfseries M\+I\+N\+\_\+\+S\+I\+Z\+E\+\_\+\+A\+L\+I\+G\+N\+ED}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE}}(\mbox{\hyperlink{mem_8c_a278694c2333c9826f21ddd2c2d220f66}{M\+I\+N\+\_\+\+S\+I\+ZE}})
+\item 
+\mbox{\Hypertarget{mem_8c_ade9cedd48e9a482120e29c010352ee5c}\label{mem_8c_ade9cedd48e9a482120e29c010352ee5c}} 
+\#define {\bfseries S\+I\+Z\+E\+O\+F\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+M\+EM}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE}}(sizeof(struct \mbox{\hyperlink{structmem}{mem}}))
+\item 
+\mbox{\Hypertarget{mem_8c_a78ed2097d5d3e2ca4599b2ca3d91493a}\label{mem_8c_a78ed2097d5d3e2ca4599b2ca3d91493a}} 
+\#define {\bfseries M\+E\+M\+\_\+\+S\+I\+Z\+E\+\_\+\+A\+L\+I\+G\+N\+ED}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE}}(\mbox{\hyperlink{group__lwip__opts__mem_ga2dcf8c45f945dd0c4301a94700f2112c}{M\+E\+M\+\_\+\+S\+I\+ZE}})
+\item 
+\mbox{\Hypertarget{mem_8c_a4fa8ffb4c7a8b4c0404ad4278cc801d0}\label{mem_8c_a4fa8ffb4c7a8b4c0404ad4278cc801d0}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+R\+A\+M\+\_\+\+H\+E\+A\+P\+\_\+\+P\+O\+I\+N\+T\+ER}~ram\+\_\+heap
+\item 
+\mbox{\Hypertarget{mem_8c_a581c4edded02d92caf7a938c801a618e}\label{mem_8c_a581c4edded02d92caf7a938c801a618e}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+F\+R\+E\+E\+\_\+\+D\+E\+C\+L\+\_\+\+P\+R\+O\+T\+E\+CT}()
+\item 
+\mbox{\Hypertarget{mem_8c_aef413072690259b59ce27e49df19e307}\label{mem_8c_aef413072690259b59ce27e49df19e307}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+F\+R\+E\+E\+\_\+\+P\+R\+O\+T\+E\+CT}()~\mbox{\hyperlink{group__sys__mutex_ga4d4eb9afe5965fa2661dd54ff55d616a}{sys\+\_\+mutex\+\_\+lock}}(\&mem\+\_\+mutex)
+\item 
+\mbox{\Hypertarget{mem_8c_aa8a24c0593943bb1e64c1243dddfae50}\label{mem_8c_aa8a24c0593943bb1e64c1243dddfae50}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+F\+R\+E\+E\+\_\+\+U\+N\+P\+R\+O\+T\+E\+CT}()~\mbox{\hyperlink{group__sys__mutex_ga5568f68898fe9d5735f9ce2f665624fb}{sys\+\_\+mutex\+\_\+unlock}}(\&mem\+\_\+mutex)
+\item 
+\mbox{\Hypertarget{mem_8c_a016a07ea84e1d75386765b90015b6698}\label{mem_8c_a016a07ea84e1d75386765b90015b6698}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+L\+O\+C\+\_\+\+D\+E\+C\+L\+\_\+\+P\+R\+O\+T\+E\+CT}()
+\item 
+\mbox{\Hypertarget{mem_8c_a3c644ac3ac94ed977bb165eeb6ff741a}\label{mem_8c_a3c644ac3ac94ed977bb165eeb6ff741a}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+L\+O\+C\+\_\+\+P\+R\+O\+T\+E\+CT}()
+\item 
+\mbox{\Hypertarget{mem_8c_af0643ce3aa197952517914e1d644150a}\label{mem_8c_af0643ce3aa197952517914e1d644150a}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+L\+O\+C\+\_\+\+U\+N\+P\+R\+O\+T\+E\+CT}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mem_8c_a4efff8c25f955c6a771793812bfc0cf4}{L\+W\+I\+P\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+\+A\+L\+I\+G\+N\+ED}} (ram\+\_\+heap, M\+E\+M\+\_\+\+S\+I\+Z\+E\+\_\+\+A\+L\+I\+G\+N\+ED+(2U $\ast$S\+I\+Z\+E\+O\+F\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+M\+EM))
+\item 
+void \mbox{\hyperlink{mem_8c_a44a136e3b70c36abb6f8dc060c778113}{mem\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{mem_8c_a65169147c44e9db60d997819af9b455c}{mem\+\_\+free}} (void $\ast$rmem)
+\item 
+void $\ast$ \mbox{\hyperlink{mem_8c_a2f0214c1c0d4acf856fb3ec76818a5a9}{mem\+\_\+trim}} (void $\ast$rmem, mem\+\_\+size\+\_\+t newsize)
+\item 
+void $\ast$ \mbox{\hyperlink{mem_8c_a932aa40d85b14cb7331625e012d12335}{mem\+\_\+malloc}} (mem\+\_\+size\+\_\+t size)
+\item 
+void $\ast$ \mbox{\hyperlink{mem_8c_ab0bdc525971701883f2065e7fb257a24}{mem\+\_\+calloc}} (mem\+\_\+size\+\_\+t count, mem\+\_\+size\+\_\+t size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Dynamic memory manager
+
+This is a lightweight replacement for the standard C library malloc().
+
+If you want to use the standard C library malloc() instead, define M\+E\+M\+\_\+\+L\+I\+B\+C\+\_\+\+M\+A\+L\+L\+OC to 1 in your \mbox{\hyperlink{lwipopts_8h_source}{lwipopts.\+h}}
+
+To let \mbox{\hyperlink{mem_8c_a932aa40d85b14cb7331625e012d12335}{mem\+\_\+malloc()}} use pools (prevents fragmentation and is much faster than a heap but might waste some memory), define M\+E\+M\+\_\+\+U\+S\+E\+\_\+\+P\+O\+O\+LS to 1, define M\+E\+M\+P\+\_\+\+U\+S\+E\+\_\+\+C\+U\+S\+T\+O\+M\+\_\+\+P\+O\+O\+LS to 1 and create a file \char`\"{}lwippools.\+h\char`\"{} that includes a list of pools like this (more pools can be added between \+\_\+\+S\+T\+A\+RT and \+\_\+\+E\+ND)\+:
+
+Define three pools with sizes 256, 512, and 1512 bytes L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+S\+T\+A\+RT L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+O\+L(20, 256) L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+O\+L(10, 512) L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+O\+L(5, 1512) L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+E\+ND 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{mem_8c_a278694c2333c9826f21ddd2c2d220f66}\label{mem_8c_a278694c2333c9826f21ddd2c2d220f66}} 
+\index{mem.c@{mem.c}!MIN\_SIZE@{MIN\_SIZE}}
+\index{MIN\_SIZE@{MIN\_SIZE}!mem.c@{mem.c}}
+\doxysubsubsection{\texorpdfstring{MIN\_SIZE}{MIN\_SIZE}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+S\+I\+ZE~12}
+
+All allocated blocks will be M\+I\+N\+\_\+\+S\+I\+ZE bytes big, at least! M\+I\+N\+\_\+\+S\+I\+ZE can be overridden to suit your needs. Smaller values save space, larger values could prevent too small blocks to fragment the R\+AM too much. 
+
+Definition at line 277 of file mem.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mem_8c_a4efff8c25f955c6a771793812bfc0cf4}\label{mem_8c_a4efff8c25f955c6a771793812bfc0cf4}} 
+\index{mem.c@{mem.c}!LWIP\_DECLARE\_MEMORY\_ALIGNED@{LWIP\_DECLARE\_MEMORY\_ALIGNED}}
+\index{LWIP\_DECLARE\_MEMORY\_ALIGNED@{LWIP\_DECLARE\_MEMORY\_ALIGNED}!mem.c@{mem.c}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DECLARE\_MEMORY\_ALIGNED()}{LWIP\_DECLARE\_MEMORY\_ALIGNED()}}
+{\footnotesize\ttfamily L\+W\+I\+P\+\_\+\+D\+E\+C\+L\+A\+R\+E\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+\+A\+L\+I\+G\+N\+ED (\begin{DoxyParamCaption}\item[{ram\+\_\+heap}]{,  }\item[{M\+E\+M\+\_\+\+S\+I\+Z\+E\+\_\+\+A\+L\+I\+G\+N\+ED+}]{2\+U $\ast$\+S\+I\+Z\+E\+O\+F\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+M\+EM }\end{DoxyParamCaption})}
+
+If you want to relocate the heap to external memory, simply define L\+W\+I\+P\+\_\+\+R\+A\+M\+\_\+\+H\+E\+A\+P\+\_\+\+P\+O\+I\+N\+T\+ER as a void-\/pointer to that location. If so, make sure the memory at that location is big enough (see below on how that space is calculated). the heap. we need one struct mem at the end and some room for alignment \mbox{\Hypertarget{mem_8c_ab0bdc525971701883f2065e7fb257a24}\label{mem_8c_ab0bdc525971701883f2065e7fb257a24}} 
+\index{mem.c@{mem.c}!mem\_calloc@{mem\_calloc}}
+\index{mem\_calloc@{mem\_calloc}!mem.c@{mem.c}}
+\doxysubsubsection{\texorpdfstring{mem\_calloc()}{mem\_calloc()}}
+{\footnotesize\ttfamily void$\ast$ mem\+\_\+calloc (\begin{DoxyParamCaption}\item[{mem\+\_\+size\+\_\+t}]{count,  }\item[{mem\+\_\+size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Contiguously allocates enough space for count objects that are size bytes of memory each and returns a pointer to the allocated memory.
+
+The allocated memory is filled with bytes of value zero.
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & number of objects to allocate \\
+\hline
+{\em size} & size of the objects to allocate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to allocated memory / N\+U\+LL pointer if there is an error 
+\end{DoxyReturn}
+
+
+Definition at line 765 of file mem.\+c.
+
+\mbox{\Hypertarget{mem_8c_a65169147c44e9db60d997819af9b455c}\label{mem_8c_a65169147c44e9db60d997819af9b455c}} 
+\index{mem.c@{mem.c}!mem\_free@{mem\_free}}
+\index{mem\_free@{mem\_free}!mem.c@{mem.c}}
+\doxysubsubsection{\texorpdfstring{mem\_free()}{mem\_free()}}
+{\footnotesize\ttfamily void mem\+\_\+free (\begin{DoxyParamCaption}\item[{void $\ast$}]{rmem }\end{DoxyParamCaption})}
+
+Put a struct mem back on the heap
+
+
+\begin{DoxyParams}{Parameters}
+{\em rmem} & is the data portion of a struct mem as returned by a previous call to \mbox{\hyperlink{mem_8c_a932aa40d85b14cb7331625e012d12335}{mem\+\_\+malloc()}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 419 of file mem.\+c.
+
+\mbox{\Hypertarget{mem_8c_a44a136e3b70c36abb6f8dc060c778113}\label{mem_8c_a44a136e3b70c36abb6f8dc060c778113}} 
+\index{mem.c@{mem.c}!mem\_init@{mem\_init}}
+\index{mem\_init@{mem\_init}!mem.c@{mem.c}}
+\doxysubsubsection{\texorpdfstring{mem\_init()}{mem\_init()}}
+{\footnotesize\ttfamily void mem\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Zero the heap and initialize start, end and lowest-\/free 
+
+Definition at line 382 of file mem.\+c.
+
+\mbox{\Hypertarget{mem_8c_a932aa40d85b14cb7331625e012d12335}\label{mem_8c_a932aa40d85b14cb7331625e012d12335}} 
+\index{mem.c@{mem.c}!mem\_malloc@{mem\_malloc}}
+\index{mem\_malloc@{mem\_malloc}!mem.c@{mem.c}}
+\doxysubsubsection{\texorpdfstring{mem\_malloc()}{mem\_malloc()}}
+{\footnotesize\ttfamily void$\ast$ mem\+\_\+malloc (\begin{DoxyParamCaption}\item[{mem\+\_\+size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Allocate a block of memory with a minimum of \textquotesingle{}size\textquotesingle{} bytes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & is the minimum size of the requested block in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to allocated memory or N\+U\+LL if no free memory was found.
+\end{DoxyReturn}
+Note that the returned value will always be aligned (as defined by M\+E\+M\+\_\+\+A\+L\+I\+G\+N\+M\+E\+NT). 
+
+Definition at line 603 of file mem.\+c.
+
+\mbox{\Hypertarget{mem_8c_a2f0214c1c0d4acf856fb3ec76818a5a9}\label{mem_8c_a2f0214c1c0d4acf856fb3ec76818a5a9}} 
+\index{mem.c@{mem.c}!mem\_trim@{mem\_trim}}
+\index{mem\_trim@{mem\_trim}!mem.c@{mem.c}}
+\doxysubsubsection{\texorpdfstring{mem\_trim()}{mem\_trim()}}
+{\footnotesize\ttfamily void$\ast$ mem\+\_\+trim (\begin{DoxyParamCaption}\item[{void $\ast$}]{rmem,  }\item[{mem\+\_\+size\+\_\+t}]{newsize }\end{DoxyParamCaption})}
+
+Shrink memory returned by \mbox{\hyperlink{mem_8c_a932aa40d85b14cb7331625e012d12335}{mem\+\_\+malloc()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rmem} & pointer to memory allocated by mem\+\_\+malloc the is to be shrinked \\
+\hline
+{\em newsize} & required size after shrinking (needs to be smaller than or equal to the previous size) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+for compatibility reasons\+: is always == rmem, at the moment or N\+U\+LL if newsize is $>$ old size, in which case rmem is N\+OT touched or freed! 
+\end{DoxyReturn}
+
+
+Definition at line 478 of file mem.\+c.
+

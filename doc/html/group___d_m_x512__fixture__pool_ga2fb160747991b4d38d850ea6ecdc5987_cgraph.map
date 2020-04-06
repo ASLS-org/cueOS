@@ -1,0 +1,4 @@
+<map id="DMX512_fixture_pool_del" name="DMX512_fixture_pool_del">
+<area shape="rect" id="node1" title="Deletes a fixture instance from the pool." alt="" coords="5,13,176,39"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__fixture__pool.html#gaf090f5b2bf3ea4aaeeab2de32f256812" title="Finds the array index of a fixture." alt="" coords="224,5,379,47"/>
+</map>

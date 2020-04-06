@@ -1,0 +1,25 @@
+\hypertarget{group__netconn}{}\doxysection{Netconn A\+PI}
+\label{group__netconn}\index{Netconn API@{Netconn API}}
+Collaboration diagram for Netconn A\+PI\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{group__netconn}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__netconn__common}{Common functions}}
+\item 
+\mbox{\hyperlink{group__netconn__tcp}{T\+C\+P only}}
+\item 
+\mbox{\hyperlink{group__netconn__udp}{U\+D\+P only}}
+\item 
+\mbox{\hyperlink{group__netbuf}{Network buffers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread-\/safe, to be called from non-\/\+T\+C\+P\+IP threads only. T\+X/\+RX handling based on \mbox{\hyperlink{group__netbuf}{Network buffers}} (containing \mbox{\hyperlink{group__pbuf}{Packet buffers (P\+B\+UF)}}) to avoid copying data around. 

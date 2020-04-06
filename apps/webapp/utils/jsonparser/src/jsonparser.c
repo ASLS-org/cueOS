@@ -1,21 +1,21 @@
-/**============================================================================================================================
- * Depedencies inclusion
+/***============================================================================================================================
+ * Dependencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
 
+#include <stdlib.h>
 #include <string.h>
 #include "cmsis_os.h"
 #include "jsonparser.h"
-#include <stdlib.h>
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * Concatenates a provided string of character to a json string instance
+ * @brief Concatenates a provided string of character to a json string instance
  *
  * @param *json_string pointer to the JSON string instance to be changed
  * @param *data pointer to the string of character to be concatenated to the JSON string instance
@@ -28,7 +28,7 @@ static void jsonparser_json_string_cat(jsonparser_json_string_s *json_string, ch
 }
 
 /**
- * Terminates json string instance by puting a NUL character into its last given index
+ * @brief Terminates json string instance by puting a NUL character into its last given index
  *
  * @param *json_string pointer to the JSON string instance to be terminated
  */
@@ -38,14 +38,14 @@ static void jsonparser_json_string_terminate(jsonparser_json_string_s *json_stri
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see jsonparser.h for declarations
  *=============================================================================================================================*/
 
 /**
- * Puts a JSON key/(integer)value pair into a provided json string object;
+ * @brief Puts a JSON key/(integer)value pair into a provided json string object;
  *
  * @param *json_string pointer to a json string instance
  * @param *key pointer to the JSON key string
@@ -78,7 +78,7 @@ void jsonparser_json_string_put_int_pair(jsonparser_json_string_s *json_string, 
 }
 
 /**
- * Puts a JSON key/(string)value pair into a provided json string object;
+ * @brief Puts a JSON key/(string)value pair into a provided json string object;
  *
  * @param *json_string pointer to a json string instance
  * @param *key pointer to the JSON key string
@@ -110,7 +110,7 @@ void jsonparser_json_string_put_str_pair(jsonparser_json_string_s *json_string, 
 }
 
 /**
- * Nests a child JSON string into a parent JSON string
+ * @brief Nests a child JSON string into a parent JSON string
  *
  * @param *json_string pointer to a json string instance
  * @param *key pointer to the JSON key string
@@ -140,7 +140,7 @@ void jsonparser_json_string_nest(jsonparser_json_string_s *json_string, char *ke
 }
 
 /**
- * Nests a child JSON string into a parent JSON array
+ * @brief Nests a child JSON string into a parent JSON array
  *
  * @param *json_string pointer to a json string instance (array)
  * @param *json_object pointer to the json string value to be nested into the json array
@@ -165,7 +165,7 @@ void jsonparser_json_string_put_array_object(jsonparser_json_string_s *json_stri
 }
 
 /**
- * Retrieves key/value pairs from a JSON encoded string
+ * @brief Retrieves key/value pairs from a JSON encoded string
  *
  * @param *json_string pointer to the JSON string to be parsed
  * @param json_string_len length (in bytes) of the provided JSON string (HTTP content_length header value)
@@ -179,8 +179,8 @@ jsonparser_json_object_s *jsonparser_parse(char *json_string, uint16_t json_stri
 	json_object->params = pvPortMalloc(sizeof(jsonparser_json_param_s));
 	json_object->param_count = 0;
 
-	char *arg_start = NULL;
-	char *arg_end 	= NULL;
+	char *key_start = NULL;
+	char *key_end 	= NULL;
 	char *val_start = NULL;
 	char *val_end 	= NULL;
 
@@ -191,32 +191,32 @@ jsonparser_json_object_s *jsonparser_parse(char *json_string, uint16_t json_stri
 
 		do{
 
-			arg_start = strnstr(json_string,JSON_STRING_ENTRY_DELIMITOR, json_string_len);
-			arg_end   = strnstr(arg_start+1,JSON_STRING_ENTRY_DELIMITOR, json_string_len);
-			val_start = strnstr(arg_end+1 ,JSON_STRING_ENTRY_DELIMITOR, json_string_len);
+			key_start = strnstr(json_string,JSON_STRING_ENTRY_DELIMITOR, json_string_len);
+			key_end   = strnstr(key_start+1,JSON_STRING_ENTRY_DELIMITOR, json_string_len);
+			val_start = strnstr(key_end+1 ,JSON_STRING_ENTRY_DELIMITOR, json_string_len);
 			val_end   = strnstr(val_start+1,JSON_STRING_ENTRY_DELIMITOR, json_string_len);
 
-			if(arg_start != NULL && arg_end != NULL && val_start !=NULL && val_end != NULL){
+			if(key_start != NULL && key_end != NULL && val_start !=NULL && val_end != NULL){
 
-				uint8_t arg_len = arg_end - arg_start;
+				uint8_t key_len = key_end - key_start;
 				uint8_t val_len = val_end - val_start;
 
 				json_object->params = pvPortRealloc(json_object->params, sizeof(jsonparser_json_param_s) * ++json_object->param_count);
 
-				json_object->params[json_object->param_count-1].arg = pvPortMalloc(arg_len * sizeof(char));
+				json_object->params[json_object->param_count-1].key = pvPortMalloc(key_len * sizeof(char));
 				json_object->params[json_object->param_count-1].val = pvPortMalloc(val_len * sizeof(char));
 
-				memmove(json_object->params[json_object->param_count-1].arg, arg_start+1, arg_len);
+				memmove(json_object->params[json_object->param_count-1].key, key_start+1, key_len);
 				memmove(json_object->params[json_object->param_count-1].val, val_start+1, val_len);
 
-				json_object->params[json_object->param_count-1].arg[arg_len-1] = 0;
+				json_object->params[json_object->param_count-1].key[key_len-1] = 0;
 				json_object->params[json_object->param_count-1].val[val_len-1] = 0;
 
 				json_string = val_end + 1;
 
 			}
 
-		}while(arg_start != NULL && arg_end != NULL && val_start !=NULL && val_end != NULL);
+		}while(key_start != NULL && key_end != NULL && val_start !=NULL && val_end != NULL);
 	}
 
 	return json_object;
@@ -225,16 +225,16 @@ jsonparser_json_object_s *jsonparser_parse(char *json_string, uint16_t json_stri
 
 
 /**
- * Frees a parsed json object
+ * @brief Frees a parsed json object
  *
  * @param *json_object pointer to json object instance to be freed
  */
 void jsonparser_free_json_object(jsonparser_json_object_s *json_object){
 
 	for(uint16_t i=0; i<json_object->param_count;i++){
-		vPortFree(json_object->params[i].arg);
+		vPortFree(json_object->params[i].key);
 		vPortFree(json_object->params[i].val);
-		json_object->params[i].arg = NULL;
+		json_object->params[i].key = NULL;
 		json_object->params[i].val = NULL;
 	}
 
@@ -244,7 +244,7 @@ void jsonparser_free_json_object(jsonparser_json_object_s *json_object){
 }
 
 /**
- * Creates and initialises a new json string instance
+ * @brief Creates and initialises a new json string instance
  *
  * @return jsonparser_json_string_s * pointer to the created json string instance
  */
@@ -256,7 +256,7 @@ jsonparser_json_string_s * jsonparser_json_string_new(void){
 }
 
 /**
- * Frees a json string instance
+ * @brief Frees a json string instance
  *
  * @param *jsonparser_json_string_s pointer to json string instance to be freed
  */

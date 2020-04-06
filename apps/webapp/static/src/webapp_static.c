@@ -10,14 +10,12 @@
 struct fs_file file_handle;
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup webapp_static
- * @fn _webapp_static_router
  * @brief Fetches file data using provided URI. Fetches a default
  * 404 html error page in case the requested file could not
  * be found within htmlgen.c file.
@@ -54,15 +52,13 @@ static void _webapp_static_router(http_request_s *req) {
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_chaser_pool.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup webapp_static
- * @fn webapp_static_start
  * @brief Starts static HTTP server on port 80. This server is ONLY dedicated to serve
  * compiled HTML static files contained within htmlgen.c. Run "htmlgen.sh" script
  * to compile the files put into the "htmlgen" subfolder "dist"  into a single c file.

@@ -1,0 +1,64 @@
+\hypertarget{_d_m_x512__scene_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/\+D\+M\+X512\+\_\+engine/inc/\+D\+M\+X512\+\_\+scene.h File Reference}
+\label{_d_m_x512__scene_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/inc/DMX512\_scene.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/inc/DMX512\_scene.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+defs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+fixture\+\_\+preset.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+utils.\+h\char`\"{}}\newline
+Include dependency graph for D\+M\+X512\+\_\+scene.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_m_x512__scene_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_m_x512__scene_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em D\+M\+X512 scene structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___d_m_x512__scene_ga753aa5740a55ad126933c05644e380dd}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+D\+E\+F\+A\+U\+LT}}~\{0, 0, 0, 0, N\+U\+LL, \{\}, \mbox{\hyperlink{group___d_m_x512__scene_ggae8f4e2bd41f27da7c129e25d343abbb5a488b9b376aa137d2dffa08dc738f91bc}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+I\+D\+LE}}, \mbox{\hyperlink{group___d_m_x512__scene_ggad4df73cd79f5608cacfd1e69288b45fca072d8cabb2925149f2d892ee88de0b07}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}}\}
+\begin{DoxyCompactList}\small\item\em scene instance default values \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___d_m_x512__scene_gad4df73cd79f5608cacfd1e69288b45fc}{D\+M\+X512\+\_\+scene\+\_\+status\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group___d_m_x512__scene_ggad4df73cd79f5608cacfd1e69288b45fca072d8cabb2925149f2d892ee88de0b07}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+U\+N\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__scene_ggad4df73cd79f5608cacfd1e69288b45fca90812df50059db9b1bdfc1b8e11e441e}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+S\+ED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Status of a scene instance. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___d_m_x512__scene_gae8f4e2bd41f27da7c129e25d343abbb5}{D\+M\+X512\+\_\+scene\+\_\+state\+\_\+e}} \{ \newline
+\mbox{\hyperlink{group___d_m_x512__scene_ggae8f4e2bd41f27da7c129e25d343abbb5a488b9b376aa137d2dffa08dc738f91bc}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+I\+D\+LE}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__scene_ggae8f4e2bd41f27da7c129e25d343abbb5a33c046e2e05c8877b8a31bec8a2b66f7}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+F\+A\+D\+E\+IN}}, 
+\newline
+\mbox{\hyperlink{group___d_m_x512__scene_ggae8f4e2bd41f27da7c129e25d343abbb5a3efeb1651d0ac952e330cbfae87b58db}{D\+M\+X512\+\_\+\+S\+C\+E\+N\+E\+\_\+\+F\+A\+D\+E\+O\+UT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Current playing state of a scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} \mbox{\hyperlink{group___d_m_x512__scene_ga4f16dc85762063fd71304d900b00e67d}{D\+M\+X512\+\_\+scene\+\_\+new}} (uint16\+\_\+t id, uint16\+\_\+t fadein\+\_\+time, uint16\+\_\+t fadeout\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Creates and initialises a new scene instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene_ga75fbeb849a11583bccd6e1a7e2d10342}{D\+M\+X512\+\_\+scene\+\_\+add\+\_\+preset}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, \mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}} fp)
+\begin{DoxyCompactList}\small\item\em Adds a fixture preset instance into the scene. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene_gac5876ae84846054a8d46b30ef24c43f4}{D\+M\+X512\+\_\+scene\+\_\+del\+\_\+preset}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes a fixture preset instance from the scene. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__scene_gad36bb487af543b95e4943f7b23febe69}{D\+M\+X512\+\_\+scene\+\_\+get\+\_\+preset}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets a fixture instance from the pool. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__scene_gaa2275abaa08e2991167e73f622cd669f}{D\+M\+X512\+\_\+scene\+\_\+start}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Starts a scene fade-\/in process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__scene_ga38ab54e8ce3cfd84da3ee5c0ad780c6a}{D\+M\+X512\+\_\+scene\+\_\+stop}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em Starts a scene fade-\/out process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__scene_ga1f3da4003a0770b48407d0384d60afc6}{D\+M\+X512\+\_\+scene\+\_\+manage}} (\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$scene)
+\begin{DoxyCompactList}\small\item\em State machine to manage scene at a given state. \end{DoxyCompactList}\end{DoxyCompactItemize}

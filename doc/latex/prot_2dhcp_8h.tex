@@ -1,0 +1,232 @@
+\hypertarget{prot_2dhcp_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/prot/dhcp.h File Reference}
+\label{prot_2dhcp_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/dhcp.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/dhcp.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdhcp__msg}{dhcp\+\_\+msg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a23dd788b1cd28a0d834c3afefceaa1c1}\label{prot_2dhcp_8h_a23dd788b1cd28a0d834c3afefceaa1c1}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+P\+O\+RT}~68
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a478f5be6fb4bfb09b235bb50cf806cc9}\label{prot_2dhcp_8h_a478f5be6fb4bfb09b235bb50cf806cc9}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}~67
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a15b8e74ffbf5eb908da440c307401c04}\label{prot_2dhcp_8h_a15b8e74ffbf5eb908da440c307401c04}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+C\+H\+A\+D\+D\+R\+\_\+\+L\+EN}~16U
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a370421b9ce80052774e0dd8a6437a025}\label{prot_2dhcp_8h_a370421b9ce80052774e0dd8a6437a025}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+S\+N\+A\+M\+E\+\_\+\+O\+FS}~44U
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a4227e9baee8b09567d1d9dda9d8a8cf3}\label{prot_2dhcp_8h_a4227e9baee8b09567d1d9dda9d8a8cf3}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+S\+N\+A\+M\+E\+\_\+\+L\+EN}~64U
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a87e51df90840a08fe0a3602d126ebfe3}\label{prot_2dhcp_8h_a87e51df90840a08fe0a3602d126ebfe3}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+F\+I\+L\+E\+\_\+\+O\+FS}~108U
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a4ffd004c5d53666e9315d9571af6d41b}\label{prot_2dhcp_8h_a4ffd004c5d53666e9315d9571af6d41b}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+F\+I\+L\+E\+\_\+\+L\+EN}~128U
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a418d69a76814cebcbe22d0211c686a53}\label{prot_2dhcp_8h_a418d69a76814cebcbe22d0211c686a53}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+M\+S\+G\+\_\+\+L\+EN}~236U
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_af5e2f617c0b6005fb50db9851797be1b}\label{prot_2dhcp_8h_af5e2f617c0b6005fb50db9851797be1b}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+O\+FS}~(D\+H\+C\+P\+\_\+\+M\+S\+G\+\_\+\+L\+EN + 4U) /$\ast$ 4 byte\+: cookie $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a639e682d86ae2abca54841cf2d5c7b57}\label{prot_2dhcp_8h_a639e682d86ae2abca54841cf2d5c7b57}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+M\+I\+N\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+L\+EN}~68U
+\item 
+\#define \mbox{\hyperlink{prot_2dhcp_8h_ae99d4be0d03f6f9c8f02f63abde91a06}{D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+L\+EN}}~D\+H\+C\+P\+\_\+\+M\+I\+N\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+L\+EN
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a752b1eb7aba89801f20202b074f03b67}\label{prot_2dhcp_8h_a752b1eb7aba89801f20202b074f03b67}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+B\+O\+O\+T\+R\+E\+Q\+U\+E\+ST}~1
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a17ef000d25276ab6ca9d773af0d97d21}\label{prot_2dhcp_8h_a17ef000d25276ab6ca9d773af0d97d21}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+B\+O\+O\+T\+R\+E\+P\+LY}~2
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a368aca81d0a71853aa3939f546cc25ae}\label{prot_2dhcp_8h_a368aca81d0a71853aa3939f546cc25ae}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+D\+I\+S\+C\+O\+V\+ER}~1
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a4649df4abbae20e28fe422d09decd450}\label{prot_2dhcp_8h_a4649df4abbae20e28fe422d09decd450}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+F\+F\+ER}~2
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a98a346c53c91848070fd980a98fa77d1}\label{prot_2dhcp_8h_a98a346c53c91848070fd980a98fa77d1}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+R\+E\+Q\+U\+E\+ST}~3
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ae7469660afdf7997c020f7fbf5164548}\label{prot_2dhcp_8h_ae7469660afdf7997c020f7fbf5164548}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+D\+E\+C\+L\+I\+NE}~4
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a3cca70105d2c42c3381829f456446e0e}\label{prot_2dhcp_8h_a3cca70105d2c42c3381829f456446e0e}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+A\+CK}~5
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a12682fd5edb10129309f2046504d4221}\label{prot_2dhcp_8h_a12682fd5edb10129309f2046504d4221}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+N\+AK}~6
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ae629d2dc5df40f03ea87cc94a5e3f3eb}\label{prot_2dhcp_8h_ae629d2dc5df40f03ea87cc94a5e3f3eb}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+R\+E\+L\+E\+A\+SE}~7
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_aaea6a969c0da81c2611885514bbe433f}\label{prot_2dhcp_8h_aaea6a969c0da81c2611885514bbe433f}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+I\+N\+F\+O\+RM}~8
+\item 
+\#define \mbox{\hyperlink{prot_2dhcp_8h_aa9bbddbdf30ee61e9bc529d1981f943a}{D\+H\+C\+P\+\_\+\+H\+T\+Y\+P\+E\+\_\+\+E\+TH}}~1
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ac38bb410b5a906ccc81317bf2197d0d5}\label{prot_2dhcp_8h_ac38bb410b5a906ccc81317bf2197d0d5}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+M\+A\+G\+I\+C\+\_\+\+C\+O\+O\+K\+IE}~0x63825363\+UL
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_afcfde7a8c1ec0e3055d9a01ef2fa6aa9}\label{prot_2dhcp_8h_afcfde7a8c1ec0e3055d9a01ef2fa6aa9}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+P\+AD}~0
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_acff5b8c45e6d63afd973aa8a0e72a901}\label{prot_2dhcp_8h_acff5b8c45e6d63afd973aa8a0e72a901}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+S\+U\+B\+N\+E\+T\+\_\+\+M\+A\+SK}~1 /$\ast$ R\+FC 2132 3.\+3 $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a72cfc4e231017d1d116bb1d69d18ae8c}\label{prot_2dhcp_8h_a72cfc4e231017d1d116bb1d69d18ae8c}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+R\+O\+U\+T\+ER}~3
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a8f05c5c6084fbac0be7b24101189232b}\label{prot_2dhcp_8h_a8f05c5c6084fbac0be7b24101189232b}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+D\+N\+S\+\_\+\+S\+E\+R\+V\+ER}~6
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a8336c0e435dd07302c1b433d2c9197be}\label{prot_2dhcp_8h_a8336c0e435dd07302c1b433d2c9197be}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+H\+O\+S\+T\+N\+A\+ME}~12
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ab43ba1742cc39cd192431e9c8c3ea48d}\label{prot_2dhcp_8h_ab43ba1742cc39cd192431e9c8c3ea48d}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+I\+P\+\_\+\+T\+TL}~23
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_abb0093dc9bbeff548b78ff876a36acd5}\label{prot_2dhcp_8h_abb0093dc9bbeff548b78ff876a36acd5}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+M\+TU}~26
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ac6c1fce157c3297412cfb28d0822a93b}\label{prot_2dhcp_8h_ac6c1fce157c3297412cfb28d0822a93b}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+B\+R\+O\+A\+D\+C\+A\+ST}~28
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a608af55ab345fa8ee3aa32c95bb4786f}\label{prot_2dhcp_8h_a608af55ab345fa8ee3aa32c95bb4786f}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+T\+C\+P\+\_\+\+T\+TL}~37
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ae5a724660dd11c27d8ed477f0ee136e3}\label{prot_2dhcp_8h_ae5a724660dd11c27d8ed477f0ee136e3}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+N\+TP}~42
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_aea2eb67064efec2c65fff4497f659e7d}\label{prot_2dhcp_8h_aea2eb67064efec2c65fff4497f659e7d}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+E\+ND}~255
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a1cbad840414a6617ebdb17b1b9073597}\label{prot_2dhcp_8h_a1cbad840414a6617ebdb17b1b9073597}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+E\+D\+\_\+\+IP}~50 /$\ast$ R\+FC 2132 9.\+1, requested IP address $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a458994de9415a8a622d1a560bfd9ace4}\label{prot_2dhcp_8h_a458994de9415a8a622d1a560bfd9ace4}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+L\+E\+A\+S\+E\+\_\+\+T\+I\+ME}~51 /$\ast$ R\+FC 2132 9.\+2, time in seconds, in 4 bytes $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_afa25c2c462288d2ab8cec19d22af661f}\label{prot_2dhcp_8h_afa25c2c462288d2ab8cec19d22af661f}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+O\+V\+E\+R\+L\+O\+AD}~52 /$\ast$ R\+F\+C2132 9.\+3, use file and/or sname field for options $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ab023a7a8b3307a68a2eff10a217e48a8}\label{prot_2dhcp_8h_ab023a7a8b3307a68a2eff10a217e48a8}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+T\+Y\+PE}~53 /$\ast$ R\+FC 2132 9.\+6, important for D\+H\+CP $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a9cf37917cca6ff44e6e409e1fc30ce6b}\label{prot_2dhcp_8h_a9cf37917cca6ff44e6e409e1fc30ce6b}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+L\+EN}~1
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a3bdf84c273501fb73ad217dcab87bb4a}\label{prot_2dhcp_8h_a3bdf84c273501fb73ad217dcab87bb4a}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+ID}~54 /$\ast$ R\+FC 2132 9.\+7, server IP address $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a8b484e555c18f2d20df9a2267f35bced}\label{prot_2dhcp_8h_a8b484e555c18f2d20df9a2267f35bced}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+\_\+\+L\+I\+ST}~55 /$\ast$ R\+FC 2132 9.\+8, requested option types $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_aabc084bbce4768f1a2ec17caa0aac858}\label{prot_2dhcp_8h_aabc084bbce4768f1a2ec17caa0aac858}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+ZE}~57 /$\ast$ R\+FC 2132 9.\+10, message size accepted $>$= 576 $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a73960c1209385e0b3f8d9c0e4f6f438f}\label{prot_2dhcp_8h_a73960c1209385e0b3f8d9c0e4f6f438f}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+M\+A\+X\+\_\+\+M\+S\+G\+\_\+\+S\+I\+Z\+E\+\_\+\+L\+EN}~2
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ac32aa14a7fed99bcff08d10ca2dafc4d}\label{prot_2dhcp_8h_ac32aa14a7fed99bcff08d10ca2dafc4d}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+T1}~58 /$\ast$ T1 renewal time $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ab9a44c5141f2c790f94ec2dd8a1a4f7e}\label{prot_2dhcp_8h_ab9a44c5141f2c790f94ec2dd8a1a4f7e}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+T2}~59 /$\ast$ T2 rebinding time $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ac004aa5925855cd107487c9312b5163a}\label{prot_2dhcp_8h_ac004aa5925855cd107487c9312b5163a}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+US}~60
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ad1167da7c0637c6b1ef309115c25b7e6}\label{prot_2dhcp_8h_ad1167da7c0637c6b1ef309115c25b7e6}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+C\+L\+I\+E\+N\+T\+\_\+\+ID}~61
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a03f2ea40cc8472e24c994c5882815f7c}\label{prot_2dhcp_8h_a03f2ea40cc8472e24c994c5882815f7c}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+T\+F\+T\+P\+\_\+\+S\+E\+R\+V\+E\+R\+N\+A\+ME}~66
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a75ddf8dd302393bf841cab237615eb67}\label{prot_2dhcp_8h_a75ddf8dd302393bf841cab237615eb67}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+\_\+\+B\+O\+O\+T\+F\+I\+LE}~67
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_abcd7ac0e3fe54f86f33d1b79855d5de7}\label{prot_2dhcp_8h_abcd7ac0e3fe54f86f33d1b79855d5de7}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+V\+E\+R\+L\+O\+A\+D\+\_\+\+N\+O\+NE}~0
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a04a7b3f1d9138c82c51f2752d440c13e}\label{prot_2dhcp_8h_a04a7b3f1d9138c82c51f2752d440c13e}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+V\+E\+R\+L\+O\+A\+D\+\_\+\+F\+I\+LE}~1
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a76d647c8774a4169ac92e01400bbb6ea}\label{prot_2dhcp_8h_a76d647c8774a4169ac92e01400bbb6ea}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+V\+E\+R\+L\+O\+A\+D\+\_\+\+S\+N\+A\+ME}~2
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a07ea61064695eda45483c4c0a192614c}\label{prot_2dhcp_8h_a07ea61064695eda45483c4c0a192614c}} 
+\#define {\bfseries D\+H\+C\+P\+\_\+\+O\+V\+E\+R\+L\+O\+A\+D\+\_\+\+S\+N\+A\+M\+E\+\_\+\+F\+I\+LE}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_ad85c86fcabb42bf16849247f12d810bb}\label{prot_2dhcp_8h_ad85c86fcabb42bf16849247f12d810bb}} 
+enum {\bfseries dhcp\+\_\+state\+\_\+enum\+\_\+t} \{ \newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+O\+FF} = 0, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+I\+NG} = 1, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT} = 2, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+R\+E\+B\+O\+O\+T\+I\+NG} = 3, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+R\+E\+B\+I\+N\+D\+I\+NG} = 4, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+R\+E\+N\+E\+W\+I\+NG} = 5, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+L\+E\+C\+T\+I\+NG} = 6, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+F\+O\+R\+M\+I\+NG} = 7, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+E\+C\+K\+I\+NG} = 8, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+P\+E\+R\+M\+A\+N\+E\+NT} = 9, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+O\+U\+ND} = 10, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+R\+E\+L\+E\+A\+S\+I\+NG} = 11, 
+\newline
+{\bfseries D\+H\+C\+P\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+A\+C\+K\+I\+N\+G\+\_\+\+O\+FF} = 12
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2dhcp_8h_a11d5d658ec923f9b7477ed70079f2455}\label{prot_2dhcp_8h_a11d5d658ec923f9b7477ed70079f2455}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+E\+G\+IN}} struct \mbox{\hyperlink{structdhcp__msg}{dhcp\+\_\+msg}} {\bfseries P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+S\+T\+R\+U\+CT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+D\+H\+CP protocol definitions 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{prot_2dhcp_8h_aa9bbddbdf30ee61e9bc529d1981f943a}\label{prot_2dhcp_8h_aa9bbddbdf30ee61e9bc529d1981f943a}} 
+\index{dhcp.h@{dhcp.h}!DHCP\_HTYPE\_ETH@{DHCP\_HTYPE\_ETH}}
+\index{DHCP\_HTYPE\_ETH@{DHCP\_HTYPE\_ETH}!dhcp.h@{dhcp.h}}
+\doxysubsubsection{\texorpdfstring{DHCP\_HTYPE\_ETH}{DHCP\_HTYPE\_ETH}}
+{\footnotesize\ttfamily \#define D\+H\+C\+P\+\_\+\+H\+T\+Y\+P\+E\+\_\+\+E\+TH~1}
+
+D\+H\+CP hardware type, currently only ethernet is supported 
+
+Definition at line 132 of file dhcp.\+h.
+
+\mbox{\Hypertarget{prot_2dhcp_8h_ae99d4be0d03f6f9c8f02f63abde91a06}\label{prot_2dhcp_8h_ae99d4be0d03f6f9c8f02f63abde91a06}} 
+\index{dhcp.h@{dhcp.h}!DHCP\_OPTIONS\_LEN@{DHCP\_OPTIONS\_LEN}}
+\index{DHCP\_OPTIONS\_LEN@{DHCP\_OPTIONS\_LEN}!dhcp.h@{dhcp.h}}
+\doxysubsubsection{\texorpdfstring{DHCP\_OPTIONS\_LEN}{DHCP\_OPTIONS\_LEN}}
+{\footnotesize\ttfamily \#define D\+H\+C\+P\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+L\+EN~D\+H\+C\+P\+\_\+\+M\+I\+N\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+L\+EN}
+
+make sure user does not configure this too small allow this to be configured in \mbox{\hyperlink{lwipopts_8h_source}{lwipopts.\+h}}, but not too small set this to be sufficient for your options in outgoing D\+H\+CP msgs 
+
+Definition at line 90 of file dhcp.\+h.
+

@@ -1,0 +1,84 @@
+\hypertarget{tcpip__priv_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/priv/tcpip\+\_\+priv.h File Reference}
+\label{tcpip__priv_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/priv/tcpip\_priv.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/priv/tcpip\_priv.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/tcpip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/timeouts.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\+\_\+api\+\_\+call\+\_\+data}}
+\item 
+struct \mbox{\hyperlink{structtcpip__msg}{tcpip\+\_\+msg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a3518256af0d1a422755a899b13c2b563}\label{tcpip__priv_8h_a3518256af0d1a422755a899b13c2b563}} 
+\#define {\bfseries A\+P\+I\+\_\+\+V\+A\+R\+\_\+\+R\+EF}(name)~name
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_ab5d4a4fa91c4c144bedabf593a68b4dd}\label{tcpip__priv_8h_ab5d4a4fa91c4c144bedabf593a68b4dd}} 
+\#define {\bfseries A\+P\+I\+\_\+\+V\+A\+R\+\_\+\+D\+E\+C\+L\+A\+RE}(type,  name)~type name
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a8ff9b936b16d91844c0e32424e97f493}\label{tcpip__priv_8h_a8ff9b936b16d91844c0e32424e97f493}} 
+\#define {\bfseries A\+P\+I\+\_\+\+V\+A\+R\+\_\+\+A\+L\+L\+OC}(type,  pool,  name,  errorval)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a0b826b1ea2ee54ebb94ab354578a1ffe}\label{tcpip__priv_8h_a0b826b1ea2ee54ebb94ab354578a1ffe}} 
+\#define {\bfseries A\+P\+I\+\_\+\+V\+A\+R\+\_\+\+A\+L\+L\+O\+C\+\_\+\+P\+O\+OL}(type,  pool,  name,  errorval)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a30caebb5334f52d49ac938a507094094}\label{tcpip__priv_8h_a30caebb5334f52d49ac938a507094094}} 
+\#define {\bfseries A\+P\+I\+\_\+\+V\+A\+R\+\_\+\+F\+R\+EE}(pool,  name)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a803c2dd81f7e69515115b78759be0d76}\label{tcpip__priv_8h_a803c2dd81f7e69515115b78759be0d76}} 
+\#define {\bfseries A\+P\+I\+\_\+\+V\+A\+R\+\_\+\+F\+R\+E\+E\+\_\+\+P\+O\+OL}(pool,  name)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a1f3c3ae0938b5510978cbd31560a5797}\label{tcpip__priv_8h_a1f3c3ae0938b5510978cbd31560a5797}} 
+\#define {\bfseries A\+P\+I\+\_\+\+E\+X\+P\+R\+\_\+\+R\+EF}(expr)~expr
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a91e803b3c3f0ab89b20d7a85e3e92624}\label{tcpip__priv_8h_a91e803b3c3f0ab89b20d7a85e3e92624}} 
+\#define {\bfseries A\+P\+I\+\_\+\+E\+X\+P\+R\+\_\+\+R\+E\+F\+\_\+\+S\+EM}(expr)~A\+P\+I\+\_\+\+E\+X\+P\+R\+\_\+\+R\+EF(expr)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a4b2322aa0c1906f84f16acf359f06a92}\label{tcpip__priv_8h_a4b2322aa0c1906f84f16acf359f06a92}} 
+\#define {\bfseries A\+P\+I\+\_\+\+E\+X\+P\+R\+\_\+\+D\+E\+R\+EF}(expr)~($\ast$(expr))
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_ad299ce8f259fb9f1f6c5c5a812f1bc58}\label{tcpip__priv_8h_ad299ce8f259fb9f1f6c5c5a812f1bc58}} 
+\#define {\bfseries A\+P\+I\+\_\+\+M\+S\+G\+\_\+\+M\+\_\+\+D\+EF}(m)~$\ast$m
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a3a9d654eb42f26b409d1386d162f1e31}\label{tcpip__priv_8h_a3a9d654eb42f26b409d1386d162f1e31}} 
+\#define {\bfseries A\+P\+I\+\_\+\+M\+S\+G\+\_\+\+M\+\_\+\+D\+E\+F\+\_\+C}(t,  m)~const t $\ast$ m
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_aa7ecde8c8d8012fe5c498f7ee58f9458}\label{tcpip__priv_8h_aa7ecde8c8d8012fe5c498f7ee58f9458}} 
+typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ {\bfseries tcpip\+\_\+api\+\_\+call\+\_\+fn}) (struct \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\+\_\+api\+\_\+call\+\_\+data}} $\ast$call)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a1e0cb5032a61055e3f4a3426ed548937}\label{tcpip__priv_8h_a1e0cb5032a61055e3f4a3426ed548937}} 
+enum {\bfseries tcpip\+\_\+msg\+\_\+type} \{ \newline
+{\bfseries T\+C\+P\+I\+P\+\_\+\+M\+S\+G\+\_\+\+A\+PI}, 
+\newline
+{\bfseries T\+C\+P\+I\+P\+\_\+\+M\+S\+G\+\_\+\+A\+P\+I\+\_\+\+C\+A\+LL}, 
+\newline
+{\bfseries T\+C\+P\+I\+P\+\_\+\+M\+S\+G\+\_\+\+I\+N\+P\+KT}, 
+\newline
+{\bfseries T\+C\+P\+I\+P\+\_\+\+M\+S\+G\+\_\+\+C\+A\+L\+L\+B\+A\+CK}, 
+\newline
+{\bfseries T\+C\+P\+I\+P\+\_\+\+M\+S\+G\+\_\+\+C\+A\+L\+L\+B\+A\+C\+K\+\_\+\+S\+T\+A\+T\+IC}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a12bdf37eddcd72c4178e3ea7d370395d}\label{tcpip__priv_8h_a12bdf37eddcd72c4178e3ea7d370395d}} 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} {\bfseries tcpip\+\_\+send\+\_\+msg\+\_\+wait\+\_\+sem} (\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}} fn, void $\ast$apimsg, sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a3d42b0c46607f91aedcc7745ed466b08}\label{tcpip__priv_8h_a3d42b0c46607f91aedcc7745ed466b08}} 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} {\bfseries tcpip\+\_\+api\+\_\+call} (tcpip\+\_\+api\+\_\+call\+\_\+fn fn, struct \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\+\_\+api\+\_\+call\+\_\+data}} $\ast$call)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+T\+C\+P\+IP A\+PI internal implementations (do not use in application code) 

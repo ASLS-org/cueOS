@@ -12,14 +12,12 @@
 #include "webapp_api.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup webapp_api
- * @fn webapp_api_router
  * @brief routes HTTP requests received on API port
 
  * @param req the request to be routed
@@ -34,15 +32,13 @@ static void _webapp_api_router(http_request_s *req){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see http_request.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup webapp_api
- * @fn webapp_api_start
  * @brief Starts API HTTP server on port 8000.
  */
 void webapp_api_start(void){

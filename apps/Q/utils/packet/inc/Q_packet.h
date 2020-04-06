@@ -1,3 +1,15 @@
+/**
+ * @ingroup Q
+ * @defgroup Q_utils
+ * Useful code snippets to be used within Q server/client implementation
+ * @{
+ *
+ * @defgroup Q_packet
+ * Q is an UDP based protocol which aims for a more universal approach of Show Control. Q packets are simply made of a single byte OPCODE
+ * and a variable length data payload conveying cue-specific information.
+ * @{
+ */
+
 #ifndef _Q_PACKET_H_
 #define _Q_PACKET_H_
 
@@ -47,9 +59,6 @@ typedef enum{
  * @ingroup Q_packet
  * @struct Q_packet
  * @brief Defines a Q packet object
- *
- * Q packets are simply made of a single byte OPCODE
- * and a variable length data payload.
  */
 typedef struct Q_packet{
 	Q_packet_opcode_cmd_e opcode;				/*< packet opcode @see Q_packet_opcode_cmd_e*/
@@ -65,3 +74,9 @@ char *Q_packet_forge_config_reply(uint16_t request_id, uint8_t err_code);
 void Q_packet_free(Q_packet_s *packet);
 
 #endif
+
+/**
+ * @} Grouping in Q_packet submodule ends
+ * @} Grouping in Q_utils module ends
+ **/
+

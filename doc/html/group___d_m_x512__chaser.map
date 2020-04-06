@@ -1,0 +1,5 @@
+<map id="DMX512_chaser" name="DMX512_chaser">
+<area shape="rect" id="node1" href="$group___d_m_x512__chaser__step.html" title="A chaser step represents a scene with additional information regarding its timing...." alt="" coords="371,5,521,31"/>
+<area shape="rect" id="node2" title="In a DMX lightshow, scenes may be chained and played back in a sequence called chaser...." alt="" coords="204,5,323,31"/>
+<area shape="rect" id="node3" href="$group___d_m_x512__chaser__pool.html" title="Chaser pools are used to store and manage a lists of pre&#45;configured chasers. Up to 65535 DMX512 chase..." alt="" coords="5,5,156,31"/>
+</map>

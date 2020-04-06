@@ -1,0 +1,6 @@
+<map id="_DMX512_engine_load_config_scenes" name="_DMX512_engine_load_config_scenes">
+<area shape="rect" id="node1" title="Loads scenes defined within the config file into the DMX512 engine." alt="" coords="5,23,161,65"/>
+<area shape="rect" id="node2" href="$_d_m_x512__scene_8h.html#a4f16dc85762063fd71304d900b00e67d" title="Creates and initialises a new scene instance." alt="" coords="223,5,370,32"/>
+<area shape="rect" id="node3" href="$group___d_m_x512__scene__pool.html#ga4807b7cb4a5c202835d0f0a6d52a6884" title="Adds a scene instance into the pool." alt="" coords="209,56,384,83"/>
+<area shape="rect" id="node4" href="$group___d_m_x512__scene__pool.html#gacf44a6c7f851ecd906d1b11599db28a1" title="Finds the array index of a scene." alt="" coords="432,49,585,90"/>
+</map>

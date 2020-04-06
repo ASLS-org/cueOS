@@ -1,3 +1,12 @@
+/**
+ * @ingroup DMX512_chaser
+ * @defgroup DMX512_chaser_step
+ * A chaser step represents a scene with additional information regarding
+ * its timing. Information such as fade in/out and hold time are used
+ * by a chaser to affect timings of scene's playing sequence.
+ * @{
+ */
+
 #ifndef DMX512_CHASER_STEP_H_
 #define DMX512_CHASER_STEP_H_
 
@@ -10,8 +19,6 @@
 
 
 /**
- * @ingroup DMX512_chaser_step
- * @def DMX512_CHASER_STEP_DEFAULT
  * @brief chaser step instance default values
  *
  * Used during initialisation of a chaser step instance, it lowers the risk of conflicts
@@ -21,7 +28,6 @@
 
 
 /**
- * @ingroup DMX512_chaser_step
  * @enum DMX512_fixture_chaser_step_status_e
  * @brief Status of a chaser step instance
  *
@@ -33,7 +39,6 @@ typedef enum{
 }DMX512_fixture_chaser_step_status_e;
 
 /**
- * @ingroup DMX512_chaser_step
  * @enum DMX512_fixture_chaser_step_state_e
  * @brief Current playing state of a chaser step
  *
@@ -49,13 +54,8 @@ typedef enum{
 
 
 /**
- * @ingroup DMX512_chaser_step
  * @struct DMX512_chaser_step_s
- * @brief Defines a DMX512 chaser step object
- *
- * A chaser step represents a scene with additional information regarding
- * its timing. Information such as fade in/out and hold time are used
- * by a chaser to affect timings of scene's playing sequence.
+ * @brief DMX512 chaser step structure object
  */
 typedef struct{
 	DMX512_scene_s *scene;									/**< Pointer to a scene instance*/
@@ -74,3 +74,8 @@ void DMX512_chaser_step_start(DMX512_chaser_step_s *this);
 void DMX512_chaser_step_stop(DMX512_chaser_step_s *this);
 
 #endif
+
+/**
+ * @} Grouping in DMX512_chaser_step submodule ends
+ * @} Grouping in DMX512_engine module ends
+ */

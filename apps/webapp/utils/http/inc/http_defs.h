@@ -1,3 +1,10 @@
+/**
+ * @ingroup HTTP
+ * @defgroup HTTP_defs
+ * Definition of fundamental constant values to be used within the HTTP module
+ * @{
+ */
+
 #ifndef HTTP_DEFS_H_
 #define HTTP_DEFS_H_
 
@@ -14,9 +21,8 @@
 #define HTTP_VALUE_SEPARATOR 	"="
 #define HTTP_PARAMS_SEPARATOR 	"&"
 
+
 /**
- * @ingroup http_defs
- * @enum http_status_code_e
  * @brief Enumeration index of HTTP status codes.
  */
 typedef enum{
@@ -36,8 +42,6 @@ typedef enum{
 }http_status_code_e;
 
 /**
- * @ingroup http_defs
- * @enum http_header_field_e
  * @brief Enumeration index of HTTP header fields.
  */
 typedef enum{
@@ -50,8 +54,6 @@ typedef enum{
 }http_header_field_e;
 
 /**
- * @ingroup http_defs
- * @enum http_content_types_e
  * @brief Enumeration index of HTTP content-types header values.
  */
 typedef enum{
@@ -61,8 +63,6 @@ typedef enum{
 }http_content_types_e;
 
 /**
- * @ingroup http_defs
- * @enum http_method_e
  * @brief Enumeration index of HTTP method.
  */
 typedef enum{
@@ -74,8 +74,6 @@ typedef enum{
 }http_method_e;
 
 /**
- * @ingroup http_defs
- * @enum http_version_e
  * @brief Enumeration index of current HTTP versions
  */
 typedef enum{
@@ -130,3 +128,8 @@ static const char *const http_versions[] = {
 };
 
 #endif
+
+/**
+ * @} Grouping in HTTP_defs submodule ends
+ * @} Grouping in HTTP module ends
+ **/

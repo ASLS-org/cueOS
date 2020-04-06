@@ -1,0 +1,55 @@
+\hypertarget{prot_2igmp_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/prot/igmp.h File Reference}
+\label{prot_2igmp_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/igmp.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/prot/igmp.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip4\+\_\+addr.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structigmp__msg}{igmp\+\_\+msg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a6ff76a6f7654b21a70e216151c97a869}\label{prot_2igmp_8h_a6ff76a6f7654b21a70e216151c97a869}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+T\+TL}~1
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_ad91c1a732326c16656dc7059f807acfd}\label{prot_2igmp_8h_ad91c1a732326c16656dc7059f807acfd}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+M\+I\+N\+L\+EN}~8
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a0b0944c1c4f2a64c79831d18f7d31802}\label{prot_2igmp_8h_a0b0944c1c4f2a64c79831d18f7d31802}} 
+\#define {\bfseries R\+O\+U\+T\+E\+R\+\_\+\+A\+L\+E\+RT}~0x9404U
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_aa4bce84f942c375b780404c56f0ed51c}\label{prot_2igmp_8h_aa4bce84f942c375b780404c56f0ed51c}} 
+\#define {\bfseries R\+O\+U\+T\+E\+R\+\_\+\+A\+L\+E\+R\+T\+L\+EN}~4
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a0f85ab43aac98cc525c4d21b45bb08c9}\label{prot_2igmp_8h_a0f85ab43aac98cc525c4d21b45bb08c9}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+M\+E\+M\+B\+\_\+\+Q\+U\+E\+RY}~0x11 /$\ast$ Membership query         $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a7a18745c2691de97a594257e8588957e}\label{prot_2igmp_8h_a7a18745c2691de97a594257e8588957e}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+V1\+\_\+\+M\+E\+M\+B\+\_\+\+R\+E\+P\+O\+RT}~0x12 /$\ast$ Ver. 1 membership report $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a26b6b8b5dc43098b16d417a29b31a9e0}\label{prot_2igmp_8h_a26b6b8b5dc43098b16d417a29b31a9e0}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+V2\+\_\+\+M\+E\+M\+B\+\_\+\+R\+E\+P\+O\+RT}~0x16 /$\ast$ Ver. 2 membership report $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a4d87457009ed27ade2309cebe7a1dfcf}\label{prot_2igmp_8h_a4d87457009ed27ade2309cebe7a1dfcf}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+L\+E\+A\+V\+E\+\_\+\+G\+R\+O\+UP}~0x17 /$\ast$ Leave-\/group message      $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a0357ddf34e5e88adaa654ad562adab54}\label{prot_2igmp_8h_a0357ddf34e5e88adaa654ad562adab54}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+G\+R\+O\+U\+P\+\_\+\+N\+O\+N\+\_\+\+M\+E\+M\+B\+ER}~0
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a9c2129b3fb6f212eac44192ced19d33d}\label{prot_2igmp_8h_a9c2129b3fb6f212eac44192ced19d33d}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+G\+R\+O\+U\+P\+\_\+\+D\+E\+L\+A\+Y\+I\+N\+G\+\_\+\+M\+E\+M\+B\+ER}~1
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a5b9419fe533da22ca7015cac97e8b1e3}\label{prot_2igmp_8h_a5b9419fe533da22ca7015cac97e8b1e3}} 
+\#define {\bfseries I\+G\+M\+P\+\_\+\+G\+R\+O\+U\+P\+\_\+\+I\+D\+L\+E\+\_\+\+M\+E\+M\+B\+ER}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2igmp_8h_a5d6a573cb2d6ebb0fff6849b16a94c07}\label{prot_2igmp_8h_a5d6a573cb2d6ebb0fff6849b16a94c07}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+B\+E\+G\+IN}} struct \mbox{\hyperlink{structigmp__msg}{igmp\+\_\+msg}} {\bfseries P\+A\+C\+K\+\_\+\+S\+T\+R\+U\+C\+T\+\_\+\+S\+T\+R\+U\+CT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I\+G\+MP protocol definitions 

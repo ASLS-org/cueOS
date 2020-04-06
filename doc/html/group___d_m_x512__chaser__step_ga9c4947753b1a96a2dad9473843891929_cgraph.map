@@ -1,0 +1,7 @@
+<map id="DMX512_chaser_step_manage" name="DMX512_chaser_step_manage">
+<area shape="rect" id="node1" title="Chaser step state machine. Manage a chaser step&#39;s state over time." alt="" coords="5,49,156,90"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__chaser__step.html#ga5d0f8bcb828ef0568458498bf95b51c3" title="Sets a chaser step&#39;s fixtures channel values to their predefined preset values according to time." alt="" coords="208,5,363,32"/>
+<area shape="rect" id="node4" href="$group___d_m_x512__chaser__step.html#ga7d96146634ebe8e74841dbd3d812f317" title="Sets a chaser step&#39;s fixtures channel values to their &quot;OFF&quot; values according to time." alt="" coords="204,56,367,83"/>
+<area shape="rect" id="node5" href="$group___d_m_x512__chaser__step.html#ga79363818840f6a4f7bd533bf907bbc87" title="Holds a chaser step&#39;s faded in values during a certain amount of time." alt="" coords="214,107,357,133"/>
+<area shape="rect" id="node3" href="$group__mschronometer.html#ga62473952fd29ca3c8fbc766107af9f29" title="Returns elapsed time in milliseconds since last reset." alt="" coords="415,49,616,90"/>
+</map>

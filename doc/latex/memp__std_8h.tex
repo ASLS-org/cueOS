@@ -1,0 +1,21 @@
+\hypertarget{memp__std_8h}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/inc/lwip/priv/memp\+\_\+std.h File Reference}
+\label{memp__std_8h}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/priv/memp\_std.h@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/inc/lwip/priv/memp\_std.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp__std_8h_a2a2ee070ed2e841bdf67f9379780e03d}\label{memp__std_8h_a2a2ee070ed2e841bdf67f9379780e03d}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+OL}(num,  size)~L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+OL(P\+O\+O\+L\+\_\+\#\#size, num, (size + \mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{L\+W\+I\+P\+\_\+\+M\+E\+M\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE}}(sizeof(struct memp\+\_\+malloc\+\_\+helper))), \char`\"{}M\+A\+L\+L\+O\+C\+\_\+\char`\"{}\#size)
+\item 
+\mbox{\Hypertarget{memp__std_8h_a0bc6a0d68500481012310ae5e44f4735}\label{memp__std_8h_a0bc6a0d68500481012310ae5e44f4735}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+S\+T\+A\+RT}
+\item 
+\mbox{\Hypertarget{memp__std_8h_aa28365e96383d5262b08f8113b7f7c6d}\label{memp__std_8h_aa28365e96383d5262b08f8113b7f7c6d}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+M\+A\+L\+L\+O\+C\+\_\+\+M\+E\+M\+P\+O\+O\+L\+\_\+\+E\+ND}
+\item 
+\mbox{\Hypertarget{memp__std_8h_a4ed41263feeda39be71d3aa9440494ad}\label{memp__std_8h_a4ed41263feeda39be71d3aa9440494ad}} 
+\#define {\bfseries L\+W\+I\+P\+\_\+\+P\+B\+U\+F\+\_\+\+M\+E\+M\+P\+O\+OL}(name,  num,  payload,  desc)~L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+OL(name, num, (M\+E\+M\+P\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE(sizeof(struct \mbox{\hyperlink{structpbuf}{pbuf}})) + M\+E\+M\+P\+\_\+\+A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE(payload)), desc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lw\+IP internal memory pools (do not use in application code) This file is deliberately included multiple times\+: once with empty definition of L\+W\+I\+P\+\_\+\+M\+E\+M\+P\+O\+O\+L() to handle all includes and multiple times to build up various lists of mem pools. 

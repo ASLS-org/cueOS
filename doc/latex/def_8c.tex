@@ -1,0 +1,82 @@
+\hypertarget{def_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/net/src/core/def.c File Reference}
+\label{def_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/def.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/net/src/core/def.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for def.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{def_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+u16\+\_\+t \mbox{\hyperlink{def_8c_ad637280639de4066392e6b5614fa3e56}{lwip\+\_\+htons}} (u16\+\_\+t n)
+\item 
+u32\+\_\+t \mbox{\hyperlink{def_8c_a14f94347a5b9b9e3602705b75b7ae524}{lwip\+\_\+htonl}} (u32\+\_\+t n)
+\item 
+char $\ast$ \mbox{\hyperlink{group__sys__nonstandard_gaeece028198cdaea2f0d2f1d691752c02}{lwip\+\_\+strnstr}} (const char $\ast$buffer, const char $\ast$token, size\+\_\+t n)
+\item 
+int \mbox{\hyperlink{group__sys__nonstandard_ga263cbafcb697eff964139a9998a6668a}{lwip\+\_\+stricmp}} (const char $\ast$str1, const char $\ast$str2)
+\item 
+int \mbox{\hyperlink{group__sys__nonstandard_ga997dcc49451121d4ed755b33bc7bd26a}{lwip\+\_\+strnicmp}} (const char $\ast$str1, const char $\ast$str2, size\+\_\+t len)
+\item 
+void \mbox{\hyperlink{group__sys__nonstandard_gaf15b4fbaaae5bb7f6da4301f3f979284}{lwip\+\_\+itoa}} (char $\ast$result, size\+\_\+t bufsize, int number)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Common functions used throughout the stack.
+
+These are reference implementations of the byte swapping functions. Again with the aim of being simple, correct and fully portable. Byte swapping is the second thing you would want to optimize. You will need to port it to your architecture and in your \mbox{\hyperlink{cc_8h_source}{cc.\+h}}\+:
+
+\#define lwip\+\_\+htons(x) your\+\_\+htons \#define lwip\+\_\+htonl(x) your\+\_\+htonl
+
+Note lwip\+\_\+ntohs() and lwip\+\_\+ntohl() are merely references to the htonx counterparts.
+
+If you \#define them to htons() and htonl(), you should \#define L\+W\+I\+P\+\_\+\+D\+O\+N\+T\+\_\+\+P\+R\+O\+V\+I\+D\+E\+\_\+\+B\+Y\+T\+E\+O\+R\+D\+E\+R\+\_\+\+F\+U\+N\+C\+T\+I\+O\+NS to prevent lw\+IP from defining htonx/ntohx compatibility macros. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{def_8c_a14f94347a5b9b9e3602705b75b7ae524}\label{def_8c_a14f94347a5b9b9e3602705b75b7ae524}} 
+\index{def.c@{def.c}!lwip\_htonl@{lwip\_htonl}}
+\index{lwip\_htonl@{lwip\_htonl}!def.c@{def.c}}
+\doxysubsubsection{\texorpdfstring{lwip\_htonl()}{lwip\_htonl()}}
+{\footnotesize\ttfamily u32\+\_\+t lwip\+\_\+htonl (\begin{DoxyParamCaption}\item[{u32\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Convert an u32\+\_\+t from host-\/ to network byte order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & u32\+\_\+t in host byte order \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+n in network byte order 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file def.\+c.
+
+\mbox{\Hypertarget{def_8c_ad637280639de4066392e6b5614fa3e56}\label{def_8c_ad637280639de4066392e6b5614fa3e56}} 
+\index{def.c@{def.c}!lwip\_htons@{lwip\_htons}}
+\index{lwip\_htons@{lwip\_htons}!def.c@{def.c}}
+\doxysubsubsection{\texorpdfstring{lwip\_htons()}{lwip\_htons()}}
+{\footnotesize\ttfamily u16\+\_\+t lwip\+\_\+htons (\begin{DoxyParamCaption}\item[{u16\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Convert an u16\+\_\+t from host-\/ to network byte order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & u16\+\_\+t in host byte order \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+n in network byte order 
+\end{DoxyReturn}
+
+
+Definition at line 76 of file def.\+c.
+

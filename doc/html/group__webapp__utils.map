@@ -1,0 +1,7 @@
+<map id="Webapp_utils" name="Webapp_utils">
+<area shape="rect" id="node1" href="$group___j_s_o_n__parser.html" title="Module dedicated to JSON parsing and string formating." alt="" coords="273,5,375,31"/>
+<area shape="rect" id="node2" href="$group___h_t_t_p.html" title="Handles HTTP packet transactions." alt="" coords="295,55,353,80"/>
+<area shape="rect" id="node3" title="Tools and helpers to be used by the webapp module." alt="" coords="124,55,225,80"/>
+<area shape="rect" id="node4" href="$group___h_t_m_l___f_s.html" title="Static files file system. Manages files compiled within htmlgen.c file. htmlgen.c file contains a com..." alt="" coords="283,104,365,129"/>
+<area shape="rect" id="node5" href="$group__webapp.html" title="Definition of a suite of WEB services enabling remote device configuration through the use of HTTP se..." alt="" coords="5,55,76,80"/>
+</map>

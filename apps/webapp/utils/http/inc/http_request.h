@@ -1,3 +1,16 @@
+/**
+ * @ingroup HTTP
+ * @defgroup HTTP_request
+ * An HTTP request contains information relative to a received
+ * HTTP frame such as its method, header fields and content. Once
+ * HTTP requests should be processed through a router function.
+ * During routing step it is up to the user to forge response data
+ * and forward it to the http request instance to be sent back over
+ * to the sender of the request.
+ * @{
+ */
+
+
 #ifndef HTTP_REQUEST_H_
 #define HTTP_REQUEST_H_
 
@@ -11,8 +24,7 @@ typedef void(*router_fn)(http_request_s *req);
 
 
 /**
- * @ingroup http_request
- * @struct http_param_s
+ * @ingroup HTTP_request
  * @brief HTTP uri parameter object
  *
  * HTTP request characterised by a GET method do not convey any content.
@@ -20,22 +32,14 @@ typedef void(*router_fn)(http_request_s *req);
  * may be parsed and stoed within an HTTP param object.
  *
  */
-typedef struct http_param{
+typedef struct {
 	char *arg;									/**< the parameter's key string*/
 	char *val;									/**< the parameter's value string*/
 }http_param_s;
 
 /**
- * @ingroup http_request
- * @struct http_request_s
+ * @ingroup HTTP_request
  * @brief HTTP request object
- *
- * An HTTP request contains information relative to a received
- * HTTP frame such as its method, header fields and content. Once
- * HTTP requests should be processed through a router function.
- * During routing step it is up to the user to forge response data
- * and forward it to the http request instance to be sent back over
- * to the sender of the request
  */
 typedef struct http_request{
 	char *raw_data;								/**< pointer to the raw data as forwarded by the TCP/IP stack */
@@ -58,3 +62,8 @@ void http_request_free(http_request_s *req);
 uint8_t http_request_parse(http_request_s *req, struct pbuf *p);
 
 #endif
+
+/**
+ * @} Grouping in http_request submodule ends
+ * @} Grouping in http module ends
+ **/

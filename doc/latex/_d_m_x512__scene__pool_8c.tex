@@ -1,0 +1,52 @@
+\hypertarget{_d_m_x512__scene__pool_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/\+D\+M\+X512\+\_\+engine/src/\+D\+M\+X512\+\_\+scene\+\_\+pool.c File Reference}
+\label{_d_m_x512__scene__pool_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_scene\_pool.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/DMX512\_engine/src/DMX512\_scene\_pool.c}}
+{\ttfamily \#include \char`\"{}cueos\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmsis\+\_\+os.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+X512\+\_\+scene\+\_\+pool.\+h\char`\"{}}\newline
+Include dependency graph for D\+M\+X512\+\_\+scene\+\_\+pool.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_d_m_x512__scene__pool_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int16\+\_\+t \mbox{\hyperlink{_d_m_x512__scene__pool_8c_acf44a6c7f851ecd906d1b11599db28a1}{\+\_\+\+D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+search}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}}, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Finds the array index of a scene. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__scene__pool_ga65322c937fa77e55771f9664aede63fd}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+new}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new scene pool instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene__pool_ga4807b7cb4a5c202835d0f0a6d52a6884}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+add}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}}, \mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} scene)
+\begin{DoxyCompactList}\small\item\em Adds a scene instance into the pool. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene__pool_gafa6fca99ce578cd2cef11772eff18397}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+del}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}}, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes a scene instance from the pool. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__scene__pool_ga908e57b2905d2b1cedd610e963c93491}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+get}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}}, uint16\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets a scene instance from the pool. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___d_m_x512__scene__pool_ga7942f27f6178347c20791b469e01c2e1}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+manage}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$\mbox{\hyperlink{_q__client_8c_a6194e4ac2af14432e0d4a7e7f345718a}{this}})
+\begin{DoxyCompactList}\small\item\em Manages all scenes contained within the pool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_d_m_x512__scene__pool_8c_acf44a6c7f851ecd906d1b11599db28a1}\label{_d_m_x512__scene__pool_8c_acf44a6c7f851ecd906d1b11599db28a1}} 
+\index{DMX512\_scene\_pool.c@{DMX512\_scene\_pool.c}!\_DMX512\_scene\_pool\_search@{\_DMX512\_scene\_pool\_search}}
+\index{\_DMX512\_scene\_pool\_search@{\_DMX512\_scene\_pool\_search}!DMX512\_scene\_pool.c@{DMX512\_scene\_pool.c}}
+\doxysubsubsection{\texorpdfstring{\_DMX512\_scene\_pool\_search()}{\_DMX512\_scene\_pool\_search()}}
+{\footnotesize\ttfamily static int16\+\_\+t \+\_\+\+D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+search (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{this,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Finds the array index of a scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the scene\textquotesingle{}s identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int16\+\_\+t the array index of the scene. -\/1 is returned if the scene couldn\textquotesingle{}t be found 
+\end{DoxyReturn}
+
+
+Definition at line 24 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
+

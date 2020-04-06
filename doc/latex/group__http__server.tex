@@ -1,0 +1,46 @@
+\hypertarget{group__http__server}{}\doxysection{Http\+\_\+server}
+\label{group__http__server}\index{Http\_server@{Http\_server}}
+Collaboration diagram for Http\+\_\+server\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{group__http__server}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em H\+T\+TP server structure object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}} $\ast$ \mbox{\hyperlink{group__http__server_gad387e3a8770141b5574464a143164b16}{http\+\_\+server\+\_\+init}} (uint16\+\_\+t port, router\+\_\+fn router)
+\begin{DoxyCompactList}\small\item\em Initialises a new H\+T\+TP server instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Handles the creation of an H\+T\+TP server instance. This http server module is able to serve both static (eg. static files) and dynamic (eg. A\+PI responses) response data. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__http__server_gad387e3a8770141b5574464a143164b16}\label{group__http__server_gad387e3a8770141b5574464a143164b16}} 
+\index{Http\_server@{Http\_server}!http\_server\_init@{http\_server\_init}}
+\index{http\_server\_init@{http\_server\_init}!Http\_server@{Http\_server}}
+\doxysubsubsection{\texorpdfstring{http\_server\_init()}{http\_server\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}}$\ast$ http\+\_\+server\+\_\+init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port,  }\item[{router\+\_\+fn}]{router }\end{DoxyParamCaption})}
+
+
+
+Initialises a new H\+T\+TP server instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & the server\textquotesingle{}s port number \\
+\hline
+{\em router} & the router functions which will be used to generate response data following H\+T\+TP request \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 269 of file http\+\_\+server.\+c.
+

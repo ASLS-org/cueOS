@@ -1,0 +1,276 @@
+\hypertarget{htmlgen_8c}{}\doxysection{/root/\+Documents/\+A\+S\+L\+S/\+Firmware\+\_\+\+V2.4/cueos/apps/webapp/utils/htmlgen/release/htmlgen.c File Reference}
+\label{htmlgen_8c}\index{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/htmlgen/release/htmlgen.c@{/root/Documents/ASLS/Firmware\_V2.4/cueos/apps/webapp/utils/htmlgen/release/htmlgen.c}}
+{\ttfamily \#include \char`\"{}htmlfs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+Include dependency graph for htmlgen.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{htmlgen_8c__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{htmlgen_8c__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_a4a4bf9866c570a1420eb218034e0dfde}{file\+\_\+\+N\+U\+LL}}~(struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} $\ast$) N\+U\+LL
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+I\+N\+C\+L\+U\+D\+ED}}~1
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+NT}}~0
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_a9f22d0d48193a029c8a7b41fb75904cf}{F\+S\+D\+A\+T\+A\+\_\+\+F\+I\+L\+E\+\_\+\+A\+L\+I\+G\+N\+M\+E\+NT}}~0
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_adf802cbed98c3329fbed945f8479f0a0}{F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+RE}}
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_a695e5aac84f91511689c4c15b4f19856}{F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+O\+ST}}
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_a579e616a9072321cb4da8aa2d64252f2}{F\+S\+\_\+\+R\+O\+OT}}~\mbox{\hyperlink{htmlgen_8c_a1908ae237b89f877e8ca1938f471caef}{file\+\_\+\+\_\+index\+\_\+html}}
+\item 
+\#define \mbox{\hyperlink{htmlgen_8c_aa06c00919f77418ad5d5e54141926500}{F\+S\+\_\+\+N\+U\+M\+F\+I\+L\+ES}}~6
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const unsigned char \mbox{\hyperlink{htmlgen_8c_adf802cbed98c3329fbed945f8479f0a0}{F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+RE}} data\+\_\+\+\_\+css\+\_\+app\+\_\+fb0c6e1c\+\_\+css\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{htmlgen_8c_a29599584821c4b03fe9e4d2ce9025e26}{F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+O\+ST}}
+\item 
+const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} \mbox{\hyperlink{htmlgen_8c_a402d001fdafcf4f7b6f21bfc1ab3ede3}{file\+\_\+\+\_\+css\+\_\+app\+\_\+fb0c6e1c\+\_\+css}} \mbox{[}$\,$\mbox{]}
+\item 
+const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} \mbox{\hyperlink{htmlgen_8c_a3867e7502a494e7d9df3ac2c010b47e7}{file\+\_\+\+\_\+img\+\_\+logo\+\_\+82b9c7a5\+\_\+png}} \mbox{[}$\,$\mbox{]}
+\item 
+const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} \mbox{\hyperlink{htmlgen_8c_ab8ff2fd768eb551e5aa472862d2995b2}{file\+\_\+\+\_\+js\+\_\+app\+\_\+3129ca75\+\_\+js}} \mbox{[}$\,$\mbox{]}
+\item 
+const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} \mbox{\hyperlink{htmlgen_8c_a6f51ac39948f4a0153b0774e969fbcb1}{file\+\_\+\+\_\+js\+\_\+chunk\+\_\+vendors\+\_\+37632507\+\_\+js}} \mbox{[}$\,$\mbox{]}
+\item 
+const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} \mbox{\hyperlink{htmlgen_8c_ad9ad60210293ec2c096ffcbcd20938a4}{file\+\_\+\+\_\+favicon\+\_\+ico}} \mbox{[}$\,$\mbox{]}
+\item 
+const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} \mbox{\hyperlink{htmlgen_8c_a1908ae237b89f877e8ca1938f471caef}{file\+\_\+\+\_\+index\+\_\+html}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{htmlgen_8c_a4a4bf9866c570a1420eb218034e0dfde}\label{htmlgen_8c_a4a4bf9866c570a1420eb218034e0dfde}} 
+\index{htmlgen.c@{htmlgen.c}!file\_NULL@{file\_NULL}}
+\index{file\_NULL@{file\_NULL}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{file\_NULL}{file\_NULL}}
+{\footnotesize\ttfamily \#define file\+\_\+\+N\+U\+LL~(struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} $\ast$) N\+U\+LL}
+
+
+
+Definition at line 5 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}\label{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}} 
+\index{htmlgen.c@{htmlgen.c}!FS\_FILE\_FLAGS\_HEADER\_INCLUDED@{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}}
+\index{FS\_FILE\_FLAGS\_HEADER\_INCLUDED@{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+I\+N\+C\+L\+U\+D\+ED~1}
+
+
+
+Definition at line 9 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}\label{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}} 
+\index{htmlgen.c@{htmlgen.c}!FS\_FILE\_FLAGS\_HEADER\_PERSISTENT@{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}}
+\index{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT@{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+NT~0}
+
+
+
+Definition at line 12 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_aa06c00919f77418ad5d5e54141926500}\label{htmlgen_8c_aa06c00919f77418ad5d5e54141926500}} 
+\index{htmlgen.c@{htmlgen.c}!FS\_NUMFILES@{FS\_NUMFILES}}
+\index{FS\_NUMFILES@{FS\_NUMFILES}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FS\_NUMFILES}{FS\_NUMFILES}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+N\+U\+M\+F\+I\+L\+ES~6}
+
+
+
+Definition at line 7024 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a579e616a9072321cb4da8aa2d64252f2}\label{htmlgen_8c_a579e616a9072321cb4da8aa2d64252f2}} 
+\index{htmlgen.c@{htmlgen.c}!FS\_ROOT@{FS\_ROOT}}
+\index{FS\_ROOT@{FS\_ROOT}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FS\_ROOT}{FS\_ROOT}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+R\+O\+OT~\mbox{\hyperlink{htmlgen_8c_a1908ae237b89f877e8ca1938f471caef}{file\+\_\+\+\_\+index\+\_\+html}}}
+
+
+
+Definition at line 7023 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a695e5aac84f91511689c4c15b4f19856}\label{htmlgen_8c_a695e5aac84f91511689c4c15b4f19856}} 
+\index{htmlgen.c@{htmlgen.c}!FSDATA\_ALIGN\_POST@{FSDATA\_ALIGN\_POST}}
+\index{FSDATA\_ALIGN\_POST@{FSDATA\_ALIGN\_POST}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FSDATA\_ALIGN\_POST}{FSDATA\_ALIGN\_POST}}
+{\footnotesize\ttfamily \#define F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+O\+ST}
+
+
+
+Definition at line 22 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_adf802cbed98c3329fbed945f8479f0a0}\label{htmlgen_8c_adf802cbed98c3329fbed945f8479f0a0}} 
+\index{htmlgen.c@{htmlgen.c}!FSDATA\_ALIGN\_PRE@{FSDATA\_ALIGN\_PRE}}
+\index{FSDATA\_ALIGN\_PRE@{FSDATA\_ALIGN\_PRE}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FSDATA\_ALIGN\_PRE}{FSDATA\_ALIGN\_PRE}}
+{\footnotesize\ttfamily \#define F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+RE}
+
+
+
+Definition at line 19 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a9f22d0d48193a029c8a7b41fb75904cf}\label{htmlgen_8c_a9f22d0d48193a029c8a7b41fb75904cf}} 
+\index{htmlgen.c@{htmlgen.c}!FSDATA\_FILE\_ALIGNMENT@{FSDATA\_FILE\_ALIGNMENT}}
+\index{FSDATA\_FILE\_ALIGNMENT@{FSDATA\_FILE\_ALIGNMENT}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FSDATA\_FILE\_ALIGNMENT}{FSDATA\_FILE\_ALIGNMENT}}
+{\footnotesize\ttfamily \#define F\+S\+D\+A\+T\+A\+\_\+\+F\+I\+L\+E\+\_\+\+A\+L\+I\+G\+N\+M\+E\+NT~0}
+
+
+
+Definition at line 16 of file htmlgen.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{htmlgen_8c_a402d001fdafcf4f7b6f21bfc1ab3ede3}\label{htmlgen_8c_a402d001fdafcf4f7b6f21bfc1ab3ede3}} 
+\index{htmlgen.c@{htmlgen.c}!file\_\_css\_app\_fb0c6e1c\_css@{file\_\_css\_app\_fb0c6e1c\_css}}
+\index{file\_\_css\_app\_fb0c6e1c\_css@{file\_\_css\_app\_fb0c6e1c\_css}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{file\_\_css\_app\_fb0c6e1c\_css}{file\_\_css\_app\_fb0c6e1c\_css}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} file\+\_\+\+\_\+css\+\_\+app\+\_\+fb0c6e1c\+\_\+css\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \{}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a4a4bf9866c570a1420eb218034e0dfde}{file\_NULL}},}
+\DoxyCodeLine{data\_\_css\_app\_fb0c6e1c\_css,}
+\DoxyCodeLine{data\_\_css\_app\_fb0c6e1c\_css + 24,}
+\DoxyCodeLine{\textcolor{keyword}{sizeof}(data\_\_css\_app\_fb0c6e1c\_css) -\/ 24,}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}} | \mbox{\hyperlink{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 6975 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_ad9ad60210293ec2c096ffcbcd20938a4}\label{htmlgen_8c_ad9ad60210293ec2c096ffcbcd20938a4}} 
+\index{htmlgen.c@{htmlgen.c}!file\_\_favicon\_ico@{file\_\_favicon\_ico}}
+\index{file\_\_favicon\_ico@{file\_\_favicon\_ico}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{file\_\_favicon\_ico}{file\_\_favicon\_ico}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} file\+\_\+\+\_\+favicon\+\_\+ico\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \{}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a6f51ac39948f4a0153b0774e969fbcb1}{file\_\_js\_chunk\_vendors\_37632507\_js}},}
+\DoxyCodeLine{data\_\_favicon\_ico,}
+\DoxyCodeLine{data\_\_favicon\_ico + 16,}
+\DoxyCodeLine{\textcolor{keyword}{sizeof}(data\_\_favicon\_ico) -\/ 16,}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}} | \mbox{\hyperlink{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 7007 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a3867e7502a494e7d9df3ac2c010b47e7}\label{htmlgen_8c_a3867e7502a494e7d9df3ac2c010b47e7}} 
+\index{htmlgen.c@{htmlgen.c}!file\_\_img\_logo\_82b9c7a5\_png@{file\_\_img\_logo\_82b9c7a5\_png}}
+\index{file\_\_img\_logo\_82b9c7a5\_png@{file\_\_img\_logo\_82b9c7a5\_png}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{file\_\_img\_logo\_82b9c7a5\_png}{file\_\_img\_logo\_82b9c7a5\_png}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} file\+\_\+\+\_\+img\+\_\+logo\+\_\+82b9c7a5\+\_\+png\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \{}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a402d001fdafcf4f7b6f21bfc1ab3ede3}{file\_\_css\_app\_fb0c6e1c\_css}},}
+\DoxyCodeLine{data\_\_img\_logo\_82b9c7a5\_png,}
+\DoxyCodeLine{data\_\_img\_logo\_82b9c7a5\_png + 24,}
+\DoxyCodeLine{\textcolor{keyword}{sizeof}(data\_\_img\_logo\_82b9c7a5\_png) -\/ 24,}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}} | \mbox{\hyperlink{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 6983 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a1908ae237b89f877e8ca1938f471caef}\label{htmlgen_8c_a1908ae237b89f877e8ca1938f471caef}} 
+\index{htmlgen.c@{htmlgen.c}!file\_\_index\_html@{file\_\_index\_html}}
+\index{file\_\_index\_html@{file\_\_index\_html}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{file\_\_index\_html}{file\_\_index\_html}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} file\+\_\+\+\_\+index\+\_\+html\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \{}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_ad9ad60210293ec2c096ffcbcd20938a4}{file\_\_favicon\_ico}},}
+\DoxyCodeLine{data\_\_index\_html,}
+\DoxyCodeLine{data\_\_index\_html + 12,}
+\DoxyCodeLine{\textcolor{keyword}{sizeof}(data\_\_index\_html) -\/ 12,}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}} | \mbox{\hyperlink{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 7015 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_ab8ff2fd768eb551e5aa472862d2995b2}\label{htmlgen_8c_ab8ff2fd768eb551e5aa472862d2995b2}} 
+\index{htmlgen.c@{htmlgen.c}!file\_\_js\_app\_3129ca75\_js@{file\_\_js\_app\_3129ca75\_js}}
+\index{file\_\_js\_app\_3129ca75\_js@{file\_\_js\_app\_3129ca75\_js}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{file\_\_js\_app\_3129ca75\_js}{file\_\_js\_app\_3129ca75\_js}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} file\+\_\+\+\_\+js\+\_\+app\+\_\+3129ca75\+\_\+js\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \{}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a3867e7502a494e7d9df3ac2c010b47e7}{file\_\_img\_logo\_82b9c7a5\_png}},}
+\DoxyCodeLine{data\_\_js\_app\_3129ca75\_js,}
+\DoxyCodeLine{data\_\_js\_app\_3129ca75\_js + 20,}
+\DoxyCodeLine{\textcolor{keyword}{sizeof}(data\_\_js\_app\_3129ca75\_js) -\/ 20,}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}} | \mbox{\hyperlink{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 6991 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a6f51ac39948f4a0153b0774e969fbcb1}\label{htmlgen_8c_a6f51ac39948f4a0153b0774e969fbcb1}} 
+\index{htmlgen.c@{htmlgen.c}!file\_\_js\_chunk\_vendors\_37632507\_js@{file\_\_js\_chunk\_vendors\_37632507\_js}}
+\index{file\_\_js\_chunk\_vendors\_37632507\_js@{file\_\_js\_chunk\_vendors\_37632507\_js}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{file\_\_js\_chunk\_vendors\_37632507\_js}{file\_\_js\_chunk\_vendors\_37632507\_js}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}} file\+\_\+\+\_\+js\+\_\+chunk\+\_\+vendors\+\_\+37632507\+\_\+js\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{ \{}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_ab8ff2fd768eb551e5aa472862d2995b2}{file\_\_js\_app\_3129ca75\_js}},}
+\DoxyCodeLine{data\_\_js\_chunk\_vendors\_37632507\_js,}
+\DoxyCodeLine{data\_\_js\_chunk\_vendors\_37632507\_js + 32,}
+\DoxyCodeLine{\textcolor{keyword}{sizeof}(data\_\_js\_chunk\_vendors\_37632507\_js) -\/ 32,}
+\DoxyCodeLine{\mbox{\hyperlink{htmlgen_8c_a7e36694e0257a7642d41ffda5bf03634}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}} | \mbox{\hyperlink{htmlgen_8c_a95e84b4ba432cf58a59f14ba85733584}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}},}
+\DoxyCodeLine{\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 6999 of file htmlgen.\+c.
+
+\mbox{\Hypertarget{htmlgen_8c_a29599584821c4b03fe9e4d2ce9025e26}\label{htmlgen_8c_a29599584821c4b03fe9e4d2ce9025e26}} 
+\index{htmlgen.c@{htmlgen.c}!FSDATA\_ALIGN\_POST@{FSDATA\_ALIGN\_POST}}
+\index{FSDATA\_ALIGN\_POST@{FSDATA\_ALIGN\_POST}!htmlgen.c@{htmlgen.c}}
+\doxysubsubsection{\texorpdfstring{FSDATA\_ALIGN\_POST}{FSDATA\_ALIGN\_POST}}
+{\footnotesize\ttfamily const unsigned char \mbox{\hyperlink{htmlgen_8c_adf802cbed98c3329fbed945f8479f0a0}{F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+RE}} data\+\_\+\+\_\+index\+\_\+html \mbox{[}$\,$\mbox{]} F\+S\+D\+A\+T\+A\+\_\+\+A\+L\+I\+G\+N\+\_\+\+P\+O\+ST\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 30 of file htmlgen.\+c.
+

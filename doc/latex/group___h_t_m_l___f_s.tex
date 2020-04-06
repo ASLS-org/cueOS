@@ -1,0 +1,91 @@
+\hypertarget{group___h_t_m_l___f_s}{}\doxysection{H\+T\+M\+L\+\_\+\+FS}
+\label{group___h_t_m_l___f_s}\index{HTML\_FS@{HTML\_FS}}
+
+
+Static files file system. Manages files compiled within \mbox{\hyperlink{htmlgen_8c_source}{htmlgen.\+c}} file. \mbox{\hyperlink{htmlgen_8c_source}{htmlgen.\+c}} file contains a compiled minified version of the files contained within the \char`\"{}htmlgen\char`\"{} \char`\"{}/dist\char`\"{} subfolder. the content of this subfolder may be modified and recompiled into a readable stream of bytes by calling htmlgen.\+sh script placed at the root of the htmlgen subfolder.  
+
+
+Collaboration diagram for H\+T\+M\+L\+\_\+\+FS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{group___h_t_m_l___f_s}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}}
+\item 
+struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga05d23b3c867c1f9d701efa0d6d0db92d}\label{group___h_t_m_l___f_s_ga05d23b3c867c1f9d701efa0d6d0db92d}} 
+\#define {\bfseries F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+E\+OF}~-\/1
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga3f90d15249e0bc12ed287140356f71dc}\label{group___h_t_m_l___f_s_ga3f90d15249e0bc12ed287140356f71dc}} 
+\#define {\bfseries F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+D\+E\+L\+A\+Y\+ED}~-\/2
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga7e36694e0257a7642d41ffda5bf03634}\label{group___h_t_m_l___f_s_ga7e36694e0257a7642d41ffda5bf03634}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+I\+N\+C\+L\+U\+D\+ED}~0x01
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga95e84b4ba432cf58a59f14ba85733584}\label{group___h_t_m_l___f_s_ga95e84b4ba432cf58a59f14ba85733584}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+NT}~0x02
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga3d3830c1e5b9f68e4ae346d0e3f750e9}\label{group___h_t_m_l___f_s_ga3d3830c1e5b9f68e4ae346d0e3f750e9}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+H\+T\+T\+P\+V\+E\+R\+\_\+1\+\_\+1}~0x04
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_gaec7ecbdfe4b0bb159437065b1a8f3d3f}\label{group___h_t_m_l___f_s_gaec7ecbdfe4b0bb159437065b1a8f3d3f}} 
+\#define {\bfseries F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+S\+SI}~0x08
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga52dc8f2fdce986194d606ac05bbac116}\label{group___h_t_m_l___f_s_ga52dc8f2fdce986194d606ac05bbac116}} 
+typedef void {\bfseries fs\+\_\+file\+\_\+extension}
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga0f48b2c138dc27f9779dd358b35fdb52}\label{group___h_t_m_l___f_s_ga0f48b2c138dc27f9779dd358b35fdb52}} 
+typedef struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} {\bfseries fs\+\_\+file\+\_\+s}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+err\+\_\+t \mbox{\hyperlink{group___h_t_m_l___f_s_ga594058d3f4dd9f333c51b7e5ca910ac3}{fs\+\_\+open}} (struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} $\ast$file, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em opens a pre-\/compiled file located in \mbox{\hyperlink{htmlgen_8c_source}{htmlgen.\+c}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga742b1911f18d0c780436b7a6abb08c70}\label{group___h_t_m_l___f_s_ga742b1911f18d0c780436b7a6abb08c70}} 
+void {\bfseries fs\+\_\+close} (struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} $\ast$file)
+\item 
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga3a7ab7c6c0ddd559030d8e91d94ea02b}\label{group___h_t_m_l___f_s_ga3a7ab7c6c0ddd559030d8e91d94ea02b}} 
+int {\bfseries fs\+\_\+bytes\+\_\+left} (struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} $\ast$file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Static files file system. Manages files compiled within \mbox{\hyperlink{htmlgen_8c_source}{htmlgen.\+c}} file. \mbox{\hyperlink{htmlgen_8c_source}{htmlgen.\+c}} file contains a compiled minified version of the files contained within the \char`\"{}htmlgen\char`\"{} \char`\"{}/dist\char`\"{} subfolder. the content of this subfolder may be modified and recompiled into a readable stream of bytes by calling htmlgen.\+sh script placed at the root of the htmlgen subfolder. 
+
+T\+O\+DO\+: add doxygen comments 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___h_t_m_l___f_s_ga594058d3f4dd9f333c51b7e5ca910ac3}\label{group___h_t_m_l___f_s_ga594058d3f4dd9f333c51b7e5ca910ac3}} 
+\index{HTML\_FS@{HTML\_FS}!fs\_open@{fs\_open}}
+\index{fs\_open@{fs\_open}!HTML\_FS@{HTML\_FS}}
+\doxysubsubsection{\texorpdfstring{fs\_open()}{fs\_open()}}
+{\footnotesize\ttfamily err\+\_\+t fs\+\_\+open (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} $\ast$}]{file,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+opens a pre-\/compiled file located in \mbox{\hyperlink{htmlgen_8c_source}{htmlgen.\+c}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$file} & pointer to an \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} object \\
+\hline
+{\em $\ast$name} & pointer to a string containing the path/name of the file to be opened \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file htmlfs.\+c.
+
