@@ -1,0 +1,208 @@
+\hypertarget{group___q__parser}{}\doxysection{Q\+\_\+parser}
+\label{group___q__parser}\index{Q\_parser@{Q\_parser}}
+
+
+Parses \char`\"{}\+Q\char`\"{} formated U\+DP packets. Q packets are simply made of a single O\+P\+C\+O\+DE byte and a variable length data payload conveying cue-\/specific information.  
+
+
+Collaboration diagram for Q\+\_\+parser\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{group___q__parser}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet}}
+\begin{DoxyCompactList}\small\item\em Defines a Q packet object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___q__parser_gae02c5364ed5b07a942ade457a9d4a5fe}\label{group___q__parser_gae02c5364ed5b07a942ade457a9d4a5fe}} 
+\#define {\bfseries Q\+\_\+\+P\+A\+C\+K\+E\+T\+I\+D\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~6
+\item 
+\mbox{\Hypertarget{group___q__parser_ga68f2d47de060fd54aeb8c6eff0ec24d1}\label{group___q__parser_ga68f2d47de060fd54aeb8c6eff0ec24d1}} 
+\#define {\bfseries Q\+\_\+\+O\+P\+C\+O\+D\+E\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~1
+\item 
+\mbox{\Hypertarget{group___q__parser_ga5b85eefac7d0d20a08e0dad6a291291c}\label{group___q__parser_ga5b85eefac7d0d20a08e0dad6a291291c}} 
+\#define {\bfseries Q\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+I\+D\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~2
+\item 
+\mbox{\Hypertarget{group___q__parser_ga420295cdc5f0811396560ba69672d34f}\label{group___q__parser_ga420295cdc5f0811396560ba69672d34f}} 
+\#define {\bfseries Q\+\_\+\+C\+O\+N\+F\+I\+G\+E\+R\+R\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~1
+\item 
+\mbox{\Hypertarget{group___q__parser_gad051774a52a5e5552f197cd7846b1681}\label{group___q__parser_gad051774a52a5e5552f197cd7846b1681}} 
+\#define {\bfseries Q\+\_\+\+N\+O\+D\+E\+T\+Y\+P\+E\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~1
+\item 
+\mbox{\Hypertarget{group___q__parser_ga04d76a75aaf2a4304f032b6bfc2fdbbd}\label{group___q__parser_ga04d76a75aaf2a4304f032b6bfc2fdbbd}} 
+\#define {\bfseries Q\+\_\+\+N\+O\+D\+E\+I\+D\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~1
+\item 
+\mbox{\Hypertarget{group___q__parser_ga885e578af7cc8e04f077038f8c2f560b}\label{group___q__parser_ga885e578af7cc8e04f077038f8c2f560b}} 
+\#define {\bfseries Q\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~Q\+\_\+\+P\+A\+C\+K\+E\+T\+I\+D\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH + Q\+\_\+\+O\+P\+C\+O\+D\+E\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH
+\item 
+\mbox{\Hypertarget{group___q__parser_gaabd29926dee498fb34e116665a8d314d}\label{group___q__parser_gaabd29926dee498fb34e116665a8d314d}} 
+\#define {\bfseries Q\+\_\+\+C\+O\+N\+F\+I\+G\+R\+E\+P\+L\+Y\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~Q\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH + Q\+\_\+\+R\+E\+Q\+U\+E\+S\+T\+I\+D\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH + Q\+\_\+\+C\+O\+N\+F\+I\+G\+E\+R\+R\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH
+\item 
+\mbox{\Hypertarget{group___q__parser_ga60188243eb4b6ce264311aaa89618eaf}\label{group___q__parser_ga60188243eb4b6ce264311aaa89618eaf}} 
+\#define {\bfseries Q\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+R\+E\+P\+L\+Y\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~Q\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH + Q\+\_\+\+N\+O\+D\+E\+T\+Y\+P\+E\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH + Q\+\_\+\+N\+O\+D\+E\+I\+D\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH
+\item 
+\mbox{\Hypertarget{group___q__parser_gaeb38e0e99ccd2fffdbfecf8c25f0cde1}\label{group___q__parser_gaeb38e0e99ccd2fffdbfecf8c25f0cde1}} 
+\#define {\bfseries Q\+\_\+\+P\+O\+L\+L\+R\+E\+P\+L\+Y\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH}~Q\+\_\+\+D\+I\+S\+C\+O\+V\+E\+R\+R\+E\+P\+L\+Y\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH
+\item 
+\mbox{\Hypertarget{group___q__parser_ga4ac4301401e66b0eb7846d0ba505232b}\label{group___q__parser_ga4ac4301401e66b0eb7846d0ba505232b}} 
+\#define {\bfseries Q\+\_\+\+O\+P\+C\+O\+D\+E\+\_\+\+I\+N\+D\+EX}~Q\+\_\+\+P\+A\+C\+K\+E\+T\+I\+D\+\_\+\+B\+Y\+T\+E\+L\+E\+N\+G\+TH
+\item 
+\mbox{\Hypertarget{group___q__parser_ga4992bc22718695f6afe88ba371d2abb8}\label{group___q__parser_ga4992bc22718695f6afe88ba371d2abb8}} 
+\#define {\bfseries Q\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+I\+N\+D\+EX}~Q\+\_\+\+O\+P\+C\+O\+D\+E\+\_\+\+I\+N\+D\+EX
+\item 
+\mbox{\Hypertarget{group___q__parser_ga5cdf2899f32872135516b77cc2ef15e8}\label{group___q__parser_ga5cdf2899f32872135516b77cc2ef15e8}} 
+\#define {\bfseries Q\+\_\+\+P\+A\+C\+K\+E\+T\+I\+D\+\_\+\+S\+T\+R\+I\+NG}~\char`\"{}A\+S\+LS-\/Q\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___q__parser_gaeba4588055dc100bba4e98a74b9ab70e}\label{group___q__parser_gaeba4588055dc100bba4e98a74b9ab70e}} 
+typedef struct \mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet}} {\bfseries Q\+\_\+packet\+\_\+s}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___q__parser_ga53dfc693d93ddf379c5c72e8abba5fba}\label{group___q__parser_ga53dfc693d93ddf379c5c72e8abba5fba}} 
+enum \mbox{\hyperlink{group___q__parser_ga53dfc693d93ddf379c5c72e8abba5fba}{Q\+\_\+packet\+\_\+opcode\+\_\+cmd\+\_\+e}} \{ \newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+T\+A\+RT}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+P\+A\+U\+SE}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+R\+E\+S\+U\+ME}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+S\+T\+OP}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+A\+L\+L\+O\+FF}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+R\+E\+S\+T\+O\+RE}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+A\+C\+T\+U\+A\+T\+OR}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+P\+R\+O\+B\+E\+\_\+\+D\+I\+S\+C\+O\+V\+ER}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+P\+R\+O\+B\+E\+\_\+\+P\+O\+LL}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+P\+R\+O\+B\+E\+\_\+\+D\+I\+A\+G\+N\+O\+S\+T\+IC}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+D\+I\+S\+C\+O\+V\+ER}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+P\+O\+LL}, 
+\newline
+{\bfseries Q\+\_\+\+C\+M\+D\+\_\+\+R\+E\+P\+L\+Y\+\_\+\+D\+I\+A\+G\+N\+O\+S\+T\+IC}
+ \}
+\begin{DoxyCompactList}\small\item\em List of Q packet opcodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet\+\_\+s}} $\ast$ \mbox{\hyperlink{group___q__parser_ga554d50c3a52aa6dd3f8b341f47d6b6f7}{Q\+\_\+parser\+\_\+parse}} (void $\ast$data, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em parses and converts received data into a \mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet}} instance \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group___q__parser_gacdf546a81707835aa76b9882e02b7850}{Q\+\_\+parser\+\_\+forge\+\_\+discover\+\_\+reply}} (uint8\+\_\+t node\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Forges a discover reply packet using provided node\textquotesingle{}s id. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{group___q__parser_gae685c996b2a788e3d2930d597a1752ed}{Q\+\_\+parser\+\_\+forge\+\_\+poll\+\_\+reply}} (uint8\+\_\+t node\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Forges a poll reply packet using provided node\textquotesingle{}s id. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___q__parser_ga6c62ae6636e5f77e1fe66bbc41116ab1}\label{group___q__parser_ga6c62ae6636e5f77e1fe66bbc41116ab1}} 
+char $\ast$ {\bfseries Q\+\_\+parser\+\_\+forge\+\_\+config\+\_\+reply} (uint16\+\_\+t request\+\_\+id, uint8\+\_\+t err\+\_\+code)
+\item 
+void \mbox{\hyperlink{group___q__parser_gac9ace0b365387a137a482ec2a0a0ffab}{Q\+\_\+parser\+\_\+free}} (\mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet\+\_\+s}} $\ast$packet)
+\begin{DoxyCompactList}\small\item\em Frees packet\textquotesingle{}s dynamically allocated ressources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parses \char`\"{}\+Q\char`\"{} formated U\+DP packets. Q packets are simply made of a single O\+P\+C\+O\+DE byte and a variable length data payload conveying cue-\/specific information. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___q__parser_gacdf546a81707835aa76b9882e02b7850}\label{group___q__parser_gacdf546a81707835aa76b9882e02b7850}} 
+\index{Q\_parser@{Q\_parser}!Q\_parser\_forge\_discover\_reply@{Q\_parser\_forge\_discover\_reply}}
+\index{Q\_parser\_forge\_discover\_reply@{Q\_parser\_forge\_discover\_reply}!Q\_parser@{Q\_parser}}
+\doxysubsubsection{\texorpdfstring{Q\_parser\_forge\_discover\_reply()}{Q\_parser\_forge\_discover\_reply()}}
+{\footnotesize\ttfamily char$\ast$ Q\+\_\+parser\+\_\+forge\+\_\+discover\+\_\+reply (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{node\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Forges a discover reply packet using provided node\textquotesingle{}s id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+id} & node identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ pointer to raw data buffer to be sent 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file Q\+\_\+parser.\+c.
+
+\mbox{\Hypertarget{group___q__parser_gae685c996b2a788e3d2930d597a1752ed}\label{group___q__parser_gae685c996b2a788e3d2930d597a1752ed}} 
+\index{Q\_parser@{Q\_parser}!Q\_parser\_forge\_poll\_reply@{Q\_parser\_forge\_poll\_reply}}
+\index{Q\_parser\_forge\_poll\_reply@{Q\_parser\_forge\_poll\_reply}!Q\_parser@{Q\_parser}}
+\doxysubsubsection{\texorpdfstring{Q\_parser\_forge\_poll\_reply()}{Q\_parser\_forge\_poll\_reply()}}
+{\footnotesize\ttfamily char$\ast$ Q\+\_\+parser\+\_\+forge\+\_\+poll\+\_\+reply (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{node\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Forges a poll reply packet using provided node\textquotesingle{}s id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+id} & node identifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ pointer to raw data buffer to be sent 
+\end{DoxyReturn}
+
+
+Definition at line 99 of file Q\+\_\+parser.\+c.
+
+\mbox{\Hypertarget{group___q__parser_gac9ace0b365387a137a482ec2a0a0ffab}\label{group___q__parser_gac9ace0b365387a137a482ec2a0a0ffab}} 
+\index{Q\_parser@{Q\_parser}!Q\_parser\_free@{Q\_parser\_free}}
+\index{Q\_parser\_free@{Q\_parser\_free}!Q\_parser@{Q\_parser}}
+\doxysubsubsection{\texorpdfstring{Q\_parser\_free()}{Q\_parser\_free()}}
+{\footnotesize\ttfamily void Q\+\_\+parser\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet\+\_\+s}} $\ast$}]{packet }\end{DoxyParamCaption})}
+
+
+
+Frees packet\textquotesingle{}s dynamically allocated ressources. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$packet} & pointer to packet instance to be freed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 73 of file Q\+\_\+parser.\+c.
+
+\mbox{\Hypertarget{group___q__parser_ga554d50c3a52aa6dd3f8b341f47d6b6f7}\label{group___q__parser_ga554d50c3a52aa6dd3f8b341f47d6b6f7}} 
+\index{Q\_parser@{Q\_parser}!Q\_parser\_parse@{Q\_parser\_parse}}
+\index{Q\_parser\_parse@{Q\_parser\_parse}!Q\_parser@{Q\_parser}}
+\doxysubsubsection{\texorpdfstring{Q\_parser\_parse()}{Q\_parser\_parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet\+\_\+s}}$\ast$ Q\+\_\+parser\+\_\+parse (\begin{DoxyParamCaption}\item[{void $\ast$}]{data,  }\item[{uint8\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+parses and converts received data into a \mbox{\hyperlink{struct_q__packet}{Q\+\_\+packet}} instance 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$data} & pointer to data buffer \\
+\hline
+{\em len} & length of the data contained within the buffer in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Q\+\_\+packet\+\_\+s$\ast$ pointer to the created Q packet instance, N\+U\+LL on fail 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file Q\+\_\+parser.\+c.
+
