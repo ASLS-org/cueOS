@@ -1,6 +1,6 @@
 /**
  * @ingroup HTTP_server
- * @defgroup HTTP_defs
+ * @defgroup HTTP_defs Definitions
  * Definition of fundamental constant values to be used within the HTTP module
  * @{
  */
@@ -8,80 +8,77 @@
 #ifndef HTTP_DEFS_H_
 #define HTTP_DEFS_H_
 
-#define STR_COMMON_SP 	" "
-#define STR_COMMON_CRLF "\r\n"
-#define STR_COMMON_QMRK "?"
-#define STR_COMMON_EQUL "="
-#define STR_COMMON_AMPR	"&"
-
-#define HTTP_HEADER_SEPARATOR 	"\r\n"
-#define HTTP_HEADER_DELIMITOR 	"\r\n\r\n"
-#define HTTP_PARAMS_DELIMITOR 	"?"
-#define HTTP_PARAMS_TERMINATOR 	" "
-#define HTTP_VALUE_SEPARATOR 	"="
-#define HTTP_PARAMS_SEPARATOR 	"&"
+#define STR_COMMON_SP 	" "					/**< common string separator value - Space */
+#define STR_COMMON_CRLF "\r\n"				/**< common string separator value - CRLF */
+#define STR_COMMON_QMRK "?"					/**< common string separator value - Question mark */
+#define STR_COMMON_EQUL "="					/**< common string separator value - Equal sign */
+#define STR_COMMON_AMPR	"&"					/**< common string separator value - Ampersand */
 
 
 /**
- * @brief Enumeration index of HTTP status codes.
+ * @brief Enumeration of HTTP status codes string indexes.
  */
 typedef enum{
-	HTTP_STATUS_CODE_200,
-	HTTP_STATUS_CODE_201,
-	HTTP_STATUS_CODE_202,
-	HTTP_STATUS_CODE_204,
-	HTTP_STATUS_CODE_300,
-	HTTP_STATUS_CODE_301,
-	HTTP_STATUS_CODE_400,
-	HTTP_STATUS_CODE_401,
-	HTTP_STATUS_CODE_403,
-	HTTP_STATUS_CODE_404,
-	HTTP_STATUS_CODE_501,
-	HTTP_STATUS_CODE_502,
-	HTTP_STATUS_CODE_503,
+	HTTP_STATUS_CODE_200,					/**< HTTP 200 OK status code*/
+	HTTP_STATUS_CODE_201,					/**< HTTP 201 status code*/
+	HTTP_STATUS_CODE_202,					/**< HTTP 202 status code*/
+	HTTP_STATUS_CODE_204,					/**< HTTP 204 status code*/
+	HTTP_STATUS_CODE_300,					/**< HTTP 300 status code*/
+	HTTP_STATUS_CODE_301,					/**< HTTP 301 status code*/
+	HTTP_STATUS_CODE_400,					/**< HTTP 400 status code*/
+	HTTP_STATUS_CODE_401,					/**< HTTP 401 status code*/
+	HTTP_STATUS_CODE_403,					/**< HTTP 403 status code*/
+	HTTP_STATUS_CODE_404,					/**< HTTP 404 Not Found status code*/
+	HTTP_STATUS_CODE_501,					/**< HTTP 501 status code*/
+	HTTP_STATUS_CODE_502,					/**< HTTP 502 status code*/
+	HTTP_STATUS_CODE_503,					/**< HTTP 503 status code*/
 }http_status_code_e;
 
 /**
- * @brief Enumeration index of HTTP header fields.
+ * @brief Enumeration of HTTP header fields string indexes.
  */
 typedef enum{
-	HTTP_HEADER_FIELD_STATUS_CODE,
-	HTTP_HEADER_FIELD_CONTENT_TYPE,
-	HTTP_HEADER_FIELD_CONTENT_LENGTH,
-	HTTP_HEADER_FIELD_CONTENT_ENCODING,
-	HTTP_HEADER_FIELD_CONTENT_LANGUAGE,
-	HTTP_HEADER_FIELD_CONTENT_LOCATION
+	HTTP_HEADER_FIELD_STATUS_CODE,			/**< HTTP status code header field string index*/
+	HTTP_HEADER_FIELD_CONTENT_TYPE,			/**< HTTP content type header field string index*/
+	HTTP_HEADER_FIELD_CONTENT_LENGTH,		/**< HTTP content length header field string index*/
+	HTTP_HEADER_FIELD_CONTENT_ENCODING,		/**< HTTP content encoding header field string index*/
+	HTTP_HEADER_FIELD_CONTENT_LANGUAGE,		/**< HTTP content manguage header field string index*/
+	HTTP_HEADER_FIELD_CONTENT_LOCATION		/**< HTTP content location header field string index*/
 }http_header_field_e;
 
 /**
- * @brief Enumeration index of HTTP content-types header values.
+ * @brief Enumeration of HTTP content-types header values string indexes.
  */
 typedef enum{
-	HTTP_CONTENT_TYPE_PLAIN,
-	HTTP_CONTENT_TYPE_HTML,
-	HTTP_CONTENT_TYPE_JSON,
+	HTTP_CONTENT_TYPE_PLAIN,				/**< HTTP Plain content type header value string index*/
+	HTTP_CONTENT_TYPE_HTML,					/**< HTTP HTML content type header value string index*/
+	HTTP_CONTENT_TYPE_JSON,					/**< HTTP JSON content type header value string index*/
 }http_content_types_e;
 
 /**
- * @brief Enumeration index of HTTP method.
+ * @brief Enumeration of HTTP method string indexes.
  */
 typedef enum{
-	HTTP_GET,
-	HTTP_POST,
-	HTTP_PUT,
-	HTTP_PATCH,
-	HTTP_DELETE
+	HTTP_GET,								/**< HTTP GET method string index*/
+	HTTP_POST,								/**< HTTP POST method string index*/
+	HTTP_PUT,								/**< HTTP PUT method string index*/
+	HTTP_PATCH,								/**< HTTP PATCH method string index*/
+	HTTP_DELETE								/**< HTTP DELETE method string index*/
 }http_method_e;
 
 /**
- * @brief Enumeration index of current HTTP versions
+ * @brief Enumeration of HTTP versions string indexes.
  */
 typedef enum{
-	HTTP_VERSION_0_9,
-	HTTP_VERSION_1_1,
-	HTTP_VERSION_2_0
+	HTTP_VERSION_0_9,						/**< HTTP/0.9 version string index*/
+	HTTP_VERSION_1_1,						/**< HTTP/1.1 version string index*/
+	HTTP_VERSION_2_0						/**< HTTP/2.0 version string index*/
 }http_version_e;
 
+
+/**
+ * @brief list of HTTP status codes strings.
+ */
 static char *const http_status_codes_str[] = {
 	"200 OK",
 	"201 Created",
@@ -98,6 +95,9 @@ static char *const http_status_codes_str[] = {
 	"503 Service Unavailable"
 };
 
+/**
+ * @brief list of HTTP header fields strings.
+ */
 static char *const http_header_field_str[] = {
   "HTTP/1.1 ",
   "Content-Type: ",
@@ -107,12 +107,18 @@ static char *const http_header_field_str[] = {
   "Content-Location: ",
 };
 
+/**
+ * @brief list of HTTP content-types header values strings.
+ */
 static char *const http_content_types_str[] = {
   "text/plain",
   "text/html",
   "text/json",
 };
 
+/**
+ * @brief list of HTTP method strings.
+ */
 static const char *const http_methods[] = {
 	"GET",
 	"POST",
@@ -121,6 +127,9 @@ static const char *const http_methods[] = {
 	"DELETE",
 };
 
+/**
+ * @brief list of HTTP versions strings.
+ */
 static const char *const http_versions[] = {
 	"HTTP/0.9",
 	"HTTP/1.1",
@@ -131,5 +140,4 @@ static const char *const http_versions[] = {
 
 /**
  * @} Grouping in HTTP_defs submodule ends
- * @} Grouping in HTTP module ends
  **/

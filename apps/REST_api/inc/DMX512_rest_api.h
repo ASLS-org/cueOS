@@ -1,6 +1,6 @@
 /**
- * @ingroup rest_api
- * @defgroup DMX512_rest_api
+ * @ingroup cueos_rest_api
+ * @defgroup cueos_DMX512_rest_api DMX512 REST API
  * DMX512 engine HTTP wrapper. Handles manipulation of the DMX512 engine resources
  * over HTTP through a user-friendly REST API.
  * @{
@@ -9,8 +9,7 @@
 #ifndef DMX512_API_H_
 #define DMX512_API_H_
 
-#define DMX512_API_DEFAULT_RES_SIZE 100
-#define DMX512_ARG_UNDEF			513
+#define DMX512_ARG_UNDEF			513			/**< Undefined argument default size TODO: remove/change this implementation*/
 
 
 /**
@@ -76,5 +75,4 @@ void DMX512_rest_api_router(http_request_s *req);
 
 /**
  * @} Grouping in DMX512_rest_api submodule ends
- * @} Grouping in rest_api module ends
  */

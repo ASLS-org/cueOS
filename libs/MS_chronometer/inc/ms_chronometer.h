@@ -1,7 +1,7 @@
 /**
  * @ingroup libs
  *
- * @defgroup ms_chronometer
+ * @defgroup ms_chronometer MS Chronometer
  * In order to keep track of time, a chronometer capable of producing accurate millisecond count
  * is required. mschonometer conveys time information using a time delta value which can be set
  * and reset throughout time. Once reset, elapsed time may be processed using the time delta value
@@ -17,7 +17,7 @@
 
 
 /**
- * @brief mschronometer structure object
+ * @brief ms_chronometer structure object
  */
 typedef struct{
 	uint32_t _ms_delta;						/**< Time delta to be set using the system tick counter*/
@@ -30,5 +30,5 @@ uint32_t ms_chronometer_get_elapsed_ms(ms_chronometer_s *ms_chronometer);
 #endif
 
 /**
- * @} Grouping in DMX512_utils submodule ends
+ * @} Grouping in ms_chronometer submodule ends
  **/

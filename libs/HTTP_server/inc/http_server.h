@@ -1,6 +1,6 @@
 /**
  * @ingroup libs
- * @defgroup HTTP_server
+ * @defgroup HTTP_server HTTP Server
  * Handles the creation of an HTTP server instance. This http server
  * module is able to serve both static (eg. static files) and dynamic
  * (eg. API responses) response data.
@@ -23,9 +23,9 @@
  * @brief HTTP server structure object
  */
 typedef struct{
-	struct altcp_pcb *pcb;					/*< The server's application layered TCP control block*/
-	uint16_t port;							/*< The server's running port*/
-	router_fn router;						/*< The server routing function through which HTTP request should be processed*/
+	struct altcp_pcb *pcb;					/**< The server's application layered TCP control block*/
+	uint16_t port;							/**< The server's running port*/
+	router_fn router;						/**< The server routing function through which HTTP request should be processed*/
 }http_server_s;
 
 http_server_s *http_server_init(uint16_t port, router_fn router);
@@ -33,8 +33,6 @@ http_server_s *http_server_init(uint16_t port, router_fn router);
 
 /**
  * @} Grouping in http_server submodule ends
- * @} Grouping in http submodule ends
- * @} Grouping in webapp_utils module ends
  **/
 
 #endif

@@ -89,9 +89,8 @@ uint32_t http_response_get_bytes_left(http_response_s *res){
  * @brief Pre-formats response to HTTP response using provided response header parameters
  *
  * @param *res pointer to the response to be prepared
- * @param status code response's HTTP status code
+ * @param status_code response's HTTP status code
  * @param content_type the response's content type
- * @param content_length the response's content length in bytes
  * @param content the response's content
  * @warning while it might be tempting, DO NOT USE STRING FUNCTIONS, they are not thread safe
  * 			and therefore not suitable to be used within the execution of the TCP/IP task thread.
@@ -110,13 +109,13 @@ void http_response_prepare_dynamic(http_response_s *res, http_status_code_e stat
 
 	_http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_STATUS_CODE]);
 	_http_response_dynamic_cat(res, http_status_codes_str[status_code]);
-	_http_response_dynamic_cat(res, HTTP_HEADER_SEPARATOR);
+	_http_response_dynamic_cat(res, STR_COMMON_CRLF);
 	_http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_TYPE]);
 	_http_response_dynamic_cat(res, http_content_types_str[content_type]);
-	_http_response_dynamic_cat(res, HTTP_HEADER_SEPARATOR);
+	_http_response_dynamic_cat(res, STR_COMMON_CRLF);
 	_http_response_dynamic_cat(res, http_header_field_str[HTTP_HEADER_FIELD_CONTENT_LENGTH]);
 	_http_response_dynamic_cat(res, content_length_str);
-	_http_response_dynamic_cat(res, HTTP_HEADER_DELIMITOR);
+	_http_response_dynamic_cat(res, STR_COMMON_CRLF STR_COMMON_CRLF);
 	_http_response_dynamic_cat(res, content);
 
 }

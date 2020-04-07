@@ -51,7 +51,7 @@ static void json_parser_json_string_terminate(json_parser_json_string_s *json_st
  * @param *key pointer to the JSON key string
  * @param val integer value to be associated to the provided JSON key
  * @param is_initial determines if a JSON string delimitor "{" should be prefixing the key/value pair. (the json string starts)
- * @param is_initial determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops)
+ * @param is_final determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops)
  */
 void json_parser_json_string_put_int_pair(json_parser_json_string_s *json_string, char *key, uint16_t val, uint8_t is_initial, uint8_t is_final){
 
@@ -84,7 +84,7 @@ void json_parser_json_string_put_int_pair(json_parser_json_string_s *json_string
  * @param *key pointer to the JSON key string
  * @param *val pointer to the string value to be associated to the provided JSON key
  * @param is_initial determines if a JSON string delimitor "{" should be prefixing the key/value pair. (the json string starts)
- * @param is_initial determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops)
+ * @param is_final determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops)
  */
 void json_parser_json_string_put_str_pair(json_parser_json_string_s *json_string, char *key, char *val, uint8_t is_initial, uint8_t is_final){
 
@@ -116,7 +116,7 @@ void json_parser_json_string_put_str_pair(json_parser_json_string_s *json_string
  * @param *key pointer to the JSON key string
  * @param *nested_json_string pointer to the json string value to be nested and associated to the provided JSON key
  * @param is_initial determines if a JSON string delimitor "{" should be prefixing the key/value pair. (the json string starts)
- * @param is_initial determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops)
+ * @param is_final determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops)
  */
 void json_parser_json_string_nest(json_parser_json_string_s *json_string, char *key, json_parser_json_string_s *nested_json_string, uint8_t is_initial, uint8_t is_final){
 
@@ -145,7 +145,7 @@ void json_parser_json_string_nest(json_parser_json_string_s *json_string, char *
  * @param *json_string pointer to a json string instance (array)
  * @param *json_object pointer to the json string value to be nested into the json array
  * @param is_initial determines if a JSON array delimitor "[" should be prefixing the key/value pair. (the json string starts)
- * @param is_initial determines if a JSON array terminator "]\0" should be suffixing the key/value pair. (the json string stops)
+ * @param is_final determines if a JSON array terminator "]\0" should be suffixing the key/value pair. (the json string stops)
  */
 void json_parser_json_string_put_array_object(json_parser_json_string_s *json_string, json_parser_json_string_s *json_object, uint8_t is_initial, uint8_t is_final){
 
@@ -246,9 +246,9 @@ void json_parser_free_json_object(json_parser_json_object_s *json_object){
 /**
  * @brief Creates and initialises a new json string instance
  *
- * @return json_parser_json_string_s * pointer to the created json string instance
+ * @return json_parser_json_string_s* pointer to the created json string instance
  */
-json_parser_json_string_s * json_parser_json_string_new(void){
+json_parser_json_string_s *json_parser_json_string_new(void){
 	json_parser_json_string_s *json_string = pvPortMalloc(sizeof(json_parser_json_string_s));
 	json_string->data = NULL;
 	json_string->len = 0;
@@ -258,7 +258,7 @@ json_parser_json_string_s * json_parser_json_string_new(void){
 /**
  * @brief Frees a json string instance
  *
- * @param *json_parser_json_string_s pointer to json string instance to be freed
+ * @param *json_string pointer to json string instance to be freed
  */
 void json_parser_free_json_string(json_parser_json_string_s *json_string){
 	vPortFree(json_string->data);

@@ -19,6 +19,6 @@
  * @brief Main function called at device startup
  */
 int main(void){
-	cueos_init();
+	cueos_start();
 	for(;;); //Mandatory. this should never be reached
 }

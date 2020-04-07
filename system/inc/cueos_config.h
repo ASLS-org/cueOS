@@ -3,7 +3,6 @@
 
 #include "cueos.h"
 
-//TODO: Implement configurations throughout project
 //TODO: DOn't forget to implement new configurations here
 
 #define cueOS_CONFIG_NODETYPE 	  cueOS_NODETYPE_SLAVE_DMX

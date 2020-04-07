@@ -22,7 +22,7 @@ struct fs_file file_handle;
  * @param *name pointer to a string containing the path/name
  * 		  of the file to be opened
  */
-static err_t _webapp_open(struct fs_file *file, const char *name) {
+static err_t _web_application_open(struct fs_file *file, const char *name) {
 
   const struct fsdata_file *f;
 
@@ -54,7 +54,7 @@ static err_t _webapp_open(struct fs_file *file, const char *name) {
  * @see htmlgen folder for further information regarding
  * 		html file generation and html file parsing
  */
-static void _webapp_router(http_request_s *req) {
+static void _web_application_router(http_request_s *req) {
 
 	struct fs_file *file = NULL;
 	uint16_t uri_len 	 = strlen(req->uri);
@@ -68,9 +68,9 @@ static void _webapp_router(http_request_s *req) {
 		memmove(dafault_uri, req->uri, uri_len);
 		memmove(dafault_uri + uri_len, "index.html", strlen("index.html"));
 		dafault_uri[uri_len + strlen("index.html")] = 0;
-		err = _webapp_open(&file_handle, dafault_uri);
+		err = _web_application_open(&file_handle, dafault_uri);
 	}else{
-		err = _webapp_open(&file_handle, req->uri);
+		err = _web_application_open(&file_handle, req->uri);
 	}
 
 	if(err == ERR_OK){
@@ -94,6 +94,6 @@ static void _webapp_router(http_request_s *req) {
  * to compile the files put into the "htmlgen" subfolder "dist"  into a single c file.
  * Output of the script is copied into the "htmlgen" subfolder "release" as "htmlgen.c"
  */
-void webapp_static_start(void){
-	http_server_init(80, _webapp_router);
+void web_application_start(void){
+	http_server_init(80, _web_application_router);
 }

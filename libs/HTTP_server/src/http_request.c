@@ -192,7 +192,7 @@ static uint8_t _http_request_parse_content(http_request_s *req){
 
 	if(req->content_length > 0){
 
-		char *content_data = lwip_strnstr(req->raw_data, HTTP_HEADER_DELIMITOR, req->raw_len) + strlen(HTTP_HEADER_DELIMITOR);
+		char *content_data = lwip_strnstr(req->raw_data, STR_COMMON_CRLF STR_COMMON_CRLF, req->raw_len) + strlen(STR_COMMON_CRLF STR_COMMON_CRLF);
 
 		req->content = pvPortMalloc(req->content_length + 1);
 		memcpy(req->content, content_data, req->content_length);
@@ -294,7 +294,7 @@ uint8_t http_request_parse(http_request_s *req, struct pbuf *p){
 
 	pbuf_ref(p);
 
-	if(lwip_strnstr(req->raw_data , HTTP_HEADER_DELIMITOR, req->raw_len) != NULL){
+	if(lwip_strnstr(req->raw_data , STR_COMMON_CRLF STR_COMMON_CRLF, req->raw_len) != NULL){
 		if(!_http_request_parse_method(req)){
 		}else if(!_http_request_parse_uri(req)){
 		}else if(!_http_request_parse_http_version(req)){

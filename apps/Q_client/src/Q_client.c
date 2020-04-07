@@ -16,7 +16,7 @@
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
 
-static Q_client_s this;
+static Q_client_s Q_client;
 
 
 /***============================================================================================================================
@@ -79,14 +79,13 @@ static void _Q_client_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, co
 /**
  * @brief Initialises Q client.
  *
- * @param groupcfg the group configuration byte to be used
  * @see Q_client.h for further information regarding group configuration byte
  */
 void Q_client_init(void){
-	IP4_ADDR(&this.mcast_addr, 224, 0, 0, Q_CLIENT_GROUPCFG);
-	this._pcb = udp_new();
-	udp_bind(this._pcb, IP_ADDR_ANY, Q_UDP_CLIENT_DEFAULT_PORT);
-	udp_recv(this._pcb, _Q_client_receive, NULL);
+	IP4_ADDR(&Q_client.mcast_addr, 224, 0, 0, Q_CLIENT_GROUPCFG);
+	Q_client._pcb = udp_new();
+	udp_bind(Q_client._pcb, IP_ADDR_ANY, Q_UDP_CLIENT_DEFAULT_PORT);
+	udp_recv(Q_client._pcb, _Q_client_receive, NULL);
 }
 
 /**
@@ -98,10 +97,10 @@ void Q_client_init(void){
  * @param len length of the packet in bytes
  */
 void Q_client_send(char *raw_packet, uint16_t len){
-	this._p_tx = pbuf_alloc(PBUF_TRANSPORT, len, PBUF_POOL);
-	pbuf_take(this._p_tx, raw_packet, len);
-	udp_send(this._pcb, this._p_tx);
-	pbuf_free(this._p_tx);
+	Q_client._p_tx = pbuf_alloc(PBUF_TRANSPORT, len, PBUF_POOL);
+	pbuf_take(Q_client._p_tx, raw_packet, len);
+	udp_send(Q_client._pcb, Q_client._p_tx);
+	pbuf_free(Q_client._p_tx);
 }
 
 /**
@@ -112,8 +111,8 @@ void Q_client_send(char *raw_packet, uint16_t len){
  */
 void Q_client_bind(void){
 	//FIXME: force join/leave is a bit ugly, I think it could be improved
-	igmp_leavegroup(&this.ip_addr, &this.mcast_addr);
-	this.ip_addr = net_get_ip_addr();
-	igmp_joingroup(&this.ip_addr, &this.mcast_addr);
+	igmp_leavegroup(&Q_client.ip_addr, &Q_client.mcast_addr);
+	Q_client.ip_addr = net_get_ip_addr();
+	igmp_joingroup(&Q_client.ip_addr, &Q_client.mcast_addr);
 }
 

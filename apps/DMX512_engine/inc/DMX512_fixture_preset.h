@@ -1,6 +1,6 @@
 /**
  * @ingroup DMX512_scene
- * @defgroup DMX512_fixture_preset
+ * @defgroup DMX512_fixture_preset Fixture Preset
  * Fixture presets are used to define a scene's fixture channel values
  * to be set into the DMX512 driver send buffer once the scene is triggered.
  * @{
@@ -36,10 +36,9 @@ typedef enum{
 
 
 /**
- * @struct DMX512_fixture_preset_s
  * @brief DMX512 fixture preset structure object
  */
-typedef struct DMX512_fixture_preset{
+typedef struct {
 	DMX512_fixture_s *fixture;					/**< Pointer to the scene fixture instance */
 	uint16_t ch_count;							/**< Count of channels which are will be set by the preset */
 	uint16_t *channels;							/**< List of channels affected by the preset */
@@ -55,5 +54,4 @@ DMX512_fixture_preset_s DMX512_fixture_preset_new(DMX512_fixture_s *fixture, uin
 
 /**
  * @} Grouping in DMX512_fixture_preset submodule ends
- * @} Grouping in DMX512_engine module ends
  */

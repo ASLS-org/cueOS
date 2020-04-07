@@ -1,6 +1,6 @@
 /**
  * @ingroup DMX512_engine
- * @defgroup DMX512_fixture_pool
+ * @defgroup DMX512_fixture_pool Fixture Pool
  * Fixture pools are used to store a universe's patch information. A patch is a pool of addressed fixtures
  * which channel channel values must me comprised in within a 0-512 address value interval. A patched fixture's
  * channels may not overlap over the channel addresses of another fixture member of the patch.
@@ -33,5 +33,4 @@ DMX512_engine_err_e DMX512_fixture_pool_get(DMX512_fixture_pool_s *this, uint16_
 
 /**
  * @} Grouping in DMX512_fixture_pool submodule ends
- * @} Grouping in DMX512_engine module ends
  */

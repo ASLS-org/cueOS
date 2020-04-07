@@ -1,6 +1,6 @@
 /**
  * @ingroup DMX512_chaser_pool
- * @defgroup DMX512_chaser
+ * @defgroup DMX512_chaser DMX512_Chaser
  * In a DMX lightshow, scenes may be chained and played back in a sequence called chaser.
  * Scenes contained within a chaser are called "steps" and each individual steps conveys
  * specific information regarding play-timings of the associated scene.
@@ -99,15 +99,14 @@ typedef struct{
 
 
 DMX512_chaser_s DMX512_chaser_new(uint16_t id, DMX512_chaser_mode_e mode, DMX512_chaser_direction_e direction);
-DMX512_engine_err_e DMX512_chaser_add_step(DMX512_chaser_s *this, DMX512_chaser_step_s step);
-DMX512_engine_err_e DMX512_chaser_del_step(DMX512_chaser_s *this, uint16_t id);
-DMX512_chaser_step_s *DMX512_chaser_get_step(DMX512_chaser_s *this, uint16_t id);
-void DMX512_chaser_manage(DMX512_chaser_s *this);
-void DMX512_chaser_start(DMX512_chaser_s *this);
+DMX512_engine_err_e DMX512_chaser_add_step(DMX512_chaser_s *chaser, DMX512_chaser_step_s step);
+DMX512_engine_err_e DMX512_chaser_del_step(DMX512_chaser_s *chaser, uint16_t id);
+DMX512_chaser_step_s *DMX512_chaser_get_step(DMX512_chaser_s *chaser, uint16_t id);
+void DMX512_chaser_manage(DMX512_chaser_s *chaser);
+void DMX512_chaser_start(DMX512_chaser_s *chaser);
 
 #endif
 
 /**
  * @} Grouping in DMX512_chaser submodule ends
- * @} Grouping in DMX512_engine module ends
  */

@@ -1,6 +1,6 @@
 /**
  * @ingroup DMX512_chaser
- * @defgroup DMX512_chaser_step
+ * @defgroup DMX512_chaser_step Chaser Step
  * A chaser step represents a scene with additional information regarding
  * its timing. Information such as fade in/out and hold time are used
  * by a chaser to affect timings of scene's playing sequence.
@@ -62,7 +62,7 @@ typedef struct{
 	uint16_t fadein_time;									/**< Step fade in time in ms*/
 	uint16_t fadeout_time;									/**< Step fade out time in ms*/
 	uint16_t hold_time;										/**< Step hold time in ms*/
-	ms_chronometer_s ms_chronometer;						/*< Step chronometer used to keep track of time during play-time*/
+	ms_chronometer_s ms_chronometer;						/**< Step chronometer used to keep track of time during play-time*/
 	DMX512_fixture_chaser_step_status_e status;				/**< Step initilisation status @see DMX512_fixture_chaser_step_status_e*/
 	DMX512_fixture_chaser_step_state_e state;				/**< Current step playing state @see DMX512_fixture_chaser_step_state_e*/
 }DMX512_chaser_step_s;
@@ -77,5 +77,4 @@ void DMX512_chaser_step_stop(DMX512_chaser_step_s *this);
 
 /**
  * @} Grouping in DMX512_chaser_step submodule ends
- * @} Grouping in DMX512_engine module ends
  */

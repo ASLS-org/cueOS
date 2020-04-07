@@ -19,13 +19,14 @@
 /**
  * @brief Finds the array index of a fixture
  *
+ * @param *fixture_pool pointer to the fixture pool
  * @param id the fixture's identifier
  * @return int16_t the array index of the fixture.
  * -1 is returned if the fixture couldn't be found
  */
-static int16_t _DMX512_fixture_pool_search(DMX512_fixture_pool_s *this, uint16_t id){
-	for(uint16_t i=0; i<this->fixture_count; i++){
-		if(id == this->fixtures[i].id){
+static int16_t _DMX512_fixture_pool_search(DMX512_fixture_pool_s *fixture_pool, uint16_t id){
+	for(uint16_t i=0; i<fixture_pool->fixture_count; i++){
+		if(id == fixture_pool->fixtures[i].id){
 			return i;
 		}
 	}
@@ -34,24 +35,22 @@ static int16_t _DMX512_fixture_pool_search(DMX512_fixture_pool_s *this, uint16_t
 
 /**
  * @brief Checks if a fixture can be added into the pool
- *
- * @param id the fixture's idendifier
- * @param addr fixture's first channel address
- * @param ch_stop fixture's last channel address
+ * @param *fixture_pool pointer to the fixture pool
+ * @param fixture fixture instance to be checked
  * @return DMX512_engine_err_e error code following the function call
  */
-static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fixture_s fixture){
+static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *fixture_pool, DMX512_fixture_s fixture){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	if(_DMX512_fixture_pool_search(this, fixture.id) >= 0 ){
+	if(_DMX512_fixture_pool_search(fixture_pool, fixture.id) >= 0 ){
 		err = DMX512_ENGINE_INSTANCE_DUPLICATE;
 	}else if(fixture.ch_stop > DMX512_CHANNEL_ADDRESS_MAX){
 		err = DMX512_ENGINE_INSTANCE_INVALID;
 	}else{
-		for(uint16_t i=0; i<this->fixture_count; i++){
-			if(fixture.addr <= this->fixtures[i].ch_stop &&
-			   this->fixtures[i].addr <= fixture.ch_count + fixture.addr - 1){
+		for(uint16_t i=0; i<fixture_pool->fixture_count; i++){
+			if(fixture.addr <= fixture_pool->fixtures[i].ch_stop &&
+			   fixture_pool->fixtures[i].addr <= fixture.ch_count + fixture.addr - 1){
 				err = DMX512_ENGINE_INSTANCE_INVALID;
 			}
 		}
@@ -74,29 +73,28 @@ static uint8_t _DMX512_fixture_pool_check(DMX512_fixture_pool_s *this, DMX512_fi
  * @return DMX512_fixture_pool_s the created pool instance
  */
 DMX512_fixture_pool_s *DMX512_fixture_pool_new(void){
-	DMX512_fixture_pool_s *this = pvPortMalloc(sizeof(DMX512_fixture_pool_s));
-	this->fixtures 		= NULL;
-	this->fixture_count = 0;
-	return this;
+	DMX512_fixture_pool_s *fixture_pool = pvPortMalloc(sizeof(DMX512_fixture_pool_s));
+	fixture_pool->fixtures 		= NULL;
+	fixture_pool->fixture_count = 0;
+	return fixture_pool;
 }
 
 /**
  * @brief Adds a fixture instance into the pool
  *
- * @param id the fixture's identifier
- * @param addr fixture's first channel address
- * @param ch_stop fixture's last channel address
+ * @param *fixture_pool pointer to the fixture pool
+ * @param fixture fixture instance to be added into the pool
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_fixture_s fixture){
+DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *fixture_pool, DMX512_fixture_s fixture){
 
 	//TODO: check if fixture instance is valid first
-	DMX512_engine_err_e err = _DMX512_fixture_pool_check(this, fixture);;
+	DMX512_engine_err_e err = _DMX512_fixture_pool_check(fixture_pool, fixture);;
 
 	if(err == DMX512_ENGINE_OK){
-		this->fixtures = (DMX512_fixture_s*) pvPortRealloc(this->fixtures, sizeof(DMX512_fixture_s) * (this->fixture_count + 1));
-		this->fixtures[this->fixture_count] = fixture;
-		this->fixture_count++;
+		fixture_pool->fixtures = (DMX512_fixture_s*) pvPortRealloc(fixture_pool->fixtures, sizeof(DMX512_fixture_s) * (fixture_pool->fixture_count + 1));
+		fixture_pool->fixtures[fixture_pool->fixture_count] = fixture;
+		fixture_pool->fixture_count++;
 	}
 
 	return err;
@@ -105,21 +103,21 @@ DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_
 
 /**
  * @brief Deletes a fixture instance from the pool
- *
- * @param id the fixture's idendifier
+ * @param *fixture_pool pointer to the fixture pool
+ * @param id fixture idendifier of the fixture to be removed from the pool
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_t id){
+DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *fixture_pool, uint16_t id){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
-	int16_t index = _DMX512_fixture_pool_search(this, id);
+	int16_t index = _DMX512_fixture_pool_search(fixture_pool, id);
 
 	if(index >= 0){
-		for(uint16_t i=index+1; i< this->fixture_count; i++){
-			this->fixtures[i-1] = this->fixtures[i];
+		for(uint16_t i=index+1; i< fixture_pool->fixture_count; i++){
+			fixture_pool->fixtures[i-1] = fixture_pool->fixtures[i];
 		}
-		this->fixture_count--;
-		this->fixtures = pvPortRealloc(this->fixtures, sizeof(DMX512_fixture_s) * (this->fixture_count));
+		fixture_pool->fixture_count--;
+		fixture_pool->fixtures = pvPortRealloc(fixture_pool->fixtures, sizeof(DMX512_fixture_s) * (fixture_pool->fixture_count));
 		err = DMX512_ENGINE_OK;
 	}
 
@@ -130,18 +128,19 @@ DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_
 /**
  * @brief Gets a fixture instance from the pool
  *
- * @param id the fixture's identifier
- * @param **fixture pointer to the fixture
+ * @param *fixture_pool pointer to the fixture pool
+ * @param id id of the fixture to be searched
+ * @param **fixture pointer to the fixture instance to be returned
  * @return DMX512_engine_err_e ERR_OK if fixture was found, DMX512_ENGINE_INSTANCE_UNDEFINED otherwise
  */
-DMX512_engine_err_e DMX512_fixture_pool_get(DMX512_fixture_pool_s *this, uint16_t id, DMX512_fixture_s **fixture){
+DMX512_engine_err_e DMX512_fixture_pool_get(DMX512_fixture_pool_s *fixture_pool, uint16_t id, DMX512_fixture_s **fixture){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
 
-	int16_t index = _DMX512_fixture_pool_search(this, id);
+	int16_t index = _DMX512_fixture_pool_search(fixture_pool, id);
 
 	if(index >= 0){
-		*fixture = &this->fixtures[index];
+		*fixture = &fixture_pool->fixtures[index];
 		err = DMX512_ENGINE_OK;
 	}
 

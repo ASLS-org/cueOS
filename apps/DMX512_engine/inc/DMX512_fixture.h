@@ -1,6 +1,6 @@
 /**
  * @ingroup DMX512_fixture_pool
- * @defgroup DMX512_fixture
+ * @defgroup DMX512_fixture Fixture
  * Fixtures are machines daisy chained together to form a DMX512 universe.
  * Each fixture is addressed over a range of up to 512 addresses. A fixture's
  * channel count defines its address footprint in a DMX512 universe and fixture addresses
@@ -31,5 +31,4 @@ DMX512_fixture_s DMX512_fixture_new(uint16_t id, uint16_t addr, uint16_t ch_coun
 
 /**
  * @} Grouping in DMX512_fixture submodule ends
- * @} Grouping in DMX512_engine module ends
  */

@@ -1,6 +1,6 @@
 /**
  * @ingroup HTTP_server
- * @defgroup HTTP_response
+ * @defgroup HTTP_response HTTP response
  * Handles generation of both static and dynamic HTTP repsponse frames.
  * Currently supported HTTP versions: HTTP/0.9 and HTTP/1.1.
  * @{
@@ -14,7 +14,7 @@
 #include "http_defs.h"
 
 
-#define HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH 5
+#define HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH 5	/**< Maximum string length of content length header value*/
 
 
 /**
@@ -24,8 +24,8 @@
  * 		  be dynamimc
  */
 typedef enum{
-	HTTP_RESPONSE_IS_DYNAMIC,			/**< Sets the HTTP response to be dynamic (enable data pointer memory allocation)*/
-	HTTP_RESPONSE_IS_STATIC				/**< Sets the HTTP response to be static (disable data pointer memory allocation)*/
+	HTTP_RESPONSE_IS_DYNAMIC,						/**< Sets the HTTP response to be dynamic (enable data pointer memory allocation)*/
+	HTTP_RESPONSE_IS_STATIC							/**< Sets the HTTP response to be static (disable data pointer memory allocation)*/
 }http_response_static_state;
 
 
@@ -33,10 +33,10 @@ typedef enum{
  * @brief HTTP response structure object
  */
 typedef struct {
-	char *data_ptr;						/**< Pointer to TX data*/
-	uint32_t data_ptr_index;			/**< Current index of TX data*/
-	uint32_t data_len;					/**< Length of TX data*/
-	uint8_t is_static;					/**< Do we need to deallocate data ?*/
+	char *data_ptr;								/**< Pointer to TX data*/
+	uint32_t data_ptr_index;					/**< Current index of TX data*/
+	uint32_t data_len;							/**< Length of TX data*/
+	uint8_t is_static;							/**< Do we need to deallocate data ?*/
 }http_response_s;
 
 
@@ -49,5 +49,4 @@ void http_response_prepare_dynamic(http_response_s *res, http_status_code_e stat
 
 /**
  * @} Grouping in http_response submodule ends
- * @} Grouping in http module ends
  **/

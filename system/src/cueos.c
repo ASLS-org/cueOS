@@ -22,12 +22,12 @@
  *=============================================================================================================================*/
 
 /**
- * @ingroup system
- * @fn cueos_init
- * @brief initilises OS
+ * @brief Initilises and starts OS services based
+ * 		  on configurations defined within cueos_config file
+ * 		  @see cueos_config
  */
 //TODO: implement global error handler
-void cueos_init(void){
+void cueos_start(void){
 
 	osKernelInitialize();
 
@@ -36,6 +36,7 @@ void cueos_init(void){
 	leds_driver_init();
 	net_init(NET_MODE_ETHERNET, Q_client_bind);
 	rest_api_start();
+	web_application_start();
 
 #if cueOS_CONFIG_NODETYPE   == cueOS_NODETYPE_MASTER
 	Q_server_init();

@@ -1,6 +1,6 @@
 /**
  * @ingroup DMX512_engine
- * @defgroup DMX512_chaser_pool
+ * @defgroup DMX512_chaser_pool Chaser Pool
  * Chaser pools are used to store and manage a lists of pre-configured chasers.
  * Up to 65535 DMX512 chasers may be stored for each individual DMX512 universe.
  * @{
@@ -26,15 +26,14 @@ typedef struct{
 
 
 DMX512_chaser_pool_s *DMX512_chaser_pool_new(void);
-DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *this, DMX512_chaser_s chaser);
-DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *this, uint16_t id);
-DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *this, uint16_t id);
-void DMX512_chaser_pool_manage(DMX512_chaser_pool_s *this);
+DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *chaser_pool, DMX512_chaser_s chaser);
+DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *chaser_pool, uint16_t id);
+DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, uint16_t id);
+void DMX512_chaser_pool_manage(DMX512_chaser_pool_s *chaser_pool);
 
 
 #endif
 
 /**
  * @} Grouping in DMX512_chaser_pool submodule ends
- * @} Grouping in DMX512_engine module ends
  */

@@ -23,9 +23,9 @@
  * @return int16_t the array index of the chaser.
  * -1 is returned if the chaser couldn't be found
  */
-static int16_t _DMX512_chaser_pool_search(DMX512_chaser_pool_s *this, uint16_t id){
-	for(uint16_t i=0; i<this->chaser_count; i++){
-		if(id == this->chasers[i].id){
+static int16_t _DMX512_chaser_pool_search(DMX512_chaser_pool_s *chaser_pool, uint16_t id){
+	for(uint16_t i=0; i<chaser_pool->chaser_count; i++){
+		if(id == chaser_pool->chasers[i].id){
 			return i;
 		}
 	}
@@ -44,30 +44,29 @@ static int16_t _DMX512_chaser_pool_search(DMX512_chaser_pool_s *this, uint16_t i
  * @return DMX512_chaser_pool_s the created pool instance
  */
 DMX512_chaser_pool_s *DMX512_chaser_pool_new(void){
-	DMX512_chaser_pool_s *this = pvPortMalloc(sizeof(DMX512_chaser_pool_s));
-	this->chasers 		= NULL;
-	this->chaser_count 	= 0;
-	return this;
+	DMX512_chaser_pool_s *chaser_pool = pvPortMalloc(sizeof(DMX512_chaser_pool_s));
+	chaser_pool->chasers 		= NULL;
+	chaser_pool->chaser_count 	= 0;
+	return chaser_pool;
 }
 
 /**
  * @brief Adds a chaser instance into the pool
  *
- * @param id the chaser's idendifier
- * @param addr chaser's first channel address
- * @param ch_stop chaser's last channel address
+ * @param *chaser_pool pointer to the chaser pool instance
+ * @param chaser chaser instance to be added to the pool
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *this, DMX512_chaser_s chaser){
+DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *chaser_pool, DMX512_chaser_s chaser){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	if(_DMX512_chaser_pool_search(this, chaser.id) >=0){
+	if(_DMX512_chaser_pool_search(chaser_pool, chaser.id) >=0){
 		err = DMX512_ENGINE_INSTANCE_DUPLICATE;
 	}else{
-		this->chasers = (DMX512_chaser_s*) pvPortRealloc(this->chasers, sizeof(DMX512_chaser_s) * (this->chaser_count + 1));
-		this->chasers[this->chaser_count] = chaser;
-		this->chaser_count++;
+		chaser_pool->chasers = (DMX512_chaser_s*) pvPortRealloc(chaser_pool->chasers, sizeof(DMX512_chaser_s) * (chaser_pool->chaser_count + 1));
+		chaser_pool->chasers[chaser_pool->chaser_count] = chaser;
+		chaser_pool->chaser_count++;
 	}
 
 	return err;
@@ -76,21 +75,21 @@ DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *this, DMX512_ch
 
 /**
  * @brief Deletes a chaser instance from the pool
- *
- * @param id the chaser's idendifier
+ * @param *chaser_pool pointer to the chaser pool instance
+ * @param id the chaser idendifier
  * @return DMX512_engine_err_e error code following the function call
  */
-DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *this, uint16_t id){
+DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *chaser_pool, uint16_t id){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-	int16_t index = _DMX512_chaser_pool_search(this, id);
+	int16_t index = _DMX512_chaser_pool_search(chaser_pool, id);
 
 	if(index >= 0){
-		for(uint16_t i=index+1; i<this->chaser_count; i++){
-				this->chasers[i-1] = this->chasers[i];
+		for(uint16_t i=index+1; i<chaser_pool->chaser_count; i++){
+				chaser_pool->chasers[i-1] = chaser_pool->chasers[i];
 		}
-		this->chaser_count--;
-		this->chasers = pvPortRealloc(this->chasers, sizeof(DMX512_chaser_s) * (this->chaser_count));
+		chaser_pool->chaser_count--;
+		chaser_pool->chasers = pvPortRealloc(chaser_pool->chasers, sizeof(DMX512_chaser_s) * (chaser_pool->chaser_count));
 	}else{
 		err = DMX512_ENGINE_INSTANCE_UNDEFINED;
 	}
@@ -101,14 +100,14 @@ DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *this, uint16_t 
 
 /**
  * @brief Gets a chaser instance from the pool
- *
- * @param id the chaser's identifier
+ * @param *chaser_pool pointer to the chaser pool instance
+ * @param id the chaser identifier
  * @return *DMX512_chaser_s pointer to the chaser instance
  */
-DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *this, uint16_t id){
-	int16_t index = _DMX512_chaser_pool_search(this, id);
+DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, uint16_t id){
+	int16_t index = _DMX512_chaser_pool_search(chaser_pool, id);
 	if(index >= 0){
-		return &this->chasers[index];
+		return &chaser_pool->chasers[index];
 	}else{
 		return NULL;
 	}
@@ -118,11 +117,11 @@ DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *this, uint16_t id)
 /**
  * @brief Manages execution of chaser instances for a whole pool
  *
- *@param this pointer to a chaser pool instance
+ * @param chaser_pool pointer to a chaser pool instance
  */
-void DMX512_chaser_pool_manage(DMX512_chaser_pool_s *this){
-	for(uint16_t i=0; i<this->chaser_count; i++){
-		DMX512_chaser_manage(&this->chasers[i]);
+void DMX512_chaser_pool_manage(DMX512_chaser_pool_s *chaser_pool){
+	for(uint16_t i=0; i<chaser_pool->chaser_count; i++){
+		DMX512_chaser_manage(&chaser_pool->chasers[i]);
 	}
 }
 

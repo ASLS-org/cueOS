@@ -19,7 +19,7 @@
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
 
-static DMX512_engine_s this;
+static DMX512_engine_s engine;
 static osThreadId_t DMX512engineThread = NULL;
 
 
@@ -47,9 +47,9 @@ static DMX512_engine_err_e _DMX512_engine_load_config_header(FIL *config_file){
 	f_lseek(config_file, 0);
 
 	if(f_read(config_file, buf, DMX512_ENGINE_CONFIG_HEADER_SIZE * sizeof(uint16_t), &br) == FR_OK){
-		this.fixture_count	= buf[DMX512_ENGINE_CONFIG_HEADER_PATCH_CNT_INDEX];
-		this.scene_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_SCENE_CNT_INDEX];
-		this.chaser_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_CHASE_CNT_INDEX];
+		engine.fixture_count	= buf[DMX512_ENGINE_CONFIG_HEADER_PATCH_CNT_INDEX];
+		engine.scene_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_SCENE_CNT_INDEX];
+		engine.chaser_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_CHASE_CNT_INDEX];
 	}else{
 		err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
 	}
@@ -68,7 +68,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
 
-	for(int i=0; i< this.fixture_count; i++){
+	for(int i=0; i< engine.fixture_count; i++){
 
 		uint16_t patch_buf[DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE];
 		UINT br;
@@ -80,7 +80,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
 			uint16_t addr = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_ADDR_INDEX];
 			uint16_t chn  = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_CHN_INDEX];
 			DMX512_fixture_s fixture = DMX512_fixture_new(id, addr, chn);
-			if(DMX512_fixture_pool_add(this.fixtures, fixture) != DMX512_ENGINE_OK){
+			if(DMX512_fixture_pool_add(engine.fixtures, fixture) != DMX512_ENGINE_OK){
 				err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
 				break;
 			}else{
@@ -105,7 +105,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	for(uint16_t i=0; i<this.scene_count; i++){
+	for(uint16_t i=0; i<engine.scene_count; i++){
 
 		uint16_t header[DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE];
 		f_read(config_file, header, DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE * sizeof(uint16_t), NULL);
@@ -123,12 +123,12 @@ static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
 			f_read(config_file, values, ch_count * sizeof(uint8_t), NULL);
 
 //			FIXME: update following changes made to  fixture pool "get" function
-//			DMX512_fixture_s *fixture 		= DMX512_fixture_pool_get(this.fixtures, fixture_id);
+//			DMX512_fixture_s *fixture 		= DMX512_fixture_pool_get(engine.fixtures, fixture_id);
 //			DMX512_fixture_preset_s preset 	= DMX512_fixture_preset_new(fixture, ch_count, channels, values);
 //			DMX512_scene_add_preset(&scene, preset);
 		}
 
-		DMX512_scene_pool_add(this.scenes, scene);
+		DMX512_scene_pool_add(engine.scenes, scene);
 
 	}
 
@@ -146,7 +146,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 
 	DMX512_engine_err_e err = DMX512_ENGINE_OK;
 
-	for(uint16_t i=0; i<this.chaser_count; i++){
+	for(uint16_t i=0; i<engine.chaser_count; i++){
 
 		uint16_t chaser_header[DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE];
 
@@ -169,7 +169,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 			uint16_t fadeout  = step_buffer[DMX512_ENGINE_CONFIG_STEP_FADEOUT_INDEX];
 			uint16_t hold  	  = step_buffer[DMX512_ENGINE_CONFIG_STEP_HOLD_INDEX];
 
-			DMX512_scene_s *scene 	  = DMX512_scene_pool_get(this.scenes, scene_id);
+			DMX512_scene_s *scene 	  = DMX512_scene_pool_get(engine.scenes, scene_id);
 			DMX512_chaser_step_s step = DMX512_chaser_step_init(scene, fadein, fadeout, hold);
 
 			//if((err = DMX512_chaser_add_step(&chaser, step)) != DMX512_ENGINE_OK ){ break; }
@@ -177,7 +177,7 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
 
 		}
 
-		DMX512_chaser_pool_add(this.chasers, chaser);
+		DMX512_chaser_pool_add(engine.chasers, chaser);
 
 	}
 
@@ -197,8 +197,8 @@ static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
  */
 static void _DMX512_engine_manage(void *arg){
 	for(;;){
-		DMX512_scene_pool_manage(this.scenes);
-		DMX512_chaser_pool_manage(this.chasers);
+		DMX512_scene_pool_manage(engine.scenes);
+		DMX512_chaser_pool_manage(engine.chasers);
 		osDelay(DMX512_ENGINE_THREAD_DELAY);
 	}
 }
@@ -241,13 +241,13 @@ DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path){
  */
 void DMX512_engine_init(void){
 
-	this.fixture_count  = 0;
-	this.scene_count	= 0;
-	this.chaser_count	= 0;
-	this.effect_count	= 0;
-	this.fixtures 		= DMX512_fixture_pool_new();
-	this.scenes 		= DMX512_scene_pool_new();
-	this.chasers 		= DMX512_chaser_pool_new();
+	engine.fixture_count  = 0;
+	engine.scene_count	= 0;
+	engine.chaser_count	= 0;
+	engine.effect_count	= 0;
+	engine.fixtures 		= DMX512_fixture_pool_new();
+	engine.scenes 		= DMX512_scene_pool_new();
+	engine.chasers 		= DMX512_chaser_pool_new();
 
 	if(DMX512_driver_get_status() != DMX512_DRIVER_INITIALISED){
 		DMX512_driver_init();
@@ -279,27 +279,27 @@ void DMX512_engine_stop(void){
  * @brief Wrapper for "DMX512_fixture_pool_add" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
- * @param id the fixture's identifier
- * @param addr fixture's first channel address
- * @param ch_stop fixture's last channel address
+ * @param fixture_id the fixture's identifier
+ * @param address fixture's first channel address
+ * @param ch_count fixture's channel count
  * @return DMX512_engine_err_e error code following the function call
  * @see DMX512_defs.h for further information regarding DMX512 engin error codes
  */
 DMX512_engine_err_e DMX512_engine_patch_add(uint16_t fixture_id, uint16_t address, uint16_t ch_count){
 	DMX512_fixture_s fixture = DMX512_fixture_new(fixture_id, address, ch_count);
-	return DMX512_fixture_pool_add(this.fixtures, fixture);
+	return DMX512_fixture_pool_add(engine.fixtures, fixture);
 }
 
 /**
  * @brief Wrapper for "DMX512_fixture_pool_get" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
- * @param id the fixture's identifier
+ * @param fixture_id the fixture's identifier
  * @param **fixture pointer to the fixture
  * @return DMX512_engine_err_e ERR_OK if fixture was found, DMX512_ENGINE_INSTANCE_UNDEFINED otherwise
  */
 DMX512_engine_err_e DMX512_engine_patch_get(uint16_t fixture_id, DMX512_fixture_s **fixture){
-	return DMX512_fixture_pool_get(this.fixtures, fixture_id, fixture);
+	return DMX512_fixture_pool_get(engine.fixtures, fixture_id, fixture);
 }
 
 /**
@@ -308,18 +308,18 @@ DMX512_engine_err_e DMX512_engine_patch_get(uint16_t fixture_id, DMX512_fixture_
  * @return DMX512_fixture_pool_s* pointer to the engine's fixture pool
  */
 DMX512_fixture_pool_s *DMX512_engine_patch_get_all(void){
-	return this.fixtures;
+	return engine.fixtures;
 }
 
 /**
  * @brief Wrapper for "DMX512_fixture_pool_del" function. Provides context to the specified function using
  * DMX512 engine's singleton parameter "fixtures" as argument.
  *
- * @param id the fixture's idendifier
+ * @param fixture_id the fixture's idendifier
  * @return DMX512_engine_err_e error code following the function call
  */
 DMX512_engine_err_e DMX512_engine_patch_delete(uint16_t fixture_id){
-	return DMX512_fixture_pool_del(this.fixtures, fixture_id);
+	return DMX512_fixture_pool_del(engine.fixtures, fixture_id);
 }
 
 #endif

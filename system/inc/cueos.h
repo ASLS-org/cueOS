@@ -9,6 +9,6 @@
 #define cueOS_NET_ETHERNET			0
 #define cueOS_NET_WIRELESS			1
 
-void cueos_init(void);
+void cueos_start(void);
 
 #endif

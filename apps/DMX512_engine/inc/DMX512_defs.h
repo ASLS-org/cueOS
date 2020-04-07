@@ -1,6 +1,6 @@
 /**
 * @ingroup DMX512_engine
-* @defgroup DMX512_defs
+* @defgroup DMX512_defs Definitions
 * Definition of fundamental constant values to be used by the DMX512 engine
 * @{
 */
@@ -8,10 +8,11 @@
 #ifndef DMX512_defs_H
 #define DMX512_defs_H
 
-#define DMX512_CHANNEL_ADDRESS_MIN 0		/** @ingroup DMX512_defs @def DMX512_CHANNEL_ADDRESS_MIN @brief DMX512 min channel address*/
-#define DMX512_CHANNEL_ADDRESS_MAX 512		/** @ingroup DMX512_defs @def DMX512_CHANNEL_ADDRESS_MAX @brief DMX512 max channel address*/
-#define DMX512_CHANNEL_VALUE_MIN   0		/** @ingroup DMX512_defs @def DMX512_CHANNEL_VALUE_MIN @brief DMX512 min channel value*/
-#define DMX512_CHANNEL_VALUE_MAX   255		/** @ingroup DMX512_defs @def DMX512_CHANNEL_VALUE_MAX @brief DMX512 max channel addvalueress*/
+
+#define DMX512_CHANNEL_ADDRESS_MIN 0		/**< @brief DMX512 min channel address*/
+#define DMX512_CHANNEL_ADDRESS_MAX 512		/**< @brief DMX512 max channel address*/
+#define DMX512_CHANNEL_VALUE_MIN   0		/**< @brief DMX512 min channel value*/
+#define DMX512_CHANNEL_VALUE_MAX   255		/**< @brief DMX512 max channel value*/
 
 /**
  * @brief DMX512 engine error index constants
@@ -50,5 +51,4 @@ static char *const DMX512_engine_errs_str[] = {
 
 /**
  * @} Grouping in DMX512_defs submodule ends
- * @} Grouping in DMX512_engine module ends
  **/

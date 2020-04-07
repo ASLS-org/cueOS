@@ -1,6 +1,6 @@
 /**
  * @ingroup libs
- * @defgroup JSON_parser
+ * @defgroup JSON_parser JSON Parser
  * Module dedicated to JSON parsing and JSON string formating.
  * @{
  */
@@ -8,36 +8,36 @@
 #ifndef JSON_PARSER_H_
 #define JSON_PARSER_H_
 
-#define JSON_ARRAY_DELIMITOR 		"["
-#define JSON_ARRAY_TERMINATOR 		"]"
-#define JSON_STRING_DELIMITOR 		"{"
-#define JSON_STRING_TERMINATOR 		"}"
-#define JSON_STRING_ENTRY_DELIMITOR "\""
-#define JSON_STRING_ENTRY_SEPARATOR ":"
-#define JSON_STRING_PAIR_SEPARATOR 	","
+#define JSON_ARRAY_DELIMITOR 		"["		/**< JSON string array delimitor*/
+#define JSON_ARRAY_TERMINATOR 		"]"		/**< JSON string array terminator*/
+#define JSON_STRING_DELIMITOR 		"{"		/**< JSON string object delimitor*/
+#define JSON_STRING_TERMINATOR 		"}"		/**< JSON string object delimitor*/
+#define JSON_STRING_ENTRY_DELIMITOR "\""	/**< JSON string entry delimitor*/
+#define JSON_STRING_ENTRY_SEPARATOR ":"		/**< JSON string entry delimitor*/
+#define JSON_STRING_PAIR_SEPARATOR 	","		/**< JSON string pair delimitor*/
 
 /**
  * @brief JSON parameter structure object
  */
 typedef struct{
-	char *key;							/**< JSON parameter key string*/
-	char *val;							/**< JSON parameter value string*/
+	char *key;								/**< JSON parameter key string*/
+	char *val;								/**< JSON parameter value string*/
 }json_parser_json_param_s;
 
 /**
  * @brief JSON Objects structure object
  */
 typedef struct{
-	json_parser_json_param_s *params;	/**< List of JSON parameter objects*/
-	uint16_t param_count;				/**< Count of parameters contained within the JSON parameter list*/
+	json_parser_json_param_s *params;		/**< List of JSON parameter objects*/
+	uint16_t param_count;					/**< Count of parameters contained within the JSON parameter list*/
 }json_parser_json_object_s;
 
 /**
  * @brief JSON String structure object
  */
 typedef struct{
-	char *data;							/**< JSON string data buffer*/
-	uint16_t len;						/**< JSON string data buffer length in bytes*/
+	char *data;								/**< JSON string data buffer*/
+	uint16_t len;							/**< JSON string data buffer length in bytes*/
 }json_parser_json_string_s;
 
 
@@ -54,5 +54,4 @@ void json_parser_free_json_string(json_parser_json_string_s *json_string);
 
 /**
  * @} Grouping in json_parser submodule ends
- * @} Grouping in webapp_utils module ends
  */

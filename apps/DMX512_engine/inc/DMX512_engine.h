@@ -1,6 +1,6 @@
 /**
- * @ingroup apps
- * @defgroup DMX512_engine
+ * @ingroup cueos_apps
+ * @defgroup DMX512_engine DMX512 Engine
  * The DMX512 engine is in charge of managing the whole DMX show creation and show playback process.
  * To do so, it wraps the functionalities described throughout the apps' submodules into higher level
  * functions and data structures to provide users with an easy and intuitive way to create and manage
@@ -22,14 +22,14 @@
 //TODO: move these in a separate file, Project manager for example ?
 
 
-#define DMX512_ENGINE_CONFIG_HEADER_SIZE	 			 0x03U 		//size of a QLSF header
-#define DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE			 0x03U		//DMX512 byte size of a QLSF patch header
-#define DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE 			 0x02U		//byte size of a QLSF scene header
-#define DMX512_ENGINE_CONFIG_FIXTURE_PRESET_HEADER_SIZE  0x02U		//byte size of a QLSF fixture preset headers
-#define DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE 		 0x04U		//byte size of a QLSF chaser header
-#define DMX512_ENGINE_CONFIG_FILE_EXT 					 ".qlsf"	//QLSF file extension
-#define DMX512_ENGINE_CONFIG_TEMP_FILE_EXT 				 ".tmp"		//temporary file extension*
-#define DMX512_ENGINE_THREAD_DELAY 						 30			//engine thread execution delay
+#define DMX512_ENGINE_CONFIG_HEADER_SIZE	 			 0x03U 		/**< @brief size of a QLSF header*/
+#define DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE			 0x03U		/**< DMX512 byte size of a QLSF patch header*/
+#define DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE 			 0x02U		/**< byte size of a QLSF scene header*/
+#define DMX512_ENGINE_CONFIG_FIXTURE_PRESET_HEADER_SIZE  0x02U		/**< byte size of a QLSF fixture preset headers*/
+#define DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE 		 0x04U		/**< byte size of a QLSF chaser header*/
+#define DMX512_ENGINE_CONFIG_FILE_EXT 					 ".qlsf"	/**< QLSF file extension*/
+#define DMX512_ENGINE_CONFIG_TEMP_FILE_EXT 				 ".tmp"		/**< temporary file extension*/
+#define DMX512_ENGINE_THREAD_DELAY 						 30			/**< engine thread execution delay*/
 
 
 /**

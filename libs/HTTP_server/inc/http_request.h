@@ -1,6 +1,6 @@
 /**
  * @ingroup HTTP_server
- * @defgroup HTTP_request
+ * @defgroup HTTP_request HTTP Request
  * An HTTP request contains information relative to a received
  * HTTP frame such as its method, header fields and content. Once
  * HTTP requests should be processed through a router function.
@@ -20,7 +20,7 @@
 
 
 typedef struct http_request http_request_s;
-typedef void(*router_fn)(http_request_s *req);
+typedef void(*router_fn)(http_request_s *req);	/**< HTTP request routing function*/
 
 
 /**
@@ -65,5 +65,4 @@ uint8_t http_request_parse(http_request_s *req, struct pbuf *p);
 
 /**
  * @} Grouping in http_request submodule ends
- * @} Grouping in http module ends
  **/
