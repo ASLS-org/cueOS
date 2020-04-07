@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['web_5fapplication_266',['Web_application',['../group__web__application.html',1,'']]]
+  ['uri_379',['uri',['../structhttp__request.html#af98b83cec5342c54027dd92f7357d6e6',1,'http_request']]]
 ];

@@ -12,6 +12,13 @@ var group___j_s_o_n__parser =
       [ "data", "structjson__parser__json__string__s.html#a91a70b77df95bd8b0830b49a094c2acb", null ],
       [ "len", "structjson__parser__json__string__s.html#a8aed22e2c7b283705ec82e0120515618", null ]
     ] ],
+    [ "JSON_ARRAY_DELIMITOR", "group___j_s_o_n__parser.html#gab4648729eb433225c17f6a29d3f075fa", null ],
+    [ "JSON_ARRAY_TERMINATOR", "group___j_s_o_n__parser.html#gac54c5c34acb20a9bdc16f16bf1493876", null ],
+    [ "JSON_STRING_DELIMITOR", "group___j_s_o_n__parser.html#gae8b65170690cccade05f05b810429068", null ],
+    [ "JSON_STRING_ENTRY_DELIMITOR", "group___j_s_o_n__parser.html#ga13c2e76825d17d999f02de380f8c2fc0", null ],
+    [ "JSON_STRING_ENTRY_SEPARATOR", "group___j_s_o_n__parser.html#gaeb23d66ed51f2003227b9712c1a23fb4", null ],
+    [ "JSON_STRING_PAIR_SEPARATOR", "group___j_s_o_n__parser.html#ga4f5aa81c742e65fb363313959b0e5c08", null ],
+    [ "JSON_STRING_TERMINATOR", "group___j_s_o_n__parser.html#gaf9fccc893b8fedb621cb9f8a1075d7a2", null ],
     [ "json_parser_free_json_object", "group___j_s_o_n__parser.html#gabce9c37659d93dceb2df833e52e02fd5", null ],
     [ "json_parser_free_json_string", "group___j_s_o_n__parser.html#ga077d74c65c070750f1a749625d795704", null ],
     [ "json_parser_json_string_nest", "group___j_s_o_n__parser.html#ga46a7c6e8223c8a10faaa0b0b26d1f450", null ],

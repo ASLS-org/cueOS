@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cueOS: DMX512_fixture_pool</title>
+<title>cueOS: Fixture Pool</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,26 +92,26 @@ $(document).ready(function(){initNavTree('group___d_m_x512__fixture__pool.html',
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">DMX512_fixture_pool<div class="ingroups"><a class="el" href="group__apps.html">Apps</a> &raquo; <a class="el" href="group___d_m_x512__engine.html">DMX512_engine</a></div></div>  </div>
+<div class="title">Fixture Pool<div class="ingroups"><a class="el" href="group__cueos__apps.html">Applications</a> &raquo; <a class="el" href="group___d_m_x512__engine.html">DMX512 Engine</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Fixture pools are used to store a universe's patch information. A patch is a pool of addressed fixtures which channel channel values must me comprised in within a 0-512 address value interval. A patched fixture's channels may not overlap over the channel addresses of another fixture member of the patch.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for DMX512_fixture_pool:</div>
+Collaboration diagram for Fixture Pool:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___d_m_x512__fixture__pool.png" border="0" usemap="#group______d__m__x512____fixture____pool" alt=""/></div>
 <map name="group______d__m__x512____fixture____pool" id="group______d__m__x512____fixture____pool">
-<area shape="rect" title="Fixture pools are used to store a universe&#39;s patch information. A patch is a pool of addressed fixtur..." alt="" coords="172,5,319,31"/>
-<area shape="rect" href="group___d_m_x512__fixture.html" title="Fixtures are machines daisy chained together to form a DMX512 universe. Each fixture is addressed ove..." alt="" coords="367,5,483,31"/>
-<area shape="rect" href="group___d_m_x512__engine.html" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="5,5,124,31"/>
+<area shape="rect" title="Fixture pools are used to store a universe&#39;s patch information. A patch is a pool of addressed fixtur..." alt="" coords="171,5,263,31"/>
+<area shape="rect" href="group___d_m_x512__fixture.html" title="Fixtures are machines daisy chained together to form a DMX512 universe. Each fixture is addressed ove..." alt="" coords="311,5,373,31"/>
+<area shape="rect" href="group___d_m_x512__engine.html" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="5,5,123,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:group___d_m_x512__fixture"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture.html">DMX512_fixture</a></td></tr>
+<tr class="memitem:group___d_m_x512__fixture"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture.html">Fixture</a></td></tr>
 <tr class="memdesc:group___d_m_x512__fixture"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixtures are machines daisy chained together to form a DMX512 universe. Each fixture is addressed over a range of up to 512 addresses. A fixture's channel count defines its address footprint in a DMX512 universe and fixture addresses and hannels may not overlap one into another. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -149,7 +149,7 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_fixture_pool_add </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__fixture__pool__s.html">DMX512_fixture_pool_s</a> *&#160;</td>
-          <td class="paramname"><em>this</em>, </td>
+          <td class="paramname"><em>fixture_pool</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -168,15 +168,14 @@ Functions</h2></td></tr>
 <p>Adds a fixture instance into the pool. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>the fixture's identifier </td></tr>
-    <tr><td class="paramname">addr</td><td>fixture's first channel address </td></tr>
-    <tr><td class="paramname">ch_stop</td><td>fixture's last channel address </td></tr>
+    <tr><td class="paramname">*fixture_pool</td><td>pointer to the fixture pool </td></tr>
+    <tr><td class="paramname">fixture</td><td>fixture instance to be added into the pool </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DMX512_engine_err_e error code following the function call </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00091">91</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00089">89</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
 
 </div>
 </div>
@@ -190,7 +189,7 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_fixture_pool_del </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__fixture__pool__s.html">DMX512_fixture_pool_s</a> *&#160;</td>
-          <td class="paramname"><em>this</em>, </td>
+          <td class="paramname"><em>fixture_pool</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -209,13 +208,14 @@ Functions</h2></td></tr>
 <p>Deletes a fixture instance from the pool. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>the fixture's idendifier </td></tr>
+    <tr><td class="paramname">*fixture_pool</td><td>pointer to the fixture pool </td></tr>
+    <tr><td class="paramname">id</td><td>fixture idendifier of the fixture to be removed from the pool </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DMX512_engine_err_e error code following the function call </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00112">112</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00110">110</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
 
 </div>
 </div>
@@ -229,7 +229,7 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_fixture_pool_get </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__fixture__pool__s.html">DMX512_fixture_pool_s</a> *&#160;</td>
-          <td class="paramname"><em>this</em>, </td>
+          <td class="paramname"><em>fixture_pool</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -254,14 +254,15 @@ Functions</h2></td></tr>
 <p>Gets a fixture instance from the pool. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>the fixture's identifier </td></tr>
-    <tr><td class="paramname">**fixture</td><td>pointer to the fixture </td></tr>
+    <tr><td class="paramname">*fixture_pool</td><td>pointer to the fixture pool </td></tr>
+    <tr><td class="paramname">id</td><td>id of the fixture to be searched </td></tr>
+    <tr><td class="paramname">**fixture</td><td>pointer to the fixture instance to be returned </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DMX512_engine_err_e ERR_OK if fixture was found, DMX512_ENGINE_INSTANCE_UNDEFINED otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00137">137</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00136">136</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
 
 </div>
 </div>
@@ -284,7 +285,7 @@ Functions</h2></td></tr>
 <p>Creates a new fixture pool instance. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_d_m_x512__fixture__pool__s.html" title="DMX512 fixture pool structure object.">DMX512_fixture_pool_s</a> the created pool instance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00076">76</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00075">75</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cueOS: DMX512_scene</title>
+<title>cueOS: Scene</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -94,26 +94,26 @@ $(document).ready(function(){initNavTree('group___d_m_x512__scene.html','');});
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">DMX512_scene<div class="ingroups"><a class="el" href="group__apps.html">Apps</a> &raquo; <a class="el" href="group___d_m_x512__engine.html">DMX512_engine</a> &raquo; <a class="el" href="group___d_m_x512__scene__pool.html">DMX512_scene_pool</a></div></div>  </div>
+<div class="title">Scene<div class="ingroups"><a class="el" href="group__cueos__apps.html">Applications</a> &raquo; <a class="el" href="group___d_m_x512__engine.html">DMX512 Engine</a> &raquo; <a class="el" href="group___d_m_x512__scene__pool.html">Scene Pool</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Scenes fundamentally define a set of fixtures pre-defined values to be transferred over to the DMX512 driver buffer at given any time. A scene's fixture preset values may be faded in and out over time.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for DMX512_scene:</div>
+Collaboration diagram for Scene:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___d_m_x512__scene.png" border="0" usemap="#group______d__m__x512____scene" alt=""/></div>
 <map name="group______d__m__x512____scene" id="group______d__m__x512____scene">
-<area shape="rect" title="Scenes fundamentally define a set of fixtures pre&#45;defined values to be transferred over to the DMX512..." alt="" coords="200,5,315,31"/>
-<area shape="rect" href="group___d_m_x512__fixture__preset.html" title="Fixture presets are used to define a scene&#39;s fixture channel values to be set into the DMX512 driver ..." alt="" coords="363,5,521,31"/>
-<area shape="rect" href="group___d_m_x512__scene__pool.html" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="5,5,152,31"/>
+<area shape="rect" title="Scenes fundamentally define a set of fixtures pre&#45;defined values to be transferred over to the DMX512..." alt="" coords="143,5,201,31"/>
+<area shape="rect" href="group___d_m_x512__fixture__preset.html" title="Fixture presets are used to define a scene&#39;s fixture channel values to be set into the DMX512 driver ..." alt="" coords="249,5,353,31"/>
+<area shape="rect" href="group___d_m_x512__scene__pool.html" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="5,5,95,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:group___d_m_x512__fixture__preset"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture__preset.html">DMX512_fixture_preset</a></td></tr>
+<tr class="memitem:group___d_m_x512__fixture__preset"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture__preset.html">Fixture Preset</a></td></tr>
 <tr class="memdesc:group___d_m_x512__fixture__preset"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixture presets are used to define a scene's fixture channel values to be set into the DMX512 driver send buffer once the scene is triggered. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -155,15 +155,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga4f16dc85762063fd71304d900b00e67d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#ga4f16dc85762063fd71304d900b00e67d">DMX512_scene_new</a> (uint16_t id, uint16_t fadein_time, uint16_t fadeout_time)</td></tr>
 <tr class="memdesc:ga4f16dc85762063fd71304d900b00e67d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and initialises a new scene instance.  <a href="group___d_m_x512__scene.html#ga4f16dc85762063fd71304d900b00e67d">More...</a><br /></td></tr>
 <tr class="separator:ga4f16dc85762063fd71304d900b00e67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga75fbeb849a11583bccd6e1a7e2d10342"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#ga75fbeb849a11583bccd6e1a7e2d10342">DMX512_scene_add_preset</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, <a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a> fp)</td></tr>
-<tr class="memdesc:ga75fbeb849a11583bccd6e1a7e2d10342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a fixture preset instance into the scene.  <a href="group___d_m_x512__scene.html#ga75fbeb849a11583bccd6e1a7e2d10342">More...</a><br /></td></tr>
-<tr class="separator:ga75fbeb849a11583bccd6e1a7e2d10342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac5876ae84846054a8d46b30ef24c43f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#gac5876ae84846054a8d46b30ef24c43f4">DMX512_scene_del_preset</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, uint16_t id)</td></tr>
-<tr class="memdesc:gac5876ae84846054a8d46b30ef24c43f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a fixture preset instance from the scene.  <a href="group___d_m_x512__scene.html#gac5876ae84846054a8d46b30ef24c43f4">More...</a><br /></td></tr>
-<tr class="separator:gac5876ae84846054a8d46b30ef24c43f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad36bb487af543b95e4943f7b23febe69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#gad36bb487af543b95e4943f7b23febe69">DMX512_scene_get_preset</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, uint16_t id)</td></tr>
-<tr class="memdesc:gad36bb487af543b95e4943f7b23febe69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a fixture instance from the pool.  <a href="group___d_m_x512__scene.html#gad36bb487af543b95e4943f7b23febe69">More...</a><br /></td></tr>
-<tr class="separator:gad36bb487af543b95e4943f7b23febe69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga891a02a74ee49ebe36619271a6b78e80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#ga891a02a74ee49ebe36619271a6b78e80">DMX512_scene_add_fixture_preset</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, <a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a> fp)</td></tr>
+<tr class="memdesc:ga891a02a74ee49ebe36619271a6b78e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a fixture preset instance into the scene.  <a href="group___d_m_x512__scene.html#ga891a02a74ee49ebe36619271a6b78e80">More...</a><br /></td></tr>
+<tr class="separator:ga891a02a74ee49ebe36619271a6b78e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9c2b769a890069b0d89c73e5c6e64680"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#ga9c2b769a890069b0d89c73e5c6e64680">DMX512_scene_del_fixture_preset</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, uint16_t id)</td></tr>
+<tr class="memdesc:ga9c2b769a890069b0d89c73e5c6e64680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a fixture preset instance from the scene.  <a href="group___d_m_x512__scene.html#ga9c2b769a890069b0d89c73e5c6e64680">More...</a><br /></td></tr>
+<tr class="separator:ga9c2b769a890069b0d89c73e5c6e64680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72a0b2f25855176029ffd7d74efce315"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#ga72a0b2f25855176029ffd7d74efce315">DMX512_scene_get_fixture_preset</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, uint16_t id)</td></tr>
+<tr class="memdesc:ga72a0b2f25855176029ffd7d74efce315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a fixture instance from the pool.  <a href="group___d_m_x512__scene.html#ga72a0b2f25855176029ffd7d74efce315">More...</a><br /></td></tr>
+<tr class="separator:ga72a0b2f25855176029ffd7d74efce315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa2275abaa08e2991167e73f622cd669f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#gaa2275abaa08e2991167e73f622cd669f">DMX512_scene_start</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene)</td></tr>
 <tr class="memdesc:gaa2275abaa08e2991167e73f622cd669f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a scene fade-in process.  <a href="group___d_m_x512__scene.html#gaa2275abaa08e2991167e73f622cd669f">More...</a><br /></td></tr>
 <tr class="separator:gaa2275abaa08e2991167e73f622cd669f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,14 +250,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga75fbeb849a11583bccd6e1a7e2d10342"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga75fbeb849a11583bccd6e1a7e2d10342">&#9670;&nbsp;</a></span>DMX512_scene_add_preset()</h2>
+<a id="ga891a02a74ee49ebe36619271a6b78e80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga891a02a74ee49ebe36619271a6b78e80">&#9670;&nbsp;</a></span>DMX512_scene_add_fixture_preset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_scene_add_preset </td>
+          <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_scene_add_fixture_preset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *&#160;</td>
           <td class="paramname"><em>scene</em>, </td>
@@ -266,7 +266,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a>&#160;</td>
-          <td class="paramname"><em>preset</em>&#160;</td>
+          <td class="paramname"><em>fixture_preset</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -279,26 +279,25 @@ Functions</h2></td></tr>
 <p>Adds a fixture preset instance into the scene. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>pointer to the scene instance </td></tr>
-    <tr><td class="paramname">id</td><td>the fixture's idendifier </td></tr>
-    <tr><td class="paramname">values</td><td>the list of values to be stored within the scene </td></tr>
+    <tr><td class="paramname">*scene</td><td>pointer to the scene instance </td></tr>
+    <tr><td class="paramname">fixture_preset</td><td>fixture_preset instance to be added to the scene </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DMX512_engine_err_e error code following the function call </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00113">113</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00112">112</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
-<a id="gac5876ae84846054a8d46b30ef24c43f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac5876ae84846054a8d46b30ef24c43f4">&#9670;&nbsp;</a></span>DMX512_scene_del_preset()</h2>
+<a id="ga9c2b769a890069b0d89c73e5c6e64680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9c2b769a890069b0d89c73e5c6e64680">&#9670;&nbsp;</a></span>DMX512_scene_del_fixture_preset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_scene_del_preset </td>
+          <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_scene_del_fixture_preset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *&#160;</td>
           <td class="paramname"><em>scene</em>, </td>
@@ -320,25 +319,25 @@ Functions</h2></td></tr>
 <p>Deletes a fixture preset instance from the scene. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>pointer to the scene instance </td></tr>
+    <tr><td class="paramname">*scene</td><td>pointer to the scene instance </td></tr>
     <tr><td class="paramname">id</td><td>the fixture preset's idendifier </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DMX512_engine_err_e error code following the function call </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00138">138</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00137">137</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
-<a id="gad36bb487af543b95e4943f7b23febe69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad36bb487af543b95e4943f7b23febe69">&#9670;&nbsp;</a></span>DMX512_scene_get_preset()</h2>
+<a id="ga72a0b2f25855176029ffd7d74efce315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga72a0b2f25855176029ffd7d74efce315">&#9670;&nbsp;</a></span>DMX512_scene_get_fixture_preset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a>* DMX512_scene_get_preset </td>
+          <td class="memname"><a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a>* DMX512_scene_get_fixture_preset </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *&#160;</td>
           <td class="paramname"><em>scene</em>, </td>
@@ -367,7 +366,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>*DMX512_fixture_preset_s pointer to the fixture preset instance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00166">166</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00165">165</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
@@ -390,13 +389,13 @@ Functions</h2></td></tr>
 <p>State machine to manage scene at a given state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>pointer to the scene instance </td></tr>
+    <tr><td class="paramname">*scene</td><td>pointer to the scene instance to be managed </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="_d_m_x512__scene_8h_source.html">DMX512_scene.h</a> <a class="el" href="group___d_m_x512__scene.html#gae8f4e2bd41f27da7c129e25d343abbb5" title="Current playing state of a scene.">DMX512_scene_state_e</a> state enumeration </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00201">201</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00200">200</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
@@ -466,12 +465,12 @@ Functions</h2></td></tr>
 <p>Starts a scene fade-in process. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>pointer to the scene instance </td></tr>
+    <tr><td class="paramname">*scene</td><td>pointer to the scene instance to be started </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00180">180</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00179">179</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
@@ -494,12 +493,12 @@ Functions</h2></td></tr>
 <p>Starts a scene fade-out process. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">scene</td><td>pointer to the scene instance </td></tr>
+    <tr><td class="paramname">*scene</td><td>pointer to the scene instance to be stopped </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00190">190</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00189">189</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>

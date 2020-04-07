@@ -19,6 +19,7 @@ var group___h_t_t_p__request =
       [ "uri", "structhttp__request.html#af98b83cec5342c54027dd92f7357d6e6", null ]
     ] ],
     [ "http_request_s", "group___h_t_t_p__request.html#ga6118483860ac5c969c5eb4d6a577b5d2", null ],
+    [ "router_fn", "group___h_t_t_p__request.html#gaccaa3c880a142429a8c3df768852deb3", null ],
     [ "http_request_free", "group___h_t_t_p__request.html#ga4038a4f876a89f3446956db1d36200ef", null ],
     [ "http_request_new", "group___h_t_t_p__request.html#gabd4a931a62009fea68304a602af763ea", null ],
     [ "http_request_parse", "group___h_t_t_p__request.html#gaec538948aac340d2692de64d65ee870c", null ]

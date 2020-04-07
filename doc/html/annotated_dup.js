@@ -6,9 +6,7 @@ var annotated_dup =
     [ "DMX512_engine_s", "struct_d_m_x512__engine__s.html", "struct_d_m_x512__engine__s" ],
     [ "DMX512_fixture", "struct_d_m_x512__fixture.html", "struct_d_m_x512__fixture" ],
     [ "DMX512_fixture_pool_s", "struct_d_m_x512__fixture__pool__s.html", "struct_d_m_x512__fixture__pool__s" ],
-    [ "DMX512_fixture_preset", "struct_d_m_x512__fixture__preset.html", "struct_d_m_x512__fixture__preset" ],
-    [ "DMX512_fixture_preset_s", "struct_d_m_x512__fixture__preset__s.html", null ],
-    [ "DMX512_preset", "struct_d_m_x512__preset.html", "struct_d_m_x512__preset" ],
+    [ "DMX512_fixture_preset_s", "struct_d_m_x512__fixture__preset__s.html", "struct_d_m_x512__fixture__preset__s" ],
     [ "DMX512_scene_pool_s", "struct_d_m_x512__scene__pool__s.html", "struct_d_m_x512__scene__pool__s" ],
     [ "DMX512_scene_s", "struct_d_m_x512__scene__s.html", "struct_d_m_x512__scene__s" ],
     [ "fs_file", "structfs__file.html", "structfs__file" ],
@@ -22,5 +20,5 @@ var annotated_dup =
     [ "json_parser_json_string_s", "structjson__parser__json__string__s.html", "structjson__parser__json__string__s" ],
     [ "ms_chronometer_s", "structms__chronometer__s.html", "structms__chronometer__s" ],
     [ "Q_client", "struct_q__client.html", "struct_q__client" ],
-    [ "Q_packet", "struct_q__packet.html", "struct_q__packet" ]
+    [ "Q_packet_s", "struct_q__packet__s.html", "struct_q__packet__s" ]
 ];

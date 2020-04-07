@@ -1,11 +1,11 @@
-\hypertarget{group___d_m_x512__engine}{}\doxysection{D\+M\+X512\+\_\+engine}
-\label{group___d_m_x512__engine}\index{DMX512\_engine@{DMX512\_engine}}
+\hypertarget{group___d_m_x512__engine}{}\doxysection{D\+M\+X512 Engine}
+\label{group___d_m_x512__engine}\index{DMX512 Engine@{DMX512 Engine}}
 
 
 The D\+M\+X512 engine is in charge of managing the whole D\+MX show creation and show playback process. To do so, it wraps the functionalities described throughout the apps\textquotesingle{} submodules into higher level functions and data structures to provide users with an easy and intuitive way to create and manage D\+M\+X512 show instances.  
 
 
-Collaboration diagram for D\+M\+X512\+\_\+engine\+:\nopagebreak
+Collaboration diagram for D\+M\+X512 Engine\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,13 +15,13 @@ Collaboration diagram for D\+M\+X512\+\_\+engine\+:\nopagebreak
 \doxysubsection*{Modules}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group___d_m_x512__chaser__pool}{D\+M\+X512\+\_\+chaser\+\_\+pool}}
+\mbox{\hyperlink{group___d_m_x512__chaser__pool}{Chaser Pool}}
 \begin{DoxyCompactList}\small\item\em Chaser pools are used to store and manage a lists of pre-\/configured chasers. Up to 65535 D\+M\+X512 chasers may be stored for each individual D\+M\+X512 universe. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___d_m_x512__defs}{D\+M\+X512\+\_\+defs}}
+\mbox{\hyperlink{group___d_m_x512__defs}{Definitions}}
 \begin{DoxyCompactList}\small\item\em Definition of fundamental constant values to be used by the D\+M\+X512 engine. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___d_m_x512__fixture__pool}{D\+M\+X512\+\_\+fixture\+\_\+pool}}
+\mbox{\hyperlink{group___d_m_x512__fixture__pool}{Fixture Pool}}
 \begin{DoxyCompactList}\small\item\em Fixture pools are used to store a universe\textquotesingle{}s patch information. A patch is a pool of addressed fixtures which channel channel values must me comprised in within a 0-\/512 address value interval. A patched fixture\textquotesingle{}s channels may not overlap over the channel addresses of another fixture member of the patch. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___d_m_x512__scene__pool}{D\+M\+X512\+\_\+scene\+\_\+pool}}
+\mbox{\hyperlink{group___d_m_x512__scene__pool}{Scene Pool}}
 \begin{DoxyCompactList}\small\item\em Scene pools are used to store and manage a lists of pre-\/configured scenes. Up to 65535 D\+M\+X512 scenes may be stored per D\+M\+X512 universe. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
@@ -32,28 +32,21 @@ struct \mbox{\hyperlink{struct_d_m_x512__engine__s}{D\+M\+X512\+\_\+engine\+\_\+
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga21efc87ee6cb29acce03fbde9cc155ba}\label{group___d_m_x512__engine_ga21efc87ee6cb29acce03fbde9cc155ba}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}~0x03U
+\#define \mbox{\hyperlink{group___d_m_x512__engine_ga21efc87ee6cb29acce03fbde9cc155ba}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}}~0x03U
+\begin{DoxyCompactList}\small\item\em size of a Q\+L\+SF header \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___d_m_x512__engine_gad736d541b368f59598927f8c8cea4034}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}}~0x03U
 \item 
-\mbox{\Hypertarget{group___d_m_x512__engine_gad736d541b368f59598927f8c8cea4034}\label{group___d_m_x512__engine_gad736d541b368f59598927f8c8cea4034}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE}~0x03U
+\#define \mbox{\hyperlink{group___d_m_x512__engine_ga5ad99482d798af4173ae848a21cc5548}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+E\+N\+E\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}}~0x02U
 \item 
-\mbox{\Hypertarget{group___d_m_x512__engine_ga5ad99482d798af4173ae848a21cc5548}\label{group___d_m_x512__engine_ga5ad99482d798af4173ae848a21cc5548}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+E\+N\+E\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}~0x02U
+\#define \mbox{\hyperlink{group___d_m_x512__engine_ga50c54e6b584a884c53b11c298aeac912}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+X\+T\+U\+R\+E\+\_\+\+P\+R\+E\+S\+E\+T\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}}~0x02U
 \item 
-\mbox{\Hypertarget{group___d_m_x512__engine_ga50c54e6b584a884c53b11c298aeac912}\label{group___d_m_x512__engine_ga50c54e6b584a884c53b11c298aeac912}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+X\+T\+U\+R\+E\+\_\+\+P\+R\+E\+S\+E\+T\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}~0x02U
+\#define \mbox{\hyperlink{group___d_m_x512__engine_ga7c8f015e956ae91656504bed0893bde3}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}}~0x04U
 \item 
-\mbox{\Hypertarget{group___d_m_x512__engine_ga7c8f015e956ae91656504bed0893bde3}\label{group___d_m_x512__engine_ga7c8f015e956ae91656504bed0893bde3}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}~0x04U
+\#define \mbox{\hyperlink{group___d_m_x512__engine_ga177921ba498e556a6c354cf008f93ca6}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+E\+XT}}~\char`\"{}.qlsf\char`\"{}
 \item 
-\mbox{\Hypertarget{group___d_m_x512__engine_ga177921ba498e556a6c354cf008f93ca6}\label{group___d_m_x512__engine_ga177921ba498e556a6c354cf008f93ca6}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+E\+XT}~\char`\"{}.qlsf\char`\"{}
+\#define \mbox{\hyperlink{group___d_m_x512__engine_gadba67a7a8a3abc92e5fa93ca45469d94}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+E\+M\+P\+\_\+\+F\+I\+L\+E\+\_\+\+E\+XT}}~\char`\"{}.tmp\char`\"{}
 \item 
-\mbox{\Hypertarget{group___d_m_x512__engine_gadba67a7a8a3abc92e5fa93ca45469d94}\label{group___d_m_x512__engine_gadba67a7a8a3abc92e5fa93ca45469d94}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+E\+M\+P\+\_\+\+F\+I\+L\+E\+\_\+\+E\+XT}~\char`\"{}.tmp\char`\"{}
-\item 
-\mbox{\Hypertarget{group___d_m_x512__engine_ga4dbef93e1d7343151a3c7b5b3af70e78}\label{group___d_m_x512__engine_ga4dbef93e1d7343151a3c7b5b3af70e78}} 
-\#define {\bfseries D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+D\+E\+L\+AY}~30
+\#define \mbox{\hyperlink{group___d_m_x512__engine_ga4dbef93e1d7343151a3c7b5b3af70e78}{D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+D\+E\+L\+AY}}~30
 \end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
@@ -135,10 +128,83 @@ The D\+M\+X512 engine is in charge of managing the whole D\+MX show creation and
 
 
 
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___d_m_x512__engine_ga7c8f015e956ae91656504bed0893bde3}\label{group___d_m_x512__engine_ga7c8f015e956ae91656504bed0893bde3}} 
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_HEADER\_SIZE@{DMX512\_ENGINE\_CONFIG\_CHASER\_HEADER\_SIZE}}
+\index{DMX512\_ENGINE\_CONFIG\_CHASER\_HEADER\_SIZE@{DMX512\_ENGINE\_CONFIG\_CHASER\_HEADER\_SIZE}!DMX512 Engine@{DMX512 Engine}}
+\doxysubsubsection{\texorpdfstring{DMX512\_ENGINE\_CONFIG\_CHASER\_HEADER\_SIZE}{DMX512\_ENGINE\_CONFIG\_CHASER\_HEADER\_SIZE}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE~0x04U}
+
+byte size of a Q\+L\+SF chaser header 
+
+Definition at line 29 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__engine_ga177921ba498e556a6c354cf008f93ca6}\label{group___d_m_x512__engine_ga177921ba498e556a6c354cf008f93ca6}} 
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_FILE\_EXT@{DMX512\_ENGINE\_CONFIG\_FILE\_EXT}}
+\index{DMX512\_ENGINE\_CONFIG\_FILE\_EXT@{DMX512\_ENGINE\_CONFIG\_FILE\_EXT}!DMX512 Engine@{DMX512 Engine}}
+\doxysubsubsection{\texorpdfstring{DMX512\_ENGINE\_CONFIG\_FILE\_EXT}{DMX512\_ENGINE\_CONFIG\_FILE\_EXT}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+L\+E\+\_\+\+E\+XT~\char`\"{}.qlsf\char`\"{}}
+
+Q\+L\+SF file extension 
+
+Definition at line 30 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__engine_ga50c54e6b584a884c53b11c298aeac912}\label{group___d_m_x512__engine_ga50c54e6b584a884c53b11c298aeac912}} 
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_HEADER\_SIZE@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_HEADER\_SIZE}}
+\index{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_HEADER\_SIZE@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_HEADER\_SIZE}!DMX512 Engine@{DMX512 Engine}}
+\doxysubsubsection{\texorpdfstring{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_HEADER\_SIZE}{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_HEADER\_SIZE}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+X\+T\+U\+R\+E\+\_\+\+P\+R\+E\+S\+E\+T\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE~0x02U}
+
+byte size of a Q\+L\+SF fixture preset headers 
+
+Definition at line 28 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__engine_gad736d541b368f59598927f8c8cea4034}\label{group___d_m_x512__engine_gad736d541b368f59598927f8c8cea4034}} 
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_PATCH\_DATA\_SIZE@{DMX512\_ENGINE\_CONFIG\_PATCH\_DATA\_SIZE}}
+\index{DMX512\_ENGINE\_CONFIG\_PATCH\_DATA\_SIZE@{DMX512\_ENGINE\_CONFIG\_PATCH\_DATA\_SIZE}!DMX512 Engine@{DMX512 Engine}}
+\doxysubsubsection{\texorpdfstring{DMX512\_ENGINE\_CONFIG\_PATCH\_DATA\_SIZE}{DMX512\_ENGINE\_CONFIG\_PATCH\_DATA\_SIZE}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+ZE~0x03U}
+
+D\+M\+X512 byte size of a Q\+L\+SF patch header 
+
+Definition at line 26 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__engine_ga5ad99482d798af4173ae848a21cc5548}\label{group___d_m_x512__engine_ga5ad99482d798af4173ae848a21cc5548}} 
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_SCENE\_HEADER\_SIZE@{DMX512\_ENGINE\_CONFIG\_SCENE\_HEADER\_SIZE}}
+\index{DMX512\_ENGINE\_CONFIG\_SCENE\_HEADER\_SIZE@{DMX512\_ENGINE\_CONFIG\_SCENE\_HEADER\_SIZE}!DMX512 Engine@{DMX512 Engine}}
+\doxysubsubsection{\texorpdfstring{DMX512\_ENGINE\_CONFIG\_SCENE\_HEADER\_SIZE}{DMX512\_ENGINE\_CONFIG\_SCENE\_HEADER\_SIZE}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+E\+N\+E\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE~0x02U}
+
+byte size of a Q\+L\+SF scene header 
+
+Definition at line 27 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__engine_gadba67a7a8a3abc92e5fa93ca45469d94}\label{group___d_m_x512__engine_gadba67a7a8a3abc92e5fa93ca45469d94}} 
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_TEMP\_FILE\_EXT@{DMX512\_ENGINE\_CONFIG\_TEMP\_FILE\_EXT}}
+\index{DMX512\_ENGINE\_CONFIG\_TEMP\_FILE\_EXT@{DMX512\_ENGINE\_CONFIG\_TEMP\_FILE\_EXT}!DMX512 Engine@{DMX512 Engine}}
+\doxysubsubsection{\texorpdfstring{DMX512\_ENGINE\_CONFIG\_TEMP\_FILE\_EXT}{DMX512\_ENGINE\_CONFIG\_TEMP\_FILE\_EXT}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+T\+E\+M\+P\+\_\+\+F\+I\+L\+E\+\_\+\+E\+XT~\char`\"{}.tmp\char`\"{}}
+
+temporary file extension 
+
+Definition at line 31 of file D\+M\+X512\+\_\+engine.\+h.
+
+\mbox{\Hypertarget{group___d_m_x512__engine_ga4dbef93e1d7343151a3c7b5b3af70e78}\label{group___d_m_x512__engine_ga4dbef93e1d7343151a3c7b5b3af70e78}} 
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_THREAD\_DELAY@{DMX512\_ENGINE\_THREAD\_DELAY}}
+\index{DMX512\_ENGINE\_THREAD\_DELAY@{DMX512\_ENGINE\_THREAD\_DELAY}!DMX512 Engine@{DMX512 Engine}}
+\doxysubsubsection{\texorpdfstring{DMX512\_ENGINE\_THREAD\_DELAY}{DMX512\_ENGINE\_THREAD\_DELAY}}
+{\footnotesize\ttfamily \#define D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+T\+H\+R\+E\+A\+D\+\_\+\+D\+E\+L\+AY~30}
+
+engine thread execution delay 
+
+Definition at line 32 of file D\+M\+X512\+\_\+engine.\+h.
+
+
+
 \doxysubsection{Enumeration Type Documentation}
 \mbox{\Hypertarget{group___d_m_x512__engine_ga71c2570a6b4a4e591d85719020c1d105}\label{group___d_m_x512__engine_ga71c2570a6b4a4e591d85719020c1d105}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_chaser\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_byte\_indexes\_e}}
-\index{DMX512\_engine\_config\_chaser\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_byte\_indexes\_e}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_config\_chaser\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_byte\_indexes\_e}}
+\index{DMX512\_engine\_config\_chaser\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_byte\_indexes\_e}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_config\_chaser\_byte\_indexes\_e}{DMX512\_engine\_config\_chaser\_byte\_indexes\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__engine_ga71c2570a6b4a4e591d85719020c1d105}{D\+M\+X512\+\_\+engine\+\_\+config\+\_\+chaser\+\_\+byte\+\_\+indexes\+\_\+e}}}
 
@@ -147,19 +213,19 @@ The D\+M\+X512 engine is in charge of managing the whole D\+MX show creation and
 Q\+L\+SF chaser chunk byte indexes. 
 
 Series of pre-\/defined constant byte index values to be used during parsing of a Q\+L\+SF chaser chunk. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a123bd4a9d23b72d5196aa2b289568eb3}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a123bd4a9d23b72d5196aa2b289568eb3}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a123bd4a9d23b72d5196aa2b289568eb3}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a123bd4a9d23b72d5196aa2b289568eb3}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+I\+D\+\_\+\+I\+N\+D\+EX&Index of a chaser chunk \char`\"{}chaser id\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a1721d271e12a56fe90279c8ec97567c4}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a1721d271e12a56fe90279c8ec97567c4}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_DIR\_MODE\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a1721d271e12a56fe90279c8ec97567c4}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a1721d271e12a56fe90279c8ec97567c4}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+D\+I\+R\+\_\+\+M\+O\+D\+E\+\_\+\+I\+N\+D\+EX&Index of a chaser chunk \char`\"{}run direction\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a66fded14204de7cc21944f47dfa4ca5f}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a66fded14204de7cc21944f47dfa4ca5f}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_RUN\_MODE\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a66fded14204de7cc21944f47dfa4ca5f}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a66fded14204de7cc21944f47dfa4ca5f}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+R\+U\+N\+\_\+\+M\+O\+D\+E\+\_\+\+I\+N\+D\+EX&Index of a chaser chunk \char`\"{}run mode\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a09f4cff9a38366da15a1afc1caab64e5}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a09f4cff9a38366da15a1afc1caab64e5}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_CHASER\_STEP\_COUNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a09f4cff9a38366da15a1afc1caab64e5}\label{group___d_m_x512__engine_gga71c2570a6b4a4e591d85719020c1d105a09f4cff9a38366da15a1afc1caab64e5}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\+R\+\_\+\+S\+T\+E\+P\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+D\+EX&Index of a chaser chunk \char`\"{}step count\char`\"{} byte \\
 \hline
 
@@ -169,8 +235,8 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+C\+H\+A\+S\+E\
 Definition at line 89 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga6ba2cd905e3cb831561b99d10a66bd9f}\label{group___d_m_x512__engine_ga6ba2cd905e3cb831561b99d10a66bd9f}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e}}
-\index{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e}}
+\index{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e@{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e}{DMX512\_engine\_config\_chaser\_step\_byte\_indexes\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__engine_ga6ba2cd905e3cb831561b99d10a66bd9f}{D\+M\+X512\+\_\+engine\+\_\+config\+\_\+chaser\+\_\+step\+\_\+byte\+\_\+indexes\+\_\+e}}}
 
@@ -179,19 +245,19 @@ Definition at line 89 of file D\+M\+X512\+\_\+engine.\+h.
 Q\+L\+SF chaser step chunk byte indexes. 
 
 Series of pre-\/defined constant byte index values to be used during parsing of a Q\+L\+SF chaser step. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fae4868eb96cf6cb0b66d489d9327d24dc}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fae4868eb96cf6cb0b66d489d9327d24dc}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fae4868eb96cf6cb0b66d489d9327d24dc}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fae4868eb96cf6cb0b66d489d9327d24dc}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+E\+P\+\_\+\+I\+D\+\_\+\+I\+N\+D\+EX&Index of a chaser step chunk \char`\"{}chaser step id\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fa28cb2102de331195fe2cd98f7ea6b2b3}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fa28cb2102de331195fe2cd98f7ea6b2b3}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEIN\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fa28cb2102de331195fe2cd98f7ea6b2b3}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9fa28cb2102de331195fe2cd98f7ea6b2b3}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+E\+P\+\_\+\+F\+A\+D\+E\+I\+N\+\_\+\+I\+N\+D\+EX&Index of a chaser step chunk \char`\"{}fade in time\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf96fa90b80c299888ab894b7daaa7c22}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf96fa90b80c299888ab894b7daaa7c22}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_FADEOUT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf96fa90b80c299888ab894b7daaa7c22}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf96fa90b80c299888ab894b7daaa7c22}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+E\+P\+\_\+\+F\+A\+D\+E\+O\+U\+T\+\_\+\+I\+N\+D\+EX&Index of a chaser step chunk \char`\"{}fade out time\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf74cc670d279d0f1b9df42a11f21e432}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf74cc670d279d0f1b9df42a11f21e432}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX@{DMX512\_ENGINE\_CONFIG\_STEP\_HOLD\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf74cc670d279d0f1b9df42a11f21e432}\label{group___d_m_x512__engine_gga6ba2cd905e3cb831561b99d10a66bd9faf74cc670d279d0f1b9df42a11f21e432}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+E\+P\+\_\+\+H\+O\+L\+D\+\_\+\+I\+N\+D\+EX&Index of a chaser step chunk \char`\"{}hold time\char`\"{} byte \\
 \hline
 
@@ -201,8 +267,8 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+T\+E\+P\+\_
 Definition at line 102 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga1bde9f93b0c6113bd395876590f691b8}\label{group___d_m_x512__engine_ga1bde9f93b0c6113bd395876590f691b8}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e@{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e}}
-\index{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e@{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e@{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e}}
+\index{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e@{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e}{DMX512\_engine\_config\_fixture\_preset\_byte\_indexes\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__engine_ga1bde9f93b0c6113bd395876590f691b8}{D\+M\+X512\+\_\+engine\+\_\+config\+\_\+fixture\+\_\+preset\+\_\+byte\+\_\+indexes\+\_\+e}}}
 
@@ -211,11 +277,11 @@ Definition at line 102 of file D\+M\+X512\+\_\+engine.\+h.
 Q\+L\+SF fixture preset chunk byte indexes. 
 
 Series of pre-\/defined constant byte index values to be used during parsing of a Q\+L\+SF fixture preset chunk. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a8d2b9a841a47d62c5f286ef7cafc0eec}\label{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a8d2b9a841a47d62c5f286ef7cafc0eec}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a8d2b9a841a47d62c5f286ef7cafc0eec}\label{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a8d2b9a841a47d62c5f286ef7cafc0eec}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+X\+T\+U\+R\+E\+\_\+\+P\+R\+E\+S\+E\+T\+\_\+\+I\+D\+\_\+\+I\+N\+D\+EX&Index of a fixture preset chunk \char`\"{}fixture id\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a09df354d835a50ba91a75b777c243e0f}\label{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a09df354d835a50ba91a75b777c243e0f}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_FIXTURE\_PRESET\_CHANNEL\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a09df354d835a50ba91a75b777c243e0f}\label{group___d_m_x512__engine_gga1bde9f93b0c6113bd395876590f691b8a09df354d835a50ba91a75b777c243e0f}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+X\+T\+U\+R\+E\+\_\+\+P\+R\+E\+S\+E\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+C\+N\+T\+\_\+\+I\+N\+D\+EX&Index of a fixture preset chunk \char`\"{}channel count\char`\"{} byte \\
 \hline
 
@@ -225,8 +291,8 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+F\+I\+X\+T\+U\
 Definition at line 78 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_gabf4abd5fbc6fa9dda3c07f4babee571c}\label{group___d_m_x512__engine_gabf4abd5fbc6fa9dda3c07f4babee571c}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_header\_byte\_indexes\_e@{DMX512\_engine\_config\_header\_byte\_indexes\_e}}
-\index{DMX512\_engine\_config\_header\_byte\_indexes\_e@{DMX512\_engine\_config\_header\_byte\_indexes\_e}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_config\_header\_byte\_indexes\_e@{DMX512\_engine\_config\_header\_byte\_indexes\_e}}
+\index{DMX512\_engine\_config\_header\_byte\_indexes\_e@{DMX512\_engine\_config\_header\_byte\_indexes\_e}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_config\_header\_byte\_indexes\_e}{DMX512\_engine\_config\_header\_byte\_indexes\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__engine_gabf4abd5fbc6fa9dda3c07f4babee571c}{D\+M\+X512\+\_\+engine\+\_\+config\+\_\+header\+\_\+byte\+\_\+indexes\+\_\+e}}}
 
@@ -235,19 +301,19 @@ Definition at line 78 of file D\+M\+X512\+\_\+engine.\+h.
 Q\+L\+SF header byte indexes. 
 
 Series of pre-\/defined constant byte index values to be used during parsing of a Q\+L\+SF file. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571caf3cab0b0f4d826596a03ece795bb137a}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571caf3cab0b0f4d826596a03ece795bb137a}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_PATCH\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571caf3cab0b0f4d826596a03ece795bb137a}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571caf3cab0b0f4d826596a03ece795bb137a}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+A\+T\+C\+H\+\_\+\+C\+N\+T\+\_\+\+I\+N\+D\+EX&Index of the patch count byte contained in a Q\+L\+SF header \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca11ba089e74e9fb74885e19390e5d19e4}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca11ba089e74e9fb74885e19390e5d19e4}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_SCENE\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca11ba089e74e9fb74885e19390e5d19e4}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca11ba089e74e9fb74885e19390e5d19e4}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+C\+E\+N\+E\+\_\+\+C\+N\+T\+\_\+\+I\+N\+D\+EX&Index of the scene count byte contained in a Q\+L\+SF header \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571cae6f17e46c72441bc7949736e4126df15}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571cae6f17e46c72441bc7949736e4126df15}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_CHASE\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571cae6f17e46c72441bc7949736e4126df15}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571cae6f17e46c72441bc7949736e4126df15}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+C\+H\+A\+S\+E\+\_\+\+C\+N\+T\+\_\+\+I\+N\+D\+EX&Index of the chaser count byte contained in a Q\+L\+SF header \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca6c552c0b3ef5e0ddcbaa24059c89b690}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca6c552c0b3ef5e0ddcbaa24059c89b690}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_HEADER\_EFFEX\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca6c552c0b3ef5e0ddcbaa24059c89b690}\label{group___d_m_x512__engine_ggabf4abd5fbc6fa9dda3c07f4babee571ca6c552c0b3ef5e0ddcbaa24059c89b690}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+E\+F\+F\+E\+X\+\_\+\+C\+N\+T\+\_\+\+I\+N\+D\+EX&Index of the effect count byte contained in a Q\+L\+SF header \\
 \hline
 
@@ -257,8 +323,8 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+H\+E\+A\+D\+E\
 Definition at line 41 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga1d9654b8d4aa0777c6e575010bc07a09}\label{group___d_m_x512__engine_ga1d9654b8d4aa0777c6e575010bc07a09}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e@{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e}}
-\index{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e@{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e@{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e}}
+\index{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e@{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e}{DMX512\_engine\_config\_patch\_chunk\_byte\_indexes\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__engine_ga1d9654b8d4aa0777c6e575010bc07a09}{D\+M\+X512\+\_\+engine\+\_\+config\+\_\+patch\+\_\+chunk\+\_\+byte\+\_\+indexes\+\_\+e}}}
 
@@ -267,15 +333,15 @@ Definition at line 41 of file D\+M\+X512\+\_\+engine.\+h.
 Q\+L\+SF patch chunk byte indexes. 
 
 Series of pre-\/defined constant byte index values to be used during parsing of a Q\+L\+SF patch chunk. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae113ea5fcba0253766c04aa8ffdf3a56}\label{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae113ea5fcba0253766c04aa8ffdf3a56}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae113ea5fcba0253766c04aa8ffdf3a56}\label{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae113ea5fcba0253766c04aa8ffdf3a56}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\+\_\+\+C\+H\+U\+N\+K\+\_\+\+I\+D\+\_\+\+I\+N\+D\+EX&Index of a patch chunk \char`\"{}id\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ad71c8cc75d2c29c50becfd924e6559b4}\label{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ad71c8cc75d2c29c50becfd924e6559b4}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_ADDR\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ad71c8cc75d2c29c50becfd924e6559b4}\label{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ad71c8cc75d2c29c50becfd924e6559b4}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\+\_\+\+C\+H\+U\+N\+K\+\_\+\+A\+D\+D\+R\+\_\+\+I\+N\+D\+EX&Index of a patch chunk \char`\"{}address\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae90da8b9b89f57c821846782208624fa}\label{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae90da8b9b89f57c821846782208624fa}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX@{DMX512\_ENGINE\_CONFIG\_PATCH\_CHUNK\_CHN\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae90da8b9b89f57c821846782208624fa}\label{group___d_m_x512__engine_gga1d9654b8d4aa0777c6e575010bc07a09ae90da8b9b89f57c821846782208624fa}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\+\_\+\+C\+H\+U\+N\+K\+\_\+\+C\+H\+N\+\_\+\+I\+N\+D\+EX&Index of a patch chunk \char`\"{}channel count\char`\"{} byte \\
 \hline
 
@@ -285,8 +351,8 @@ D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+P\+A\+T\+C\+H\
 Definition at line 55 of file D\+M\+X512\+\_\+engine.\+h.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_gac07cfe11f1458a152c0619b9bf350fe6}\label{group___d_m_x512__engine_gac07cfe11f1458a152c0619b9bf350fe6}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_config\_scene\_byte\_indexes\_e@{DMX512\_engine\_config\_scene\_byte\_indexes\_e}}
-\index{DMX512\_engine\_config\_scene\_byte\_indexes\_e@{DMX512\_engine\_config\_scene\_byte\_indexes\_e}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_config\_scene\_byte\_indexes\_e@{DMX512\_engine\_config\_scene\_byte\_indexes\_e}}
+\index{DMX512\_engine\_config\_scene\_byte\_indexes\_e@{DMX512\_engine\_config\_scene\_byte\_indexes\_e}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_config\_scene\_byte\_indexes\_e}{DMX512\_engine\_config\_scene\_byte\_indexes\_e}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{group___d_m_x512__engine_gac07cfe11f1458a152c0619b9bf350fe6}{D\+M\+X512\+\_\+engine\+\_\+config\+\_\+scene\+\_\+byte\+\_\+indexes\+\_\+e}}}
 
@@ -295,11 +361,11 @@ Definition at line 55 of file D\+M\+X512\+\_\+engine.\+h.
 Q\+L\+SF scene chunk byte indexes. 
 
 Series of pre-\/defined constant byte index values to be used during parsing of a Q\+L\+SF scene chunk. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae13bbd705c39aff73284495b15be57e8}\label{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae13bbd705c39aff73284495b15be57e8}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_ID\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae13bbd705c39aff73284495b15be57e8}\label{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae13bbd705c39aff73284495b15be57e8}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+E\+N\+E\+\_\+\+I\+D\+\_\+\+I\+N\+D\+EX&Index of a scene chunk \char`\"{}id\char`\"{} byte \\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX}!DMX512\_engine@{DMX512\_engine}}\index{DMX512\_engine@{DMX512\_engine}!DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae6aeb0161de238cda56800d564384fe8}\label{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae6aeb0161de238cda56800d564384fe8}} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX}!DMX512 Engine@{DMX512 Engine}}\index{DMX512 Engine@{DMX512 Engine}!DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX@{DMX512\_ENGINE\_CONFIG\_SCENE\_FIXTURE\_PRESET\_CNT\_INDEX}}}\mbox{\Hypertarget{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae6aeb0161de238cda56800d564384fe8}\label{group___d_m_x512__engine_ggac07cfe11f1458a152c0619b9bf350fe6ae6aeb0161de238cda56800d564384fe8}} 
 D\+M\+X512\+\_\+\+E\+N\+G\+I\+N\+E\+\_\+\+C\+O\+N\+F\+I\+G\+\_\+\+S\+C\+E\+N\+E\+\_\+\+F\+I\+X\+T\+U\+R\+E\+\_\+\+P\+R\+E\+S\+E\+T\+\_\+\+C\+N\+T\+\_\+\+I\+N\+D\+EX&Index of a scene chunk \char`\"{}fixture preset count\char`\"{} byte \\
 \hline
 
@@ -312,8 +378,8 @@ Definition at line 67 of file D\+M\+X512\+\_\+engine.\+h.
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{group___d_m_x512__engine_ga358f285473ab09a89787f7e041905aef}\label{group___d_m_x512__engine_ga358f285473ab09a89787f7e041905aef}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_patch\_add@{DMX512\_engine\_patch\_add}}
-\index{DMX512\_engine\_patch\_add@{DMX512\_engine\_patch\_add}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_patch\_add@{DMX512\_engine\_patch\_add}}
+\index{DMX512\_engine\_patch\_add@{DMX512\_engine\_patch\_add}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_patch\_add()}{DMX512\_engine\_patch\_add()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+add (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{fixture\+\_\+id,  }\item[{uint16\+\_\+t}]{address,  }\item[{uint16\+\_\+t}]{ch\+\_\+count }\end{DoxyParamCaption})}
 
@@ -323,11 +389,11 @@ Wrapper for \char`\"{}\+D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+add\char`\"{} fun
 
 
 \begin{DoxyParams}{Parameters}
-{\em id} & the fixture\textquotesingle{}s identifier \\
+{\em fixture\+\_\+id} & the fixture\textquotesingle{}s identifier \\
 \hline
-{\em addr} & fixture\textquotesingle{}s first channel address \\
+{\em address} & fixture\textquotesingle{}s first channel address \\
 \hline
-{\em ch\+\_\+stop} & fixture\textquotesingle{}s last channel address \\
+{\em ch\+\_\+count} & fixture\textquotesingle{}s channel count \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -341,8 +407,8 @@ D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call
 Definition at line 288 of file D\+M\+X512\+\_\+engine.\+c.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_gada3ed7df3b9e4c9d9dd4c6df00f4e4c6}\label{group___d_m_x512__engine_gada3ed7df3b9e4c9d9dd4c6df00f4e4c6}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_patch\_delete@{DMX512\_engine\_patch\_delete}}
-\index{DMX512\_engine\_patch\_delete@{DMX512\_engine\_patch\_delete}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_patch\_delete@{DMX512\_engine\_patch\_delete}}
+\index{DMX512\_engine\_patch\_delete@{DMX512\_engine\_patch\_delete}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_patch\_delete()}{DMX512\_engine\_patch\_delete()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+delete (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{fixture\+\_\+id }\end{DoxyParamCaption})}
 
@@ -352,7 +418,7 @@ Wrapper for \char`\"{}\+D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+del\char`\"{} fun
 
 
 \begin{DoxyParams}{Parameters}
-{\em id} & the fixture\textquotesingle{}s idendifier \\
+{\em fixture\+\_\+id} & the fixture\textquotesingle{}s idendifier \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -363,8 +429,8 @@ D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call
 Definition at line 321 of file D\+M\+X512\+\_\+engine.\+c.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_ga4716f92ccafcbc0a543ed588af699bab}\label{group___d_m_x512__engine_ga4716f92ccafcbc0a543ed588af699bab}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_patch\_get@{DMX512\_engine\_patch\_get}}
-\index{DMX512\_engine\_patch\_get@{DMX512\_engine\_patch\_get}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_patch\_get@{DMX512\_engine\_patch\_get}}
+\index{DMX512\_engine\_patch\_get@{DMX512\_engine\_patch\_get}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_patch\_get()}{DMX512\_engine\_patch\_get()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+get (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{fixture\+\_\+id,  }\item[{\mbox{\hyperlink{group___d_m_x512__fixture_ga095951a0fe2b02457c9957776b3bdf71}{D\+M\+X512\+\_\+fixture\+\_\+s}} $\ast$$\ast$}]{fixture }\end{DoxyParamCaption})}
 
@@ -374,7 +440,7 @@ Wrapper for \char`\"{}\+D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+get\char`\"{} fun
 
 
 \begin{DoxyParams}{Parameters}
-{\em id} & the fixture\textquotesingle{}s identifier \\
+{\em fixture\+\_\+id} & the fixture\textquotesingle{}s identifier \\
 \hline
 {\em $\ast$$\ast$fixture} & pointer to the fixture \\
 \hline
@@ -387,8 +453,8 @@ D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e E\+R\+R\+\_\+\+OK if fixture was found, D
 Definition at line 301 of file D\+M\+X512\+\_\+engine.\+c.
 
 \mbox{\Hypertarget{group___d_m_x512__engine_gaf935f32599ad62a93a8cb8668c1e3c4a}\label{group___d_m_x512__engine_gaf935f32599ad62a93a8cb8668c1e3c4a}} 
-\index{DMX512\_engine@{DMX512\_engine}!DMX512\_engine\_patch\_get\_all@{DMX512\_engine\_patch\_get\_all}}
-\index{DMX512\_engine\_patch\_get\_all@{DMX512\_engine\_patch\_get\_all}!DMX512\_engine@{DMX512\_engine}}
+\index{DMX512 Engine@{DMX512 Engine}!DMX512\_engine\_patch\_get\_all@{DMX512\_engine\_patch\_get\_all}}
+\index{DMX512\_engine\_patch\_get\_all@{DMX512\_engine\_patch\_get\_all}!DMX512 Engine@{DMX512 Engine}}
 \doxysubsubsection{\texorpdfstring{DMX512\_engine\_patch\_get\_all()}{DMX512\_engine\_patch\_get\_all()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__fixture__pool__s}{D\+M\+X512\+\_\+fixture\+\_\+pool\+\_\+s}}$\ast$ D\+M\+X512\+\_\+engine\+\_\+patch\+\_\+get\+\_\+all (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 

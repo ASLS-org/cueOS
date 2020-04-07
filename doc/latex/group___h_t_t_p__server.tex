@@ -1,11 +1,11 @@
-\hypertarget{group___h_t_t_p__server}{}\doxysection{H\+T\+T\+P\+\_\+server}
-\label{group___h_t_t_p__server}\index{HTTP\_server@{HTTP\_server}}
+\hypertarget{group___h_t_t_p__server}{}\doxysection{H\+T\+TP Server}
+\label{group___h_t_t_p__server}\index{HTTP Server@{HTTP Server}}
 
 
 Handles the creation of an H\+T\+TP server instance. This http server module is able to serve both static (eg. static files) and dynamic (eg. A\+PI responses) response data.  
 
 
-Collaboration diagram for H\+T\+T\+P\+\_\+server\+:\nopagebreak
+Collaboration diagram for H\+T\+TP Server\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,11 +15,11 @@ Collaboration diagram for H\+T\+T\+P\+\_\+server\+:\nopagebreak
 \doxysubsection*{Modules}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group___h_t_t_p__defs}{H\+T\+T\+P\+\_\+defs}}
+\mbox{\hyperlink{group___h_t_t_p__defs}{Definitions}}
 \begin{DoxyCompactList}\small\item\em Definition of fundamental constant values to be used within the H\+T\+TP module. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___h_t_t_p__request}{H\+T\+T\+P\+\_\+request}}
+\mbox{\hyperlink{group___h_t_t_p__request}{H\+T\+T\+P Request}}
 \begin{DoxyCompactList}\small\item\em An H\+T\+TP request contains information relative to a received H\+T\+TP frame such as its method, header fields and content. Once H\+T\+TP requests should be processed through a router function. During routing step it is up to the user to forge response data and forward it to the http request instance to be sent back over to the sender of the request. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___h_t_t_p__response}{H\+T\+T\+P\+\_\+response}}
+\mbox{\hyperlink{group___h_t_t_p__response}{H\+T\+T\+P response}}
 \begin{DoxyCompactList}\small\item\em Handles generation of both static and dynamic H\+T\+TP repsponse frames. Currently supported H\+T\+TP versions\+: H\+T\+T\+P/0.\+9 and H\+T\+T\+P/1.\+1. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
@@ -29,7 +29,7 @@ struct \mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}} $\ast$ \mbox{\hyperlink{group___h_t_t_p__server_gad387e3a8770141b5574464a143164b16}{http\+\_\+server\+\_\+init}} (uint16\+\_\+t port, router\+\_\+fn router)
+\mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}} $\ast$ \mbox{\hyperlink{group___h_t_t_p__server_gad387e3a8770141b5574464a143164b16}{http\+\_\+server\+\_\+init}} (uint16\+\_\+t port, \mbox{\hyperlink{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}{router\+\_\+fn}} router)
 \begin{DoxyCompactList}\small\item\em Initialises a new H\+T\+TP server instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -40,10 +40,10 @@ Handles the creation of an H\+T\+TP server instance. This http server module is 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{group___h_t_t_p__server_gad387e3a8770141b5574464a143164b16}\label{group___h_t_t_p__server_gad387e3a8770141b5574464a143164b16}} 
-\index{HTTP\_server@{HTTP\_server}!http\_server\_init@{http\_server\_init}}
-\index{http\_server\_init@{http\_server\_init}!HTTP\_server@{HTTP\_server}}
+\index{HTTP Server@{HTTP Server}!http\_server\_init@{http\_server\_init}}
+\index{http\_server\_init@{http\_server\_init}!HTTP Server@{HTTP Server}}
 \doxysubsubsection{\texorpdfstring{http\_server\_init()}{http\_server\_init()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}}$\ast$ http\+\_\+server\+\_\+init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port,  }\item[{router\+\_\+fn}]{router }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structhttp__server__s}{http\+\_\+server\+\_\+s}}$\ast$ http\+\_\+server\+\_\+init (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{port,  }\item[{\mbox{\hyperlink{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}{router\+\_\+fn}}}]{router }\end{DoxyParamCaption})}
 
 
 

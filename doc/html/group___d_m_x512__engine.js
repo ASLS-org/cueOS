@@ -1,9 +1,9 @@
 var group___d_m_x512__engine =
 [
-    [ "DMX512_chaser_pool", "group___d_m_x512__chaser__pool.html", "group___d_m_x512__chaser__pool" ],
-    [ "DMX512_defs", "group___d_m_x512__defs.html", "group___d_m_x512__defs" ],
-    [ "DMX512_fixture_pool", "group___d_m_x512__fixture__pool.html", "group___d_m_x512__fixture__pool" ],
-    [ "DMX512_scene_pool", "group___d_m_x512__scene__pool.html", "group___d_m_x512__scene__pool" ],
+    [ "Chaser Pool", "group___d_m_x512__chaser__pool.html", "group___d_m_x512__chaser__pool" ],
+    [ "Definitions", "group___d_m_x512__defs.html", "group___d_m_x512__defs" ],
+    [ "Fixture Pool", "group___d_m_x512__fixture__pool.html", "group___d_m_x512__fixture__pool" ],
+    [ "Scene Pool", "group___d_m_x512__scene__pool.html", "group___d_m_x512__scene__pool" ],
     [ "DMX512_engine_s", "struct_d_m_x512__engine__s.html", [
       [ "chaser_count", "struct_d_m_x512__engine__s.html#a813c4496d7f0f1554d0cd54ee691047e", null ],
       [ "chasers", "struct_d_m_x512__engine__s.html#a0981734e2aeea3b5c1ef8fed0a01c0c4", null ],
@@ -13,6 +13,14 @@ var group___d_m_x512__engine =
       [ "scene_count", "struct_d_m_x512__engine__s.html#a7c094411c4ce1bbf332f7636a40cb185", null ],
       [ "scenes", "struct_d_m_x512__engine__s.html#a7aa0e7b55b9d560629a382a290faa903", null ]
     ] ],
+    [ "DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE", "group___d_m_x512__engine.html#ga7c8f015e956ae91656504bed0893bde3", null ],
+    [ "DMX512_ENGINE_CONFIG_FILE_EXT", "group___d_m_x512__engine.html#ga177921ba498e556a6c354cf008f93ca6", null ],
+    [ "DMX512_ENGINE_CONFIG_FIXTURE_PRESET_HEADER_SIZE", "group___d_m_x512__engine.html#ga50c54e6b584a884c53b11c298aeac912", null ],
+    [ "DMX512_ENGINE_CONFIG_HEADER_SIZE", "group___d_m_x512__engine.html#ga21efc87ee6cb29acce03fbde9cc155ba", null ],
+    [ "DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE", "group___d_m_x512__engine.html#gad736d541b368f59598927f8c8cea4034", null ],
+    [ "DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE", "group___d_m_x512__engine.html#ga5ad99482d798af4173ae848a21cc5548", null ],
+    [ "DMX512_ENGINE_CONFIG_TEMP_FILE_EXT", "group___d_m_x512__engine.html#gadba67a7a8a3abc92e5fa93ca45469d94", null ],
+    [ "DMX512_ENGINE_THREAD_DELAY", "group___d_m_x512__engine.html#ga4dbef93e1d7343151a3c7b5b3af70e78", null ],
     [ "DMX512_engine_config_chaser_byte_indexes_e", "group___d_m_x512__engine.html#ga71c2570a6b4a4e591d85719020c1d105", [
       [ "DMX512_ENGINE_CONFIG_CHASER_ID_INDEX", "group___d_m_x512__engine.html#gga71c2570a6b4a4e591d85719020c1d105a123bd4a9d23b72d5196aa2b289568eb3", null ],
       [ "DMX512_ENGINE_CONFIG_CHASER_DIR_MODE_INDEX", "group___d_m_x512__engine.html#gga71c2570a6b4a4e591d85719020c1d105a1721d271e12a56fe90279c8ec97567c4", null ],

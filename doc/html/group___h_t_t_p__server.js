@@ -1,8 +1,8 @@
 var group___h_t_t_p__server =
 [
-    [ "HTTP_defs", "group___h_t_t_p__defs.html", "group___h_t_t_p__defs" ],
-    [ "HTTP_request", "group___h_t_t_p__request.html", "group___h_t_t_p__request" ],
-    [ "HTTP_response", "group___h_t_t_p__response.html", "group___h_t_t_p__response" ],
+    [ "Definitions", "group___h_t_t_p__defs.html", "group___h_t_t_p__defs" ],
+    [ "HTTP Request", "group___h_t_t_p__request.html", "group___h_t_t_p__request" ],
+    [ "HTTP response", "group___h_t_t_p__response.html", "group___h_t_t_p__response" ],
     [ "http_server_s", "structhttp__server__s.html", [
       [ "pcb", "structhttp__server__s.html#a750f225f8336e045a48e7803bd038a40", null ],
       [ "port", "structhttp__server__s.html#a8e0798404bf2cf5dabb84c5ba9a4f236", null ],

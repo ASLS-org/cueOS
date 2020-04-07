@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('structhttp__server__s.html','');});
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">http_server_s Struct Reference<div class="ingroups"><a class="el" href="group__libs.html">Libs</a> &raquo; <a class="el" href="group___h_t_t_p__server.html">HTTP_server</a></div></div>  </div>
+<div class="title">http_server_s Struct Reference<div class="ingroups"><a class="el" href="group__libs.html">Libraries</a> &raquo; <a class="el" href="group___h_t_t_p__server.html">HTTP Server</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -112,21 +112,70 @@ Collaboration diagram for http_server_s:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a750f225f8336e045a48e7803bd038a40"><td class="memItemLeft" align="right" valign="top"><a id="a750f225f8336e045a48e7803bd038a40"></a>
-struct altcp_pcb *&#160;</td><td class="memItemRight" valign="bottom"><b>pcb</b></td></tr>
+<tr class="memitem:a750f225f8336e045a48e7803bd038a40"><td class="memItemLeft" align="right" valign="top">struct altcp_pcb *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp__server__s.html#a750f225f8336e045a48e7803bd038a40">pcb</a></td></tr>
 <tr class="separator:a750f225f8336e045a48e7803bd038a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e0798404bf2cf5dabb84c5ba9a4f236"><td class="memItemLeft" align="right" valign="top"><a id="a8e0798404bf2cf5dabb84c5ba9a4f236"></a>
-uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>port</b></td></tr>
+<tr class="memitem:a8e0798404bf2cf5dabb84c5ba9a4f236"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp__server__s.html#a8e0798404bf2cf5dabb84c5ba9a4f236">port</a></td></tr>
 <tr class="separator:a8e0798404bf2cf5dabb84c5ba9a4f236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acada276a7a97bcab2ca29b2a4497ebef"><td class="memItemLeft" align="right" valign="top"><a id="acada276a7a97bcab2ca29b2a4497ebef"></a>
-router_fn&#160;</td><td class="memItemRight" valign="bottom"><b>router</b></td></tr>
+<tr class="memitem:acada276a7a97bcab2ca29b2a4497ebef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___h_t_t_p__request.html#gaccaa3c880a142429a8c3df768852deb3">router_fn</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhttp__server__s.html#acada276a7a97bcab2ca29b2a4497ebef">router</a></td></tr>
 <tr class="separator:acada276a7a97bcab2ca29b2a4497ebef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>HTTP server structure object. </p>
 
 <p class="definition">Definition at line <a class="el" href="http__server_8h_source.html#l00025">25</a> of file <a class="el" href="http__server_8h_source.html">http_server.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a750f225f8336e045a48e7803bd038a40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a750f225f8336e045a48e7803bd038a40">&#9670;&nbsp;</a></span>pcb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct altcp_pcb* pcb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The server's application layered TCP control block </p>
+
+<p class="definition">Definition at line <a class="el" href="http__server_8h_source.html#l00026">26</a> of file <a class="el" href="http__server_8h_source.html">http_server.h</a>.</p>
+
+</div>
+</div>
+<a id="a8e0798404bf2cf5dabb84c5ba9a4f236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0798404bf2cf5dabb84c5ba9a4f236">&#9670;&nbsp;</a></span>port</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t port</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The server's running port </p>
+
+<p class="definition">Definition at line <a class="el" href="http__server_8h_source.html#l00027">27</a> of file <a class="el" href="http__server_8h_source.html">http_server.h</a>.</p>
+
+</div>
+</div>
+<a id="acada276a7a97bcab2ca29b2a4497ebef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acada276a7a97bcab2ca29b2a4497ebef">&#9670;&nbsp;</a></span>router</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___h_t_t_p__request.html#gaccaa3c880a142429a8c3df768852deb3">router_fn</a> router</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The server routing function through which HTTP request should be processed </p>
+
+<p class="definition">Definition at line <a class="el" href="http__server_8h_source.html#l00028">28</a> of file <a class="el" href="http__server_8h_source.html">http_server.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/root/Documents/ASLS/Firmware_V2.4/cueos/libs/HTTP_server/inc/<a class="el" href="http__server_8h_source.html">http_server.h</a></li>
 </ul>
 </div><!-- contents -->

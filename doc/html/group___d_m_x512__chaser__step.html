@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cueOS: DMX512_chaser_step</title>
+<title>cueOS: Chaser Step</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,19 +93,19 @@ $(document).ready(function(){initNavTree('group___d_m_x512__chaser__step.html','
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">DMX512_chaser_step<div class="ingroups"><a class="el" href="group__apps.html">Apps</a> &raquo; <a class="el" href="group___d_m_x512__engine.html">DMX512_engine</a> &raquo; <a class="el" href="group___d_m_x512__chaser__pool.html">DMX512_chaser_pool</a> &raquo; <a class="el" href="group___d_m_x512__chaser.html">DMX512_chaser</a></div></div>  </div>
+<div class="title">Chaser Step<div class="ingroups"><a class="el" href="group__cueos__apps.html">Applications</a> &raquo; <a class="el" href="group___d_m_x512__engine.html">DMX512 Engine</a> &raquo; <a class="el" href="group___d_m_x512__chaser__pool.html">Chaser Pool</a> &raquo; <a class="el" href="group___d_m_x512__chaser.html">DMX512_Chaser</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>A chaser step represents a scene with additional information regarding its timing. Information such as fade in/out and hold time are used by a chaser to affect timings of scene's playing sequence.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for DMX512_chaser_step:</div>
+Collaboration diagram for Chaser Step:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___d_m_x512__chaser__step.png" border="0" usemap="#group______d__m__x512____chaser____step" alt=""/></div>
 <map name="group______d__m__x512____chaser____step" id="group______d__m__x512____chaser____step">
-<area shape="rect" title="A chaser step represents a scene with additional information regarding its timing...." alt="" coords="172,5,323,31"/>
-<area shape="rect" href="group___d_m_x512__chaser.html" title="In a DMX lightshow, scenes may be chained and played back in a sequence called chaser...." alt="" coords="5,5,124,31"/>
+<area shape="rect" title="A chaser step represents a scene with additional information regarding its timing...." alt="" coords="176,5,271,31"/>
+<area shape="rect" href="group___d_m_x512__chaser.html" title="In a DMX lightshow, scenes may be chained and played back in a sequence called chaser...." alt="" coords="5,5,128,31"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -279,9 +279,9 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*scene</td><td>pointer to the scene instance to be referenced </td></tr>
-    <tr><td class="paramname">fadein</td><td>chaser step fade-in time in miliseconds </td></tr>
-    <tr><td class="paramname">fadeout</td><td>chaser step fade-out time in miliseconds </td></tr>
-    <tr><td class="paramname">hold</td><td>chaser step hold time in miliseconds </td></tr>
+    <tr><td class="paramname">fadein_time</td><td>chaser step fade-in time in miliseconds </td></tr>
+    <tr><td class="paramname">fadeout_time</td><td>chaser step fade-out time in miliseconds </td></tr>
+    <tr><td class="paramname">hold_time</td><td>chaser step hold time in miliseconds </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,7 +301,7 @@ Functions</h2></td></tr>
           <td class="memname">void DMX512_chaser_step_manage </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__chaser__step__s.html">DMX512_chaser_step_s</a> *&#160;</td>
-          <td class="paramname"><em>this</em></td><td>)</td>
+          <td class="paramname"><em>chaser_step</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -310,7 +310,7 @@ Functions</h2></td></tr>
 <p>Chaser step state machine. Manage a chaser step's state over time. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">this</td><td>the chaser step instance to be held </td></tr>
+    <tr><td class="paramname">*chaser_step</td><td>pointer to the chaser step instance to be managed </td></tr>
   </table>
   </dd>
 </dl>
@@ -329,7 +329,7 @@ Functions</h2></td></tr>
           <td class="memname">void DMX512_chaser_step_start </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__chaser__step__s.html">DMX512_chaser_step_s</a> *&#160;</td>
-          <td class="paramname"><em>this</em></td><td>)</td>
+          <td class="paramname"><em>chaser_step</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -338,7 +338,7 @@ Functions</h2></td></tr>
 <p>Starts a chaser step by assigning it to its fade_in state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">this</td><td>the chaser step instance to be started </td></tr>
+    <tr><td class="paramname">*chaser_step</td><td>pointer to the chaser step instance to be started </td></tr>
   </table>
   </dd>
 </dl>
@@ -357,7 +357,7 @@ Functions</h2></td></tr>
           <td class="memname">void DMX512_chaser_step_stop </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__chaser__step__s.html">DMX512_chaser_step_s</a> *&#160;</td>
-          <td class="paramname"><em>this</em></td><td>)</td>
+          <td class="paramname"><em>chaser_step</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -366,7 +366,7 @@ Functions</h2></td></tr>
 <p>Stops a chaser step by assigning it to its idle state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">this</td><td>the chaser step instance to be stopped </td></tr>
+    <tr><td class="paramname">*chaser_step</td><td>pointer to the chaser step instance to be stopped </td></tr>
   </table>
   </dd>
 </dl>

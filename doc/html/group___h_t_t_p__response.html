@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cueOS: HTTP_response</title>
+<title>cueOS: HTTP response</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -93,19 +93,19 @@ $(document).ready(function(){initNavTree('group___h_t_t_p__response.html','');})
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">HTTP_response<div class="ingroups"><a class="el" href="group__libs.html">Libs</a> &raquo; <a class="el" href="group___h_t_t_p__server.html">HTTP_server</a></div></div>  </div>
+<div class="title">HTTP response<div class="ingroups"><a class="el" href="group__libs.html">Libraries</a> &raquo; <a class="el" href="group___h_t_t_p__server.html">HTTP Server</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP versions: HTTP/0.9 and HTTP/1.1.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for HTTP_response:</div>
+Collaboration diagram for HTTP response:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___h_t_t_p__response.png" border="0" usemap="#group______h__t__t__p____response" alt=""/></div>
 <map name="group______h__t__t__p____response" id="group______h__t__t__p____response">
-<area shape="rect" title="Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP version..." alt="" coords="153,5,271,31"/>
-<area shape="rect" href="group___h_t_t_p__server.html" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="5,5,105,31"/>
+<area shape="rect" title="Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP version..." alt="" coords="152,5,267,31"/>
+<area shape="rect" href="group___h_t_t_p__server.html" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="5,5,104,31"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -117,8 +117,7 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga635b033ca57c2eb0a66aff6449d09120"><td class="memItemLeft" align="right" valign="top"><a id="ga635b033ca57c2eb0a66aff6449d09120"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH</b>&#160;&#160;&#160;5</td></tr>
+<tr class="memitem:ga635b033ca57c2eb0a66aff6449d09120"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___h_t_t_p__response.html#ga635b033ca57c2eb0a66aff6449d09120">HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH</a>&#160;&#160;&#160;5</td></tr>
 <tr class="separator:ga635b033ca57c2eb0a66aff6449d09120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -149,6 +148,24 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP versions: HTTP/0.9 and HTTP/1.1. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga635b033ca57c2eb0a66aff6449d09120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga635b033ca57c2eb0a66aff6449d09120">&#9670;&nbsp;</a></span>HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define HTTP_RESPONSE_CONTENT_LENGTH_MAX_LENGTH&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum string length of content length header value </p>
+
+<p class="definition">Definition at line <a class="el" href="http__response_8h_source.html#l00017">17</a> of file <a class="el" href="http__response_8h_source.html">http_response.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ga9b60ce6f72d88e26296b7993373b24bd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga9b60ce6f72d88e26296b7993373b24bd">&#9670;&nbsp;</a></span>http_response_static_state</h2>
@@ -298,9 +315,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*res</td><td>pointer to the response to be prepared </td></tr>
-    <tr><td class="paramname">status</td><td>code response's HTTP status code </td></tr>
+    <tr><td class="paramname">status_code</td><td>response's HTTP status code </td></tr>
     <tr><td class="paramname">content_type</td><td>the response's content type </td></tr>
-    <tr><td class="paramname">content_length</td><td>the response's content length in bytes </td></tr>
     <tr><td class="paramname">content</td><td>the response's content </td></tr>
   </table>
   </dd>
@@ -308,7 +324,7 @@ Functions</h2></td></tr>
 <dl class="section warning"><dt>Warning</dt><dd>while it might be tempting, DO NOT USE STRING FUNCTIONS, they are not thread safe and therefore not suitable to be used within the execution of the TCP/IP task thread. http_response_dynamic_cat function will help dynamically allocating and concatenating new string valuehttp_response_prepare_dynamics to the responses' data pointer. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="http__defs_8h_source.html">http_defs.h</a> for further information regarding HTTP header definitions </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="http__response_8c_source.html#l00103">103</a> of file <a class="el" href="http__response_8c_source.html">http_response.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="http__response_8c_source.html#l00102">102</a> of file <a class="el" href="http__response_8c_source.html">http_response.c</a>.</p>
 
 </div>
 </div>

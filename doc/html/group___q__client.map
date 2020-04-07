@@ -1,4 +1,4 @@
-<map id="Q_client" name="Q_client">
-<area shape="rect" id="node1" href="$group__apps.html" title="High layer user&#45;defined user applications." alt="" coords="5,5,57,31"/>
-<area shape="rect" id="node2" title="WIP, to be detailed." alt="" coords="105,5,176,31"/>
+<map id="Q Client" name="Q Client">
+<area shape="rect" id="node1" href="$group__cueos__apps.html" title="High layer user&#45;defined user applications." alt="" coords="5,5,99,31"/>
+<area shape="rect" id="node2" title="WIP, to be detailed." alt="" coords="147,5,217,31"/>
 </map>

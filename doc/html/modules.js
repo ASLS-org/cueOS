@@ -1,5 +1,5 @@
 var modules =
 [
-    [ "Apps", "group__apps.html", "group__apps" ],
-    [ "Libs", "group__libs.html", "group__libs" ]
+    [ "Applications", "group__cueos__apps.html", "group__cueos__apps" ],
+    [ "Libraries", "group__libs.html", "group__libs" ]
 ];

@@ -1,4 +1,4 @@
-<map id="DMX512_fixture_preset" name="DMX512_fixture_preset">
-<area shape="rect" id="node1" href="$group___d_m_x512__scene.html" title="Scenes fundamentally define a set of fixtures pre&#45;defined values to be transferred over to the DMX512..." alt="" coords="5,5,120,31"/>
-<area shape="rect" id="node2" title="Fixture presets are used to define a scene&#39;s fixture channel values to be set into the DMX512 driver ..." alt="" coords="168,5,327,31"/>
+<map id="Fixture Preset" name="Fixture Preset">
+<area shape="rect" id="node1" href="$group___d_m_x512__scene.html" title="Scenes fundamentally define a set of fixtures pre&#45;defined values to be transferred over to the DMX512..." alt="" coords="5,5,64,31"/>
+<area shape="rect" id="node2" title="Fixture presets are used to define a scene&#39;s fixture channel values to be set into the DMX512 driver ..." alt="" coords="112,5,216,31"/>
 </map>

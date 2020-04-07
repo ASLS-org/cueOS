@@ -15,7 +15,7 @@ Collaboration diagram for D\+M\+X512\+\_\+scene\+\_\+s\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=328pt]{struct_d_m_x512__scene__s__coll__graph}
+\includegraphics[width=333pt]{struct_d_m_x512__scene__s__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Data Fields}
@@ -27,9 +27,9 @@ uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__scene__s_a3689617560a42d27eff6fb
 \item 
 uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__scene__s_aacad27537b93a6c6650ab4a7146567f9}{fadeout\+\_\+time}}
 \item 
-uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__scene__s_a8de5414902453964f03ab27b556e9b88}{preset\+\_\+count}}
+uint16\+\_\+t \mbox{\hyperlink{struct_d_m_x512__scene__s_a475c1aa7714e8cfd5b94c98282a74550}{fixture\+\_\+preset\+\_\+count}}
 \item 
-\mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}} $\ast$ \mbox{\hyperlink{struct_d_m_x512__scene__s_a4b3cc55c072dc805426a4602a44fa12e}{presets}}
+\mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}} $\ast$ \mbox{\hyperlink{struct_d_m_x512__scene__s_a2198a48c48f0eddbdb4f64441835ea03}{fixture\+\_\+presets}}
 \item 
 \mbox{\hyperlink{structms__chronometer__s}{ms\+\_\+chronometer\+\_\+s}} \mbox{\hyperlink{struct_d_m_x512__scene__s_a1511456c2097ef268401e4adde9c9b52}{ms\+\_\+chronometer}}
 \item 
@@ -67,6 +67,26 @@ Fadeout time in ms
 
 Definition at line 57 of file D\+M\+X512\+\_\+scene.\+h.
 
+\mbox{\Hypertarget{struct_d_m_x512__scene__s_a475c1aa7714e8cfd5b94c98282a74550}\label{struct_d_m_x512__scene__s_a475c1aa7714e8cfd5b94c98282a74550}} 
+\index{DMX512\_scene\_s@{DMX512\_scene\_s}!fixture\_preset\_count@{fixture\_preset\_count}}
+\index{fixture\_preset\_count@{fixture\_preset\_count}!DMX512\_scene\_s@{DMX512\_scene\_s}}
+\doxysubsubsection{\texorpdfstring{fixture\_preset\_count}{fixture\_preset\_count}}
+{\footnotesize\ttfamily uint16\+\_\+t fixture\+\_\+preset\+\_\+count}
+
+Count of current fixture presets associated to the scene 
+
+Definition at line 58 of file D\+M\+X512\+\_\+scene.\+h.
+
+\mbox{\Hypertarget{struct_d_m_x512__scene__s_a2198a48c48f0eddbdb4f64441835ea03}\label{struct_d_m_x512__scene__s_a2198a48c48f0eddbdb4f64441835ea03}} 
+\index{DMX512\_scene\_s@{DMX512\_scene\_s}!fixture\_presets@{fixture\_presets}}
+\index{fixture\_presets@{fixture\_presets}!DMX512\_scene\_s@{DMX512\_scene\_s}}
+\doxysubsubsection{\texorpdfstring{fixture\_presets}{fixture\_presets}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}}$\ast$ fixture\+\_\+presets}
+
+List of current fixture presets associated to the scene 
+
+Definition at line 59 of file D\+M\+X512\+\_\+scene.\+h.
+
 \mbox{\Hypertarget{struct_d_m_x512__scene__s_a4fc3a0c58dfbd1e68224521185cb9384}\label{struct_d_m_x512__scene__s_a4fc3a0c58dfbd1e68224521185cb9384}} 
 \index{DMX512\_scene\_s@{DMX512\_scene\_s}!id@{id}}
 \index{id@{id}!DMX512\_scene\_s@{DMX512\_scene\_s}}
@@ -86,26 +106,6 @@ Definition at line 55 of file D\+M\+X512\+\_\+scene.\+h.
 Scene chronometer used to keep track of time during play-\/time 
 
 Definition at line 60 of file D\+M\+X512\+\_\+scene.\+h.
-
-\mbox{\Hypertarget{struct_d_m_x512__scene__s_a8de5414902453964f03ab27b556e9b88}\label{struct_d_m_x512__scene__s_a8de5414902453964f03ab27b556e9b88}} 
-\index{DMX512\_scene\_s@{DMX512\_scene\_s}!preset\_count@{preset\_count}}
-\index{preset\_count@{preset\_count}!DMX512\_scene\_s@{DMX512\_scene\_s}}
-\doxysubsubsection{\texorpdfstring{preset\_count}{preset\_count}}
-{\footnotesize\ttfamily uint16\+\_\+t preset\+\_\+count}
-
-Count of current fixture presets associated to the scene 
-
-Definition at line 58 of file D\+M\+X512\+\_\+scene.\+h.
-
-\mbox{\Hypertarget{struct_d_m_x512__scene__s_a4b3cc55c072dc805426a4602a44fa12e}\label{struct_d_m_x512__scene__s_a4b3cc55c072dc805426a4602a44fa12e}} 
-\index{DMX512\_scene\_s@{DMX512\_scene\_s}!presets@{presets}}
-\index{presets@{presets}!DMX512\_scene\_s@{DMX512\_scene\_s}}
-\doxysubsubsection{\texorpdfstring{presets}{presets}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__fixture__preset__s}{D\+M\+X512\+\_\+fixture\+\_\+preset\+\_\+s}}$\ast$ presets}
-
-List of current fixture presets associated to the scene 
-
-Definition at line 59 of file D\+M\+X512\+\_\+scene.\+h.
 
 \mbox{\Hypertarget{struct_d_m_x512__scene__s_a3f56c984755517ca3f9965f4fa55edff}\label{struct_d_m_x512__scene__s_a3f56c984755517ca3f9965f4fa55edff}} 
 \index{DMX512\_scene\_s@{DMX512\_scene\_s}!state@{state}}

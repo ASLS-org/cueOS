@@ -1,0 +1,7 @@
+<map id="Applications" name="Applications">
+<area shape="rect" id="node1" href="$group__cueos__rest__api.html" title="REST API web services enabling configuration of the system through HTTP requests over pre&#45;defined spe..." alt="" coords="160,5,251,31"/>
+<area shape="rect" id="node2" title="High layer user&#45;defined user applications." alt="" coords="5,80,99,105"/>
+<area shape="rect" id="node3" href="$group___d_m_x512__engine.html" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="147,55,264,80"/>
+<area shape="rect" id="node4" href="$group___q__client.html" title="WIP, to be detailed." alt="" coords="170,104,241,129"/>
+<area shape="rect" id="node5" href="$group__cueos__web__application.html" title="Serves web&#45;base user interface static files over HTTP to a remote device." alt="" coords="147,153,264,179"/>
+</map>

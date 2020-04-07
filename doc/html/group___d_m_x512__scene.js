@@ -1,13 +1,13 @@
 var group___d_m_x512__scene =
 [
-    [ "DMX512_fixture_preset", "group___d_m_x512__fixture__preset.html", "group___d_m_x512__fixture__preset" ],
+    [ "Fixture Preset", "group___d_m_x512__fixture__preset.html", "group___d_m_x512__fixture__preset" ],
     [ "DMX512_scene_s", "struct_d_m_x512__scene__s.html", [
       [ "fadein_time", "struct_d_m_x512__scene__s.html#a3689617560a42d27eff6fb6c9b9ddc1c", null ],
       [ "fadeout_time", "struct_d_m_x512__scene__s.html#aacad27537b93a6c6650ab4a7146567f9", null ],
+      [ "fixture_preset_count", "struct_d_m_x512__scene__s.html#a475c1aa7714e8cfd5b94c98282a74550", null ],
+      [ "fixture_presets", "struct_d_m_x512__scene__s.html#a2198a48c48f0eddbdb4f64441835ea03", null ],
       [ "id", "struct_d_m_x512__scene__s.html#a4fc3a0c58dfbd1e68224521185cb9384", null ],
       [ "ms_chronometer", "struct_d_m_x512__scene__s.html#a1511456c2097ef268401e4adde9c9b52", null ],
-      [ "preset_count", "struct_d_m_x512__scene__s.html#a8de5414902453964f03ab27b556e9b88", null ],
-      [ "presets", "struct_d_m_x512__scene__s.html#a4b3cc55c072dc805426a4602a44fa12e", null ],
       [ "state", "struct_d_m_x512__scene__s.html#a3f56c984755517ca3f9965f4fa55edff", null ],
       [ "status", "struct_d_m_x512__scene__s.html#a45abab3b3275ab9136351bb0f7cd4757", null ]
     ] ],
@@ -21,9 +21,9 @@ var group___d_m_x512__scene =
       [ "DMX512_SCENE_UNINITIALISED", "group___d_m_x512__scene.html#ggad4df73cd79f5608cacfd1e69288b45fca072d8cabb2925149f2d892ee88de0b07", null ],
       [ "DMX512_SCENE_INITIALISED", "group___d_m_x512__scene.html#ggad4df73cd79f5608cacfd1e69288b45fca90812df50059db9b1bdfc1b8e11e441e", null ]
     ] ],
-    [ "DMX512_scene_add_preset", "group___d_m_x512__scene.html#ga75fbeb849a11583bccd6e1a7e2d10342", null ],
-    [ "DMX512_scene_del_preset", "group___d_m_x512__scene.html#gac5876ae84846054a8d46b30ef24c43f4", null ],
-    [ "DMX512_scene_get_preset", "group___d_m_x512__scene.html#gad36bb487af543b95e4943f7b23febe69", null ],
+    [ "DMX512_scene_add_fixture_preset", "group___d_m_x512__scene.html#ga891a02a74ee49ebe36619271a6b78e80", null ],
+    [ "DMX512_scene_del_fixture_preset", "group___d_m_x512__scene.html#ga9c2b769a890069b0d89c73e5c6e64680", null ],
+    [ "DMX512_scene_get_fixture_preset", "group___d_m_x512__scene.html#ga72a0b2f25855176029ffd7d74efce315", null ],
     [ "DMX512_scene_manage", "group___d_m_x512__scene.html#ga1f3da4003a0770b48407d0384d60afc6", null ],
     [ "DMX512_scene_new", "group___d_m_x512__scene.html#ga4f16dc85762063fd71304d900b00e67d", null ],
     [ "DMX512_scene_start", "group___d_m_x512__scene.html#gaa2275abaa08e2991167e73f622cd669f", null ],

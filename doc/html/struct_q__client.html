@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('struct_q__client.html','');});
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">Q_client Struct Reference<div class="ingroups"><a class="el" href="group__apps.html">Apps</a> &raquo; <a class="el" href="group___q__client.html">Q_client</a></div></div>  </div>
+<div class="title">Q_client Struct Reference<div class="ingroups"><a class="el" href="group__cueos__apps.html">Applications</a> &raquo; <a class="el" href="group___q__client.html">Q Client</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -101,24 +101,89 @@ $(document).ready(function(){initNavTree('struct_q__client.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ad28c3ab4e4ab9ac0e696a132efbb68c2"><td class="memItemLeft" align="right" valign="top"><a id="ad28c3ab4e4ab9ac0e696a132efbb68c2"></a>
-struct udp_pcb *&#160;</td><td class="memItemRight" valign="bottom"><b>_pcb</b></td></tr>
+<tr class="memitem:ad28c3ab4e4ab9ac0e696a132efbb68c2"><td class="memItemLeft" align="right" valign="top">struct udp_pcb *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_q__client.html#ad28c3ab4e4ab9ac0e696a132efbb68c2">_pcb</a></td></tr>
 <tr class="separator:ad28c3ab4e4ab9ac0e696a132efbb68c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f9830d10776c08ded91a4a4aaf265e5"><td class="memItemLeft" align="right" valign="top"><a id="a0f9830d10776c08ded91a4a4aaf265e5"></a>
-struct pbuf *&#160;</td><td class="memItemRight" valign="bottom"><b>_p_tx</b></td></tr>
+<tr class="memitem:a0f9830d10776c08ded91a4a4aaf265e5"><td class="memItemLeft" align="right" valign="top">struct pbuf *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_q__client.html#a0f9830d10776c08ded91a4a4aaf265e5">_p_tx</a></td></tr>
 <tr class="separator:a0f9830d10776c08ded91a4a4aaf265e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f686a4fb449b22c5808ae5984e5babc"><td class="memItemLeft" align="right" valign="top"><a id="a8f686a4fb449b22c5808ae5984e5babc"></a>
-ip4_addr_t&#160;</td><td class="memItemRight" valign="bottom"><b>ip_addr</b></td></tr>
+<tr class="memitem:a8f686a4fb449b22c5808ae5984e5babc"><td class="memItemLeft" align="right" valign="top">ip4_addr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_q__client.html#a8f686a4fb449b22c5808ae5984e5babc">ip_addr</a></td></tr>
 <tr class="separator:a8f686a4fb449b22c5808ae5984e5babc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a963fc5ecd446e166d7c65632bfaa2d57"><td class="memItemLeft" align="right" valign="top"><a id="a963fc5ecd446e166d7c65632bfaa2d57"></a>
-ip4_addr_t&#160;</td><td class="memItemRight" valign="bottom"><b>mcast_addr</b></td></tr>
+<tr class="memitem:a963fc5ecd446e166d7c65632bfaa2d57"><td class="memItemLeft" align="right" valign="top">ip4_addr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_q__client.html#a963fc5ecd446e166d7c65632bfaa2d57">mcast_addr</a></td></tr>
 <tr class="separator:a963fc5ecd446e166d7c65632bfaa2d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Defines a Q client. Q is a UDP-only protocol specifically deficated to show control an automatisation. </p>
 
-<p class="definition">Definition at line <a class="el" href="_q__client_8h_source.html#l00046">46</a> of file <a class="el" href="_q__client_8h_source.html">Q_client.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="_q__client_8h_source.html#l00050">50</a> of file <a class="el" href="_q__client_8h_source.html">Q_client.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a0f9830d10776c08ded91a4a4aaf265e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f9830d10776c08ded91a4a4aaf265e5">&#9670;&nbsp;</a></span>_p_tx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct pbuf* _p_tx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>TX data buffer </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__client_8h_source.html#l00052">52</a> of file <a class="el" href="_q__client_8h_source.html">Q_client.h</a>.</p>
+
+</div>
+</div>
+<a id="ad28c3ab4e4ab9ac0e696a132efbb68c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad28c3ab4e4ab9ac0e696a132efbb68c2">&#9670;&nbsp;</a></span>_pcb</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct udp_pcb* _pcb</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>UDP control block </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__client_8h_source.html#l00051">51</a> of file <a class="el" href="_q__client_8h_source.html">Q_client.h</a>.</p>
+
+</div>
+</div>
+<a id="a8f686a4fb449b22c5808ae5984e5babc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f686a4fb449b22c5808ae5984e5babc">&#9670;&nbsp;</a></span>ip_addr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ip4_addr_t ip_addr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Client's IP address </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__client_8h_source.html#l00053">53</a> of file <a class="el" href="_q__client_8h_source.html">Q_client.h</a>.</p>
+
+</div>
+</div>
+<a id="a963fc5ecd446e166d7c65632bfaa2d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963fc5ecd446e166d7c65632bfaa2d57">&#9670;&nbsp;</a></span>mcast_addr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ip4_addr_t mcast_addr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Client's multicast group address </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__client_8h_source.html#l00054">54</a> of file <a class="el" href="_q__client_8h_source.html">Q_client.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/root/Documents/ASLS/Firmware_V2.4/cueos/apps/Q_client/inc/<a class="el" href="_q__client_8h_source.html">Q_client.h</a></li>
 </ul>
 </div><!-- contents -->

@@ -1,0 +1,4 @@
+<map id="DMX512 REST API" name="DMX512 REST API">
+<area shape="rect" id="node1" href="$group__cueos__rest__api.html" title="REST API web services enabling configuration of the system through HTTP requests over pre&#45;defined spe..." alt="" coords="5,5,96,31"/>
+<area shape="rect" id="node2" title="DMX512 engine HTTP wrapper. Handles manipulation of the DMX512 engine resources over HTTP through a u..." alt="" coords="144,5,283,31"/>
+</map>

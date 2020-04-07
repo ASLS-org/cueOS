@@ -1,5 +1,9 @@
 var group___d_m_x512__defs =
 [
+    [ "DMX512_CHANNEL_ADDRESS_MAX", "group___d_m_x512__defs.html#ga017529521c4a2796bfdb885412d286b4", null ],
+    [ "DMX512_CHANNEL_ADDRESS_MIN", "group___d_m_x512__defs.html#ga943e2e5e3b9a5591ea2b4df54728f701", null ],
+    [ "DMX512_CHANNEL_VALUE_MAX", "group___d_m_x512__defs.html#ga765c98c59d0965ae70959422fbd76d41", null ],
+    [ "DMX512_CHANNEL_VALUE_MIN", "group___d_m_x512__defs.html#ga8e6663668b82787d02a670ad81a5fcf2", null ],
     [ "DMX512_engine_err_e", "group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18", [
       [ "DMX512_ENGINE_OK", "group___d_m_x512__defs.html#gga6ce6bbde9df8b66ae8de8a2e60699f18ace3b5cd67c9a95581f063980b8e24d36", null ],
       [ "DMX512_ENGINE_INSTANCE_DUPLICATE", "group___d_m_x512__defs.html#gga6ce6bbde9df8b66ae8de8a2e60699f18a824b6543b0ec259b488fe1788352f43f", null ],

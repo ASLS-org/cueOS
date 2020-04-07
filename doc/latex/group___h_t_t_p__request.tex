@@ -1,15 +1,15 @@
-\hypertarget{group___h_t_t_p__request}{}\doxysection{H\+T\+T\+P\+\_\+request}
-\label{group___h_t_t_p__request}\index{HTTP\_request@{HTTP\_request}}
+\hypertarget{group___h_t_t_p__request}{}\doxysection{H\+T\+TP Request}
+\label{group___h_t_t_p__request}\index{HTTP Request@{HTTP Request}}
 
 
 An H\+T\+TP request contains information relative to a received H\+T\+TP frame such as its method, header fields and content. Once H\+T\+TP requests should be processed through a router function. During routing step it is up to the user to forge response data and forward it to the http request instance to be sent back over to the sender of the request.  
 
 
-Collaboration diagram for H\+T\+T\+P\+\_\+request\+:\nopagebreak
+Collaboration diagram for H\+T\+TP Request\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=271pt]{group___h_t_t_p__request}
+\includegraphics[width=273pt]{group___h_t_t_p__request}
 \end{center}
 \end{figure}
 \doxysubsection*{Data Structures}
@@ -25,13 +25,12 @@ struct \mbox{\hyperlink{structhttp__request}{http\+\_\+request}}
 \mbox{\Hypertarget{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}\label{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}} 
 typedef struct \mbox{\hyperlink{structhttp__request}{http\+\_\+request}} \mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}}
 \begin{DoxyCompactList}\small\item\em H\+T\+TP request object. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}\label{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}} 
-typedef void($\ast$ {\bfseries router\+\_\+fn}) (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
+typedef void($\ast$ \mbox{\hyperlink{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}{router\+\_\+fn}}) (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$ \mbox{\hyperlink{group___h_t_t_p__request_gabd4a931a62009fea68304a602af763ea}{http\+\_\+request\+\_\+new}} (router\+\_\+fn router)
+\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$ \mbox{\hyperlink{group___h_t_t_p__request_gabd4a931a62009fea68304a602af763ea}{http\+\_\+request\+\_\+new}} (\mbox{\hyperlink{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}{router\+\_\+fn}} router)
 \begin{DoxyCompactList}\small\item\em Creates a new H\+T\+TP request instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{group___h_t_t_p__request_ga4038a4f876a89f3446956db1d36200ef}{http\+\_\+request\+\_\+free}} (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)
 \begin{DoxyCompactList}\small\item\em Safely frees an H\+T\+TP request instance. \end{DoxyCompactList}\item 
@@ -44,10 +43,23 @@ An H\+T\+TP request contains information relative to a received H\+T\+TP frame s
 
 
 
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}\label{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}} 
+\index{HTTP Request@{HTTP Request}!router\_fn@{router\_fn}}
+\index{router\_fn@{router\_fn}!HTTP Request@{HTTP Request}}
+\doxysubsubsection{\texorpdfstring{router\_fn}{router\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ router\+\_\+fn) (\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$req)}
+
+H\+T\+TP request routing function 
+
+Definition at line 23 of file http\+\_\+request.\+h.
+
+
+
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{group___h_t_t_p__request_ga4038a4f876a89f3446956db1d36200ef}\label{group___h_t_t_p__request_ga4038a4f876a89f3446956db1d36200ef}} 
-\index{HTTP\_request@{HTTP\_request}!http\_request\_free@{http\_request\_free}}
-\index{http\_request\_free@{http\_request\_free}!HTTP\_request@{HTTP\_request}}
+\index{HTTP Request@{HTTP Request}!http\_request\_free@{http\_request\_free}}
+\index{http\_request\_free@{http\_request\_free}!HTTP Request@{HTTP Request}}
 \doxysubsubsection{\texorpdfstring{http\_request\_free()}{http\_request\_free()}}
 {\footnotesize\ttfamily void http\+\_\+request\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$}]{req }\end{DoxyParamCaption})}
 
@@ -65,10 +77,10 @@ Safely frees an H\+T\+TP request instance.
 Definition at line 245 of file http\+\_\+request.\+c.
 
 \mbox{\Hypertarget{group___h_t_t_p__request_gabd4a931a62009fea68304a602af763ea}\label{group___h_t_t_p__request_gabd4a931a62009fea68304a602af763ea}} 
-\index{HTTP\_request@{HTTP\_request}!http\_request\_new@{http\_request\_new}}
-\index{http\_request\_new@{http\_request\_new}!HTTP\_request@{HTTP\_request}}
+\index{HTTP Request@{HTTP Request}!http\_request\_new@{http\_request\_new}}
+\index{http\_request\_new@{http\_request\_new}!HTTP Request@{HTTP Request}}
 \doxysubsubsection{\texorpdfstring{http\_request\_new()}{http\_request\_new()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}}$\ast$ http\+\_\+request\+\_\+new (\begin{DoxyParamCaption}\item[{router\+\_\+fn}]{router }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}}$\ast$ http\+\_\+request\+\_\+new (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___h_t_t_p__request_gaccaa3c880a142429a8c3df768852deb3}{router\+\_\+fn}}}]{router }\end{DoxyParamCaption})}
 
 
 
@@ -90,8 +102,8 @@ http\+\_\+init function for further information
 Definition at line 222 of file http\+\_\+request.\+c.
 
 \mbox{\Hypertarget{group___h_t_t_p__request_gaec538948aac340d2692de64d65ee870c}\label{group___h_t_t_p__request_gaec538948aac340d2692de64d65ee870c}} 
-\index{HTTP\_request@{HTTP\_request}!http\_request\_parse@{http\_request\_parse}}
-\index{http\_request\_parse@{http\_request\_parse}!HTTP\_request@{HTTP\_request}}
+\index{HTTP Request@{HTTP Request}!http\_request\_parse@{http\_request\_parse}}
+\index{http\_request\_parse@{http\_request\_parse}!HTTP Request@{HTTP Request}}
 \doxysubsubsection{\texorpdfstring{http\_request\_parse()}{http\_request\_parse()}}
 {\footnotesize\ttfamily uint8\+\_\+t http\+\_\+request\+\_\+parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___h_t_t_p__request_ga6118483860ac5c969c5eb4d6a577b5d2}{http\+\_\+request\+\_\+s}} $\ast$}]{req,  }\item[{struct pbuf $\ast$}]{p }\end{DoxyParamCaption})}
 

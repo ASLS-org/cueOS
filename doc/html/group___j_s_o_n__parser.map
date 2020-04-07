@@ -1,4 +1,4 @@
-<map id="JSON_parser" name="JSON_parser">
-<area shape="rect" id="node1" title="Module dedicated to JSON parsing and JSON string formating." alt="" coords="100,5,201,31"/>
-<area shape="rect" id="node2" href="$group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,52,31"/>
+<map id="JSON Parser" name="JSON Parser">
+<area shape="rect" id="node1" title="Module dedicated to JSON parsing and JSON string formating." alt="" coords="124,5,224,31"/>
+<area shape="rect" id="node2" href="$group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,76,31"/>
 </map>

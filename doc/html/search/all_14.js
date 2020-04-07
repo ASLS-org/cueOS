@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['val_537',['val',['../structhttp__param.html#a1d80a43cb41e5b550d4563dd10d302bc',1,'http_param::val()'],['../structjsonparser__json__param__s.html#a1d80a43cb41e5b550d4563dd10d302bc',1,'jsonparser_json_param_s::val()']]],
-  ['values_538',['values',['../struct_d_m_x512__fixture__preset.html#a4c4196b5d7b92a93df1f574659fd2ed1',1,'DMX512_fixture_preset::values()'],['../struct_d_m_x512__preset.html#a4c4196b5d7b92a93df1f574659fd2ed1',1,'DMX512_preset::values()']]]
+  ['web_20application_382',['Web Application',['../group__cueos__web__application.html',1,'']]],
+  ['web_5fapplication_5fstart_383',['web_application_start',['../group__cueos__web__application.html#ga28946561ea98980638c93e79f11f46a5',1,'web_application_start(void):&#160;web_application.c'],['../group__cueos__web__application.html#ga28946561ea98980638c93e79f11f46a5',1,'web_application_start(void):&#160;web_application.c']]],
+  ['webapp_5fhttp_5fserver_5fport_384',['WEBAPP_HTTP_SERVER_PORT',['../group__cueos__web__application.html#ga608bda67dc94eefc5fa9c79747a1f188',1,'web_application.h']]]
 ];

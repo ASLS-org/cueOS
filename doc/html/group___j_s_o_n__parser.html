@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cueOS: JSON_parser</title>
+<title>cueOS: JSON Parser</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,19 +92,19 @@ $(document).ready(function(){initNavTree('group___j_s_o_n__parser.html','');});
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">JSON_parser<div class="ingroups"><a class="el" href="group__libs.html">Libs</a></div></div>  </div>
+<div class="title">JSON Parser<div class="ingroups"><a class="el" href="group__libs.html">Libraries</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Module dedicated to JSON parsing and JSON string formating.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for JSON_parser:</div>
+Collaboration diagram for JSON Parser:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___j_s_o_n__parser.png" border="0" usemap="#group______j__s__o__n____parser" alt=""/></div>
 <map name="group______j__s__o__n____parser" id="group______j__s__o__n____parser">
-<area shape="rect" title="Module dedicated to JSON parsing and JSON string formating." alt="" coords="100,5,201,31"/>
-<area shape="rect" href="group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,52,31"/>
+<area shape="rect" title="Module dedicated to JSON parsing and JSON string formating." alt="" coords="124,5,224,31"/>
+<area shape="rect" href="group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,76,31"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -122,26 +122,19 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:gab4648729eb433225c17f6a29d3f075fa"><td class="memItemLeft" align="right" valign="top"><a id="gab4648729eb433225c17f6a29d3f075fa"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_ARRAY_DELIMITOR</b>&#160;&#160;&#160;&quot;[&quot;</td></tr>
+<tr class="memitem:gab4648729eb433225c17f6a29d3f075fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gab4648729eb433225c17f6a29d3f075fa">JSON_ARRAY_DELIMITOR</a>&#160;&#160;&#160;&quot;[&quot;</td></tr>
 <tr class="separator:gab4648729eb433225c17f6a29d3f075fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac54c5c34acb20a9bdc16f16bf1493876"><td class="memItemLeft" align="right" valign="top"><a id="gac54c5c34acb20a9bdc16f16bf1493876"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_ARRAY_TERMINATOR</b>&#160;&#160;&#160;&quot;]&quot;</td></tr>
+<tr class="memitem:gac54c5c34acb20a9bdc16f16bf1493876"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gac54c5c34acb20a9bdc16f16bf1493876">JSON_ARRAY_TERMINATOR</a>&#160;&#160;&#160;&quot;]&quot;</td></tr>
 <tr class="separator:gac54c5c34acb20a9bdc16f16bf1493876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae8b65170690cccade05f05b810429068"><td class="memItemLeft" align="right" valign="top"><a id="gae8b65170690cccade05f05b810429068"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_STRING_DELIMITOR</b>&#160;&#160;&#160;&quot;{&quot;</td></tr>
+<tr class="memitem:gae8b65170690cccade05f05b810429068"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gae8b65170690cccade05f05b810429068">JSON_STRING_DELIMITOR</a>&#160;&#160;&#160;&quot;{&quot;</td></tr>
 <tr class="separator:gae8b65170690cccade05f05b810429068"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf9fccc893b8fedb621cb9f8a1075d7a2"><td class="memItemLeft" align="right" valign="top"><a id="gaf9fccc893b8fedb621cb9f8a1075d7a2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_STRING_TERMINATOR</b>&#160;&#160;&#160;&quot;}&quot;</td></tr>
+<tr class="memitem:gaf9fccc893b8fedb621cb9f8a1075d7a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gaf9fccc893b8fedb621cb9f8a1075d7a2">JSON_STRING_TERMINATOR</a>&#160;&#160;&#160;&quot;}&quot;</td></tr>
 <tr class="separator:gaf9fccc893b8fedb621cb9f8a1075d7a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga13c2e76825d17d999f02de380f8c2fc0"><td class="memItemLeft" align="right" valign="top"><a id="ga13c2e76825d17d999f02de380f8c2fc0"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_STRING_ENTRY_DELIMITOR</b>&#160;&#160;&#160;&quot;\&quot;&quot;</td></tr>
+<tr class="memitem:ga13c2e76825d17d999f02de380f8c2fc0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga13c2e76825d17d999f02de380f8c2fc0">JSON_STRING_ENTRY_DELIMITOR</a>&#160;&#160;&#160;&quot;\&quot;&quot;</td></tr>
 <tr class="separator:ga13c2e76825d17d999f02de380f8c2fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeb23d66ed51f2003227b9712c1a23fb4"><td class="memItemLeft" align="right" valign="top"><a id="gaeb23d66ed51f2003227b9712c1a23fb4"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_STRING_ENTRY_SEPARATOR</b>&#160;&#160;&#160;&quot;:&quot;</td></tr>
+<tr class="memitem:gaeb23d66ed51f2003227b9712c1a23fb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#gaeb23d66ed51f2003227b9712c1a23fb4">JSON_STRING_ENTRY_SEPARATOR</a>&#160;&#160;&#160;&quot;:&quot;</td></tr>
 <tr class="separator:gaeb23d66ed51f2003227b9712c1a23fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4f5aa81c742e65fb363313959b0e5c08"><td class="memItemLeft" align="right" valign="top"><a id="ga4f5aa81c742e65fb363313959b0e5c08"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_STRING_PAIR_SEPARATOR</b>&#160;&#160;&#160;&quot;,&quot;</td></tr>
+<tr class="memitem:ga4f5aa81c742e65fb363313959b0e5c08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___j_s_o_n__parser.html#ga4f5aa81c742e65fb363313959b0e5c08">JSON_STRING_PAIR_SEPARATOR</a>&#160;&#160;&#160;&quot;,&quot;</td></tr>
 <tr class="separator:ga4f5aa81c742e65fb363313959b0e5c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -173,6 +166,126 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Module dedicated to JSON parsing and JSON string formating. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gab4648729eb433225c17f6a29d3f075fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4648729eb433225c17f6a29d3f075fa">&#9670;&nbsp;</a></span>JSON_ARRAY_DELIMITOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSON_ARRAY_DELIMITOR&#160;&#160;&#160;&quot;[&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>JSON string array delimitor </p>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8h_source.html#l00011">11</a> of file <a class="el" href="json__parser_8h_source.html">json_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="gac54c5c34acb20a9bdc16f16bf1493876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac54c5c34acb20a9bdc16f16bf1493876">&#9670;&nbsp;</a></span>JSON_ARRAY_TERMINATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSON_ARRAY_TERMINATOR&#160;&#160;&#160;&quot;]&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>JSON string array terminator </p>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8h_source.html#l00012">12</a> of file <a class="el" href="json__parser_8h_source.html">json_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="gae8b65170690cccade05f05b810429068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8b65170690cccade05f05b810429068">&#9670;&nbsp;</a></span>JSON_STRING_DELIMITOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSON_STRING_DELIMITOR&#160;&#160;&#160;&quot;{&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>JSON string object delimitor </p>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8h_source.html#l00013">13</a> of file <a class="el" href="json__parser_8h_source.html">json_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga13c2e76825d17d999f02de380f8c2fc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga13c2e76825d17d999f02de380f8c2fc0">&#9670;&nbsp;</a></span>JSON_STRING_ENTRY_DELIMITOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSON_STRING_ENTRY_DELIMITOR&#160;&#160;&#160;&quot;\&quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>JSON string entry delimitor </p>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8h_source.html#l00015">15</a> of file <a class="el" href="json__parser_8h_source.html">json_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="gaeb23d66ed51f2003227b9712c1a23fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb23d66ed51f2003227b9712c1a23fb4">&#9670;&nbsp;</a></span>JSON_STRING_ENTRY_SEPARATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSON_STRING_ENTRY_SEPARATOR&#160;&#160;&#160;&quot;:&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>JSON string entry delimitor </p>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8h_source.html#l00016">16</a> of file <a class="el" href="json__parser_8h_source.html">json_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga4f5aa81c742e65fb363313959b0e5c08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4f5aa81c742e65fb363313959b0e5c08">&#9670;&nbsp;</a></span>JSON_STRING_PAIR_SEPARATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSON_STRING_PAIR_SEPARATOR&#160;&#160;&#160;&quot;,&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>JSON string pair delimitor </p>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8h_source.html#l00017">17</a> of file <a class="el" href="json__parser_8h_source.html">json_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf9fccc893b8fedb621cb9f8a1075d7a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf9fccc893b8fedb621cb9f8a1075d7a2">&#9670;&nbsp;</a></span>JSON_STRING_TERMINATOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define JSON_STRING_TERMINATOR&#160;&#160;&#160;&quot;}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>JSON string object delimitor </p>
+
+<p class="definition">Definition at line <a class="el" href="json__parser_8h_source.html#l00014">14</a> of file <a class="el" href="json__parser_8h_source.html">json_parser.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gabce9c37659d93dceb2df833e52e02fd5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gabce9c37659d93dceb2df833e52e02fd5">&#9670;&nbsp;</a></span>json_parser_free_json_object()</h2>
@@ -221,7 +334,7 @@ Functions</h2></td></tr>
 <p>Frees a json string instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">*json_parser_json_string_s</td><td>pointer to json string instance to be freed </td></tr>
+    <tr><td class="paramname">*json_string</td><td>pointer to json string instance to be freed </td></tr>
   </table>
   </dd>
 </dl>
@@ -281,7 +394,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">*key</td><td>pointer to the JSON key string </td></tr>
     <tr><td class="paramname">*nested_json_string</td><td>pointer to the json string value to be nested and associated to the provided JSON key </td></tr>
     <tr><td class="paramname">is_initial</td><td>determines if a JSON string delimitor "{" should be prefixing the key/value pair. (the json string starts) </td></tr>
-    <tr><td class="paramname">is_initial</td><td>determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
+    <tr><td class="paramname">is_final</td><td>determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
   </table>
   </dd>
 </dl>
@@ -307,7 +420,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates and initialises a new json string instance. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structjson__parser__json__string__s.html" title="JSON String structure object.">json_parser_json_string_s</a> * pointer to the created json string instance </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>json_parser_json_string_s* pointer to the created json string instance </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="json__parser_8c_source.html#l00251">251</a> of file <a class="el" href="json__parser_8c_source.html">json_parser.c</a>.</p>
 
@@ -357,7 +470,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">*json_string</td><td>pointer to a json string instance (array) </td></tr>
     <tr><td class="paramname">*json_object</td><td>pointer to the json string value to be nested into the json array </td></tr>
     <tr><td class="paramname">is_initial</td><td>determines if a JSON array delimitor "[" should be prefixing the key/value pair. (the json string starts) </td></tr>
-    <tr><td class="paramname">is_initial</td><td>determines if a JSON array terminator "]\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
+    <tr><td class="paramname">is_final</td><td>determines if a JSON array terminator "]\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
   </table>
   </dd>
 </dl>
@@ -417,7 +530,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">*key</td><td>pointer to the JSON key string </td></tr>
     <tr><td class="paramname">val</td><td>integer value to be associated to the provided JSON key </td></tr>
     <tr><td class="paramname">is_initial</td><td>determines if a JSON string delimitor "{" should be prefixing the key/value pair. (the json string starts) </td></tr>
-    <tr><td class="paramname">is_initial</td><td>determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
+    <tr><td class="paramname">is_final</td><td>determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
   </table>
   </dd>
 </dl>
@@ -477,7 +590,7 @@ Functions</h2></td></tr>
     <tr><td class="paramname">*key</td><td>pointer to the JSON key string </td></tr>
     <tr><td class="paramname">*val</td><td>pointer to the string value to be associated to the provided JSON key </td></tr>
     <tr><td class="paramname">is_initial</td><td>determines if a JSON string delimitor "{" should be prefixing the key/value pair. (the json string starts) </td></tr>
-    <tr><td class="paramname">is_initial</td><td>determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
+    <tr><td class="paramname">is_final</td><td>determines if a JSON string terminator "}\0" should be suffixing the key/value pair. (the json string stops) </td></tr>
   </table>
   </dd>
 </dl>

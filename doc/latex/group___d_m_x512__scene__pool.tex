@@ -1,11 +1,11 @@
-\hypertarget{group___d_m_x512__scene__pool}{}\doxysection{D\+M\+X512\+\_\+scene\+\_\+pool}
-\label{group___d_m_x512__scene__pool}\index{DMX512\_scene\_pool@{DMX512\_scene\_pool}}
+\hypertarget{group___d_m_x512__scene__pool}{}\doxysection{Scene Pool}
+\label{group___d_m_x512__scene__pool}\index{Scene Pool@{Scene Pool}}
 
 
 Scene pools are used to store and manage a lists of pre-\/configured scenes. Up to 65535 D\+M\+X512 scenes may be stored per D\+M\+X512 universe.  
 
 
-Collaboration diagram for D\+M\+X512\+\_\+scene\+\_\+pool\+:\nopagebreak
+Collaboration diagram for Scene Pool\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -15,7 +15,7 @@ Collaboration diagram for D\+M\+X512\+\_\+scene\+\_\+pool\+:\nopagebreak
 \doxysubsection*{Modules}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{group___d_m_x512__scene}{D\+M\+X512\+\_\+scene}}
+\mbox{\hyperlink{group___d_m_x512__scene}{Scene}}
 \begin{DoxyCompactList}\small\item\em Scenes fundamentally define a set of fixtures pre-\/defined values to be transferred over to the D\+M\+X512 driver buffer at given any time. A scene\textquotesingle{}s fixture preset values may be faded in and out over time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Data Structures}
 \begin{DoxyCompactItemize}
@@ -27,13 +27,13 @@ struct \mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+
 \item 
 \mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__scene__pool_ga65322c937fa77e55771f9664aede63fd}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+new}} (void)
 \begin{DoxyCompactList}\small\item\em Creates a new scene pool instance. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene__pool_ga4807b7cb4a5c202835d0f0a6d52a6884}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+add}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$this, \mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} scene)
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene__pool_gae21f1cf8ff023b4116f49a2be61d5ef6}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+add}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$scene\+\_\+pool, \mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} scene)
 \begin{DoxyCompactList}\small\item\em Adds a scene instance into the pool. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene__pool_gafa6fca99ce578cd2cef11772eff18397}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+del}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$this, uint16\+\_\+t id)
+\mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} \mbox{\hyperlink{group___d_m_x512__scene__pool_ga433e82e78bffc3f032c1fbf39392cf45}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+del}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$scene\+\_\+pool, uint16\+\_\+t id)
 \begin{DoxyCompactList}\small\item\em Deletes a scene instance from the pool. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__scene__pool_ga908e57b2905d2b1cedd610e963c93491}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+get}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$this, uint16\+\_\+t id)
+\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}} $\ast$ \mbox{\hyperlink{group___d_m_x512__scene__pool_ga8f7a1d02a6d730803394d6aad5834408}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+get}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$scene\+\_\+pool, uint16\+\_\+t id)
 \begin{DoxyCompactList}\small\item\em Gets a scene instance from the pool. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{group___d_m_x512__scene__pool_ga7942f27f6178347c20791b469e01c2e1}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+manage}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$this)
+void \mbox{\hyperlink{group___d_m_x512__scene__pool_ga12491dbfc9b21f5922073e3efa6f6dfe}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+manage}} (\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$scene\+\_\+pool)
 \begin{DoxyCompactList}\small\item\em Manages all scenes contained within the pool. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -43,11 +43,11 @@ Scene pools are used to store and manage a lists of pre-\/configured scenes. Up 
 
 
 \doxysubsection{Function Documentation}
-\mbox{\Hypertarget{group___d_m_x512__scene__pool_ga4807b7cb4a5c202835d0f0a6d52a6884}\label{group___d_m_x512__scene__pool_ga4807b7cb4a5c202835d0f0a6d52a6884}} 
-\index{DMX512\_scene\_pool@{DMX512\_scene\_pool}!DMX512\_scene\_pool\_add@{DMX512\_scene\_pool\_add}}
-\index{DMX512\_scene\_pool\_add@{DMX512\_scene\_pool\_add}!DMX512\_scene\_pool@{DMX512\_scene\_pool}}
+\mbox{\Hypertarget{group___d_m_x512__scene__pool_gae21f1cf8ff023b4116f49a2be61d5ef6}\label{group___d_m_x512__scene__pool_gae21f1cf8ff023b4116f49a2be61d5ef6}} 
+\index{Scene Pool@{Scene Pool}!DMX512\_scene\_pool\_add@{DMX512\_scene\_pool\_add}}
+\index{DMX512\_scene\_pool\_add@{DMX512\_scene\_pool\_add}!Scene Pool@{Scene Pool}}
 \doxysubsubsection{\texorpdfstring{DMX512\_scene\_pool\_add()}{DMX512\_scene\_pool\_add()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{this,  }\item[{\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}}}]{scene }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{scene\+\_\+pool,  }\item[{\mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}}}]{scene }\end{DoxyParamCaption})}
 
 
 
@@ -55,11 +55,9 @@ Adds a scene instance into the pool.
 
 
 \begin{DoxyParams}{Parameters}
-{\em id} & the scene\textquotesingle{}s idendifier \\
+{\em $\ast$scene\+\_\+pool} & pointer to the scene pool instance to be referenced \\
 \hline
-{\em addr} & scene\textquotesingle{}s first channel address \\
-\hline
-{\em ch\+\_\+stop} & scene\textquotesingle{}s last channel address \\
+{\em scene} & scene instance to be added into the pool \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -69,11 +67,11 @@ D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call
 
 Definition at line 60 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
 
-\mbox{\Hypertarget{group___d_m_x512__scene__pool_gafa6fca99ce578cd2cef11772eff18397}\label{group___d_m_x512__scene__pool_gafa6fca99ce578cd2cef11772eff18397}} 
-\index{DMX512\_scene\_pool@{DMX512\_scene\_pool}!DMX512\_scene\_pool\_del@{DMX512\_scene\_pool\_del}}
-\index{DMX512\_scene\_pool\_del@{DMX512\_scene\_pool\_del}!DMX512\_scene\_pool@{DMX512\_scene\_pool}}
+\mbox{\Hypertarget{group___d_m_x512__scene__pool_ga433e82e78bffc3f032c1fbf39392cf45}\label{group___d_m_x512__scene__pool_ga433e82e78bffc3f032c1fbf39392cf45}} 
+\index{Scene Pool@{Scene Pool}!DMX512\_scene\_pool\_del@{DMX512\_scene\_pool\_del}}
+\index{DMX512\_scene\_pool\_del@{DMX512\_scene\_pool\_del}!Scene Pool@{Scene Pool}}
 \doxysubsubsection{\texorpdfstring{DMX512\_scene\_pool\_del()}{DMX512\_scene\_pool\_del()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+del (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{this,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___d_m_x512__defs_ga6ce6bbde9df8b66ae8de8a2e60699f18}{D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e}} D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+del (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{scene\+\_\+pool,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -81,6 +79,8 @@ Deletes a scene instance from the pool.
 
 
 \begin{DoxyParams}{Parameters}
+{\em $\ast$scene\+\_\+pool} & pointer to the scene pool instance to be referenced \\
+\hline
 {\em id} & the scene\textquotesingle{}s idendifier \\
 \hline
 \end{DoxyParams}
@@ -89,13 +89,13 @@ D\+M\+X512\+\_\+engine\+\_\+err\+\_\+e error code following the function call
 \end{DoxyReturn}
 
 
-Definition at line 84 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
+Definition at line 85 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
 
-\mbox{\Hypertarget{group___d_m_x512__scene__pool_ga908e57b2905d2b1cedd610e963c93491}\label{group___d_m_x512__scene__pool_ga908e57b2905d2b1cedd610e963c93491}} 
-\index{DMX512\_scene\_pool@{DMX512\_scene\_pool}!DMX512\_scene\_pool\_get@{DMX512\_scene\_pool\_get}}
-\index{DMX512\_scene\_pool\_get@{DMX512\_scene\_pool\_get}!DMX512\_scene\_pool@{DMX512\_scene\_pool}}
+\mbox{\Hypertarget{group___d_m_x512__scene__pool_ga8f7a1d02a6d730803394d6aad5834408}\label{group___d_m_x512__scene__pool_ga8f7a1d02a6d730803394d6aad5834408}} 
+\index{Scene Pool@{Scene Pool}!DMX512\_scene\_pool\_get@{DMX512\_scene\_pool\_get}}
+\index{DMX512\_scene\_pool\_get@{DMX512\_scene\_pool\_get}!Scene Pool@{Scene Pool}}
 \doxysubsubsection{\texorpdfstring{DMX512\_scene\_pool\_get()}{DMX512\_scene\_pool\_get()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}}$\ast$ D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{this,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__scene__s}{D\+M\+X512\+\_\+scene\+\_\+s}}$\ast$ D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{scene\+\_\+pool,  }\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -103,6 +103,8 @@ Gets a scene instance from the pool.
 
 
 \begin{DoxyParams}{Parameters}
+{\em $\ast$scene\+\_\+pool} & pointer to the scene pool instance to be referenced \\
+\hline
 {\em id} & the scene\textquotesingle{}s identifier \\
 \hline
 \end{DoxyParams}
@@ -111,13 +113,13 @@ D\+M\+X512\+\_\+scene\+\_\+s$\ast$ pointer to the scene instance
 \end{DoxyReturn}
 
 
-Definition at line 109 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
+Definition at line 111 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
 
-\mbox{\Hypertarget{group___d_m_x512__scene__pool_ga7942f27f6178347c20791b469e01c2e1}\label{group___d_m_x512__scene__pool_ga7942f27f6178347c20791b469e01c2e1}} 
-\index{DMX512\_scene\_pool@{DMX512\_scene\_pool}!DMX512\_scene\_pool\_manage@{DMX512\_scene\_pool\_manage}}
-\index{DMX512\_scene\_pool\_manage@{DMX512\_scene\_pool\_manage}!DMX512\_scene\_pool@{DMX512\_scene\_pool}}
+\mbox{\Hypertarget{group___d_m_x512__scene__pool_ga12491dbfc9b21f5922073e3efa6f6dfe}\label{group___d_m_x512__scene__pool_ga12491dbfc9b21f5922073e3efa6f6dfe}} 
+\index{Scene Pool@{Scene Pool}!DMX512\_scene\_pool\_manage@{DMX512\_scene\_pool\_manage}}
+\index{DMX512\_scene\_pool\_manage@{DMX512\_scene\_pool\_manage}!Scene Pool@{Scene Pool}}
 \doxysubsubsection{\texorpdfstring{DMX512\_scene\_pool\_manage()}{DMX512\_scene\_pool\_manage()}}
-{\footnotesize\ttfamily void D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+manage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{this }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+manage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}} $\ast$}]{scene\+\_\+pool }\end{DoxyParamCaption})}
 
 
 
@@ -125,16 +127,16 @@ Manages all scenes contained within the pool.
 
 
 \begin{DoxyParams}{Parameters}
-{\em this} & pointer to the instance pool \\
+{\em $\ast$scene\+\_\+pool} & pointer to the scene pool instance to be referenced \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 123 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
+Definition at line 125 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
 
 \mbox{\Hypertarget{group___d_m_x512__scene__pool_ga65322c937fa77e55771f9664aede63fd}\label{group___d_m_x512__scene__pool_ga65322c937fa77e55771f9664aede63fd}} 
-\index{DMX512\_scene\_pool@{DMX512\_scene\_pool}!DMX512\_scene\_pool\_new@{DMX512\_scene\_pool\_new}}
-\index{DMX512\_scene\_pool\_new@{DMX512\_scene\_pool\_new}!DMX512\_scene\_pool@{DMX512\_scene\_pool}}
+\index{Scene Pool@{Scene Pool}!DMX512\_scene\_pool\_new@{DMX512\_scene\_pool\_new}}
+\index{DMX512\_scene\_pool\_new@{DMX512\_scene\_pool\_new}!Scene Pool@{Scene Pool}}
 \doxysubsubsection{\texorpdfstring{DMX512\_scene\_pool\_new()}{DMX512\_scene\_pool\_new()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_d_m_x512__scene__pool__s}{D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s}}$\ast$ D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
 
@@ -147,5 +149,5 @@ D\+M\+X512\+\_\+scene\+\_\+pool\+\_\+s$\ast$ pointer to the created pool instanc
 \end{DoxyReturn}
 
 
-Definition at line 45 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
+Definition at line 46 of file D\+M\+X512\+\_\+scene\+\_\+pool.\+c.
 

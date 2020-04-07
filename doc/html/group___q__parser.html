@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>cueOS: Q_parser</title>
+<title>cueOS: Q parser</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,117 +90,93 @@ $(document).ready(function(){initNavTree('group___q__parser.html','');});
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Q_parser<div class="ingroups"><a class="el" href="group__libs.html">Libs</a></div></div>  </div>
+<div class="title">Q parser<div class="ingroups"><a class="el" href="group__libs.html">Libraries</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Parses "Q" formated UDP packets. Q packets are simply made of a single OPCODE byte and a variable length data payload conveying cue-specific information.  
 <a href="#details">More...</a></p>
 <div class="dynheader">
-Collaboration diagram for Q_parser:</div>
+Collaboration diagram for Q parser:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___q__parser.png" border="0" usemap="#group______q____parser" alt=""/></div>
 <map name="group______q____parser" id="group______q____parser">
-<area shape="rect" title="Parses &quot;Q&quot; formated UDP packets. Q packets are simply made of a single OPCODE byte and a variable len..." alt="" coords="100,5,175,31"/>
-<area shape="rect" href="group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,52,31"/>
+<area shape="rect" title="Parses &quot;Q&quot; formated UDP packets. Q packets are simply made of a single OPCODE byte and a variable len..." alt="" coords="124,5,196,31"/>
+<area shape="rect" href="group__libs.html" title="High layer user&#45;defined libraries to be used in apps." alt="" coords="5,5,76,31"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_q__packet.html">Q_packet</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a Q packet object.  <a href="struct_q__packet.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_q__packet__s.html">Q_packet_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Q packet structure object.  <a href="struct_q__packet__s.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:gae02c5364ed5b07a942ade457a9d4a5fe"><td class="memItemLeft" align="right" valign="top"><a id="gae02c5364ed5b07a942ade457a9d4a5fe"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_PACKETID_BYTELENGTH</b>&#160;&#160;&#160;6</td></tr>
+<tr class="memitem:gae02c5364ed5b07a942ade457a9d4a5fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#gae02c5364ed5b07a942ade457a9d4a5fe">Q_PACKETID_BYTELENGTH</a>&#160;&#160;&#160;6</td></tr>
 <tr class="separator:gae02c5364ed5b07a942ade457a9d4a5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68f2d47de060fd54aeb8c6eff0ec24d1"><td class="memItemLeft" align="right" valign="top"><a id="ga68f2d47de060fd54aeb8c6eff0ec24d1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_OPCODE_BYTELENGTH</b>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:ga68f2d47de060fd54aeb8c6eff0ec24d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga68f2d47de060fd54aeb8c6eff0ec24d1">Q_OPCODE_BYTELENGTH</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:ga68f2d47de060fd54aeb8c6eff0ec24d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5b85eefac7d0d20a08e0dad6a291291c"><td class="memItemLeft" align="right" valign="top"><a id="ga5b85eefac7d0d20a08e0dad6a291291c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_REQUESTID_BYTELENGTH</b>&#160;&#160;&#160;2</td></tr>
+<tr class="memitem:ga5b85eefac7d0d20a08e0dad6a291291c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga5b85eefac7d0d20a08e0dad6a291291c">Q_REQUESTID_BYTELENGTH</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:ga5b85eefac7d0d20a08e0dad6a291291c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga420295cdc5f0811396560ba69672d34f"><td class="memItemLeft" align="right" valign="top"><a id="ga420295cdc5f0811396560ba69672d34f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_CONFIGERR_BYTELENGTH</b>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:ga420295cdc5f0811396560ba69672d34f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad051774a52a5e5552f197cd7846b1681"><td class="memItemLeft" align="right" valign="top"><a id="gad051774a52a5e5552f197cd7846b1681"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_NODETYPE_BYTELENGTH</b>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:gad051774a52a5e5552f197cd7846b1681"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#gad051774a52a5e5552f197cd7846b1681">Q_NODETYPE_BYTELENGTH</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:gad051774a52a5e5552f197cd7846b1681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga04d76a75aaf2a4304f032b6bfc2fdbbd"><td class="memItemLeft" align="right" valign="top"><a id="ga04d76a75aaf2a4304f032b6bfc2fdbbd"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_NODEID_BYTELENGTH</b>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:ga04d76a75aaf2a4304f032b6bfc2fdbbd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga04d76a75aaf2a4304f032b6bfc2fdbbd">Q_NODEID_BYTELENGTH</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:ga04d76a75aaf2a4304f032b6bfc2fdbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga885e578af7cc8e04f077038f8c2f560b"><td class="memItemLeft" align="right" valign="top"><a id="ga885e578af7cc8e04f077038f8c2f560b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_HEADER_BYTELENGTH</b>&#160;&#160;&#160;Q_PACKETID_BYTELENGTH + Q_OPCODE_BYTELENGTH</td></tr>
+<tr class="memitem:ga885e578af7cc8e04f077038f8c2f560b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga885e578af7cc8e04f077038f8c2f560b">Q_HEADER_BYTELENGTH</a>&#160;&#160;&#160;<a class="el" href="group___q__parser.html#gae02c5364ed5b07a942ade457a9d4a5fe">Q_PACKETID_BYTELENGTH</a> + <a class="el" href="group___q__parser.html#ga68f2d47de060fd54aeb8c6eff0ec24d1">Q_OPCODE_BYTELENGTH</a></td></tr>
 <tr class="separator:ga885e578af7cc8e04f077038f8c2f560b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaabd29926dee498fb34e116665a8d314d"><td class="memItemLeft" align="right" valign="top"><a id="gaabd29926dee498fb34e116665a8d314d"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_CONFIGREPLY_BYTELENGTH</b>&#160;&#160;&#160;Q_HEADER_BYTELENGTH + Q_REQUESTID_BYTELENGTH + Q_CONFIGERR_BYTELENGTH</td></tr>
-<tr class="separator:gaabd29926dee498fb34e116665a8d314d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga60188243eb4b6ce264311aaa89618eaf"><td class="memItemLeft" align="right" valign="top"><a id="ga60188243eb4b6ce264311aaa89618eaf"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_DISCOVERREPLY_BYTELENGTH</b>&#160;&#160;&#160;Q_HEADER_BYTELENGTH + Q_NODETYPE_BYTELENGTH + Q_NODEID_BYTELENGTH</td></tr>
+<tr class="memitem:ga60188243eb4b6ce264311aaa89618eaf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga60188243eb4b6ce264311aaa89618eaf">Q_DISCOVERREPLY_BYTELENGTH</a>&#160;&#160;&#160;<a class="el" href="group___q__parser.html#ga885e578af7cc8e04f077038f8c2f560b">Q_HEADER_BYTELENGTH</a> + <a class="el" href="group___q__parser.html#gad051774a52a5e5552f197cd7846b1681">Q_NODETYPE_BYTELENGTH</a> + <a class="el" href="group___q__parser.html#ga04d76a75aaf2a4304f032b6bfc2fdbbd">Q_NODEID_BYTELENGTH</a></td></tr>
 <tr class="separator:ga60188243eb4b6ce264311aaa89618eaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeb38e0e99ccd2fffdbfecf8c25f0cde1"><td class="memItemLeft" align="right" valign="top"><a id="gaeb38e0e99ccd2fffdbfecf8c25f0cde1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_POLLREPLY_BYTELENGTH</b>&#160;&#160;&#160;Q_DISCOVERREPLY_BYTELENGTH</td></tr>
+<tr class="memitem:gaeb38e0e99ccd2fffdbfecf8c25f0cde1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#gaeb38e0e99ccd2fffdbfecf8c25f0cde1">Q_POLLREPLY_BYTELENGTH</a>&#160;&#160;&#160;<a class="el" href="group___q__parser.html#ga60188243eb4b6ce264311aaa89618eaf">Q_DISCOVERREPLY_BYTELENGTH</a></td></tr>
 <tr class="separator:gaeb38e0e99ccd2fffdbfecf8c25f0cde1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ac4301401e66b0eb7846d0ba505232b"><td class="memItemLeft" align="right" valign="top"><a id="ga4ac4301401e66b0eb7846d0ba505232b"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_OPCODE_INDEX</b>&#160;&#160;&#160;Q_PACKETID_BYTELENGTH</td></tr>
+<tr class="memitem:ga4ac4301401e66b0eb7846d0ba505232b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga4ac4301401e66b0eb7846d0ba505232b">Q_OPCODE_INDEX</a>&#160;&#160;&#160;<a class="el" href="group___q__parser.html#gae02c5364ed5b07a942ade457a9d4a5fe">Q_PACKETID_BYTELENGTH</a></td></tr>
 <tr class="separator:ga4ac4301401e66b0eb7846d0ba505232b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4992bc22718695f6afe88ba371d2abb8"><td class="memItemLeft" align="right" valign="top"><a id="ga4992bc22718695f6afe88ba371d2abb8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_PAYLOAD_INDEX</b>&#160;&#160;&#160;Q_OPCODE_INDEX</td></tr>
+<tr class="memitem:ga4992bc22718695f6afe88ba371d2abb8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga4992bc22718695f6afe88ba371d2abb8">Q_PAYLOAD_INDEX</a>&#160;&#160;&#160;<a class="el" href="group___q__parser.html#ga4ac4301401e66b0eb7846d0ba505232b">Q_OPCODE_INDEX</a></td></tr>
 <tr class="separator:ga4992bc22718695f6afe88ba371d2abb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5cdf2899f32872135516b77cc2ef15e8"><td class="memItemLeft" align="right" valign="top"><a id="ga5cdf2899f32872135516b77cc2ef15e8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>Q_PACKETID_STRING</b>&#160;&#160;&#160;&quot;ASLS-Q&quot;</td></tr>
+<tr class="memitem:ga5cdf2899f32872135516b77cc2ef15e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga5cdf2899f32872135516b77cc2ef15e8">Q_PACKETID_STRING</a>&#160;&#160;&#160;&quot;ASLS-Q&quot;</td></tr>
 <tr class="separator:ga5cdf2899f32872135516b77cc2ef15e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:gaeba4588055dc100bba4e98a74b9ab70e"><td class="memItemLeft" align="right" valign="top"><a id="gaeba4588055dc100bba4e98a74b9ab70e"></a>
-typedef struct <a class="el" href="struct_q__packet.html">Q_packet</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Q_packet_s</b></td></tr>
-<tr class="separator:gaeba4588055dc100bba4e98a74b9ab70e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ga53dfc693d93ddf379c5c72e8abba5fba"><td class="memItemLeft" align="right" valign="top"><a id="ga53dfc693d93ddf379c5c72e8abba5fba"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga53dfc693d93ddf379c5c72e8abba5fba">Q_packet_opcode_cmd_e</a> { <br />
-&#160;&#160;<b>Q_CMD_TRIGGER_START</b>, 
+<tr class="memitem:ga53dfc693d93ddf379c5c72e8abba5fba"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga53dfc693d93ddf379c5c72e8abba5fba">Q_packet_opcode_cmd_e</a> { <br />
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaab9a5d63c6533660962cd819bbfc1550c">Q_CMD_TRIGGER_START</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_TRIGGER_PAUSE</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa488269a28685155b55b136aca068ce71">Q_CMD_TRIGGER_PAUSE</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_TRIGGER_RESUME</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa069d303ce5f379d03586a148cd326275">Q_CMD_TRIGGER_RESUME</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_TRIGGER_STOP</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaaf358b17e7fc66479f993ef201901b5b3">Q_CMD_TRIGGER_STOP</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_CONTROL_ALLOFF</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaad7d0ef016bdb8017c3da6af11815a6f9">Q_CMD_CONTROL_ALLOFF</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_CONTROL_RESTORE</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa00f7bc5d83f343ffc64951ceee549446">Q_CMD_CONTROL_RESTORE</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_CONTROL_ACTUATOR</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa088143efa1f931ca5cc1a27184281fbf">Q_CMD_CONTROL_ACTUATOR</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_PROBE_DISCOVER</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa8fa6587d579ca1a32a7b741addcc2287">Q_CMD_PROBE_DISCOVER</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_PROBE_POLL</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa07ce67ada69acab8125dee81d839b94b">Q_CMD_PROBE_POLL</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_PROBE_DIAGNOSTIC</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa0fd8194e5200b3dc0345b646611b2201">Q_CMD_PROBE_DIAGNOSTIC</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_REPLY_DISCOVER</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa121fc41655ed9d53b2e6a017eee296c2">Q_CMD_REPLY_DISCOVER</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_REPLY_POLL</b>, 
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa2275edbfe726f6ec977a92a68d01bfcc">Q_CMD_REPLY_POLL</a>, 
 <br />
-&#160;&#160;<b>Q_CMD_REPLY_DIAGNOSTIC</b>
+&#160;&#160;<a class="el" href="group___q__parser.html#gga53dfc693d93ddf379c5c72e8abba5fbaa1b4b5078c3ac07543702a0e858edb406">Q_CMD_REPLY_DIAGNOSTIC</a>
 <br />
  }</td></tr>
-<tr class="memdesc:ga53dfc693d93ddf379c5c72e8abba5fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of Q packet opcodes. <br /></td></tr>
+<tr class="memdesc:ga53dfc693d93ddf379c5c72e8abba5fba"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of Q packet opcodes.  <a href="group___q__parser.html#ga53dfc693d93ddf379c5c72e8abba5fba">More...</a><br /></td></tr>
 <tr class="separator:ga53dfc693d93ddf379c5c72e8abba5fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga554d50c3a52aa6dd3f8b341f47d6b6f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_q__packet.html">Q_packet_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga554d50c3a52aa6dd3f8b341f47d6b6f7">Q_parser_parse</a> (void *data, uint8_t len)</td></tr>
-<tr class="memdesc:ga554d50c3a52aa6dd3f8b341f47d6b6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">parses and converts received data into a <a class="el" href="struct_q__packet.html" title="Defines a Q packet object.">Q_packet</a> instance  <a href="group___q__parser.html#ga554d50c3a52aa6dd3f8b341f47d6b6f7">More...</a><br /></td></tr>
+<tr class="memitem:ga554d50c3a52aa6dd3f8b341f47d6b6f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_q__packet__s.html">Q_packet_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#ga554d50c3a52aa6dd3f8b341f47d6b6f7">Q_parser_parse</a> (void *data, uint8_t len)</td></tr>
+<tr class="memdesc:ga554d50c3a52aa6dd3f8b341f47d6b6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">parses and converts received data into a Q_packet instance  <a href="group___q__parser.html#ga554d50c3a52aa6dd3f8b341f47d6b6f7">More...</a><br /></td></tr>
 <tr class="separator:ga554d50c3a52aa6dd3f8b341f47d6b6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacdf546a81707835aa76b9882e02b7850"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#gacdf546a81707835aa76b9882e02b7850">Q_parser_forge_discover_reply</a> (uint8_t node_id)</td></tr>
 <tr class="memdesc:gacdf546a81707835aa76b9882e02b7850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forges a discover reply packet using provided node's id.  <a href="group___q__parser.html#gacdf546a81707835aa76b9882e02b7850">More...</a><br /></td></tr>
@@ -208,15 +184,247 @@ Functions</h2></td></tr>
 <tr class="memitem:gae685c996b2a788e3d2930d597a1752ed"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#gae685c996b2a788e3d2930d597a1752ed">Q_parser_forge_poll_reply</a> (uint8_t node_id)</td></tr>
 <tr class="memdesc:gae685c996b2a788e3d2930d597a1752ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forges a poll reply packet using provided node's id.  <a href="group___q__parser.html#gae685c996b2a788e3d2930d597a1752ed">More...</a><br /></td></tr>
 <tr class="separator:gae685c996b2a788e3d2930d597a1752ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6c62ae6636e5f77e1fe66bbc41116ab1"><td class="memItemLeft" align="right" valign="top"><a id="ga6c62ae6636e5f77e1fe66bbc41116ab1"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>Q_parser_forge_config_reply</b> (uint16_t request_id, uint8_t err_code)</td></tr>
-<tr class="separator:ga6c62ae6636e5f77e1fe66bbc41116ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac9ace0b365387a137a482ec2a0a0ffab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#gac9ace0b365387a137a482ec2a0a0ffab">Q_parser_free</a> (<a class="el" href="struct_q__packet.html">Q_packet_s</a> *packet)</td></tr>
+<tr class="memitem:gac9ace0b365387a137a482ec2a0a0ffab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___q__parser.html#gac9ace0b365387a137a482ec2a0a0ffab">Q_parser_free</a> (<a class="el" href="struct_q__packet__s.html">Q_packet_s</a> *packet)</td></tr>
 <tr class="memdesc:gac9ace0b365387a137a482ec2a0a0ffab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees packet's dynamically allocated ressources.  <a href="group___q__parser.html#gac9ace0b365387a137a482ec2a0a0ffab">More...</a><br /></td></tr>
 <tr class="separator:gac9ace0b365387a137a482ec2a0a0ffab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Parses "Q" formated UDP packets. Q packets are simply made of a single OPCODE byte and a variable length data payload conveying cue-specific information. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga60188243eb4b6ce264311aaa89618eaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga60188243eb4b6ce264311aaa89618eaf">&#9670;&nbsp;</a></span>Q_DISCOVERREPLY_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_DISCOVERREPLY_BYTELENGTH&#160;&#160;&#160;<a class="el" href="group___q__parser.html#ga885e578af7cc8e04f077038f8c2f560b">Q_HEADER_BYTELENGTH</a> + <a class="el" href="group___q__parser.html#gad051774a52a5e5552f197cd7846b1681">Q_NODETYPE_BYTELENGTH</a> + <a class="el" href="group___q__parser.html#ga04d76a75aaf2a4304f032b6bfc2fdbbd">Q_NODEID_BYTELENGTH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q "discover" reply packet length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00022">22</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga885e578af7cc8e04f077038f8c2f560b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga885e578af7cc8e04f077038f8c2f560b">&#9670;&nbsp;</a></span>Q_HEADER_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_HEADER_BYTELENGTH&#160;&#160;&#160;<a class="el" href="group___q__parser.html#gae02c5364ed5b07a942ade457a9d4a5fe">Q_PACKETID_BYTELENGTH</a> + <a class="el" href="group___q__parser.html#ga68f2d47de060fd54aeb8c6eff0ec24d1">Q_OPCODE_BYTELENGTH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet header length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00021">21</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga04d76a75aaf2a4304f032b6bfc2fdbbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga04d76a75aaf2a4304f032b6bfc2fdbbd">&#9670;&nbsp;</a></span>Q_NODEID_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_NODEID_BYTELENGTH&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "node id" field length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00019">19</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="gad051774a52a5e5552f197cd7846b1681"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad051774a52a5e5552f197cd7846b1681">&#9670;&nbsp;</a></span>Q_NODETYPE_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_NODETYPE_BYTELENGTH&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "node type" field length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00018">18</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga68f2d47de060fd54aeb8c6eff0ec24d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga68f2d47de060fd54aeb8c6eff0ec24d1">&#9670;&nbsp;</a></span>Q_OPCODE_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_OPCODE_BYTELENGTH&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "opcode" field length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00016">16</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga4ac4301401e66b0eb7846d0ba505232b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ac4301401e66b0eb7846d0ba505232b">&#9670;&nbsp;</a></span>Q_OPCODE_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_OPCODE_INDEX&#160;&#160;&#160;<a class="el" href="group___q__parser.html#gae02c5364ed5b07a942ade457a9d4a5fe">Q_PACKETID_BYTELENGTH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "opcode" byte index </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00025">25</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="gae02c5364ed5b07a942ade457a9d4a5fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae02c5364ed5b07a942ade457a9d4a5fe">&#9670;&nbsp;</a></span>Q_PACKETID_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_PACKETID_BYTELENGTH&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "packet id" field length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00015">15</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5cdf2899f32872135516b77cc2ef15e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cdf2899f32872135516b77cc2ef15e8">&#9670;&nbsp;</a></span>Q_PACKETID_STRING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_PACKETID_STRING&#160;&#160;&#160;&quot;ASLS-Q&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "packeid" string value </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00028">28</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga4992bc22718695f6afe88ba371d2abb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4992bc22718695f6afe88ba371d2abb8">&#9670;&nbsp;</a></span>Q_PAYLOAD_INDEX</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_PAYLOAD_INDEX&#160;&#160;&#160;<a class="el" href="group___q__parser.html#ga4ac4301401e66b0eb7846d0ba505232b">Q_OPCODE_INDEX</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "payload" index </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00026">26</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="gaeb38e0e99ccd2fffdbfecf8c25f0cde1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb38e0e99ccd2fffdbfecf8c25f0cde1">&#9670;&nbsp;</a></span>Q_POLLREPLY_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_POLLREPLY_BYTELENGTH&#160;&#160;&#160;<a class="el" href="group___q__parser.html#ga60188243eb4b6ce264311aaa89618eaf">Q_DISCOVERREPLY_BYTELENGTH</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q "poll" reply packet length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00023">23</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5b85eefac7d0d20a08e0dad6a291291c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5b85eefac7d0d20a08e0dad6a291291c">&#9670;&nbsp;</a></span>Q_REQUESTID_BYTELENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define Q_REQUESTID_BYTELENGTH&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Q packet "request id" field length in bytes </p>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00017">17</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga53dfc693d93ddf379c5c72e8abba5fba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga53dfc693d93ddf379c5c72e8abba5fba">&#9670;&nbsp;</a></span>Q_packet_opcode_cmd_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___q__parser.html#ga53dfc693d93ddf379c5c72e8abba5fba">Q_packet_opcode_cmd_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List of Q packet opcodes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaab9a5d63c6533660962cd819bbfc1550c"></a>Q_CMD_TRIGGER_START&#160;</td><td class="fielddoc"><p>Starts a cue </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa488269a28685155b55b136aca068ce71"></a>Q_CMD_TRIGGER_PAUSE&#160;</td><td class="fielddoc"><p>Pauses a cue </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa069d303ce5f379d03586a148cd326275"></a>Q_CMD_TRIGGER_RESUME&#160;</td><td class="fielddoc"><p>Resumes a paused cue </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaaf358b17e7fc66479f993ef201901b5b3"></a>Q_CMD_TRIGGER_STOP&#160;</td><td class="fielddoc"><p>Stops a started cue </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaad7d0ef016bdb8017c3da6af11815a6f9"></a>Q_CMD_CONTROL_ALLOFF&#160;</td><td class="fielddoc"><p>Sets all outputs to OFF state </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa00f7bc5d83f343ffc64951ceee549446"></a>Q_CMD_CONTROL_RESTORE&#160;</td><td class="fielddoc"><p>Restores all outputs to their state prior to ALLOFF </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa088143efa1f931ca5cc1a27184281fbf"></a>Q_CMD_CONTROL_ACTUATOR&#160;</td><td class="fielddoc"><p>Controls an individual actuator channe value </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa8fa6587d579ca1a32a7b741addcc2287"></a>Q_CMD_PROBE_DISCOVER&#160;</td><td class="fielddoc"><p>Discover all nodes on the network </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa07ce67ada69acab8125dee81d839b94b"></a>Q_CMD_PROBE_POLL&#160;</td><td class="fielddoc"><p>Poll a specific probe </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa0fd8194e5200b3dc0345b646611b2201"></a>Q_CMD_PROBE_DIAGNOSTIC&#160;</td><td class="fielddoc"><p>Diagnostic a specific node </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa121fc41655ed9d53b2e6a017eee296c2"></a>Q_CMD_REPLY_DISCOVER&#160;</td><td class="fielddoc"><p>Reply to a discover command </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa2275edbfe726f6ec977a92a68d01bfcc"></a>Q_CMD_REPLY_POLL&#160;</td><td class="fielddoc"><p>Reply to a poll command </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga53dfc693d93ddf379c5c72e8abba5fbaa1b4b5078c3ac07543702a0e858edb406"></a>Q_CMD_REPLY_DIAGNOSTIC&#160;</td><td class="fielddoc"><p>Reply to a diagnostic command </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="_q__parser_8h_source.html#l00035">35</a> of file <a class="el" href="_q__parser_8h_source.html">Q_parser.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="gacdf546a81707835aa76b9882e02b7850"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gacdf546a81707835aa76b9882e02b7850">&#9670;&nbsp;</a></span>Q_parser_forge_discover_reply()</h2>
@@ -285,7 +493,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>Q_parser_forge_conf
         <tr>
           <td class="memname">void Q_parser_free </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_q__packet.html">Q_packet_s</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_q__packet__s.html">Q_packet_s</a> *&#160;</td>
           <td class="paramname"><em>packet</em></td><td>)</td>
           <td></td>
         </tr>
@@ -311,7 +519,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>Q_parser_forge_conf
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_q__packet.html">Q_packet_s</a>* Q_parser_parse </td>
+          <td class="memname"><a class="el" href="struct_q__packet__s.html">Q_packet_s</a>* Q_parser_parse </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
@@ -330,7 +538,7 @@ char *&#160;</td><td class="memItemRight" valign="bottom"><b>Q_parser_forge_conf
       </table>
 </div><div class="memdoc">
 
-<p>parses and converts received data into a <a class="el" href="struct_q__packet.html" title="Defines a Q packet object.">Q_packet</a> instance </p>
+<p>parses and converts received data into a Q_packet instance </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*data</td><td>pointer to data buffer </td></tr>

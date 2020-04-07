@@ -1,5 +1,5 @@
-<map id="DMX512_scene" name="DMX512_scene">
-<area shape="rect" id="node1" title="Scenes fundamentally define a set of fixtures pre&#45;defined values to be transferred over to the DMX512..." alt="" coords="200,5,315,31"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__fixture__preset.html" title="Fixture presets are used to define a scene&#39;s fixture channel values to be set into the DMX512 driver ..." alt="" coords="363,5,521,31"/>
-<area shape="rect" id="node3" href="$group___d_m_x512__scene__pool.html" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="5,5,152,31"/>
+<map id="Scene" name="Scene">
+<area shape="rect" id="node1" title="Scenes fundamentally define a set of fixtures pre&#45;defined values to be transferred over to the DMX512..." alt="" coords="143,5,201,31"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__fixture__preset.html" title="Fixture presets are used to define a scene&#39;s fixture channel values to be set into the DMX512 driver ..." alt="" coords="249,5,353,31"/>
+<area shape="rect" id="node3" href="$group___d_m_x512__scene__pool.html" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="5,5,95,31"/>
 </map>

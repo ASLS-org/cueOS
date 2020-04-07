@@ -1,0 +1,143 @@
+\hypertarget{group__cueos__web__application}{}\doxysection{Web Application}
+\label{group__cueos__web__application}\index{Web Application@{Web Application}}
+
+
+Serves web-\/base user interface static files over H\+T\+TP to a remote device.  
+
+
+Collaboration diagram for Web Application\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{group__cueos__web__application}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em web-\/content file structure object \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structfsdata__file}{fsdata\+\_\+file}}
+\begin{DoxyCompactList}\small\item\em web-\/content file linked list data structure object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__cueos__web__application_ga05d23b3c867c1f9d701efa0d6d0db92d}{F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+E\+OF}}~-\/1
+\item 
+\#define \mbox{\hyperlink{group__cueos__web__application_ga3f90d15249e0bc12ed287140356f71dc}{F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+D\+E\+L\+A\+Y\+ED}}~-\/2
+\item 
+\#define \mbox{\hyperlink{group__cueos__web__application_ga7e36694e0257a7642d41ffda5bf03634}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+I\+N\+C\+L\+U\+D\+ED}}~0x01
+\item 
+\#define \mbox{\hyperlink{group__cueos__web__application_ga95e84b4ba432cf58a59f14ba85733584}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+NT}}~0x02
+\item 
+\#define \mbox{\hyperlink{group__cueos__web__application_ga3d3830c1e5b9f68e4ae346d0e3f750e9}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+H\+T\+T\+P\+V\+E\+R\+\_\+1\+\_\+1}}~0x04
+\item 
+\#define \mbox{\hyperlink{group__cueos__web__application_gaec7ecbdfe4b0bb159437065b1a8f3d3f}{F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+S\+SI}}~0x08
+\item 
+\#define \mbox{\hyperlink{group__cueos__web__application_ga608bda67dc94eefc5fa9c79747a1f188}{W\+E\+B\+A\+P\+P\+\_\+\+H\+T\+T\+P\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT}}~80
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void \mbox{\hyperlink{group__cueos__web__application_ga52dc8f2fdce986194d606ac05bbac116}{fs\+\_\+file\+\_\+extension}}
+\item 
+\mbox{\Hypertarget{group__cueos__web__application_ga0f48b2c138dc27f9779dd358b35fdb52}\label{group__cueos__web__application_ga0f48b2c138dc27f9779dd358b35fdb52}} 
+typedef struct \mbox{\hyperlink{structfs__file}{fs\+\_\+file}} \mbox{\hyperlink{group__cueos__web__application_ga0f48b2c138dc27f9779dd358b35fdb52}{fs\+\_\+file\+\_\+s}}
+\begin{DoxyCompactList}\small\item\em web-\/content file structure object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__cueos__web__application_ga28946561ea98980638c93e79f11f46a5}\label{group__cueos__web__application_ga28946561ea98980638c93e79f11f46a5}} 
+void \mbox{\hyperlink{group__cueos__web__application_ga28946561ea98980638c93e79f11f46a5}{web\+\_\+application\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts static H\+T\+TP server on port 80. This server is O\+N\+LY dedicated to serve compiled H\+T\+ML static files contained within htmlgen.\+c. Run \char`\"{}htmlgen.\+sh\char`\"{} script to compile the files put into the \char`\"{}htmlgen\char`\"{} subfolder \char`\"{}dist\char`\"{} into a single c file. Output of the script is copied into the \char`\"{}htmlgen\char`\"{} subfolder \char`\"{}release\char`\"{} as \char`\"{}htmlgen.\+c\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Serves web-\/base user interface static files over H\+T\+TP to a remote device. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__cueos__web__application_ga3d3830c1e5b9f68e4ae346d0e3f750e9}\label{group__cueos__web__application_ga3d3830c1e5b9f68e4ae346d0e3f750e9}} 
+\index{Web Application@{Web Application}!FS\_FILE\_FLAGS\_HEADER\_HTTPVER\_1\_1@{FS\_FILE\_FLAGS\_HEADER\_HTTPVER\_1\_1}}
+\index{FS\_FILE\_FLAGS\_HEADER\_HTTPVER\_1\_1@{FS\_FILE\_FLAGS\_HEADER\_HTTPVER\_1\_1}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{FS\_FILE\_FLAGS\_HEADER\_HTTPVER\_1\_1}{FS\_FILE\_FLAGS\_HEADER\_HTTPVER\_1\_1}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+H\+T\+T\+P\+V\+E\+R\+\_\+1\+\_\+1~0x04}
+
+File H\+T\+TP Header version is H\+T\+T\+P/1.\+1 
+
+Definition at line 20 of file web\+\_\+application.\+h.
+
+\mbox{\Hypertarget{group__cueos__web__application_ga7e36694e0257a7642d41ffda5bf03634}\label{group__cueos__web__application_ga7e36694e0257a7642d41ffda5bf03634}} 
+\index{Web Application@{Web Application}!FS\_FILE\_FLAGS\_HEADER\_INCLUDED@{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}}
+\index{FS\_FILE\_FLAGS\_HEADER\_INCLUDED@{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}{FS\_FILE\_FLAGS\_HEADER\_INCLUDED}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+I\+N\+C\+L\+U\+D\+ED~0x01}
+
+File H\+T\+TP Header is included within file daclaration 
+
+Definition at line 18 of file web\+\_\+application.\+h.
+
+\mbox{\Hypertarget{group__cueos__web__application_ga95e84b4ba432cf58a59f14ba85733584}\label{group__cueos__web__application_ga95e84b4ba432cf58a59f14ba85733584}} 
+\index{Web Application@{Web Application}!FS\_FILE\_FLAGS\_HEADER\_PERSISTENT@{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}}
+\index{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT@{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}{FS\_FILE\_FLAGS\_HEADER\_PERSISTENT}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+P\+E\+R\+S\+I\+S\+T\+E\+NT~0x02}
+
+File H\+T\+TP Header is persistant 
+
+Definition at line 19 of file web\+\_\+application.\+h.
+
+\mbox{\Hypertarget{group__cueos__web__application_gaec7ecbdfe4b0bb159437065b1a8f3d3f}\label{group__cueos__web__application_gaec7ecbdfe4b0bb159437065b1a8f3d3f}} 
+\index{Web Application@{Web Application}!FS\_FILE\_FLAGS\_SSI@{FS\_FILE\_FLAGS\_SSI}}
+\index{FS\_FILE\_FLAGS\_SSI@{FS\_FILE\_FLAGS\_SSI}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{FS\_FILE\_FLAGS\_SSI}{FS\_FILE\_FLAGS\_SSI}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+F\+I\+L\+E\+\_\+\+F\+L\+A\+G\+S\+\_\+\+S\+SI~0x08}
+
+File contains server-\/side inclusion 
+
+Definition at line 21 of file web\+\_\+application.\+h.
+
+\mbox{\Hypertarget{group__cueos__web__application_ga3f90d15249e0bc12ed287140356f71dc}\label{group__cueos__web__application_ga3f90d15249e0bc12ed287140356f71dc}} 
+\index{Web Application@{Web Application}!FS\_READ\_DELAYED@{FS\_READ\_DELAYED}}
+\index{FS\_READ\_DELAYED@{FS\_READ\_DELAYED}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{FS\_READ\_DELAYED}{FS\_READ\_DELAYED}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+D\+E\+L\+A\+Y\+ED~-\/2}
+
+Read is delayed 
+
+Definition at line 16 of file web\+\_\+application.\+h.
+
+\mbox{\Hypertarget{group__cueos__web__application_ga05d23b3c867c1f9d701efa0d6d0db92d}\label{group__cueos__web__application_ga05d23b3c867c1f9d701efa0d6d0db92d}} 
+\index{Web Application@{Web Application}!FS\_READ\_EOF@{FS\_READ\_EOF}}
+\index{FS\_READ\_EOF@{FS\_READ\_EOF}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{FS\_READ\_EOF}{FS\_READ\_EOF}}
+{\footnotesize\ttfamily \#define F\+S\+\_\+\+R\+E\+A\+D\+\_\+\+E\+OF~-\/1}
+
+E\+ND OF F\+I\+LE 
+
+Definition at line 15 of file web\+\_\+application.\+h.
+
+\mbox{\Hypertarget{group__cueos__web__application_ga608bda67dc94eefc5fa9c79747a1f188}\label{group__cueos__web__application_ga608bda67dc94eefc5fa9c79747a1f188}} 
+\index{Web Application@{Web Application}!WEBAPP\_HTTP\_SERVER\_PORT@{WEBAPP\_HTTP\_SERVER\_PORT}}
+\index{WEBAPP\_HTTP\_SERVER\_PORT@{WEBAPP\_HTTP\_SERVER\_PORT}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{WEBAPP\_HTTP\_SERVER\_PORT}{WEBAPP\_HTTP\_SERVER\_PORT}}
+{\footnotesize\ttfamily \#define W\+E\+B\+A\+P\+P\+\_\+\+H\+T\+T\+P\+\_\+\+S\+E\+R\+V\+E\+R\+\_\+\+P\+O\+RT~80}
+
+H\+T\+TP port on which the web application will be running 
+
+Definition at line 23 of file web\+\_\+application.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__cueos__web__application_ga52dc8f2fdce986194d606ac05bbac116}\label{group__cueos__web__application_ga52dc8f2fdce986194d606ac05bbac116}} 
+\index{Web Application@{Web Application}!fs\_file\_extension@{fs\_file\_extension}}
+\index{fs\_file\_extension@{fs\_file\_extension}!Web Application@{Web Application}}
+\doxysubsubsection{\texorpdfstring{fs\_file\_extension}{fs\_file\_extension}}
+{\footnotesize\ttfamily typedef void \mbox{\hyperlink{group__cueos__web__application_ga52dc8f2fdce986194d606ac05bbac116}{fs\+\_\+file\+\_\+extension}}}
+
+T\+O\+DO\+: remove this 
+
+Definition at line 26 of file web\+\_\+application.\+h.
+
