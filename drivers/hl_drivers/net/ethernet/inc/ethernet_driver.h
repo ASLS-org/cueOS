@@ -1,4 +1,11 @@
 /**
+ * @ingroup hl_drivers
+ * @defgroup ethernet_driver Ethernet
+ * Configuration of LAN8720 PHY and for Ethernet transport
+ * @{
+ */
+
+/**
  ******************************************************************************
   * File Name          : ethernetif.h
   * Description        : This file provides initialization code for LWIP
@@ -26,7 +33,9 @@
 #include "cmsis_os.h"
 
 /* Exported types ------------------------------------------------------------*/
-/* Structure that include link thread parameters */
+/**
+ * @brief Structure that include link thread parameters
+ */
 struct link_str {
   struct netif *netif;
   osSemaphoreId semaphore;
@@ -39,7 +48,6 @@ struct link_str {
 
 /* Exported functions ------------------------------------------------------- */
 err_t ethernetif_init(struct netif *netif);
-
 void ethernetif_input(void * argument);
 void ethernetif_set_link(void *argument);
 void ethernetif_update_config(struct netif *netif);
@@ -54,3 +62,7 @@ u32_t sys_now(void);
 #endif
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
+
+/**
+ * @} Grouping in ethernet_driver ends
+ */

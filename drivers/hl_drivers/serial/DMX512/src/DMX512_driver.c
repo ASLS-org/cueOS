@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Depedencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -8,7 +8,7 @@
 #include "cmsis_os.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private variables definitions
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
@@ -17,14 +17,12 @@ static DMX512_driver_s this = DEFAULT_DMX512_DRIVER;
 static osThreadId_t DMX512_driver_ThreadId = NULL;
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_driver
- * @fn _DMX512_driver_send_frame
  * @brief Sends DMX frames using values contained within the driver's value buffer over RS485
  * Blocking UART API is used to ensure sanity of the serial output (Avoid packet collision)
  *
@@ -38,8 +36,6 @@ static void _DMX512_driver_send_frame(void){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn _DMX512_driver_send_breakmab
  * @brief Sends DMX BREAK-MAB sequence by slowing down UART baudrate from 115200b/s to 100000b/s:
  * BREAK timing typ = 88us | MAB timing	typ = 8us
  * BREAK = startbit + BREAK_DATA = 9 * 10 = 90us
@@ -56,8 +52,6 @@ static void _DMX512_driver_send_breakmab(void){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn _DMX512_driver_thread
  * @brief DMX512 driver thread
  *
  * Sequentially sends a DMX break sequence and DMX Data
@@ -72,8 +66,6 @@ static void _DMX512_driver_thread(void *arg){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn _DMX512_driver_address_check
  * @brief Checks if the provided address is contained within permited DMX address bounds
  *
  * @param address the address to be be checked
@@ -84,8 +76,6 @@ uint8_t _DMX512_driver_address_check(uint16_t address){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn _DMX512_driver_GPIO_init
  * @brief Initialises GPIOB pins 6 and 7 to work in UART Mode
  *	 	  GPIO settings are generated to enable USART1
  */
@@ -110,8 +100,6 @@ void _DMX512_driver_GPIO_init(void){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn _DMX512_driver_UART_init
  * @brief Initialises uart peripheral
  *
  * @param this handle to the DMX512 driver
@@ -130,15 +118,13 @@ void _DMX512_driver_UART_init(void){
 
 }
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_driver.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup DMX512_driver
- * @fn DMX512_driver_init
  * @brief Initialises DMX512 driver periphals
  *
  * Once initialised the driver may be controlled started or stopped
@@ -153,8 +139,6 @@ void DMX512_driver_init(void){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn DMX512_driver_get_status
  * @brief Returns the status of the DMX512 driver
  * @return DMX512_driver_status_e status of the driver
  * @see DMX512_driver.h for further information regarding
@@ -165,8 +149,6 @@ DMX512_driver_status_e DMX512_driver_get_status(void){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn DMX512_driver_start
  * @brief Starts the DMX512 driver thread
  *
  * @return DMX512_driver_err_e returns DMX512_DRIVER_OK if the thread could be started.
@@ -185,8 +167,6 @@ DMX512_driver_err_e DMX512_driver_start(void){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn DMX512_driver_stop
  * @brief Terminates the DMX512 driver thread
  *
  * @return DMX512_driver_err_e returns DMX512_DRIVER_OK if the thread could be terminated.
@@ -197,8 +177,6 @@ DMX512_driver_err_e DMX512_driver_stop(void){
 }
 
 /**
- * @ingroup DMX512_driver
- * @fn DMX512_driver_set_single
  * @brief Sets a buffer's address to a given value
  *
  * @param address the address concerned.

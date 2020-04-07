@@ -1,15 +1,20 @@
+/**
+ * @ingroup hl_drivers
+ * @defgroup leds_driver LEDs
+ * Abstraction layer for system LEDs
+ * @{
+ */
+
 #ifndef LED_DRIVER_H_
 #define LED_DRIVER_H_
 
 #include "stm32f4xx_hal.h"
 
-#define LED_DRIVER_COUNT 3				/** @ingroup leds_driver @def LED_DRIVER_COUNT @brief the amount of leds supported by the driver*/
-#define LED_DRIVER_PORT GPIOD			/** @ingroup leds_driver @def LED_DRIVER_PORT @brief GPIO port over which these LEDs should be controlled*/
-#define LED_DRIVER_BLINK_RATE 250		/** @ingroup leds_driver @def LED_DRIVER_BLINK_RATE @brief Blink rate of a driver LED in ms */
+#define LED_DRIVER_COUNT 3				/**< the amount of leds supported by the driver*/
+#define LED_DRIVER_PORT GPIOD			/**< GPIO port over which these LEDs should be controlled*/
+#define LED_DRIVER_BLINK_RATE 250		/**< Blink rate of a driver LED in ms*/
 
 /**
- * @ingroup leds_driver
- * @def LED_DRIVER_DEFAULT
  * @brief leds driver instance default values
  *
  * Used during initialisation of a leds driver instance, it lowers the risk of conflicts
@@ -19,20 +24,16 @@
 
 
 /**
- * @ingroup leds_driver
- * @enum led_driver_status_e
  * @brief Status of the leds driver instance
  *
  * Defines whether or not the leds driver instance has been correctly initialised.
  */
 typedef enum{
-	LED_DRIVER_UNINITIALISED,				/**< The driver is initialised*/
-	LED_DRIVER_INITIALISED					/**< The driver is uninitialised*/
+	LED_DRIVER_UNINITIALISED,					/**< The driver is initialised*/
+	LED_DRIVER_INITIALISED						/**< The driver is uninitialised*/
 }led_driver_status_e;
 
 /**
- * @ingroup leds_driver
- * @enum led_driver_led_state_e
  * @brief defines the running mode of one of the driver's LED instance
  */
 typedef enum{
@@ -42,8 +43,6 @@ typedef enum{
 }led_driver_led_state_e;
 
 /**
- * @ingroup leds_driver
- * @enum led_driver_pin_e
  * @brief defines the driver's LED pin numbers
  */
 typedef enum{
@@ -53,8 +52,6 @@ typedef enum{
 }led_driver_pin_e;
 
 /**
- * @ingroup leds_driver
- * @enum led_driver_led_e
  * @brief defines index of the driver's LED to be used
  * 		  to select a specific led from the driver's led pool
  */
@@ -66,8 +63,6 @@ typedef enum{
 
 
 /**
- * @ingroup leds_driver
- * @struct led_driver_led_s
  * @brief Defines a driver's LED instance
  */
 typedef struct{
@@ -76,8 +71,6 @@ typedef struct{
 }led_driver_led_s;
 
 /**
- * @ingroup leds_driver
- * @struct led_driver_s
  * @brief Defines the leds driver instance
  */
 typedef struct{
@@ -91,3 +84,7 @@ void leds_driver_set(led_driver_led_e led, led_driver_led_state_e state);
 
 
 #endif
+
+/**
+ * @} leds_driver grouping ends here
+ */

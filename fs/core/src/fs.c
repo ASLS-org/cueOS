@@ -8,7 +8,7 @@
 #include "mmc_driver.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private variables definitions
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
@@ -18,15 +18,13 @@ static FATFS _fatfs;
 static TCHAR _path[4];
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see DMX512_chaser.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup filesystem
- * @fn fs_init
  * @brief Initialises the file system
  *
  * @return fs_err_e returns 0 in case of succes, negative value otherwise
@@ -55,8 +53,6 @@ fs_err_e fs_init(void){
 }
 
 /**
- * ingroup filesystem
- * @fn fs_get_mount_status
  * @brief Returns the file system's current state
  *
  * @return fs_mount_status_e returns 0 if mounted 1 otherwise

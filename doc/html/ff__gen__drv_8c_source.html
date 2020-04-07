@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('ff__gen__drv_8c_source.html','');});
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/* Private typedef -----------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* Private define ------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/* Private variables ---------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">   24</a></span>&#160;<a class="code" href="struct_disk__drv_type_def.html">Disk_drvTypeDef</a> <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a> = {{0},{0},{0},0};</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="struct_disk__drv_type_def.html">Disk_drvTypeDef</a> disk = {{0},{0},{0},0};</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/* Private function prototypes -----------------------------------------------*/</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/* Private functions ---------------------------------------------------------*/</span></div>
@@ -108,12 +108,12 @@ $(document).ready(function(){initNavTree('ff__gen__drv_8c_source.html','');});
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  uint8_t ret = 1;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  uint8_t DiskNum = 0;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr &lt; FF_VOLUMES)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">if</span>(disk.nbr &lt; FF_VOLUMES)</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.is_initialized[<a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr] = 0;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.drv[<a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr] = drv;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.lun[<a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr] = lun;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    DiskNum = <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr++;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    disk.is_initialized[disk.nbr] = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    disk.drv[disk.nbr] = drv;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    disk.lun[disk.nbr] = lun;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    DiskNum = disk.nbr++;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    path[0] = DiskNum + <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    path[1] = <span class="charliteral">&#39;:&#39;</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    path[2] = <span class="charliteral">&#39;/&#39;</span>;</div>
@@ -134,14 +134,14 @@ $(document).ready(function(){initNavTree('ff__gen__drv_8c_source.html','');});
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  uint8_t DiskNum = 0;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  uint8_t ret = 1;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr &gt;= 1)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordflow">if</span>(disk.nbr &gt;= 1)</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  {</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    DiskNum = path[0] - <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.drv[DiskNum] != 0)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span>(disk.drv[DiskNum] != 0)</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.drv[DiskNum] = 0;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.lun[DiskNum] = 0;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr--;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      disk.drv[DiskNum] = 0;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      disk.lun[DiskNum] = 0;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      disk.nbr--;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      ret = 0;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  }</div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('ff__gen__drv_8c_source.html','');});
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
 <div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="ff__gen__drv_8c.html#a66f8718ba181d2c58b7e512e7f5bbf26">  116</a></span>&#160;uint8_t <a class="code" href="ff__gen__drv_8c.html#a66f8718ba181d2c58b7e512e7f5bbf26">FATFS_GetAttachedDriversNbr</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a>.nbr;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keywordflow">return</span> disk.nbr;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/</span></div>
@@ -168,7 +168,6 @@ $(document).ready(function(){initNavTree('ff__gen__drv_8c_source.html','');});
 <div class="ttc" id="aff__gen__drv_8c_html_a98c3c80319173c9925bbeddd2ebe55f0"><div class="ttname"><a href="ff__gen__drv_8c.html#a98c3c80319173c9925bbeddd2ebe55f0">FATFS_LinkDriverEx</a></div><div class="ttdeci">uint8_t FATFS_LinkDriverEx(const Diskio_drvTypeDef *drv, char *path, uint8_t lun)</div><div class="ttdoc">Links a compatible diskio driver/lun id and increments the number of active linked drivers.</div><div class="ttdef"><b>Definition:</b> <a href="ff__gen__drv_8c_source.html#l00039">ff_gen_drv.c:39</a></div></div>
 <div class="ttc" id="aff__gen__drv_8c_html_a5f457aa4e15830f4c77a9fa766f761d3"><div class="ttname"><a href="ff__gen__drv_8c.html#a5f457aa4e15830f4c77a9fa766f761d3">FATFS_UnLinkDriver</a></div><div class="ttdeci">uint8_t FATFS_UnLinkDriver(char *path)</div><div class="ttdoc">Unlinks a diskio driver and decrements the number of active linked drivers.</div><div class="ttdef"><b>Definition:</b> <a href="ff__gen__drv_8c_source.html#l00106">ff_gen_drv.c:106</a></div></div>
 <div class="ttc" id="aff__gen__drv_8c_html_a6ee487f56c0548d0da207dcbbe9bfe14"><div class="ttname"><a href="ff__gen__drv_8c.html#a6ee487f56c0548d0da207dcbbe9bfe14">FATFS_UnLinkDriverEx</a></div><div class="ttdeci">uint8_t FATFS_UnLinkDriverEx(char *path, uint8_t lun)</div><div class="ttdoc">Unlinks a diskio driver and decrements the number of active linked drivers.</div><div class="ttdef"><b>Definition:</b> <a href="ff__gen__drv_8c_source.html#l00080">ff_gen_drv.c:80</a></div></div>
-<div class="ttc" id="aff__gen__drv_8c_html_a8f7b47d38580804ca8176a57cc78cb89"><div class="ttname"><a href="ff__gen__drv_8c.html#a8f7b47d38580804ca8176a57cc78cb89">disk</a></div><div class="ttdeci">Disk_drvTypeDef disk</div><div class="ttdef"><b>Definition:</b> <a href="ff__gen__drv_8c_source.html#l00024">ff_gen_drv.c:24</a></div></div>
 <div class="ttc" id="aff__gen__drv_8h_html"><div class="ttname"><a href="ff__gen__drv_8h.html">ff_gen_drv.h</a></div><div class="ttdoc">Header for ff_gen_drv.c module.</div></div>
 <div class="ttc" id="astruct_diskio__drv_type_def_html"><div class="ttname"><a href="struct_diskio__drv_type_def.html">Diskio_drvTypeDef</a></div><div class="ttdoc">Disk IO Driver structure definition.</div><div class="ttdef"><b>Definition:</b> <a href="ff__gen__drv_8h_source.html#l00040">ff_gen_drv.h:40</a></div></div>
 <div class="ttc" id="aff__gen__drv_8c_html_a66f8718ba181d2c58b7e512e7f5bbf26"><div class="ttname"><a href="ff__gen__drv_8c.html#a66f8718ba181d2c58b7e512e7f5bbf26">FATFS_GetAttachedDriversNbr</a></div><div class="ttdeci">uint8_t FATFS_GetAttachedDriversNbr(void)</div><div class="ttdoc">Gets number of linked drivers to the FatFs module.</div><div class="ttdef"><b>Definition:</b> <a href="ff__gen__drv_8c_source.html#l00116">ff_gen_drv.c:116</a></div></div>

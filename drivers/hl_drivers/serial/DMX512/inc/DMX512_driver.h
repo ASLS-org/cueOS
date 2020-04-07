@@ -1,3 +1,10 @@
+/**
+ * @ingroup hl_drivers
+ * @defgroup DMX512_driver DMX512
+ * USART protocol Abstraction layer for sending DMX512 frames.
+ * @{
+ */
+
 #ifndef _DMX512_DRIVER_H_
 #define _DMX512_DRIVER_H_
 
@@ -6,16 +13,14 @@
 #include "stm32f4xx_hal.h"
 #include "DMX512_defs.h"
 
-#define DMX512_BREAKMAB_BAUDRATE 0x186A0U		/** @ingroup DMX512_driver @def DMX512_BREAKMAB_BAUDRATE @brief USART Baudrate for break-mab transmission */
-#define DMX512_FRAME_BAUDRATE 	 0x3D090U		/** @ingroup DMX512_driver @def DMX512_FRAME_BAUDRATE @brief USART Baudrate for DMX512 frame transmission */
-#define DMX512_BREAKMAB_BYTESIZE 0x00001U		/** @ingroup DMX512_driver @def DMX512_BREAKMAB_BYTESIZE @brief size of a break-mab sequence in bytes */
-#define DMX512_FRAME_BYTESIZE 	 0x00200U		/** @ingroup DMX512_driver @def DMX512_FRAME_BYTESIZE @brief size of DMX512 fram in bytes*/
-#define DMX512_BREAKMAB_BYTEDATA 0x00000U		/** @ingroup DMX512_driver @def DMX512_BREAKMAB_BYTEDATA @brief break-mab sequence data*/
+#define DMX512_BREAKMAB_BAUDRATE 0x186A0U		/**< USART Baudrate for break-mab transmission */
+#define DMX512_FRAME_BAUDRATE 	 0x3D090U		/**< USART Baudrate for DMX512 frame transmission */
+#define DMX512_BREAKMAB_BYTESIZE 0x00001U		/**< Size of a break-mab sequence in bytes */
+#define DMX512_FRAME_BYTESIZE 	 0x00200U		/**< Size of DMX512 fram in bytes*/
+#define DMX512_BREAKMAB_BYTEDATA 0x00000U		/**< BREAK-MAB sequence data*/
 
 
 /**
- * @ingroup DMX512_driver
- * @def DEFAULT_DMX512_DRIVER
  * @brief DMX512 driver object default values
  *
  * Used during initialisation of a DMX512 driver instance, it lowers the risk of conflicts
@@ -71,3 +76,7 @@ DMX512_driver_err_e DMX512_driver_stop(void);
 DMX512_driver_err_e DMX512_driver_set_single(uint16_t address, uint8_t value);
 
 #endif
+
+/**
+ * @} GGrouping in DMX512_driver ends
+ */

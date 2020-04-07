@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['web_20application_720',['Web Application',['../group__cueos__web__application.html',1,'']]]
+  ['rest_20apis_973',['REST APIs',['../group__cueos__rest__api.html',1,'']]]
 ];

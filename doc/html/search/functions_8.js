@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['webapp_5fapi_5fstart_744',['webapp_api_start',['../group__webapp__api.html#ga308f9b10e097470bba21ac099e783b7e',1,'webapp_api_start(void):&#160;webapp_api.c'],['../group__webapp__api.html#ga308f9b10e097470bba21ac099e783b7e',1,'webapp_api_start(void):&#160;webapp_api.c']]],
-  ['webapp_5fstatic_5fstart_745',['webapp_static_start',['../group__webapp__static.html#gabd7fa9cc2da15ce1d66111c30a03a8a0',1,'webapp_static_start(void):&#160;webapp_static.c'],['../group__webapp__static.html#gabd7fa9cc2da15ce1d66111c30a03a8a0',1,'webapp_static_start(void):&#160;webapp_static.c']]]
+  ['net_5fget_5fgateway_649',['net_get_gateway',['../group__net.html#gad98014ef4b5819a06f8aa0baaf8da4e2',1,'net_get_gateway(void):&#160;net.c'],['../group__net.html#gad98014ef4b5819a06f8aa0baaf8da4e2',1,'net_get_gateway(void):&#160;net.c']]],
+  ['net_5fget_5fip_5faddr_650',['net_get_ip_addr',['../group__net.html#ga7c10f6ad3420e96345ef5f4e373885de',1,'net_get_ip_addr(void):&#160;net.c'],['../group__net.html#ga7c10f6ad3420e96345ef5f4e373885de',1,'net_get_ip_addr(void):&#160;net.c']]],
+  ['net_5finit_651',['net_init',['../group__net.html#ga3ad3d81b12949f186e0d3a61f24b9a48',1,'net_init(net_mode_e mode, void *net_ready_callback):&#160;net.c'],['../group__net.html#ga3ad3d81b12949f186e0d3a61f24b9a48',1,'net_init(net_mode_e mode, void *net_ready_callback):&#160;net.c']]],
+  ['net_5fset_5fmode_652',['net_set_mode',['../group__net.html#gab0c7e7dd5e64465c77b9a75cb9c85a27',1,'net_set_mode(net_mode_e mode):&#160;net.c'],['../group__net.html#gab0c7e7dd5e64465c77b9a75cb9c85a27',1,'net_set_mode(net_mode_e mode):&#160;net.c']]]
 ];

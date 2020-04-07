@@ -1,4 +1,4 @@
-/**============================================================================================================================
+/***============================================================================================================================
  * Dependencies inclusion
  * Necessary dependencies should be declared here. Header file should contain as little dependecies declarations as possible
  *=============================================================================================================================*/
@@ -13,7 +13,7 @@
 
 //TODO: clean, there has been many modifications, some content might be useless
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private variables definitions
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
@@ -24,15 +24,13 @@ struct link_str ethernetif_link_arg;
 const osThreadAttr_t ethernetif_LinkThr_attr = ETHERNETIF_LINKTHR_ATTR;
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 #if cueOS_CONFIG_NET_USE_DHCP
 /**
- * @ingroup network
- * @fn _net_set_ip
  * @brief DHCP thread. Checks wether an IP has been provided or not and initiates callback on success
  *
  * @param *arg required by osThreadNew, not used here.
@@ -66,9 +64,8 @@ static void _net_set_ip(void *arg){
 #endif
 
 /**
- * @ingroup network
- * @fn _net_setup_ethernetif
  * @brief setup ethernet interface
+ *
  * @warning ethernet driver must be provided in ethernet_driver.h
  * @see ethernet_driver.h for further information regarding the ethernet interface driver
  */
@@ -107,9 +104,8 @@ static void _net_setup_ethernetif(void){
 }
 
 /**
- * @ingroup network
- * @fn _net_setup_wirelessif
  * @brief setup wireless interface
+ *
  * @warning wireless driver must be provided in ethernet_driver.h
  * @see wireless_driver.h for further information regarding the wireless interface driver
  * TODO: implement wireless interface driver
@@ -119,8 +115,6 @@ static void _net_setup_wirelessif(void){
 }
 
 /**
- * @ingroup network
- * @fn _net_setup_if
  * @brief Setup both wireless end ethernet network interfaces
  *
  * @param *arg required by tcp_init, not used here.
@@ -132,19 +126,16 @@ static void _net_setup_if(void *arg){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
- * @see DMX512_chaser_pool.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup network
- * @fn net_init
  * @brief Initialises network.
  *
  * @param mode the network mode (either ethernet or wireless)
- * @param net_ready_callback function to be called on initialisation success
+ * @param *net_ready_callback callback function to be called on initialisation success
  */
 void net_init(net_mode_e mode, void *net_ready_callback){
 #if cueOS_CONFIG_NET_USE_DHCP
@@ -172,8 +163,6 @@ void net_init(net_mode_e mode, void *net_ready_callback){
 }
 
 /**
- * @ingroup network
- * @fn net_get_ip_addr
  * @brief Returns the active network interface IP address
  *
  * @return ip4_addr_t the interface's IP address
@@ -183,8 +172,6 @@ ip4_addr_t net_get_ip_addr(void){
 }
 
 /**
- * @ingroup network
- * @fn net_get_gateway
  * @brief Returns the active network interface gateway address
  *
  * @return ip4_addr_t the interface's gateway address
@@ -194,8 +181,6 @@ ip4_addr_t net_get_gateway(void){
 }
 
 /**
- * @ingroup network
- * @fn net_set_mode
  * @brief Sets the network mode to either ethernet or wireless
  *
  * @param mode the mode to be set
@@ -223,8 +208,6 @@ void net_set_mode(net_mode_e mode){
 }
 
 /**
- * @ingroup network
- * @fn ethernetif_notify_conn_changed
  * @brief Function called on ethernet interface link change
  *
  * @param *netif pointer to the network interface structure

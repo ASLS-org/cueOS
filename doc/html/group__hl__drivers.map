@@ -1,0 +1,6 @@
+<map id="Drivers" name="Drivers">
+<area shape="rect" id="node1" href="$group__ethernet__driver.html" title="Configuration of LAN8720 PHY and for Ethernet transport." alt="" coords="119,5,189,31"/>
+<area shape="rect" id="node2" href="$group___d_m_x512__driver.html" title="USART protocol Abstraction layer for sending DMX512 frames." alt="" coords="117,55,191,80"/>
+<area shape="rect" id="node3" href="$group__leds__driver.html" title="Abstraction layer for system LEDs." alt="" coords="127,104,181,129"/>
+<area shape="rect" id="node4" title="High level system drivers." alt="" coords="5,55,69,80"/>
+</map>

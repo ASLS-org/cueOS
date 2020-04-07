@@ -1,0 +1,178 @@
+\hypertarget{group__ethernet__driver}{}\doxysection{Ethernet}
+\label{group__ethernet__driver}\index{Ethernet@{Ethernet}}
+
+
+Configuration of L\+A\+N8720 P\+HY and for Ethernet transport.  
+
+
+Collaboration diagram for Ethernet\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{group__ethernet__driver}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlink__str}{link\+\_\+str}}
+\begin{DoxyCompactList}\small\item\em Structure that include link thread parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+err\+\_\+t \mbox{\hyperlink{group__ethernet__driver_ga7ce979d0ec31575ecf17998b7bd9abb2}{ethernetif\+\_\+init}} (struct netif $\ast$netif)
+\item 
+void \mbox{\hyperlink{group__ethernet__driver_gab93d67d6e97ecc7209999ee8521e93a3}{ethernetif\+\_\+input}} (void $\ast$argument)
+\item 
+void \mbox{\hyperlink{group__ethernet__driver_ga8a043e0dc404d44d4368b4300b5a2139}{ethernetif\+\_\+set\+\_\+link}} (void $\ast$argument)
+\begin{DoxyCompactList}\small\item\em This function sets the netif link status. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group__ethernet__driver_ga7300c6d92651fa3fa2c6a0ad9838ba1b}\label{group__ethernet__driver_ga7300c6d92651fa3fa2c6a0ad9838ba1b}} 
+void {\bfseries ethernetif\+\_\+update\+\_\+config} (struct netif $\ast$netif)
+\item 
+void \mbox{\hyperlink{group__ethernet__driver_ga22503c12c617053ffaa6bd97fca5cbbf}{ethernetif\+\_\+notify\+\_\+conn\+\_\+changed}} (struct netif $\ast$netif)
+\begin{DoxyCompactList}\small\item\em Function called on ethernet interface link change. \end{DoxyCompactList}\item 
+u32\+\_\+t \mbox{\hyperlink{group__ethernet__driver_gac89f307e8b360eaf821b461a4f26753a}{sys\+\_\+jiffies}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current time in milliseconds when L\+W\+I\+P\+\_\+\+T\+I\+M\+E\+RS == 1 and N\+O\+\_\+\+S\+YS == 1. \end{DoxyCompactList}\item 
+u32\+\_\+t \mbox{\hyperlink{group__ethernet__driver_ga11316ac1e77418c6fa4ab8869e3fa199}{sys\+\_\+now}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current time in milliseconds when L\+W\+I\+P\+\_\+\+T\+I\+M\+E\+RS == 1 and N\+O\+\_\+\+S\+YS == 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Configuration of L\+A\+N8720 P\+HY and for Ethernet transport. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__ethernet__driver_ga7ce979d0ec31575ecf17998b7bd9abb2}\label{group__ethernet__driver_ga7ce979d0ec31575ecf17998b7bd9abb2}} 
+\index{Ethernet@{Ethernet}!ethernetif\_init@{ethernetif\_init}}
+\index{ethernetif\_init@{ethernetif\_init}!Ethernet@{Ethernet}}
+\doxysubsubsection{\texorpdfstring{ethernetif\_init()}{ethernetif\_init()}}
+{\footnotesize\ttfamily err\+\_\+t ethernetif\+\_\+init (\begin{DoxyParamCaption}\item[{struct netif $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Should be called at the beginning of the program to set up the network interface. It calls the function low\+\_\+level\+\_\+init() to do the actual setup of the hardware.
+
+This function should be passed as a parameter to netif\+\_\+add().
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & the lwip network interface structure for this ethernetif \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+R\+R\+\_\+\+OK if the loopif is initialized E\+R\+R\+\_\+\+M\+EM if private data couldn\textquotesingle{}t be allocated any other err\+\_\+t on error 
+\end{DoxyReturn}
+
+
+Definition at line 539 of file ethernet\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group__ethernet__driver_gab93d67d6e97ecc7209999ee8521e93a3}\label{group__ethernet__driver_gab93d67d6e97ecc7209999ee8521e93a3}} 
+\index{Ethernet@{Ethernet}!ethernetif\_input@{ethernetif\_input}}
+\index{ethernetif\_input@{ethernetif\_input}!Ethernet@{Ethernet}}
+\doxysubsubsection{\texorpdfstring{ethernetif\_input()}{ethernetif\_input()}}
+{\footnotesize\ttfamily void ethernetif\+\_\+input (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+This function should be called when a packet is ready to be read from the interface. It uses the function low\+\_\+level\+\_\+input() that should handle the actual reception of bytes from the network interface. Then the type of the received packet is determined and the appropriate input function is called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & the lwip network interface structure for this ethernetif \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 482 of file ethernet\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group__ethernet__driver_ga22503c12c617053ffaa6bd97fca5cbbf}\label{group__ethernet__driver_ga22503c12c617053ffaa6bd97fca5cbbf}} 
+\index{Ethernet@{Ethernet}!ethernetif\_notify\_conn\_changed@{ethernetif\_notify\_conn\_changed}}
+\index{ethernetif\_notify\_conn\_changed@{ethernetif\_notify\_conn\_changed}!Ethernet@{Ethernet}}
+\doxysubsubsection{\texorpdfstring{ethernetif\_notify\_conn\_changed()}{ethernetif\_notify\_conn\_changed()}}
+{\footnotesize\ttfamily void ethernetif\+\_\+notify\+\_\+conn\+\_\+changed (\begin{DoxyParamCaption}\item[{struct netif $\ast$}]{netif }\end{DoxyParamCaption})}
+
+
+
+Function called on ethernet interface link change. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$netif} & pointer to the network interface structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{ethernet__driver_8h_source}{ethernet\+\_\+driver.\+h}} for further information regarding this callback 
+\end{DoxySeeAlso}
+
+
+Definition at line 216 of file net.\+c.
+
+\mbox{\Hypertarget{group__ethernet__driver_ga8a043e0dc404d44d4368b4300b5a2139}\label{group__ethernet__driver_ga8a043e0dc404d44d4368b4300b5a2139}} 
+\index{Ethernet@{Ethernet}!ethernetif\_set\_link@{ethernetif\_set\_link}}
+\index{ethernetif\_set\_link@{ethernetif\_set\_link}!Ethernet@{Ethernet}}
+\doxysubsubsection{\texorpdfstring{ethernetif\_set\_link()}{ethernetif\_set\_link()}}
+{\footnotesize\ttfamily void ethernetif\+\_\+set\+\_\+link (\begin{DoxyParamCaption}\item[{void $\ast$}]{argument }\end{DoxyParamCaption})}
+
+
+
+This function sets the netif link status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & the network interface \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 609 of file ethernet\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group__ethernet__driver_gac89f307e8b360eaf821b461a4f26753a}\label{group__ethernet__driver_gac89f307e8b360eaf821b461a4f26753a}} 
+\index{Ethernet@{Ethernet}!sys\_jiffies@{sys\_jiffies}}
+\index{sys\_jiffies@{sys\_jiffies}!Ethernet@{Ethernet}}
+\doxysubsubsection{\texorpdfstring{sys\_jiffies()}{sys\_jiffies()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+jiffies (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current time in milliseconds when L\+W\+I\+P\+\_\+\+T\+I\+M\+E\+RS == 1 and N\+O\+\_\+\+S\+YS == 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Time} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 586 of file ethernet\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group__ethernet__driver_ga11316ac1e77418c6fa4ab8869e3fa199}\label{group__ethernet__driver_ga11316ac1e77418c6fa4ab8869e3fa199}} 
+\index{Ethernet@{Ethernet}!sys\_now@{sys\_now}}
+\index{sys\_now@{sys\_now}!Ethernet@{Ethernet}}
+\doxysubsubsection{\texorpdfstring{sys\_now()}{sys\_now()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+now (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current time in milliseconds when L\+W\+I\+P\+\_\+\+T\+I\+M\+E\+RS == 1 and N\+O\+\_\+\+S\+YS == 1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Time} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 597 of file ethernet\+\_\+driver.\+c.
+

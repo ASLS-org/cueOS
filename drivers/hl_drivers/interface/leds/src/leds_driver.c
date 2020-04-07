@@ -8,7 +8,7 @@
 
 //TODO: check this, it was made in a hurry and it seems quite shitty, could be greatly improved in a minimal amount of time
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private variables definitions
  * These variables are only accessible from within the file's scope
  *=============================================================================================================================*/
@@ -21,14 +21,12 @@ static const led_driver_pin_e LED_PINS[LED_DRIVER_COUNT] = {
 };
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
 /**
- * @ingroup leds_driver
- * @fn _leds_driver_init_led
  * @brief Initialises a LED's GPIO
  *
  * @param pin the LED's GPIO pin number
@@ -53,8 +51,6 @@ led_driver_led_s _leds_driver_init_led(led_driver_pin_e pin){
 }
 
 /**
- * @ingroup leds_driver
- * @fn _leds_driver_manage
  * @brief LED driver thread which periodically refreshes LED's according to state
  *
  * @param *arg required by cmsis_os osThreadNew prototype. not used here.
@@ -79,15 +75,13 @@ static void _leds_driver_manage(void *arg){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see leds_driver.h for declarations
  *=============================================================================================================================*/
 
 /**
- * @ingroup leds_driver
- * @fn leds_driver_init
  * @brief LED Driver initialisation
  */
 void leds_driver_init(void){
@@ -107,8 +101,6 @@ void leds_driver_init(void){
 }
 
 /**
- * @ingroup leds_driver
- * @fn leds_driver_set
  * @brief Assigns a state to a driver's led
  *
  * @param led the led which state is to be set

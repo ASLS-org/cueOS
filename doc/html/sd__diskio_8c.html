@@ -102,6 +102,24 @@ $(document).ready(function(){initNavTree('sd__diskio_8c.html','');});
 <code>#include &quot;<a class="el" href="sd__diskio_8h_source.html">sd_diskio.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for sd_diskio.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="sd__diskio_8c__incl.png" border="0" usemap="#_2root_2_documents_2_a_s_l_s_2_firmware___v2_84_2cueos_2drivers_2hl__drivers_2media_2mmc_2src_2sd__diskio_8c" alt=""/></div>
+<map name="_2root_2_documents_2_a_s_l_s_2_firmware___v2_84_2cueos_2drivers_2hl__drivers_2media_2mmc_2src_2sd__diskio_8c" id="_2root_2_documents_2_a_s_l_s_2_firmware___v2_84_2cueos_2drivers_2hl__drivers_2media_2mmc_2src_2sd__diskio_8c">
+<area shape="rect" title="SD Disk I/O driver." alt="" coords="258,5,422,76"/>
+<area shape="rect" href="ff__gen__drv_8h.html" title="Header for ff_gen_drv.c module." alt="" coords="107,124,202,151"/>
+<area shape="rect" href="sd__diskio_8h.html" title="Header for sd_diskio.c module." alt="" coords="245,124,333,151"/>
+<area shape="rect" title=" " alt="" coords="358,124,423,151"/>
+<area shape="rect" title=" " alt="" coords="448,124,509,151"/>
+<area shape="rect" title=" " alt="" coords="5,199,72,225"/>
+<area shape="rect" title=" " alt="" coords="97,199,138,225"/>
+<area shape="rect" title=" " alt="" coords="162,199,227,225"/>
+<area shape="rect" href="bsp__driver__sd_8h.html" title="This file contains the common defines and functions prototypes for the bsp_driver_sd...." alt="" coords="252,199,367,225"/>
+<area shape="rect" title=" " alt="" coords="249,348,367,375"/>
+<area shape="rect" href="fatfs__platform_8h.html" title=": fatfs_platform header file" alt="" coords="299,273,413,300"/>
+</map>
+</div>
 </div>
 <p><a href="sd__diskio_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -125,6 +143,9 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:abcbeca44bf2ea63506166e2e84563bc1"><td class="memItemLeft" align="right" valign="top"><a id="abcbeca44bf2ea63506166e2e84563bc1"></a>
+static DSTATUS&#160;</td><td class="memItemRight" valign="bottom"><b>SD_CheckStatus</b> (BYTE lun)</td></tr>
+<tr class="separator:abcbeca44bf2ea63506166e2e84563bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad7ae36100f45de75e573a0f5fd3addd"><td class="memItemLeft" align="right" valign="top">DSTATUS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sd__diskio_8c.html#aad7ae36100f45de75e573a0f5fd3addd">SD_initialize</a> (BYTE lun)</td></tr>
 <tr class="memdesc:aad7ae36100f45de75e573a0f5fd3addd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a Drive.  <a href="sd__diskio_8c.html#aad7ae36100f45de75e573a0f5fd3addd">More...</a><br /></td></tr>
 <tr class="separator:aad7ae36100f45de75e573a0f5fd3addd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,6 +155,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a1f2ee4a775d8a3877f368533db97cbe4"><td class="memItemLeft" align="right" valign="top">DRESULT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sd__diskio_8c.html#a1f2ee4a775d8a3877f368533db97cbe4">SD_read</a> (BYTE lun, BYTE *buff, DWORD sector, UINT count)</td></tr>
 <tr class="memdesc:a1f2ee4a775d8a3877f368533db97cbe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads Sector(s)  <a href="sd__diskio_8c.html#a1f2ee4a775d8a3877f368533db97cbe4">More...</a><br /></td></tr>
 <tr class="separator:a1f2ee4a775d8a3877f368533db97cbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc45a299a89ec8ad1fc8177235d9d38a"><td class="memItemLeft" align="right" valign="top"><a id="acc45a299a89ec8ad1fc8177235d9d38a"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><b>SD_CheckStatusWithTimeout</b> (uint32_t timeout)</td></tr>
+<tr class="separator:acc45a299a89ec8ad1fc8177235d9d38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc4f1ecdf361e0c0808803167f31d61b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sd__diskio_8c.html#afc4f1ecdf361e0c0808803167f31d61b">BSP_SD_WriteCpltCallback</a> (void)</td></tr>
 <tr class="memdesc:afc4f1ecdf361e0c0808803167f31d61b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes Sector(s)  <a href="sd__diskio_8c.html#afc4f1ecdf361e0c0808803167f31d61b">More...</a><br /></td></tr>
 <tr class="separator:afc4f1ecdf361e0c0808803167f31d61b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +167,12 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a014a1e17b21e3c0b80fe0afc0106976f"><td class="memItemLeft" align="right" valign="top"><a id="a014a1e17b21e3c0b80fe0afc0106976f"></a>
+static volatile DSTATUS&#160;</td><td class="memItemRight" valign="bottom"><b>Stat</b> = STA_NOINIT</td></tr>
+<tr class="separator:a014a1e17b21e3c0b80fe0afc0106976f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24d40670ce37dc81ef434bbcbaa51b91"><td class="memItemLeft" align="right" valign="top"><a id="a24d40670ce37dc81ef434bbcbaa51b91"></a>
+static osMessageQId&#160;</td><td class="memItemRight" valign="bottom"><b>SDQueueID</b> = NULL</td></tr>
+<tr class="separator:a24d40670ce37dc81ef434bbcbaa51b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a12762eb7b74c246045197fa41f1296"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_diskio__drv_type_def.html">Diskio_drvTypeDef</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SD_Driver</b></td></tr>
 <tr class="separator:a1a12762eb7b74c246045197fa41f1296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

@@ -91,47 +91,65 @@ $(document).ready(function(){initNavTree('fs_8h_source.html','');});
 <div class="title">fs.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef _fs_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define _fs_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;ff.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;ff_gen_drv.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;sd_diskio.h&quot;</span> <span class="comment">/* defines SD_Driver as external */</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define FS_DEFAULT  {FS_LINKSTATUS_UNLINKED, FS_UNMOUNTED}</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    FS_OK,                              </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    FS_CANNOT_LINK_SD,                  </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    FS_CANNOT_MOUNT_SD,                 </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    FS_ALREADY_MOUNTED,                 </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}fs_err_e;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    FS_LINKSTATUS_UNLINKED  = 1,        </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    FS_LINKSTATUS_LINKED    = 0         </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}fs_link_status_e;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    FS_MOUNTED,                         </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    FS_UNMOUNTED                        </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}fs_mount_status_e;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structfs__s.html">   58</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structfs__s.html#a7943167952ed851182101881d0218b03">   59</a></span>&#160;    fs_link_status_e <a class="code" href="structfs__s.html#a7943167952ed851182101881d0218b03">_link_status</a>;      </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structfs__s.html#af74571d4225a2780a1f71762b13dfb7e">   60</a></span>&#160;    fs_mount_status_e <a class="code" href="structfs__s.html#af74571d4225a2780a1f71762b13dfb7e">_mount_status</a>;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}<a class="code" href="structfs__s.html">fs_s</a>;</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef _fs_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define _fs_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;ff.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ff__gen__drv_8h.html">ff_gen_drv.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sd__diskio_8h.html">sd_diskio.h</a>&quot;</span> <span class="comment">/* defines SD_Driver as external */</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="group__fs.html#gade815529004dc1b72d55a65935f60c2c">   22</a></span>&#160;<span class="preprocessor">#define FS_DEFAULT  {FS_LINKSTATUS_UNLINKED, FS_UNMOUNTED}</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="group__fs.html#gad0b4226802ed56edf883d572e7a41efe">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea26345143dacb176ba4d26eefead535b4">   32</a></span>&#160;    <a class="code" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea26345143dacb176ba4d26eefead535b4">FS_OK</a>,                              </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea539ad86be9ff3f476de61b16ef0d9013">   33</a></span>&#160;    <a class="code" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea539ad86be9ff3f476de61b16ef0d9013">FS_CANNOT_LINK_SD</a>,                  </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea238067fedd1c1d6744f871d359580e6a">   34</a></span>&#160;    <a class="code" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea238067fedd1c1d6744f871d359580e6a">FS_CANNOT_MOUNT_SD</a>,                 </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea2edef534655135726fafca4a865d9c5a">   35</a></span>&#160;    <a class="code" href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea2edef534655135726fafca4a865d9c5a">FS_ALREADY_MOUNTED</a>,                 </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}<a class="code" href="group__fs.html#gad0b4226802ed56edf883d572e7a41efe">fs_err_e</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="group__fs.html#gad68f738b11dad5a95cf83cf5506e68d9">   41</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="group__fs.html#ggad68f738b11dad5a95cf83cf5506e68d9aaff2f97f10f439baa127b35da49373d1">   42</a></span>&#160;    <a class="code" href="group__fs.html#ggad68f738b11dad5a95cf83cf5506e68d9aaff2f97f10f439baa127b35da49373d1">FS_LINKSTATUS_UNLINKED</a>  = 1,        </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="group__fs.html#ggad68f738b11dad5a95cf83cf5506e68d9ac57052ed51fe653348e19069b7887bcc">   43</a></span>&#160;    <a class="code" href="group__fs.html#ggad68f738b11dad5a95cf83cf5506e68d9ac57052ed51fe653348e19069b7887bcc">FS_LINKSTATUS_LINKED</a>    = 0         </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}<a class="code" href="group__fs.html#gad68f738b11dad5a95cf83cf5506e68d9">fs_link_status_e</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="group__fs.html#gaf6c96af7549da028e22bac26f1718cc9">   49</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span>{</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="group__fs.html#ggaf6c96af7549da028e22bac26f1718cc9aa3a76fb3fbd338a73c3317deebe2ebc7">   50</a></span>&#160;    <a class="code" href="group__fs.html#ggaf6c96af7549da028e22bac26f1718cc9aa3a76fb3fbd338a73c3317deebe2ebc7">FS_MOUNTED</a>,                         </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="group__fs.html#ggaf6c96af7549da028e22bac26f1718cc9a88f61ba22e2e8f26bb813336e8e02ec2">   51</a></span>&#160;    <a class="code" href="group__fs.html#ggaf6c96af7549da028e22bac26f1718cc9a88f61ba22e2e8f26bb813336e8e02ec2">FS_UNMOUNTED</a>                        </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}<a class="code" href="group__fs.html#gaf6c96af7549da028e22bac26f1718cc9">fs_mount_status_e</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structfs__s.html">   57</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structfs__s.html#a7943167952ed851182101881d0218b03">   58</a></span>&#160;    <a class="code" href="group__fs.html#gad68f738b11dad5a95cf83cf5506e68d9">fs_link_status_e</a> <a class="code" href="structfs__s.html#a7943167952ed851182101881d0218b03">_link_status</a>;      </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structfs__s.html#af74571d4225a2780a1f71762b13dfb7e">   59</a></span>&#160;    <a class="code" href="group__fs.html#gaf6c96af7549da028e22bac26f1718cc9">fs_mount_status_e</a> <a class="code" href="structfs__s.html#af74571d4225a2780a1f71762b13dfb7e">_mount_status</a>;    </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}<a class="code" href="structfs__s.html">fs_s</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;fs_err_e fs_init(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;fs_mount_status_e fs_get_mount_status(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<a class="code" href="group__fs.html#gad0b4226802ed56edf883d572e7a41efe">fs_err_e</a> <a class="code" href="group__fs.html#ga086018c5bdb564ee15f78b4045a031af">fs_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<a class="code" href="group__fs.html#gaf6c96af7549da028e22bac26f1718cc9">fs_mount_status_e</a> <a class="code" href="group__fs.html#ga95abe81408f9c9695448ae3fd4b00d16">fs_get_mount_status</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructfs__s_html_a7943167952ed851182101881d0218b03"><div class="ttname"><a href="structfs__s.html#a7943167952ed851182101881d0218b03">fs_s::_link_status</a></div><div class="ttdeci">fs_link_status_e _link_status</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00059">fs.h:59</a></div></div>
-<div class="ttc" id="astructfs__s_html"><div class="ttname"><a href="structfs__s.html">fs_s</a></div><div class="ttdoc">filesystem object</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00058">fs.h:58</a></div></div>
-<div class="ttc" id="astructfs__s_html_af74571d4225a2780a1f71762b13dfb7e"><div class="ttname"><a href="structfs__s.html#af74571d4225a2780a1f71762b13dfb7e">fs_s::_mount_status</a></div><div class="ttdeci">fs_mount_status_e _mount_status</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00060">fs.h:60</a></div></div>
+<div class="ttc" id="astructfs__s_html_a7943167952ed851182101881d0218b03"><div class="ttname"><a href="structfs__s.html#a7943167952ed851182101881d0218b03">fs_s::_link_status</a></div><div class="ttdeci">fs_link_status_e _link_status</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00058">fs.h:58</a></div></div>
+<div class="ttc" id="asd__diskio_8h_html"><div class="ttname"><a href="sd__diskio_8h.html">sd_diskio.h</a></div><div class="ttdoc">Header for sd_diskio.c module.</div></div>
+<div class="ttc" id="agroup__fs_html_ga086018c5bdb564ee15f78b4045a031af"><div class="ttname"><a href="group__fs.html#ga086018c5bdb564ee15f78b4045a031af">fs_init</a></div><div class="ttdeci">fs_err_e fs_init(void)</div><div class="ttdoc">Initialises the file system.</div><div class="ttdef"><b>Definition:</b> <a href="fs_8c_source.html#l00033">fs.c:33</a></div></div>
+<div class="ttc" id="agroup__fs_html_ga95abe81408f9c9695448ae3fd4b00d16"><div class="ttname"><a href="group__fs.html#ga95abe81408f9c9695448ae3fd4b00d16">fs_get_mount_status</a></div><div class="ttdeci">fs_mount_status_e fs_get_mount_status(void)</div><div class="ttdoc">Returns the file system's current state.</div><div class="ttdef"><b>Definition:</b> <a href="fs_8c_source.html#l00061">fs.c:61</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggad0b4226802ed56edf883d572e7a41efea238067fedd1c1d6744f871d359580e6a"><div class="ttname"><a href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea238067fedd1c1d6744f871d359580e6a">FS_CANNOT_MOUNT_SD</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00034">fs.h:34</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggaf6c96af7549da028e22bac26f1718cc9aa3a76fb3fbd338a73c3317deebe2ebc7"><div class="ttname"><a href="group__fs.html#ggaf6c96af7549da028e22bac26f1718cc9aa3a76fb3fbd338a73c3317deebe2ebc7">FS_MOUNTED</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00050">fs.h:50</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggad0b4226802ed56edf883d572e7a41efea539ad86be9ff3f476de61b16ef0d9013"><div class="ttname"><a href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea539ad86be9ff3f476de61b16ef0d9013">FS_CANNOT_LINK_SD</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00033">fs.h:33</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggaf6c96af7549da028e22bac26f1718cc9a88f61ba22e2e8f26bb813336e8e02ec2"><div class="ttname"><a href="group__fs.html#ggaf6c96af7549da028e22bac26f1718cc9a88f61ba22e2e8f26bb813336e8e02ec2">FS_UNMOUNTED</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00051">fs.h:51</a></div></div>
+<div class="ttc" id="aff__gen__drv_8h_html"><div class="ttname"><a href="ff__gen__drv_8h.html">ff_gen_drv.h</a></div><div class="ttdoc">Header for ff_gen_drv.c module.</div></div>
+<div class="ttc" id="astructfs__s_html"><div class="ttname"><a href="structfs__s.html">fs_s</a></div><div class="ttdoc">filesystem object</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00057">fs.h:57</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggad0b4226802ed56edf883d572e7a41efea26345143dacb176ba4d26eefead535b4"><div class="ttname"><a href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea26345143dacb176ba4d26eefead535b4">FS_OK</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00032">fs.h:32</a></div></div>
+<div class="ttc" id="agroup__fs_html_gad68f738b11dad5a95cf83cf5506e68d9"><div class="ttname"><a href="group__fs.html#gad68f738b11dad5a95cf83cf5506e68d9">fs_link_status_e</a></div><div class="ttdeci">fs_link_status_e</div><div class="ttdoc">Conveys information relative to whether the filesystem driver has been linked or not.</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00041">fs.h:41</a></div></div>
+<div class="ttc" id="astructfs__s_html_af74571d4225a2780a1f71762b13dfb7e"><div class="ttname"><a href="structfs__s.html#af74571d4225a2780a1f71762b13dfb7e">fs_s::_mount_status</a></div><div class="ttdeci">fs_mount_status_e _mount_status</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00059">fs.h:59</a></div></div>
+<div class="ttc" id="agroup__fs_html_gad0b4226802ed56edf883d572e7a41efe"><div class="ttname"><a href="group__fs.html#gad0b4226802ed56edf883d572e7a41efe">fs_err_e</a></div><div class="ttdeci">fs_err_e</div><div class="ttdoc">file system error constants definition</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00031">fs.h:31</a></div></div>
+<div class="ttc" id="agroup__fs_html_gaf6c96af7549da028e22bac26f1718cc9"><div class="ttname"><a href="group__fs.html#gaf6c96af7549da028e22bac26f1718cc9">fs_mount_status_e</a></div><div class="ttdeci">fs_mount_status_e</div><div class="ttdoc">Actual initialisation state of the file system.</div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00049">fs.h:49</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggad68f738b11dad5a95cf83cf5506e68d9aaff2f97f10f439baa127b35da49373d1"><div class="ttname"><a href="group__fs.html#ggad68f738b11dad5a95cf83cf5506e68d9aaff2f97f10f439baa127b35da49373d1">FS_LINKSTATUS_UNLINKED</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00042">fs.h:42</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggad68f738b11dad5a95cf83cf5506e68d9ac57052ed51fe653348e19069b7887bcc"><div class="ttname"><a href="group__fs.html#ggad68f738b11dad5a95cf83cf5506e68d9ac57052ed51fe653348e19069b7887bcc">FS_LINKSTATUS_LINKED</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00043">fs.h:43</a></div></div>
+<div class="ttc" id="agroup__fs_html_ggad0b4226802ed56edf883d572e7a41efea2edef534655135726fafca4a865d9c5a"><div class="ttname"><a href="group__fs.html#ggad0b4226802ed56edf883d572e7a41efea2edef534655135726fafca4a865d9c5a">FS_ALREADY_MOUNTED</a></div><div class="ttdef"><b>Definition:</b> <a href="fs_8h_source.html#l00035">fs.h:35</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

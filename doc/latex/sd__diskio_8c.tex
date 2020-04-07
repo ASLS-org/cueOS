@@ -9,6 +9,13 @@ SD Disk I/O driver.
 {\ttfamily \#include \char`\"{}sd\+\_\+diskio.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for sd\+\_\+diskio.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sd__diskio_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,18 +37,30 @@ SD Disk I/O driver.
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{sd__diskio_8c_abcbeca44bf2ea63506166e2e84563bc1}\label{sd__diskio_8c_abcbeca44bf2ea63506166e2e84563bc1}} 
+static D\+S\+T\+A\+T\+US {\bfseries S\+D\+\_\+\+Check\+Status} (B\+Y\+TE lun)
+\item 
 D\+S\+T\+A\+T\+US \mbox{\hyperlink{sd__diskio_8c_aad7ae36100f45de75e573a0f5fd3addd}{S\+D\+\_\+initialize}} (B\+Y\+TE lun)
 \begin{DoxyCompactList}\small\item\em Initializes a Drive. \end{DoxyCompactList}\item 
 D\+S\+T\+A\+T\+US \mbox{\hyperlink{sd__diskio_8c_a21ca54e56dca1f40b54f458ac35470e3}{S\+D\+\_\+status}} (B\+Y\+TE lun)
 \begin{DoxyCompactList}\small\item\em Gets Disk Status. \end{DoxyCompactList}\item 
 D\+R\+E\+S\+U\+LT \mbox{\hyperlink{sd__diskio_8c_a1f2ee4a775d8a3877f368533db97cbe4}{S\+D\+\_\+read}} (B\+Y\+TE lun, B\+Y\+TE $\ast$buff, D\+W\+O\+RD sector, U\+I\+NT count)
 \begin{DoxyCompactList}\small\item\em Reads Sector(s) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{sd__diskio_8c_acc45a299a89ec8ad1fc8177235d9d38a}\label{sd__diskio_8c_acc45a299a89ec8ad1fc8177235d9d38a}} 
+static int {\bfseries S\+D\+\_\+\+Check\+Status\+With\+Timeout} (uint32\+\_\+t timeout)
+\item 
 void \mbox{\hyperlink{sd__diskio_8c_afc4f1ecdf361e0c0808803167f31d61b}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Write\+Cplt\+Callback}} (void)
 \begin{DoxyCompactList}\small\item\em Writes Sector(s) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{sd__diskio_8c_a8d66ac35cee6a454f7e584f0051bc9f8}{B\+S\+P\+\_\+\+S\+D\+\_\+\+Read\+Cplt\+Callback}} (void)
 \begin{DoxyCompactList}\small\item\em Rx Transfer completed callbacks. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sd__diskio_8c_a014a1e17b21e3c0b80fe0afc0106976f}\label{sd__diskio_8c_a014a1e17b21e3c0b80fe0afc0106976f}} 
+static volatile D\+S\+T\+A\+T\+US {\bfseries Stat} = S\+T\+A\+\_\+\+N\+O\+I\+N\+IT
+\item 
+\mbox{\Hypertarget{sd__diskio_8c_a24d40670ce37dc81ef434bbcbaa51b91}\label{sd__diskio_8c_a24d40670ce37dc81ef434bbcbaa51b91}} 
+static os\+Message\+Q\+Id {\bfseries S\+D\+Queue\+ID} = N\+U\+LL
 \item 
 const \mbox{\hyperlink{struct_diskio__drv_type_def}{Diskio\+\_\+drv\+Type\+Def}} {\bfseries S\+D\+\_\+\+Driver}
 \end{DoxyCompactItemize}

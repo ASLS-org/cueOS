@@ -1,3 +1,11 @@
+/**
+ * @defgroup fs File System
+ * High level File system interface abstraction layer for FatFS.
+ * Media types supported include:
+ * - SD card
+ * @{
+ */
+
 #ifndef _fs_H
 #define _fs_H
 
@@ -6,8 +14,6 @@
 #include "sd_diskio.h" /* defines SD_Driver as external */
 
 /**
- * @ingroup filesystem
- * @def FS_DEFAULT
  * @brief file system instance default values
  *
  * Used during initialisation of file system, it lowers the risk of conflicts
@@ -15,9 +21,8 @@
  */
 #define FS_DEFAULT  {FS_LINKSTATUS_UNLINKED, FS_UNMOUNTED}
 
+
 /**
- * @ingroup filesystem
- * @enum fs_err_e
  * @brief file system error constants definition
  *
  * Series of pre-defined constant error values to be used
@@ -31,8 +36,6 @@ typedef enum{
 }fs_err_e;
 
 /**
- * @ingroup filesystem
- * @enum fs_link_status_e
  * @brief Conveys information relative to whether the filesystem driver has been linked or not
  */
 typedef enum{
@@ -41,8 +44,6 @@ typedef enum{
 }fs_link_status_e;
 
 /**
- * @ingroup filesystem
- * @enum fs_mount_status_e
  * @brief Actual initialisation state of the file system
  */
 typedef enum{
@@ -51,8 +52,6 @@ typedef enum{
 }fs_mount_status_e;
 
 /**
- * @ingroup filesystem
- * @struct fs_s
  * @brief filesystem object
  */
 typedef struct{
@@ -65,3 +64,7 @@ fs_err_e fs_init(void);
 fs_mount_status_e fs_get_mount_status(void);
 
 #endif
+
+/**
+ * @} Grouping in fs ends
+ */
