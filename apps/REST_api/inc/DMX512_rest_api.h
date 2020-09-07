@@ -22,7 +22,8 @@ typedef enum{
 	DMX512_API_ENDPOINT_CHASERS,					/**< "chasers" API endpoint string index*/
 	DMX512_API_ENDPOINT_EFFECTS,					/**< "effects" API endpoint string index*/
 	DMX512_API_ENDPOINT_CUES,						/**< "cues" API endpoint string index*/
-	DMX512_API_ENDPOINT_DEFAULT						/**< defaul API endpoint index*/
+	DMX512_API_ENDPOINT_CONFIGURE,					/**< "configure" API endpoint string index*/
+	DMX512_API_ENDPOINT_DEFAULT						/**< default API endpoint index*/
 }DMX512_rest_api_endpoint_e;
 
 /**
@@ -30,14 +31,14 @@ typedef enum{
  */
 typedef enum{
 	DMX512_API_PARAM_ID,							/**< "id" API request parameter string index*/
-	DMX512_API_PARAM_ADDRESS,						/**< "address" API request parameter string index */
-	DMX512_API_PARAM_CHANNEL_COUNT,					/**< "channel count" API request parameter string index */
-	DMX512_API_PARAM_FADEIN_TIME,					/**< "fadein time" API request parameter string index */
-	DMX512_API_PARAM_FADEOUT_TIME,					/**< "fadeout time" API request parameter string index */
-	DMX512_API_PARAM_CHANNELS,						/**< "channels" API request parameter string index */
-	DMX512_API_PARAM_VALUES,						/**< "values" API request parameter string index */
-	DMX512_API_PARAM_START,							/**< "start" API request parameter string index */
-	DMX512_API_PARAM_STOP							/**< "stop" API request parameter string index */
+	DMX512_API_PARAM_ADDRESS,						/**< "address" API request parameter string index*/
+	DMX512_API_PARAM_CHANNEL_COUNT,					/**< "channel count" API request parameter string index*/
+	DMX512_API_PARAM_FADEIN_TIME,					/**< "fadein time" API request parameter string index*/
+	DMX512_API_PARAM_FADEOUT_TIME,					/**< "fadeout time" API request parameter string index*/
+	DMX512_API_PARAM_CHANNELS,						/**< "channels" API request parameter string index*/
+	DMX512_API_PARAM_VALUES,						/**< "values" API request parameter string index*/
+	DMX512_API_PARAM_START,							/**< "start" API request parameter string index*/
+	DMX512_API_PARAM_STOP							/**< "stop" API request parameter string index*/
 }DMX512_rest_api_args_e;
 
 
@@ -50,7 +51,8 @@ static const char *const DMX512_rest_api_endpoints_str[] = {
 	"/scenes",										/**< "scenes" API endpoint string*/
 	"/chasers",										/**< "chasers" API endpoint string*/
 	"/effects",										/**< "effects" API endpoint string*/
-	"/cues"											/**< "cues" API endpoint string*/
+	"/cues",										/**< "cues" API endpoint string*/
+	"/configure"									/**< "configure" API endpoint string*/
 };
 
 /**
