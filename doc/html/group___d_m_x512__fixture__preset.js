@@ -12,5 +12,6 @@ var group___d_m_x512__fixture__preset =
       [ "DMX512_FIXTURE_PRESET_UNINITIALISED", "group___d_m_x512__fixture__preset.html#ggab87eb24a0d3479e9d5b8c4bc792b6af4a88ceb588cec49f308b09cb0489ee06d4", null ],
       [ "DMX512_FIXTURE_PRESET_INITIALISED", "group___d_m_x512__fixture__preset.html#ggab87eb24a0d3479e9d5b8c4bc792b6af4a2d306cc3290a0d851ae09ba47377cd8a", null ]
     ] ],
+    [ "DMX512_fixture_preset_free", "group___d_m_x512__fixture__preset.html#ga73142398387b4d14b68d21c35de9e75c", null ],
     [ "DMX512_fixture_preset_new", "group___d_m_x512__fixture__preset.html#ga209c19a9b242c7a58a422413f678bef2", null ]
 ];

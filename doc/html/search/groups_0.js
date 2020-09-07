@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['applications_948',['Applications',['../group__cueos__apps.html',1,'']]]
+  ['applications_1046',['Applications',['../group__cueos__apps.html',1,'']]]
 ];

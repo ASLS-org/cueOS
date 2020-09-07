@@ -132,12 +132,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga433e82e78bffc3f032c1fbf39392cf45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene__pool.html#ga433e82e78bffc3f032c1fbf39392cf45">DMX512_scene_pool_del</a> (<a class="el" href="struct_d_m_x512__scene__pool__s.html">DMX512_scene_pool_s</a> *scene_pool, uint16_t id)</td></tr>
 <tr class="memdesc:ga433e82e78bffc3f032c1fbf39392cf45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a scene instance from the pool.  <a href="group___d_m_x512__scene__pool.html#ga433e82e78bffc3f032c1fbf39392cf45">More...</a><br /></td></tr>
 <tr class="separator:ga433e82e78bffc3f032c1fbf39392cf45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8f7a1d02a6d730803394d6aad5834408"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene__pool.html#ga8f7a1d02a6d730803394d6aad5834408">DMX512_scene_pool_get</a> (<a class="el" href="struct_d_m_x512__scene__pool__s.html">DMX512_scene_pool_s</a> *scene_pool, uint16_t id)</td></tr>
-<tr class="memdesc:ga8f7a1d02a6d730803394d6aad5834408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a scene instance from the pool.  <a href="group___d_m_x512__scene__pool.html#ga8f7a1d02a6d730803394d6aad5834408">More...</a><br /></td></tr>
-<tr class="separator:ga8f7a1d02a6d730803394d6aad5834408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8ca3a4f845a596969bf116524978cba9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene__pool.html#ga8ca3a4f845a596969bf116524978cba9">DMX512_scene_pool_get</a> (<a class="el" href="struct_d_m_x512__scene__pool__s.html">DMX512_scene_pool_s</a> *scene_pool, uint16_t id, <a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> **scene)</td></tr>
+<tr class="memdesc:ga8ca3a4f845a596969bf116524978cba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a scene instance from the pool.  <a href="group___d_m_x512__scene__pool.html#ga8ca3a4f845a596969bf116524978cba9">More...</a><br /></td></tr>
+<tr class="separator:ga8ca3a4f845a596969bf116524978cba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga12491dbfc9b21f5922073e3efa6f6dfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene__pool.html#ga12491dbfc9b21f5922073e3efa6f6dfe">DMX512_scene_pool_manage</a> (<a class="el" href="struct_d_m_x512__scene__pool__s.html">DMX512_scene_pool_s</a> *scene_pool)</td></tr>
 <tr class="memdesc:ga12491dbfc9b21f5922073e3efa6f6dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages all scenes contained within the pool.  <a href="group___d_m_x512__scene__pool.html#ga12491dbfc9b21f5922073e3efa6f6dfe">More...</a><br /></td></tr>
 <tr class="separator:ga12491dbfc9b21f5922073e3efa6f6dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79cb9f0d8f8a3d8506cef8c6d7eb367f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene__pool.html#ga79cb9f0d8f8a3d8506cef8c6d7eb367f">DMX512_scene_pool_free</a> (<a class="el" href="struct_d_m_x512__scene__pool__s.html">DMX512_scene_pool_s</a> *scene_pool)</td></tr>
+<tr class="memdesc:ga79cb9f0d8f8a3d8506cef8c6d7eb367f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Safely Frees instance pool.  <a href="group___d_m_x512__scene__pool.html#ga79cb9f0d8f8a3d8506cef8c6d7eb367f">More...</a><br /></td></tr>
+<tr class="separator:ga79cb9f0d8f8a3d8506cef8c6d7eb367f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Scene pools are used to store and manage a lists of pre-configured scenes. Up to 65535 DMX512 scenes may be stored per DMX512 universe. </p>
@@ -222,14 +225,42 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga8f7a1d02a6d730803394d6aad5834408"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8f7a1d02a6d730803394d6aad5834408">&#9670;&nbsp;</a></span>DMX512_scene_pool_get()</h2>
+<a id="ga79cb9f0d8f8a3d8506cef8c6d7eb367f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga79cb9f0d8f8a3d8506cef8c6d7eb367f">&#9670;&nbsp;</a></span>DMX512_scene_pool_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a>* DMX512_scene_pool_get </td>
+          <td class="memname">void DMX512_scene_pool_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__pool__s.html">DMX512_scene_pool_s</a> *&#160;</td>
+          <td class="paramname"><em>scene_pool</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Safely Frees instance pool. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*scene_pool</td><td>pointer to the scene pool instance to be freed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene__pool_8c_source.html#l00142">142</a> of file <a class="el" href="_d_m_x512__scene__pool_8c_source.html">DMX512_scene_pool.c</a>.</p>
+
+</div>
+</div>
+<a id="ga8ca3a4f845a596969bf116524978cba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8ca3a4f845a596969bf116524978cba9">&#9670;&nbsp;</a></span>DMX512_scene_pool_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_scene_pool_get </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__pool__s.html">DMX512_scene_pool_s</a> *&#160;</td>
           <td class="paramname"><em>scene_pool</em>, </td>
@@ -238,7 +269,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> **&#160;</td>
+          <td class="paramname"><em>scene</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -258,7 +295,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DMX512_scene_s* pointer to the scene instance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene__pool_8c_source.html#l00111">111</a> of file <a class="el" href="_d_m_x512__scene__pool_8c_source.html">DMX512_scene_pool.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene__pool_8c_source.html#l00112">112</a> of file <a class="el" href="_d_m_x512__scene__pool_8c_source.html">DMX512_scene_pool.c</a>.</p>
 
 </div>
 </div>
@@ -286,7 +323,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene__pool_8c_source.html#l00125">125</a> of file <a class="el" href="_d_m_x512__scene__pool_8c_source.html">DMX512_scene_pool.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene__pool_8c_source.html#l00131">131</a> of file <a class="el" href="_d_m_x512__scene__pool_8c_source.html">DMX512_scene_pool.c</a>.</p>
 
 </div>
 </div>

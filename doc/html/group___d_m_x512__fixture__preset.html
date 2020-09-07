@@ -137,6 +137,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga209c19a9b242c7a58a422413f678bef2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture__preset.html#ga209c19a9b242c7a58a422413f678bef2">DMX512_fixture_preset_new</a> (<a class="el" href="group___d_m_x512__fixture.html#ga095951a0fe2b02457c9957776b3bdf71">DMX512_fixture_s</a> *fixture, uint16_t channel_count, uint16_t *channels, uint8_t *values)</td></tr>
 <tr class="memdesc:ga209c19a9b242c7a58a422413f678bef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new scene fixture preset instance.  <a href="group___d_m_x512__fixture__preset.html#ga209c19a9b242c7a58a422413f678bef2">More...</a><br /></td></tr>
 <tr class="separator:ga209c19a9b242c7a58a422413f678bef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73142398387b4d14b68d21c35de9e75c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture__preset.html#ga73142398387b4d14b68d21c35de9e75c">DMX512_fixture_preset_free</a> (<a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a> *fixture_preset)</td></tr>
+<tr class="memdesc:ga73142398387b4d14b68d21c35de9e75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a fixture preset's dynamically allocated ressources and resets its values parameters to default.  <a href="group___d_m_x512__fixture__preset.html#ga73142398387b4d14b68d21c35de9e75c">More...</a><br /></td></tr>
+<tr class="separator:ga73142398387b4d14b68d21c35de9e75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Fixture presets are used to define a scene's fixture channel values to be set into the DMX512 driver send buffer once the scene is triggered. </p>
@@ -187,6 +190,34 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ga73142398387b4d14b68d21c35de9e75c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga73142398387b4d14b68d21c35de9e75c">&#9670;&nbsp;</a></span>DMX512_fixture_preset_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMX512_fixture_preset_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_d_m_x512__fixture__preset__s.html">DMX512_fixture_preset_s</a> *&#160;</td>
+          <td class="paramname"><em>fixture_preset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frees a fixture preset's dynamically allocated ressources and resets its values parameters to default. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*DMX512_fixture_preset_s</td><td>pointer to the fixture preset instance to be reseted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__preset_8c_source.html#l00084">84</a> of file <a class="el" href="_d_m_x512__fixture__preset_8c_source.html">DMX512_fixture_preset.c</a>.</p>
+
+</div>
+</div>
 <a id="ga209c19a9b242c7a58a422413f678bef2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga209c19a9b242c7a58a422413f678bef2">&#9670;&nbsp;</a></span>DMX512_fixture_preset_new()</h2>
 

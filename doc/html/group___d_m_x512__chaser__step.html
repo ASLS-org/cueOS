@@ -146,8 +146,8 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gabdec023df5ad3f0b75ef3a79ae0057cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_m_x512__chaser__step__s.html">DMX512_chaser_step_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__chaser__step.html#gabdec023df5ad3f0b75ef3a79ae0057cb">DMX512_chaser_step_init</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, uint16_t fadein_time, uint16_t fadeout_time, uint16_t hold_time)</td></tr>
-<tr class="memdesc:gabdec023df5ad3f0b75ef3a79ae0057cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new chaser step instance.  <a href="group___d_m_x512__chaser__step.html#gabdec023df5ad3f0b75ef3a79ae0057cb">More...</a><br /></td></tr>
+<tr class="memitem:gabdec023df5ad3f0b75ef3a79ae0057cb"><td class="memItemLeft" align="right" valign="top"><a id="gabdec023df5ad3f0b75ef3a79ae0057cb"></a>
+<a class="el" href="struct_d_m_x512__chaser__step__s.html">DMX512_chaser_step_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DMX512_chaser_step_init</b> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene, uint16_t fadein_time, uint16_t fadeout_time, uint16_t hold_time)</td></tr>
 <tr class="separator:gabdec023df5ad3f0b75ef3a79ae0057cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9c4947753b1a96a2dad9473843891929"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__chaser__step.html#ga9c4947753b1a96a2dad9473843891929">DMX512_chaser_step_manage</a> (<a class="el" href="struct_d_m_x512__chaser__step__s.html">DMX512_chaser_step_s</a> *this)</td></tr>
 <tr class="memdesc:ga9c4947753b1a96a2dad9473843891929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chaser step state machine. Manage a chaser step's state over time.  <a href="group___d_m_x512__chaser__step.html#ga9c4947753b1a96a2dad9473843891929">More...</a><br /></td></tr>
@@ -237,60 +237,6 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gabdec023df5ad3f0b75ef3a79ae0057cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabdec023df5ad3f0b75ef3a79ae0057cb">&#9670;&nbsp;</a></span>DMX512_chaser_step_init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_d_m_x512__chaser__step__s.html">DMX512_chaser_step_s</a> DMX512_chaser_step_init </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *&#160;</td>
-          <td class="paramname"><em>scene</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>fadein_time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>fadeout_time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>hold_time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Creates a new chaser step instance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">*scene</td><td>pointer to the scene instance to be referenced </td></tr>
-    <tr><td class="paramname">fadein_time</td><td>chaser step fade-in time in miliseconds </td></tr>
-    <tr><td class="paramname">fadeout_time</td><td>chaser step fade-out time in miliseconds </td></tr>
-    <tr><td class="paramname">hold_time</td><td>chaser step hold time in miliseconds </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_d_m_x512__chaser__step__s.html" title="DMX512 chaser step structure object.">DMX512_chaser_step_s</a> the chaser step instance </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__chaser__step_8c_source.html#l00089">89</a> of file <a class="el" href="_d_m_x512__chaser__step_8c_source.html">DMX512_chaser_step.c</a>.</p>
-
-</div>
-</div>
 <a id="ga9c4947753b1a96a2dad9473843891929"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga9c4947753b1a96a2dad9473843891929">&#9670;&nbsp;</a></span>DMX512_chaser_step_manage()</h2>
 

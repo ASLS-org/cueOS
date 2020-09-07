@@ -23,6 +23,7 @@ var group___j_s_o_n__parser =
     [ "json_parser_free_json_string", "group___j_s_o_n__parser.html#ga077d74c65c070750f1a749625d795704", null ],
     [ "json_parser_json_string_nest", "group___j_s_o_n__parser.html#ga46a7c6e8223c8a10faaa0b0b26d1f450", null ],
     [ "json_parser_json_string_new", "group___j_s_o_n__parser.html#gad1b29951176046523c36546264c2e899", null ],
+    [ "json_parser_json_string_put_array_int", "group___j_s_o_n__parser.html#ga797f8ab9ed7c55ca8bf55d88439a78f8", null ],
     [ "json_parser_json_string_put_array_object", "group___j_s_o_n__parser.html#ga7e69e7ea39459ffe4bf7125ee86a0bb3", null ],
     [ "json_parser_json_string_put_int_pair", "group___j_s_o_n__parser.html#ga9bff9ff833382f3757553b1394cfd463", null ],
     [ "json_parser_json_string_put_str_pair", "group___j_s_o_n__parser.html#ga2a4c3cae9495de7797650a0b7766ec35", null ],

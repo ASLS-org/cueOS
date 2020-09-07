@@ -135,6 +135,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaeb1fc47ec330a480a68641e307e34a7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture__pool.html#gaeb1fc47ec330a480a68641e307e34a7e">DMX512_fixture_pool_get</a> (<a class="el" href="struct_d_m_x512__fixture__pool__s.html">DMX512_fixture_pool_s</a> *this, uint16_t id, <a class="el" href="group___d_m_x512__fixture.html#ga095951a0fe2b02457c9957776b3bdf71">DMX512_fixture_s</a> **fixture)</td></tr>
 <tr class="memdesc:gaeb1fc47ec330a480a68641e307e34a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a fixture instance from the pool.  <a href="group___d_m_x512__fixture__pool.html#gaeb1fc47ec330a480a68641e307e34a7e">More...</a><br /></td></tr>
 <tr class="separator:gaeb1fc47ec330a480a68641e307e34a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga028b6e8393bde0cc27b4932aec80cd1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__fixture__pool.html#ga028b6e8393bde0cc27b4932aec80cd1d">DMX512_fixture_pool_free</a> (<a class="el" href="struct_d_m_x512__fixture__pool__s.html">DMX512_fixture_pool_s</a> *fixture_pool)</td></tr>
+<tr class="memdesc:ga028b6e8393bde0cc27b4932aec80cd1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees instance pool.  <a href="group___d_m_x512__fixture__pool.html#ga028b6e8393bde0cc27b4932aec80cd1d">More...</a><br /></td></tr>
+<tr class="separator:ga028b6e8393bde0cc27b4932aec80cd1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Fixture pools are used to store a universe's patch information. A patch is a pool of addressed fixtures which channel channel values must me comprised in within a 0-512 address value interval. A patched fixture's channels may not overlap over the channel addresses of another fixture member of the patch. </p>
@@ -216,6 +219,29 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>DMX512_engine_err_e error code following the function call </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00110">110</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
+
+</div>
+</div>
+<a id="ga028b6e8393bde0cc27b4932aec80cd1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga028b6e8393bde0cc27b4932aec80cd1d">&#9670;&nbsp;</a></span>DMX512_fixture_pool_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMX512_fixture_pool_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_d_m_x512__fixture__pool__s.html">DMX512_fixture_pool_s</a> *&#160;</td>
+          <td class="paramname"><em>fixture_pool</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frees instance pool. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_d_m_x512__fixture__pool__s.html" title="DMX512 fixture pool structure object.">DMX512_fixture_pool_s</a> the created pool instance </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__fixture__pool_8c_source.html#l00156">156</a> of file <a class="el" href="_d_m_x512__fixture__pool_8c_source.html">DMX512_fixture_pool.c</a>.</p>
 
 </div>
 </div>

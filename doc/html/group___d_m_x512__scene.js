@@ -23,6 +23,7 @@ var group___d_m_x512__scene =
     ] ],
     [ "DMX512_scene_add_fixture_preset", "group___d_m_x512__scene.html#ga891a02a74ee49ebe36619271a6b78e80", null ],
     [ "DMX512_scene_del_fixture_preset", "group___d_m_x512__scene.html#ga9c2b769a890069b0d89c73e5c6e64680", null ],
+    [ "DMX512_scene_free", "group___d_m_x512__scene.html#gafcb716b410854caf551d49ee765a2639", null ],
     [ "DMX512_scene_get_fixture_preset", "group___d_m_x512__scene.html#ga72a0b2f25855176029ffd7d74efce315", null ],
     [ "DMX512_scene_manage", "group___d_m_x512__scene.html#ga1f3da4003a0770b48407d0384d60afc6", null ],
     [ "DMX512_scene_new", "group___d_m_x512__scene.html#ga4f16dc85762063fd71304d900b00e67d", null ],

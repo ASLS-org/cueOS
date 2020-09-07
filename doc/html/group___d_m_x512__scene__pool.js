@@ -7,7 +7,8 @@ var group___d_m_x512__scene__pool =
     ] ],
     [ "DMX512_scene_pool_add", "group___d_m_x512__scene__pool.html#gae21f1cf8ff023b4116f49a2be61d5ef6", null ],
     [ "DMX512_scene_pool_del", "group___d_m_x512__scene__pool.html#ga433e82e78bffc3f032c1fbf39392cf45", null ],
-    [ "DMX512_scene_pool_get", "group___d_m_x512__scene__pool.html#ga8f7a1d02a6d730803394d6aad5834408", null ],
+    [ "DMX512_scene_pool_free", "group___d_m_x512__scene__pool.html#ga79cb9f0d8f8a3d8506cef8c6d7eb367f", null ],
+    [ "DMX512_scene_pool_get", "group___d_m_x512__scene__pool.html#ga8ca3a4f845a596969bf116524978cba9", null ],
     [ "DMX512_scene_pool_manage", "group___d_m_x512__scene__pool.html#ga12491dbfc9b21f5922073e3efa6f6dfe", null ],
     [ "DMX512_scene_pool_new", "group___d_m_x512__scene__pool.html#ga65322c937fa77e55771f9664aede63fd", null ]
 ];

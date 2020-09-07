@@ -28,5 +28,6 @@ var annotated_dup =
     [ "ms_chronometer_s", "structms__chronometer__s.html", "structms__chronometer__s" ],
     [ "net", "structnet.html", "structnet" ],
     [ "Q_client", "struct_q__client.html", "struct_q__client" ],
-    [ "Q_packet_s", "struct_q__packet__s.html", "struct_q__packet__s" ]
+    [ "Q_packet_s", "struct_q__packet__s.html", "struct_q__packet__s" ],
+    [ "QLFS_manager_s", "struct_q_l_f_s__manager__s.html", "struct_q_l_f_s__manager__s" ]
 ];

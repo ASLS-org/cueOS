@@ -85,4 +85,5 @@ var menudata={children:[
 {text:"f",url:"globals_func.html#index_f"},
 {text:"h",url:"globals_func.html#index_h"},
 {text:"s",url:"globals_func.html#index_s"}]},
+{text:"Variables",url:"globals_vars.html"},
 {text:"Macros",url:"globals_defs.html"}]}]}]}

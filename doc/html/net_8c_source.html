@@ -176,10 +176,10 @@ $(document).ready(function(){initNavTree('net_8c_source.html','');});
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    osThreadNew(_net_set_ip, NULL, NULL);</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    netif_set_up(&amp;this.ethernetif);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    dhcp_start(&amp;this.ethernetif);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    this.net_ready_callback();</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    this.bound_state = <a class="code" href="group__net.html#gga0aac6db71aabfd41a0246de538822d77acc385c25e2c570948d2ddc5d39116a7f">NET_BOUND</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="group__leds__driver.html#ga454903458ff4c3c24ea9cce1234baf0d">leds_driver_set</a>(<a class="code" href="group__leds__driver.html#gga553c6e4a4e02222eabbf5f9f9d912d93a6d8b85827c36d12b4e7b09088e8f2d78">LED_NETWORK</a>, <a class="code" href="group__leds__driver.html#ggaf8bc6eef00945168a34b9961c89e7961a1577011fa256979ac1ad588c8d17d917">LED_BLINK</a>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">//#else</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//  this.net_ready_callback();</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">//  this.bound_state = NET_BOUND;</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">//  leds_driver_set(LED_NETWORK, LED_BLINK);</span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="group__ethernet__driver.html#ga22503c12c617053ffaa6bd97fca5cbbf">ethernetif_notify_conn_changed</a>(&amp;this.ethernetif);</div>
@@ -259,8 +259,20 @@ $(document).ready(function(){initNavTree('net_8c_source.html','');});
 <div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="group__ethernet__driver.html#ga22503c12c617053ffaa6bd97fca5cbbf">  216</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__ethernet__driver.html#ga22503c12c617053ffaa6bd97fca5cbbf">ethernetif_notify_conn_changed</a>(<span class="keyword">struct</span> netif *netif){</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    this.bound_state = <a class="code" href="group__net.html#gga0aac6db71aabfd41a0246de538822d77acb4e9317cb42ac6df3c275c4b11181bc">NET_UNBOUND</a>;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    this.link_state = netif_is_link_up(netif) ? <a class="code" href="group__net.html#gga54cb40652e6275a08915a0f4d02d8e28ae0f4a2a655d580a1e04a53e3afa18c45">NET_LINK_UP</a> : <a class="code" href="group__net.html#gga54cb40652e6275a08915a0f4d02d8e28afb86fcfd9cf9a055fd6d1475ece93138">NET_LINK_DOWN</a>;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    dhcp_network_changed(netif);</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;}</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">#if cueOS_CONFIG_NET_USE_DHCP</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    dhcp_network_changed(netif);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">if</span>(this.link_state == <a class="code" href="group__net.html#gga54cb40652e6275a08915a0f4d02d8e28ae0f4a2a655d580a1e04a53e3afa18c45">NET_LINK_UP</a>){</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        this.net_ready_callback();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        this.bound_state = <a class="code" href="group__net.html#gga0aac6db71aabfd41a0246de538822d77acc385c25e2c570948d2ddc5d39116a7f">NET_BOUND</a>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <a class="code" href="group__leds__driver.html#ga454903458ff4c3c24ea9cce1234baf0d">leds_driver_set</a>(<a class="code" href="group__leds__driver.html#gga553c6e4a4e02222eabbf5f9f9d912d93a6d8b85827c36d12b4e7b09088e8f2d78">LED_NETWORK</a>, <a class="code" href="group__leds__driver.html#ggaf8bc6eef00945168a34b9961c89e7961a1577011fa256979ac1ad588c8d17d917">LED_BLINK</a>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        this.bound_state = <a class="code" href="group__net.html#gga0aac6db71aabfd41a0246de538822d77acb4e9317cb42ac6df3c275c4b11181bc">NET_UNBOUND</a>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <a class="code" href="group__leds__driver.html#ga454903458ff4c3c24ea9cce1234baf0d">leds_driver_set</a>(<a class="code" href="group__leds__driver.html#gga553c6e4a4e02222eabbf5f9f9d912d93a6d8b85827c36d12b4e7b09088e8f2d78">LED_NETWORK</a>, <a class="code" href="group__leds__driver.html#ggaf8bc6eef00945168a34b9961c89e7961afc0ca8cc6cbe215fd3f1ae6d40255b40">LED_OFF</a>);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;}</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="agroup__net_html_gga54cb40652e6275a08915a0f4d02d8e28ae0f4a2a655d580a1e04a53e3afa18c45"><div class="ttname"><a href="group__net.html#gga54cb40652e6275a08915a0f4d02d8e28ae0f4a2a655d580a1e04a53e3afa18c45">NET_LINK_UP</a></div><div class="ttdef"><b>Definition:</b> <a href="net_8h_source.html#l00036">net.h:36</a></div></div>

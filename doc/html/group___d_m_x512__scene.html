@@ -173,6 +173,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1f3da4003a0770b48407d0384d60afc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#ga1f3da4003a0770b48407d0384d60afc6">DMX512_scene_manage</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene)</td></tr>
 <tr class="memdesc:ga1f3da4003a0770b48407d0384d60afc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">State machine to manage scene at a given state.  <a href="group___d_m_x512__scene.html#ga1f3da4003a0770b48407d0384d60afc6">More...</a><br /></td></tr>
 <tr class="separator:ga1f3da4003a0770b48407d0384d60afc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafcb716b410854caf551d49ee765a2639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__scene.html#gafcb716b410854caf551d49ee765a2639">DMX512_scene_free</a> (<a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *scene)</td></tr>
+<tr class="memdesc:gafcb716b410854caf551d49ee765a2639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets a scene to its uninitialised state. frees dynamically allocated scene Data.  <a href="group___d_m_x512__scene.html#gafcb716b410854caf551d49ee765a2639">More...</a><br /></td></tr>
+<tr class="separator:gafcb716b410854caf551d49ee765a2639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Scenes fundamentally define a set of fixtures pre-defined values to be transferred over to the DMX512 driver buffer at given any time. A scene's fixture preset values may be faded in and out over time. </p>
@@ -330,6 +333,34 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gafcb716b410854caf551d49ee765a2639"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafcb716b410854caf551d49ee765a2639">&#9670;&nbsp;</a></span>DMX512_scene_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DMX512_scene_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_d_m_x512__scene__s.html">DMX512_scene_s</a> *&#160;</td>
+          <td class="paramname"><em>scene</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resets a scene to its uninitialised state. frees dynamically allocated scene Data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*scene</td><td>pointer to the scene instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00212">212</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+
+</div>
+</div>
 <a id="ga72a0b2f25855176029ffd7d74efce315"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga72a0b2f25855176029ffd7d74efce315">&#9670;&nbsp;</a></span>DMX512_scene_get_fixture_preset()</h2>
 
@@ -366,7 +397,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>*DMX512_fixture_preset_s pointer to the fixture preset instance </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00165">165</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00163">163</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
@@ -395,7 +426,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="_d_m_x512__scene_8h_source.html">DMX512_scene.h</a> <a class="el" href="group___d_m_x512__scene.html#gae8f4e2bd41f27da7c129e25d343abbb5" title="Current playing state of a scene.">DMX512_scene_state_e</a> state enumeration </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00200">200</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00198">198</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
@@ -470,7 +501,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00179">179</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00177">177</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>
@@ -498,7 +529,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00189">189</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__scene_8c_source.html#l00187">187</a> of file <a class="el" href="_d_m_x512__scene_8c_source.html">DMX512_scene.c</a>.</p>
 
 </div>
 </div>

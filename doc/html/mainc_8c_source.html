@@ -94,12 +94,15 @@ $(document).ready(function(){initNavTree('mainc_8c_source.html','');});
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;main.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;cueos.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">void</span>){</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    cueos_start();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">for</span>(;;); <span class="comment">//Mandatory. this should never be reached</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;DMX512_engine.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;QLSF_manager.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> main(<span class="keywordtype">void</span>){</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    osKernelInitialize();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    cueos_start();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    osKernelStart();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">for</span>(;;); <span class="comment">//Mandatory. this should never be reached</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

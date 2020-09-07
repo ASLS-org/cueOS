@@ -20,7 +20,6 @@ var group___d_m_x512__chaser__step =
       [ "DMX512_CHASER_STEP_UNINITIALISED", "group___d_m_x512__chaser__step.html#gga052942e24f4667414cb2d897926f3d9aa6af695cf353960904ffb3e09065288d8", null ],
       [ "DMX512_CHASER_STEP_INITIALISED", "group___d_m_x512__chaser__step.html#gga052942e24f4667414cb2d897926f3d9aa7ee66351f19dc2a76b8f5ad66760e732", null ]
     ] ],
-    [ "DMX512_chaser_step_init", "group___d_m_x512__chaser__step.html#gabdec023df5ad3f0b75ef3a79ae0057cb", null ],
     [ "DMX512_chaser_step_manage", "group___d_m_x512__chaser__step.html#ga9c4947753b1a96a2dad9473843891929", null ],
     [ "DMX512_chaser_step_start", "group___d_m_x512__chaser__step.html#gab802e922e8fddf036a83927b53e4d9b7", null ],
     [ "DMX512_chaser_step_stop", "group___d_m_x512__chaser__step.html#ga564938337349dbd261a36409f484474f", null ]

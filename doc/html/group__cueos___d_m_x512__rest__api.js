@@ -19,6 +19,7 @@ var group__cueos___d_m_x512__rest__api =
       [ "DMX512_API_ENDPOINT_CHASERS", "group__cueos___d_m_x512__rest__api.html#gga24ef9a81e98e94bb1a76e6746fbdb04ba3c8c3bae4f8288d75967f361f6a74a9e", null ],
       [ "DMX512_API_ENDPOINT_EFFECTS", "group__cueos___d_m_x512__rest__api.html#gga24ef9a81e98e94bb1a76e6746fbdb04ba609be5cc18870a9df6a19d5204a4aa99", null ],
       [ "DMX512_API_ENDPOINT_CUES", "group__cueos___d_m_x512__rest__api.html#gga24ef9a81e98e94bb1a76e6746fbdb04ba95c05bf5ff9f909b8ef259dc0502b24a", null ],
+      [ "DMX512_API_ENDPOINT_CONFIGURE", "group__cueos___d_m_x512__rest__api.html#gga24ef9a81e98e94bb1a76e6746fbdb04ba36c4947f742eeeadf43c9d87cc326b6d", null ],
       [ "DMX512_API_ENDPOINT_DEFAULT", "group__cueos___d_m_x512__rest__api.html#gga24ef9a81e98e94bb1a76e6746fbdb04ba7ab475b274ff7188d08401449e9512af", null ]
     ] ],
     [ "DMX512_rest_api_router", "group__cueos___d_m_x512__rest__api.html#ga313a81b9ebe8bf9d95d167c1d73b3898", null ],

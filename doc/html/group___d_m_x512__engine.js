@@ -5,12 +5,8 @@ var group___d_m_x512__engine =
     [ "Fixture Pool", "group___d_m_x512__fixture__pool.html", "group___d_m_x512__fixture__pool" ],
     [ "Scene Pool", "group___d_m_x512__scene__pool.html", "group___d_m_x512__scene__pool" ],
     [ "DMX512_engine_s", "struct_d_m_x512__engine__s.html", [
-      [ "chaser_count", "struct_d_m_x512__engine__s.html#a813c4496d7f0f1554d0cd54ee691047e", null ],
       [ "chasers", "struct_d_m_x512__engine__s.html#a0981734e2aeea3b5c1ef8fed0a01c0c4", null ],
-      [ "effect_count", "struct_d_m_x512__engine__s.html#a0feb7d84b22a61f15c758697c27a802b", null ],
-      [ "fixture_count", "struct_d_m_x512__engine__s.html#a649ac5b3316593ac0932808121def0b6", null ],
       [ "fixtures", "struct_d_m_x512__engine__s.html#a204e9956dd4978b3caa3a6cf67228b44", null ],
-      [ "scene_count", "struct_d_m_x512__engine__s.html#a7c094411c4ce1bbf332f7636a40cb185", null ],
       [ "scenes", "struct_d_m_x512__engine__s.html#a7aa0e7b55b9d560629a382a290faa903", null ]
     ] ],
     [ "DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE", "group___d_m_x512__engine.html#ga7c8f015e956ae91656504bed0893bde3", null ],
@@ -52,11 +48,21 @@ var group___d_m_x512__engine =
       [ "DMX512_ENGINE_CONFIG_SCENE_ID_INDEX", "group___d_m_x512__engine.html#ggac07cfe11f1458a152c0619b9bf350fe6ae13bbd705c39aff73284495b15be57e8", null ],
       [ "DMX512_ENGINE_CONFIG_SCENE_FIXTURE_PRESET_CNT_INDEX", "group___d_m_x512__engine.html#ggac07cfe11f1458a152c0619b9bf350fe6ae6aeb0161de238cda56800d564384fe8", null ]
     ] ],
+    [ "DMX512_engine_chaser_add", "group___d_m_x512__engine.html#ga558f4c8639ef761a77e434230d2a4a3c", null ],
+    [ "DMX512_engine_chaser_delete", "group___d_m_x512__engine.html#gaf15a0cb32ce77c92e15c987de4f11827", null ],
+    [ "DMX512_engine_chaser_get", "group___d_m_x512__engine.html#ga3e0973066e16acd6528f71ba4b046bf6", null ],
+    [ "DMX512_engine_chaser_get_all", "group___d_m_x512__engine.html#ga61d3e203edf94fd0012b324d1da60a9c", null ],
     [ "DMX512_engine_init", "group___d_m_x512__engine.html#gaab4923cc6a030d8626c2de32cd7aea06", null ],
     [ "DMX512_engine_patch_add", "group___d_m_x512__engine.html#ga358f285473ab09a89787f7e041905aef", null ],
     [ "DMX512_engine_patch_delete", "group___d_m_x512__engine.html#gada3ed7df3b9e4c9d9dd4c6df00f4e4c6", null ],
     [ "DMX512_engine_patch_get", "group___d_m_x512__engine.html#ga4716f92ccafcbc0a543ed588af699bab", null ],
     [ "DMX512_engine_patch_get_all", "group___d_m_x512__engine.html#gaf935f32599ad62a93a8cb8668c1e3c4a", null ],
+    [ "DMX512_engine_reset", "group___d_m_x512__engine.html#ga4c84828d7b0a36e3946cc03d3f5e37f7", null ],
+    [ "DMX512_engine_scene_add", "group___d_m_x512__engine.html#ga4f7130b41250b003f3a120b485c64f83", null ],
+    [ "DMX512_engine_scene_add_preset", "group___d_m_x512__engine.html#ga06c48b0b2c7c903df437a2161ad40b3f", null ],
+    [ "DMX512_engine_scene_delete", "group___d_m_x512__engine.html#ga8b9aab57c3bd909f7d59fefdf4ae6e6a", null ],
+    [ "DMX512_engine_scene_get", "group___d_m_x512__engine.html#ga29706dd072c46839aa61fecc60854ccc", null ],
+    [ "DMX512_engine_scene_get_all", "group___d_m_x512__engine.html#ga781d63871d99b44c0ccb17cd9f4ccab0", null ],
     [ "DMX512_engine_start", "group___d_m_x512__engine.html#ga2796bcad64ff3b6a0098c19bfb8550f7", null ],
     [ "DMX512_engine_stop", "group___d_m_x512__engine.html#gabba8497987ad60914b85b2158d92f51d", null ]
 ];

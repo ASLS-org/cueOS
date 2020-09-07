@@ -132,12 +132,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga256621c5aa3d350f2f843071de3c5aba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__chaser__pool.html#ga256621c5aa3d350f2f843071de3c5aba">DMX512_chaser_pool_del</a> (<a class="el" href="struct_d_m_x512__chaser__pool__s.html">DMX512_chaser_pool_s</a> *chaser_pool, uint16_t id)</td></tr>
 <tr class="memdesc:ga256621c5aa3d350f2f843071de3c5aba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes a chaser instance from the pool.  <a href="group___d_m_x512__chaser__pool.html#ga256621c5aa3d350f2f843071de3c5aba">More...</a><br /></td></tr>
 <tr class="separator:ga256621c5aa3d350f2f843071de3c5aba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa10090252dbeb4ca36029832fd754173"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_d_m_x512__chaser__s.html">DMX512_chaser_s</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__chaser__pool.html#gaa10090252dbeb4ca36029832fd754173">DMX512_chaser_pool_get</a> (<a class="el" href="struct_d_m_x512__chaser__pool__s.html">DMX512_chaser_pool_s</a> *chaser_pool, uint16_t id)</td></tr>
-<tr class="memdesc:gaa10090252dbeb4ca36029832fd754173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a chaser instance from the pool.  <a href="group___d_m_x512__chaser__pool.html#gaa10090252dbeb4ca36029832fd754173">More...</a><br /></td></tr>
-<tr class="separator:gaa10090252dbeb4ca36029832fd754173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42607ffce173279a482b3c734420754b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__chaser__pool.html#ga42607ffce173279a482b3c734420754b">DMX512_chaser_pool_get</a> (<a class="el" href="struct_d_m_x512__chaser__pool__s.html">DMX512_chaser_pool_s</a> *chaser_pool, uint16_t id, <a class="el" href="struct_d_m_x512__chaser__s.html">DMX512_chaser_s</a> **chaser)</td></tr>
+<tr class="memdesc:ga42607ffce173279a482b3c734420754b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a chaser instance from the pool.  <a href="group___d_m_x512__chaser__pool.html#ga42607ffce173279a482b3c734420754b">More...</a><br /></td></tr>
+<tr class="separator:ga42607ffce173279a482b3c734420754b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae5252828c320d1d129c29521b591d7ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__chaser__pool.html#gae5252828c320d1d129c29521b591d7ba">DMX512_chaser_pool_manage</a> (<a class="el" href="struct_d_m_x512__chaser__pool__s.html">DMX512_chaser_pool_s</a> *chaser_pool)</td></tr>
 <tr class="memdesc:gae5252828c320d1d129c29521b591d7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages execution of chaser instances for a whole pool.  <a href="group___d_m_x512__chaser__pool.html#gae5252828c320d1d129c29521b591d7ba">More...</a><br /></td></tr>
 <tr class="separator:gae5252828c320d1d129c29521b591d7ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad3512db493005e140ce684c011b49fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___d_m_x512__chaser__pool.html#gad3512db493005e140ce684c011b49fe1">DMX512_chaser_pool_free</a> (<a class="el" href="struct_d_m_x512__chaser__pool__s.html">DMX512_chaser_pool_s</a> *chaser_pool)</td></tr>
+<tr class="memdesc:gad3512db493005e140ce684c011b49fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees instance pool.  <a href="group___d_m_x512__chaser__pool.html#gad3512db493005e140ce684c011b49fe1">More...</a><br /></td></tr>
+<tr class="separator:gad3512db493005e140ce684c011b49fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Chaser pools are used to store and manage a lists of pre-configured chasers. Up to 65535 DMX512 chasers may be stored for each individual DMX512 universe. </p>
@@ -222,14 +225,42 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaa10090252dbeb4ca36029832fd754173"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa10090252dbeb4ca36029832fd754173">&#9670;&nbsp;</a></span>DMX512_chaser_pool_get()</h2>
+<a id="gad3512db493005e140ce684c011b49fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad3512db493005e140ce684c011b49fe1">&#9670;&nbsp;</a></span>DMX512_chaser_pool_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_d_m_x512__chaser__s.html">DMX512_chaser_s</a>* DMX512_chaser_pool_get </td>
+          <td class="memname">void DMX512_chaser_pool_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_d_m_x512__chaser__pool__s.html">DMX512_chaser_pool_s</a> *&#160;</td>
+          <td class="paramname"><em>chaser_pool</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frees instance pool. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chaser_pool</td><td>pointer to a chaser pool instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__chaser__pool_8c_source.html#l00137">137</a> of file <a class="el" href="_d_m_x512__chaser__pool_8c_source.html">DMX512_chaser_pool.c</a>.</p>
+
+</div>
+</div>
+<a id="ga42607ffce173279a482b3c734420754b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga42607ffce173279a482b3c734420754b">&#9670;&nbsp;</a></span>DMX512_chaser_pool_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group___d_m_x512__defs.html#ga6ce6bbde9df8b66ae8de8a2e60699f18">DMX512_engine_err_e</a> DMX512_chaser_pool_get </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_d_m_x512__chaser__pool__s.html">DMX512_chaser_pool_s</a> *&#160;</td>
           <td class="paramname"><em>chaser_pool</em>, </td>
@@ -238,7 +269,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_d_m_x512__chaser__s.html">DMX512_chaser_s</a> **&#160;</td>
+          <td class="paramname"><em>chaser</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -286,7 +323,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_d_m_x512__chaser__pool_8c_source.html#l00122">122</a> of file <a class="el" href="_d_m_x512__chaser__pool_8c_source.html">DMX512_chaser_pool.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_d_m_x512__chaser__pool_8c_source.html#l00126">126</a> of file <a class="el" href="_d_m_x512__chaser__pool_8c_source.html">DMX512_chaser_pool.c</a>.</p>
 
 </div>
 </div>
