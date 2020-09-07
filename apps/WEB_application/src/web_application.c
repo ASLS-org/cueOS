@@ -40,6 +40,7 @@ static err_t _web_application_open(struct fs_file *file, const char *name) {
       return ERR_OK;
     }
   }
+
   /* file not found */
   return ERR_VAL;
 }
