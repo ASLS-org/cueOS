@@ -7,10 +7,14 @@
 #include "device.h"
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
+
+SD_HandleTypeDef hsd;
+DMA_HandleTypeDef hdma_sdio_rx;
+DMA_HandleTypeDef hdma_sdio_tx;
 
 /**
  * Configure system clocks
@@ -47,6 +51,20 @@ void _device_config_clock(void){
 }
 
 /**
+ * @brief initialises SDIO to be used for communication
+ * 		  with SD an SD card
+ */
+static void _mmc_init(void){
+	  hsd.Instance = SDIO;
+	  hsd.Init.ClockEdge = SDIO_CLOCK_EDGE_RISING;
+	  hsd.Init.ClockBypass = SDIO_CLOCK_BYPASS_DISABLE;
+	  hsd.Init.ClockPowerSave = SDIO_CLOCK_POWER_SAVE_DISABLE;
+	  hsd.Init.BusWide = SDIO_BUS_WIDE_1B;
+	  hsd.Init.HardwareFlowControl = SDIO_HARDWARE_FLOW_CONTROL_DISABLE;
+	  hsd.Init.ClockDiv = 0;
+}
+
+/**
  * Configure system GPIO clocks
  * TODO: would it be better to put these locally where GPIO are initialised ?
  */
@@ -55,6 +73,14 @@ void _device_config_gpio(void){
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	__HAL_RCC_GPIOB_CLK_ENABLE();
 	__HAL_RCC_GPIOD_CLK_ENABLE();
+
+	GPIO_InitTypeDef test = {0};
+
+	test.Pin = GPIO_PIN_15;
+	test.Mode = GPIO_MODE_INPUT;
+	test.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOB, &test);
+
 }
 
 /**
@@ -75,7 +101,7 @@ void _device_config_dma(void){
 }
 
 
-/**============================================================================================================================
+/***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
  * @see cueos.h for declarations
@@ -91,6 +117,7 @@ void device_init(void){
 
 	_device_config_clock();
 	_device_config_gpio();
+	_mmc_init();
 	_device_config_dma();
 
 }
@@ -104,8 +131,7 @@ void device_init(void){
   * @param  htim : TIM handle
   * @retval None
   */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
   if (htim->Instance == TIM2) {
     HAL_IncTick();
   }
