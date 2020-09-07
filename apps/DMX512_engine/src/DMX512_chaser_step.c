@@ -86,7 +86,7 @@ static void _DMX512_step_fadeout(DMX512_chaser_step_s *chaser_step){
  * @param hold_time chaser step hold time in miliseconds
  * @return DMX512_chaser_step_s the chaser step instance
  */
-DMX512_chaser_step_s DMX512_chaser_step_init(DMX512_scene_s *scene, uint16_t fadein_time, uint16_t fadeout_time, uint16_t hold_time){
+DMX512_chaser_step_s DMX512_chaser_step_new(DMX512_scene_s *scene, uint16_t fadein_time, uint16_t fadeout_time, uint16_t hold_time){
 
 	DMX512_chaser_step_s chaser_step = DMX512_CHASER_STEP_DEFAULT;
 

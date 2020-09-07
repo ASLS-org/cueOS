@@ -45,7 +45,7 @@ static int16_t _DMX512_chaser_pool_search(DMX512_chaser_pool_s *chaser_pool, uin
  */
 DMX512_chaser_pool_s *DMX512_chaser_pool_new(void){
 	DMX512_chaser_pool_s *chaser_pool = pvPortMalloc(sizeof(DMX512_chaser_pool_s));
-	chaser_pool->chasers 		= NULL;
+	chaser_pool->chasers 		= pvPortMalloc(sizeof(DMX512_chaser_s));
 	chaser_pool->chaser_count 	= 0;
 	return chaser_pool;
 }
@@ -104,13 +104,17 @@ DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *chaser_pool, ui
  * @param id the chaser identifier
  * @return *DMX512_chaser_s pointer to the chaser instance
  */
-DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, uint16_t id){
+DMX512_engine_err_e DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, uint16_t id, DMX512_chaser_s **chaser){
+
+	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
+
 	int16_t index = _DMX512_chaser_pool_search(chaser_pool, id);
+
 	if(index >= 0){
-		return &chaser_pool->chasers[index];
-	}else{
-		return NULL;
+		*chaser = &chaser_pool->chasers[index];
+		err = DMX512_ENGINE_OK;
 	}
+
 
 }
 
@@ -122,6 +126,18 @@ DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, uint1
 void DMX512_chaser_pool_manage(DMX512_chaser_pool_s *chaser_pool){
 	for(uint16_t i=0; i<chaser_pool->chaser_count; i++){
 		DMX512_chaser_manage(&chaser_pool->chasers[i]);
+	}
+}
+
+/**
+ * @brief Frees instance pool
+ *
+ * @param chaser_pool pointer to a chaser pool instance
+ */
+void DMX512_chaser_pool_free(DMX512_chaser_pool_s *chaser_pool){
+	if(chaser_pool != NULL){
+		vPortFree(chaser_pool->chasers);
+		vPortFree(chaser_pool);
 	}
 }
 

@@ -111,23 +111,32 @@ typedef enum{
  * @brief Defines a DMX512 engine instance
  */
 typedef struct{
-	DMX512_fixture_pool_s *fixtures;				/**< list of the engine's fixtures (patch)*/
-	DMX512_scene_pool_s *scenes;					/**< list of the engine's scenes*/
-	DMX512_chaser_pool_s *chasers;					/**< list of the engine's chasers*/
-	uint16_t fixture_count;							/**< Expected fixture count extracted from a QLSF header*/ 	//TODO: maybe remove this, it is confusing
-	uint16_t scene_count;							/**< Expected scene count extracted from a QLSF header*/ 	//TODO: maybe remove this, it is confusing
-	uint16_t chaser_count;							/**< Expected chaser count extracted from a QLSF header*/ 	//TODO: maybe remove this, it is confusing
-	uint16_t effect_count;							/**< Expected effect count extracted from a QLSF header*/ 	//TODO: maybe remove this, it is confusing
+	DMX512_fixture_pool_s *fixtures;								/**< list of the engine's fixtures (patch)*/
+	DMX512_scene_pool_s *scenes;									/**< list of the engine's scenes*/
+	DMX512_chaser_pool_s *chasers;									/**< list of the engine's chasers*/
 }DMX512_engine_s;
 
 
 void DMX512_engine_init(void);
 void DMX512_engine_start(void);
 void DMX512_engine_stop(void);
+void DMX512_engine_reset(void);
+
 DMX512_engine_err_e DMX512_engine_patch_add(uint16_t fixture_id, uint16_t address, uint16_t ch_count);
 DMX512_engine_err_e DMX512_engine_patch_get(uint16_t fixture_id, DMX512_fixture_s **fixture);
 DMX512_fixture_pool_s *DMX512_engine_patch_get_all(void);
 DMX512_engine_err_e DMX512_engine_patch_delete(uint16_t fixture_id);
+
+DMX512_engine_err_e DMX512_engine_scene_add(uint16_t scene_id, uint16_t fadein_time, uint16_t fadeout_time);
+DMX512_engine_err_e DMX512_engine_scene_add_preset(uint16_t scene_id, uint16_t fixture_id, uint16_t channel_count, uint16_t *channels, uint8_t *values);
+DMX512_engine_err_e DMX512_engine_scene_get(uint16_t scene_id, DMX512_scene_s **scene);
+DMX512_scene_pool_s *DMX512_engine_scene_get_all(void);
+DMX512_engine_err_e DMX512_engine_scene_delete(uint16_t scene_id);
+
+DMX512_engine_err_e DMX512_engine_chaser_add(uint16_t chaser_id, DMX512_chaser_mode_e mode, DMX512_chaser_direction_e direction);
+DMX512_engine_err_e DMX512_engine_chaser_get(uint16_t chaser_id, DMX512_chaser_s **chaser);
+DMX512_chaser_pool_s *DMX512_engine_chaser_get_all(void);
+DMX512_engine_err_e DMX512_engine_chaser_delete(uint16_t chaser_id);
 
 #endif
 

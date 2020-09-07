@@ -27,6 +27,7 @@ DMX512_fixture_pool_s *DMX512_fixture_pool_new(void);
 DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *this, DMX512_fixture_s fixture);
 DMX512_engine_err_e DMX512_fixture_pool_del(DMX512_fixture_pool_s *this, uint16_t id);
 DMX512_engine_err_e DMX512_fixture_pool_get(DMX512_fixture_pool_s *this, uint16_t id, DMX512_fixture_s **fixture);
+void DMX512_fixture_pool_free(DMX512_fixture_pool_s *fixture_pool);
 
 
 #endif

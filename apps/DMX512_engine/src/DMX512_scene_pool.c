@@ -92,6 +92,7 @@ DMX512_engine_err_e DMX512_scene_pool_del(DMX512_scene_pool_s *scene_pool, uint1
 				scene_pool->scenes[i-1] = scene_pool->scenes[i];
 		}
 		scene_pool->scene_count--;
+		DMX512_scene_free(&scene_pool->scenes[index]);
 		scene_pool->scenes = pvPortRealloc(scene_pool->scenes, sizeof(DMX512_scene_s) * (scene_pool->scene_count));
 	}else{
 		err = DMX512_ENGINE_INSTANCE_UNDEFINED;
@@ -108,13 +109,18 @@ DMX512_engine_err_e DMX512_scene_pool_del(DMX512_scene_pool_s *scene_pool, uint1
  * @param id the scene's identifier
  * @return DMX512_scene_s* pointer to the scene instance
  */
-DMX512_scene_s *DMX512_scene_pool_get(DMX512_scene_pool_s *scene_pool, uint16_t id){
+DMX512_engine_err_e DMX512_scene_pool_get(DMX512_scene_pool_s *scene_pool, uint16_t id, DMX512_scene_s **scene){
+
+	DMX512_engine_err_e err = DMX512_ENGINE_INSTANCE_UNDEFINED;
+
 	int16_t index = _DMX512_scene_pool_search(scene_pool, id);
 	if(index >= 0){
-		return &scene_pool->scenes[index];
-	}else{
-		return NULL;
+		*scene = &scene_pool->scenes[index];
+		err = DMX512_ENGINE_OK;
 	}
+
+	return err;
+
 }
 
 /**
@@ -125,6 +131,20 @@ DMX512_scene_s *DMX512_scene_pool_get(DMX512_scene_pool_s *scene_pool, uint16_t 
 void DMX512_scene_pool_manage(DMX512_scene_pool_s *scene_pool){
 	for(uint16_t i = 0; i<scene_pool->scene_count;i++){
 		DMX512_scene_manage(&scene_pool->scenes[i]);
+	}
+}
+
+/**
+ * @brief Safely Frees instance pool
+ *
+ * @param *scene_pool pointer to the scene pool instance to be freed
+ */
+void DMX512_scene_pool_free(DMX512_scene_pool_s *scene_pool){
+	if(scene_pool != NULL){
+		for(uint16_t i = 0; i<scene_pool->scene_count; i++){
+			DMX512_scene_free(&scene_pool->scenes[i]);
+		}
+		vPortFree(scene_pool);
 	}
 }
 

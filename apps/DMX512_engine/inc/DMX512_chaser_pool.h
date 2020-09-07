@@ -28,8 +28,9 @@ typedef struct{
 DMX512_chaser_pool_s *DMX512_chaser_pool_new(void);
 DMX512_engine_err_e DMX512_chaser_pool_add(DMX512_chaser_pool_s *chaser_pool, DMX512_chaser_s chaser);
 DMX512_engine_err_e DMX512_chaser_pool_del(DMX512_chaser_pool_s *chaser_pool, uint16_t id);
-DMX512_chaser_s *DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, uint16_t id);
+DMX512_engine_err_e DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, uint16_t id, DMX512_chaser_s **chaser);
 void DMX512_chaser_pool_manage(DMX512_chaser_pool_s *chaser_pool);
+void DMX512_chaser_pool_free(DMX512_chaser_pool_s *chaser_pool);
 
 
 #endif

@@ -144,9 +144,7 @@ DMX512_engine_err_e DMX512_scene_del_fixture_preset(DMX512_scene_s *scene, uint1
 			scene->fixture_presets[i-1] = scene->fixture_presets[i];
 		}
 		scene->fixture_preset_count--;
-		vPortFree(scene->fixture_presets[index].values);
-		vPortFree(scene->fixture_presets[index].channels);
-		//TODO: create free template in DMX512_fixture_preset.c
+		DMX512_fixture_preset_free(&scene->fixture_presets[index]);
 		scene->fixture_presets = pvPortRealloc(scene->fixture_presets, sizeof(DMX512_fixture_s) * (scene->fixture_preset_count));
 		err = DMX512_ENGINE_OK;
 	}
@@ -202,6 +200,25 @@ void DMX512_scene_manage(DMX512_scene_s *scene){
 		case DMX512_SCENE_FADEIN: 	_DMX512_scene_fadein(scene); 	break;
 		case DMX512_SCENE_FADEOUT: 	_DMX512_scene_fadeout(scene); 	break;
 		case DMX512_SCENE_IDLE:		/*TODO: handle IDLE state ?*/	break;
+	}
+}
+
+/**
+ * @brief Resets a scene to its uninitialised state.
+ * 		  frees dynamically allocated scene Data.
+ *
+ * @param *scene pointer to the scene instance
+ */
+void DMX512_scene_free(DMX512_scene_s *scene){
+	if(scene != NULL){
+		for(uint16_t i=0; i<scene->fixture_preset_count; i++){
+			DMX512_fixture_preset_free(&scene->fixture_presets[i]);
+		}
+		scene->fadein_time 	= 0;
+		scene->fadeout_time = 0;
+		scene->state 		= DMX512_SCENE_UNINITIALISED;
+		scene->status		= DMX512_SCENE_IDLE;
+		vPortFree(scene->fixture_presets);
 	}
 }
 

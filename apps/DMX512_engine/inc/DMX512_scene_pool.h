@@ -30,8 +30,9 @@ typedef struct{
 DMX512_scene_pool_s *DMX512_scene_pool_new(void);
 DMX512_engine_err_e DMX512_scene_pool_add(DMX512_scene_pool_s *scene_pool, DMX512_scene_s scene);
 DMX512_engine_err_e DMX512_scene_pool_del(DMX512_scene_pool_s *scene_pool, uint16_t id);
-DMX512_scene_s *DMX512_scene_pool_get(DMX512_scene_pool_s *scene_pool, uint16_t id);
+DMX512_engine_err_e DMX512_scene_pool_get(DMX512_scene_pool_s *scene_pool, uint16_t id, DMX512_scene_s **scene);
 void DMX512_scene_pool_manage(DMX512_scene_pool_s *scene_pool);
+void DMX512_scene_pool_free(DMX512_scene_pool_s *scene_pool);
 
 #endif
 

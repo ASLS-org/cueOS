@@ -89,7 +89,7 @@ DMX512_fixture_pool_s *DMX512_fixture_pool_new(void){
 DMX512_engine_err_e DMX512_fixture_pool_add(DMX512_fixture_pool_s *fixture_pool, DMX512_fixture_s fixture){
 
 	//TODO: check if fixture instance is valid first
-	DMX512_engine_err_e err = _DMX512_fixture_pool_check(fixture_pool, fixture);;
+	DMX512_engine_err_e err = _DMX512_fixture_pool_check(fixture_pool, fixture);
 
 	if(err == DMX512_ENGINE_OK){
 		fixture_pool->fixtures = (DMX512_fixture_s*) pvPortRealloc(fixture_pool->fixtures, sizeof(DMX512_fixture_s) * (fixture_pool->fixture_count + 1));
@@ -146,6 +146,16 @@ DMX512_engine_err_e DMX512_fixture_pool_get(DMX512_fixture_pool_s *fixture_pool,
 
 	return err;
 
+}
+
+/**
+ * @brief Frees instance pool
+ *
+ * @return DMX512_fixture_pool_s the created pool instance
+ */
+void DMX512_fixture_pool_free(DMX512_fixture_pool_s *fixture_pool){
+	vPortFree(fixture_pool->fixtures);
+	vPortFree(fixture_pool);
 }
 
 #endif

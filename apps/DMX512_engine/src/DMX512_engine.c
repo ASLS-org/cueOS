@@ -12,6 +12,8 @@
 #include "cmsis_os.h"
 #include "DMX512_driver.h"
 #include "DMX512_engine.h"
+#include "leds_driver.h"
+#include "QLSF_manager.h"
 
 
 /***============================================================================================================================
@@ -27,164 +29,6 @@ static osThreadId_t DMX512engineThread = NULL;
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
-
-/**
- * @brief Loads header information into the parser instance
- *
- * Data contained within a QLSF file header conveys information regarding
- * the size of each groups of data chunks, thus enabling a parser to lookup
- * for show-relative information fast.
- *
- * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
- * @see DMX512_engine.h for further information regarding error codes
- */
-static DMX512_engine_err_e _DMX512_engine_load_config_header(FIL *config_file){
-
-	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-	uint16_t buf[DMX512_ENGINE_CONFIG_HEADER_SIZE];
-	UINT br;
-
-	f_lseek(config_file, 0);
-
-	if(f_read(config_file, buf, DMX512_ENGINE_CONFIG_HEADER_SIZE * sizeof(uint16_t), &br) == FR_OK){
-		engine.fixture_count	= buf[DMX512_ENGINE_CONFIG_HEADER_PATCH_CNT_INDEX];
-		engine.scene_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_SCENE_CNT_INDEX];
-		engine.chaser_count 	= buf[DMX512_ENGINE_CONFIG_HEADER_CHASE_CNT_INDEX];
-	}else{
-		err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
-	}
-
-	return err;
-
-}
-
-/**
- * @brief Loads patch defined within the config file into the DMX51 engine
- *
- * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
- * @see DMX512_engine.h for further information regarding error codes
- */
-static DMX512_engine_err_e _DMX512_engine_load_config_patch(FIL *config_file){
-
-	DMX512_engine_err_e err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
-
-	for(int i=0; i< engine.fixture_count; i++){
-
-		uint16_t patch_buf[DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE];
-		UINT br;
-
-		if(f_read(config_file, patch_buf, DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE * sizeof(uint16_t), &br) != FR_OK){
-		}else if(br < DMX512_ENGINE_CONFIG_PATCH_DATA_SIZE){
-		}else{
-			uint16_t id   = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_ID_INDEX];
-			uint16_t addr = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_ADDR_INDEX];
-			uint16_t chn  = patch_buf[DMX512_ENGINE_CONFIG_PATCH_CHUNK_CHN_INDEX];
-			DMX512_fixture_s fixture = DMX512_fixture_new(id, addr, chn);
-			if(DMX512_fixture_pool_add(engine.fixtures, fixture) != DMX512_ENGINE_OK){
-				err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
-				break;
-			}else{
-				err = DMX512_ENGINE_OK;
-			}
-		}
-
-	}
-
-	return err;
-
-}
-
-/**
- * @brief Loads scenes defined within the config file into the DMX512 engine
- *
- * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
- * @see DMX512_engine.h for further information regarding error codes
- */
-//TODO: check for errors here
-static DMX512_engine_err_e _DMX512_engine_load_config_scenes(FIL *config_file){
-
-	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-
-	for(uint16_t i=0; i<engine.scene_count; i++){
-
-		uint16_t header[DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE];
-		f_read(config_file, header, DMX512_ENGINE_CONFIG_SCENE_HEADER_SIZE * sizeof(uint16_t), NULL);
-		uint16_t scene_id 	  = header[DMX512_ENGINE_CONFIG_SCENE_ID_INDEX];
-		uint16_t preset_count = header[DMX512_ENGINE_CONFIG_SCENE_FIXTURE_PRESET_CNT_INDEX];
-		DMX512_scene_s scene  = DMX512_scene_new(scene_id, 250, 250);
-		for(uint16_t j=0; j<preset_count;j++){
-			uint16_t preset_header[DMX512_ENGINE_CONFIG_FIXTURE_PRESET_HEADER_SIZE];
-			f_read(config_file, preset_header, DMX512_ENGINE_CONFIG_FIXTURE_PRESET_HEADER_SIZE * sizeof(uint16_t), NULL);
-			uint16_t fixture_id = preset_header[DMX512_ENGINE_CONFIG_FIXTURE_PRESET_ID_INDEX];
-			uint16_t ch_count 	= preset_header[DMX512_ENGINE_CONFIG_FIXTURE_PRESET_CHANNEL_CNT_INDEX];
-			uint16_t channels[ch_count];
-			uint8_t values[ch_count];
-			f_read(config_file, channels, ch_count * sizeof(uint16_t), NULL);
-			f_read(config_file, values, ch_count * sizeof(uint8_t), NULL);
-
-//			FIXME: update following changes made to  fixture pool "get" function
-//			DMX512_fixture_s *fixture 		= DMX512_fixture_pool_get(engine.fixtures, fixture_id);
-//			DMX512_fixture_preset_s preset 	= DMX512_fixture_preset_new(fixture, ch_count, channels, values);
-//			DMX512_scene_add_preset(&scene, preset);
-		}
-
-		DMX512_scene_pool_add(engine.scenes, scene);
-
-	}
-
-	return err;
-}
-
-/**
- * @brief Loads chasers defined within the config file into the DMX512 engine
- *
- * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
- * @see DMX512_engine.h for further information regarding error codes
- */
-//TODO: check for errors here
-static DMX512_engine_err_e _DMX512_engine_load_config_chasers(FIL *config_file){
-
-	DMX512_engine_err_e err = DMX512_ENGINE_OK;
-
-	for(uint16_t i=0; i<engine.chaser_count; i++){
-
-		uint16_t chaser_header[DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE];
-
-		f_read(config_file, chaser_header, DMX512_ENGINE_CONFIG_CHASER_HEADER_SIZE * sizeof(uint16_t), NULL);
-
-		uint16_t chaser_id     = chaser_header[DMX512_ENGINE_CONFIG_CHASER_ID_INDEX];
-		uint16_t chaser_dir    = chaser_header[DMX512_ENGINE_CONFIG_CHASER_DIR_MODE_INDEX];
-		uint16_t chaser_mode   = chaser_header[DMX512_ENGINE_CONFIG_CHASER_RUN_MODE_INDEX];
-		uint16_t step_count    = chaser_header[DMX512_ENGINE_CONFIG_CHASER_STEP_COUNT_INDEX];
-		DMX512_chaser_s chaser = DMX512_chaser_new(chaser_id, chaser_mode, chaser_dir);
-
-		for(uint16_t j=0; j<step_count; j++){
-
-			uint16_t step_buffer[4];
-
-			f_read(config_file, step_buffer, 4 * sizeof(uint16_t), NULL);
-
-			uint16_t scene_id = step_buffer[DMX512_ENGINE_CONFIG_STEP_ID_INDEX];
-			uint16_t fadein   = step_buffer[DMX512_ENGINE_CONFIG_STEP_FADEIN_INDEX];
-			uint16_t fadeout  = step_buffer[DMX512_ENGINE_CONFIG_STEP_FADEOUT_INDEX];
-			uint16_t hold  	  = step_buffer[DMX512_ENGINE_CONFIG_STEP_HOLD_INDEX];
-
-			DMX512_scene_s *scene 	  = DMX512_scene_pool_get(engine.scenes, scene_id);
-			DMX512_chaser_step_s step = DMX512_chaser_step_init(scene, fadein, fadeout, hold);
-
-			//if((err = DMX512_chaser_add_step(&chaser, step)) != DMX512_ENGINE_OK ){ break; }
-			DMX512_chaser_add_step(&chaser, step);
-
-		}
-
-		DMX512_chaser_pool_add(engine.chasers, chaser);
-
-	}
-
-
-	return err;
-
-}
 
 /**
  * @brief Thread managing engine functions execution
@@ -203,6 +47,7 @@ static void _DMX512_engine_manage(void *arg){
 	}
 }
 
+//TODO: add engine reset to clear everything ?
 
 /***============================================================================================================================
  * Public functions definitions
@@ -211,43 +56,18 @@ static void _DMX512_engine_manage(void *arg){
  *=============================================================================================================================*/
 
 /**
- * @brief Loads a show configuration from a QLSF file
- *
- * @return DMX512_engine_err_e DMX512_ENGINE_OK on success, specific error code otherwise
- * @see DMX512_defs.h for further information regarding error codes
- */
-DMX512_engine_err_e DMX512_engine_load_config(TCHAR *config_file_path){
-
-	DMX512_engine_err_e err = DMX512_ENGINE_CONFIG_LOAD_EXCEPTION;
-	FIL config_file;
-
-	if(fs_get_mount_status() != FS_MOUNTED){ fs_init(); }
-
-	if(f_open(&config_file, config_file_path, FA_OPEN_ALWAYS | FA_READ ) != FR_OK){
-	}else if(_DMX512_engine_load_config_header(&config_file)  != DMX512_ENGINE_OK){
-	}else if(_DMX512_engine_load_config_patch(&config_file)   != DMX512_ENGINE_OK){
-	}else if(_DMX512_engine_load_config_scenes(&config_file)  != DMX512_ENGINE_OK){
-	}else if(_DMX512_engine_load_config_chasers(&config_file) != DMX512_ENGINE_OK){
-	}else{
-		err = DMX512_ENGINE_OK;
-		f_close(&config_file);
-	}
-
-	return err;
-}
-
-/**
  * @brief Initialises the DMX512 engine singleton.
  */
 void DMX512_engine_init(void){
 
-	engine.fixture_count  = 0;
-	engine.scene_count	= 0;
-	engine.chaser_count	= 0;
-	engine.effect_count	= 0;
-	engine.fixtures 		= DMX512_fixture_pool_new();
-	engine.scenes 		= DMX512_scene_pool_new();
-	engine.chasers 		= DMX512_chaser_pool_new();
+	//TODO: modify pool instances to return value instead of pointer to value since engine is a singleton
+	//and should keep the values safe until it is exited
+
+	engine.fixtures 	  = DMX512_fixture_pool_new();
+	engine.scenes 		  = DMX512_scene_pool_new();
+	engine.chasers 		  = DMX512_chaser_pool_new();
+
+	QLFS_manager_load("show.qlsf");
 
 	if(DMX512_driver_get_status() != DMX512_DRIVER_INITIALISED){
 		DMX512_driver_init();
@@ -261,10 +81,13 @@ void DMX512_engine_init(void){
 
 /**
  * @brief Starts the DMX512 driver and launches the DMX512 engine management thread
+ * @warning FATTFS
+ * TODO: decrease memory usage by modifying configuration file
  */
 void DMX512_engine_start(void){
+	osThreadAttr_t attr = {.stack_size = 2048,.priority = (osPriority_t) osPriorityNormal};
 	DMX512_driver_start();
-	DMX512engineThread = osThreadNew(_DMX512_engine_manage, NULL, NULL);
+	DMX512engineThread = osThreadNew(_DMX512_engine_manage, NULL, &attr);
 }
 
 /**
@@ -320,6 +143,143 @@ DMX512_fixture_pool_s *DMX512_engine_patch_get_all(void){
  */
 DMX512_engine_err_e DMX512_engine_patch_delete(uint16_t fixture_id){
 	return DMX512_fixture_pool_del(engine.fixtures, fixture_id);
+}
+
+/**
+ * @brief Wrapper for "DMX512_scene_pool_add" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "fixtures" as argument.
+ *
+ * @param scene_id the scene identifier
+ * @param fadein_time the scene fade-in time in milliseconds
+ * @param fadeout_time the scene fade-out time in milliseconds
+ * @return DMX512_engine_err_e error code following the function call
+ * @see DMX512_defs.h for further information regarding DMX512 engin error codes
+ */
+DMX512_engine_err_e DMX512_engine_scene_add(uint16_t scene_id, uint16_t fadein_time, uint16_t fadeout_time){
+	DMX512_scene_s scene = DMX512_scene_new(scene_id, fadein_time, fadeout_time);
+	return DMX512_scene_pool_add(engine.scenes, scene);
+}
+
+/**
+ * @brief Wrapper for "DMX512_scene_pool_add" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "fixtures" as argument.
+ *
+ * @param scene_id the scene identifier
+ * @param fadein_time the scene fade-in time in milliseconds
+ * @param fadeout_time the scene fade-out time in milliseconds
+ * @return DMX512_engine_err_e error code following the function call
+ * @see DMX512_defs.h for further information regarding DMX512 engin error codes
+ */
+DMX512_engine_err_e DMX512_engine_scene_add_preset(uint16_t scene_id, uint16_t fixture_id, uint16_t channel_count, uint16_t *channels, uint8_t *values){
+
+	DMX512_scene_s *scene		= NULL;
+	DMX512_fixture_s *fixture 	= NULL;
+
+	DMX512_fixture_pool_get(engine.fixtures, fixture_id, &fixture);
+	DMX512_scene_pool_get(engine.scenes, scene_id, &scene);
+
+	DMX512_fixture_preset_s preset = DMX512_fixture_preset_new(fixture, channel_count, channels, values);
+
+	return DMX512_scene_add_fixture_preset(scene, preset);
+
+}
+
+/**
+ * @brief Wrapper for "DMX512_scene_pool_get" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "scene" as argument.
+ *
+ * @param scene_id the scene identifier
+ * @param **scene pointer to the scene
+ * @return DMX512_engine_err_e ERR_OK if fixture was found, DMX512_ENGINE_INSTANCE_UNDEFINED otherwise
+ */
+DMX512_engine_err_e DMX512_engine_scene_get(uint16_t scene_id, DMX512_scene_s **scene){
+	return DMX512_scene_pool_get(engine.scenes, scene_id, scene);
+}
+
+/**
+ * @brief Returns the current engine scenes
+ *
+ * @return DMX512_scene_pool_s* pointer to the engine's scene pool
+ */
+DMX512_scene_pool_s *DMX512_engine_scene_get_all(void){
+	return engine.scenes;
+}
+
+/**
+ * @brief Wrapper for "DMX512_scene_pool_del" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "scenes" as argument.
+ *
+ * @param scene_id the scene's idendifier
+ * @return DMX512_engine_err_e error code following the function call
+ */
+DMX512_engine_err_e DMX512_engine_scene_delete(uint16_t scene_id){
+	return DMX512_fixture_pool_del(engine.fixtures, scene_id);
+}
+
+/**
+ * @brief Wrapper for "DMX512_chaser_pool_add" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "fixtures" as argument.
+ *
+ * @param chaser_id the chaser identifier (@see DMX512_chaser_pool.h)
+ * @param mode the chaser trigger mode
+ * @param direction the chaser step play direction
+ * @return DMX512_engine_err_e error code following the function call
+ * @see DMX512_defs.h for further information regarding DMX512 engin error codes
+ */
+DMX512_engine_err_e DMX512_engine_chaser_add(uint16_t chaser_id, DMX512_chaser_mode_e mode, DMX512_chaser_direction_e direction){
+	DMX512_chaser_s chaser = DMX512_chaser_new(chaser_id, mode, direction);
+	return DMX512_chaser_pool_add(engine.chasers, chaser);
+}
+
+/**
+ * @brief Wrapper for "DMX512_chaser_pool_get" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "chaser" as argument.
+ *
+ * @param chaser_id the chaser identifier
+ * @param **chaser pointer to the chaser
+ * @return DMX512_engine_err_e ERR_OK if fixture was found, DMX512_ENGINE_INSTANCE_UNDEFINED otherwise
+ */
+DMX512_engine_err_e DMX512_engine_chaser_get(uint16_t chaser_id, DMX512_chaser_s **chaser){
+	return DMX512_chaser_pool_get(engine.chasers, chaser_id, chaser);
+}
+
+/**
+ * @brief Returns the current engine chasers
+ *
+ * @return DMX512_chaser_pool_s* pointer to the engine's chaser pool
+ */
+DMX512_chaser_pool_s *DMX512_engine_chaser_get_all(void){
+	return engine.chasers;
+}
+
+/**
+ * @brief Wrapper for "DMX512_chaser_pool_del" function. Provides context to the specified function using
+ * DMX512 engine's singleton parameter "chasers" as argument.
+ *
+ * @param chaser_id the chaser's idendifier
+ * @return DMX512_engine_err_e error code following the function call
+ */
+DMX512_engine_err_e DMX512_engine_chaser_delete(uint16_t chaser_id){
+	return DMX512_fixture_pool_del(engine.fixtures, chaser_id);
+}
+
+/**
+ * @briefs Frees dynamically allocated memory pools and re-initialises the engine
+ */
+void DMX512_engine_reset(void){
+
+	DMX512_engine_stop();
+
+	DMX512_chaser_pool_free(engine.chasers);
+	DMX512_scene_pool_free(engine.scenes);
+	DMX512_fixture_pool_free(engine.fixtures);
+
+	engine.fixtures 	  = DMX512_fixture_pool_new();
+	engine.scenes 		  = DMX512_scene_pool_new();
+	engine.chasers 		  = DMX512_chaser_pool_new();
+
+	DMX512_engine_start();
+
 }
 
 #endif

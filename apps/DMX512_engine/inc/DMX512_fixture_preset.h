@@ -48,7 +48,7 @@ typedef struct {
 
 
 DMX512_fixture_preset_s DMX512_fixture_preset_new(DMX512_fixture_s *fixture, uint16_t channel_count, uint16_t *channels, uint8_t *values);
-
+void DMX512_fixture_preset_free(DMX512_fixture_preset_s *fixture_preset);
 
 #endif
 

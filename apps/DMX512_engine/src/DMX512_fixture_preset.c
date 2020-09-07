@@ -57,7 +57,7 @@ DMX512_fixture_preset_s DMX512_fixture_preset_new(DMX512_fixture_s *fixture, uin
 
 	DMX512_fixture_preset_s this = DMX512_FIXTURE_PRESET_DEFAULT;
 
-	if(_DMX512_fixture_preset_check(fixture, channel_count, channels, values) == DMX512_ENGINE_OK){
+	if(_DMX512_fixture_preset_check(fixture, channel_count, channels, values)){
 
 		this.fixture  = fixture;
 		this.ch_count = channel_count;
@@ -73,6 +73,21 @@ DMX512_fixture_preset_s DMX512_fixture_preset_new(DMX512_fixture_s *fixture, uin
 
 	return this;
 
+}
+
+/**
+ * @brief Frees a fixture preset's dynamically allocated ressources
+ * 		  and resets its values parameters to default
+ *
+ * @param *DMX512_fixture_preset_s pointer to the fixture preset instance to be reseted
+ */
+void DMX512_fixture_preset_free(DMX512_fixture_preset_s *fixture_preset){
+	if(fixture_preset != NULL){
+		vPortFree(fixture_preset->channels);
+		vPortFree(fixture_preset->values);
+		fixture_preset->ch_count = 0;
+		fixture_preset->fixture	 = NULL;
+	}
 }
 
 #endif

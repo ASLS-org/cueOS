@@ -70,6 +70,7 @@ DMX512_fixture_preset_s *DMX512_scene_get_fixture_preset(DMX512_scene_s *scene, 
 void DMX512_scene_start(DMX512_scene_s *scene);
 void DMX512_scene_stop(DMX512_scene_s *scene);
 void DMX512_scene_manage(DMX512_scene_s *scene);
+void DMX512_scene_free(DMX512_scene_s *scene);
 
 #endif
 

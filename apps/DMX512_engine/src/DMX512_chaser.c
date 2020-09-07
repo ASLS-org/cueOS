@@ -90,12 +90,16 @@ static void _DMX512_chaser_iterate_steps_pingpong(DMX512_chaser_s *chaser){
  * @return DMX512_chaser_s the created chaser
  */
 DMX512_chaser_s DMX512_chaser_new(uint16_t id, DMX512_chaser_mode_e mode, DMX512_chaser_direction_e direction){
+
 	DMX512_chaser_s chaser = DMX512_CHASER_DEFAULT;
-	chaser.id	   		= id;
-	chaser.mode  		= mode;
+
+	chaser.id	   	  = id;
+	chaser.mode  	  = mode;
 	chaser.direction  = direction;
-	chaser.status 	= DMX512_CHASER_INITIALISED;
+	chaser.status 	  = DMX512_CHASER_INITIALISED;
+
 	return chaser;
+
 }
 
 /**
@@ -193,6 +197,16 @@ void DMX512_chaser_start(DMX512_chaser_s *chaser){
 	chaser->current_step = chaser->direction == DMX512_CHASER_DIRECTION_BACKWARD ? chaser->step_count - 1 : 0;
 	DMX512_chaser_step_start(&chaser->steps[chaser->current_step]);
 	chaser->state = DMX512_CHASER_PLAYING;
+}
+
+/**
+ * @brief Frees a chaser instance
+ *
+ * @param chaser pointer to the scene instance
+ */
+void DMX512_chaser_free(DMX512_chaser_s *chaser){
+	vPortFree(chaser->steps);
+	chaser->step_count = 0;
 }
 
 #endif
