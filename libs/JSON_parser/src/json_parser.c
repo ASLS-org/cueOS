@@ -153,7 +153,38 @@ void json_parser_json_string_put_array_object(json_parser_json_string_s *json_st
 		json_parser_json_string_cat(json_string, JSON_ARRAY_DELIMITOR);
 	}
 
-	json_parser_json_string_cat(json_string, json_object->data);
+	if(json_object!=NULL){
+		json_parser_json_string_cat(json_string, json_object->data);
+	}
+
+	if(is_final){
+		json_parser_json_string_cat(json_string, JSON_ARRAY_TERMINATOR);
+		json_parser_json_string_terminate(json_string);
+	}else{
+		json_parser_json_string_cat(json_string, JSON_STRING_PAIR_SEPARATOR);
+	}
+
+}
+
+/**
+ * @brief Nests a child JSON string into a parent JSON array
+ *
+ * @param *json_string pointer to a json string instance (array)
+ * @param val integer value to put into the array
+ * @param is_initial determines if a JSON array delimitor "[" should be prefixing the key/value pair. (the json string starts)
+ * @param is_final determines if a JSON array terminator "]\0" should be suffixing the key/value pair. (the json string stops)
+ */
+void json_parser_json_string_put_array_int(json_parser_json_string_s *json_string, uint16_t val, uint8_t is_initial, uint8_t is_final){
+
+
+	char val_str[20];
+	itoa(val, val_str, 10);
+
+	if(is_initial){
+		json_parser_json_string_cat(json_string, JSON_ARRAY_DELIMITOR);
+	}
+
+	json_parser_json_string_cat(json_string, val_str);
 
 	if(is_final){
 		json_parser_json_string_cat(json_string, JSON_ARRAY_TERMINATOR);

@@ -45,6 +45,7 @@ void json_parser_json_string_put_int_pair(json_parser_json_string_s *json_string
 void json_parser_json_string_put_str_pair(json_parser_json_string_s *json_string, char *key, char *val, uint8_t is_final, uint8_t is_initial);
 void json_parser_json_string_nest(json_parser_json_string_s *json_string, char *key, json_parser_json_string_s *nested_json_string, uint8_t is_initial, uint8_t is_final);
 void json_parser_json_string_put_array_object(json_parser_json_string_s *json_string, json_parser_json_string_s *json_object, uint8_t is_initial, uint8_t is_final);
+void json_parser_json_string_put_array_int(json_parser_json_string_s *json_string, uint16_t val, uint8_t is_initial, uint8_t is_final);
 json_parser_json_object_s *json_parser_parse(char *json_string, uint16_t json_string_len);
 json_parser_json_string_s * json_parser_json_string_new(void);
 void json_parser_free_json_object(json_parser_json_object_s *json_object);
