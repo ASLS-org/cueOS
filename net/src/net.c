@@ -93,10 +93,6 @@ static void _net_setup_ethernetif(void){
 	osThreadNew(_net_set_ip, NULL, NULL);
 	netif_set_up(&this.ethernetif);
 	dhcp_start(&this.ethernetif);
-#else
-	this.net_ready_callback();
-	this.bound_state = NET_BOUND;
-	leds_driver_set(LED_NETWORK, LED_BLINK);
 #endif
 
 	ethernetif_notify_conn_changed(&this.ethernetif);
@@ -216,5 +212,17 @@ void net_set_mode(net_mode_e mode){
 void ethernetif_notify_conn_changed(struct netif *netif){
 	this.bound_state = NET_UNBOUND;
 	this.link_state = netif_is_link_up(netif) ? NET_LINK_UP : NET_LINK_DOWN;
+#if cueOS_CONFIG_NET_USE_DHCP
 	dhcp_network_changed(netif);
+#else
+	if(this.link_state == NET_LINK_UP){
+		this.net_ready_callback();
+		this.bound_state = NET_BOUND;
+		leds_driver_set(LED_NETWORK, LED_BLINK);
+	}else{
+		this.bound_state = NET_UNBOUND;
+		leds_driver_set(LED_NETWORK, LED_OFF);
+	}
+#endif
 }
+
