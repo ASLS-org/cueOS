@@ -63,6 +63,7 @@ static void _Q_client_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, co
 			case Q_CMD_TRIGGER_STOP:   /* TODO: Complete cue triggering */	break;
 			case Q_CMD_PROBE_DISCOVER: _Q_UDP_client_discover_reply(); 		break;
 			case Q_CMD_PROBE_POLL: 	   _Q_UDP_client_poll_reply(); 			break;
+			default: 					/* TODO: Handle default case */		break;
 		}
 		Q_parser_free(packet);
 	}
