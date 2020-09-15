@@ -29,6 +29,7 @@ typedef enum{
 	HTTP_STATUS_CODE_401,					/**< HTTP 401 status code*/
 	HTTP_STATUS_CODE_403,					/**< HTTP 403 status code*/
 	HTTP_STATUS_CODE_404,					/**< HTTP 404 Not Found status code*/
+	HTTP_STATUS_CODE_405,					/**< HTTP 405 Method Not Allowed*/
 	HTTP_STATUS_CODE_501,					/**< HTTP 501 status code*/
 	HTTP_STATUS_CODE_502,					/**< HTTP 502 status code*/
 	HTTP_STATUS_CODE_503,					/**< HTTP 503 status code*/
@@ -90,6 +91,7 @@ static char *const http_status_codes_str[] = {
 	"401 Unauthorized",
 	"403 Forbidden",
 	"404 Not Found",
+	"405 Method Not Allowed",
 	"501 Not Implemented",
 	"502 Bad Gateway",
 	"503 Service Unavailable"
