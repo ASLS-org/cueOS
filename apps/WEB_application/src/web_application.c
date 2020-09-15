@@ -5,10 +5,15 @@
 
 #include <string.h>
 #include "http_server.h"
+#include "http_defs.h"
 #include "web_application_content.c"
 
 struct fs_file file_handle;
 
+
+/*
+ * TODO: reorganise this it works but the structure is quite misleading.
+ */
 
 /***============================================================================================================================
  * Private functions definitions
@@ -78,6 +83,9 @@ static void _web_application_router(http_request_s *req) {
 		file = &file_handle;
 		req->res->data_ptr = (char*)file->data;
 		req->res->data_len = (uint32_t)file->len;
+	}else{
+		req->res->data_ptr = http_status_codes_str[HTTP_STATUS_CODE_404]; //TODO: point the user to a proper 404 page or point him back to server's index ?
+		req->res->data_len = strlen(req->res->data_ptr);
 	}
 
 }
