@@ -67,9 +67,10 @@ static uint8_t _http_request_parse_uri(http_request_s *req){
 	memmove(req->uri, req->raw_data, uri_len);
 	req->uri[uri_len] = 0;
 
-	char *params_start = lwip_strnstr(req->uri, STR_COMMON_QMRK, uri_len);
+	char *params = lwip_strnstr(req->uri, STR_COMMON_QMRK, uri_len);
 
-	uint16_t params_len = strlen(params_start) - 1;
+	uint16_t params_len = strlen(params) - 1;
+
 
 	req->raw_data = uri_end + 1;
 	req->raw_len -= uri_len + params_len + 1;
@@ -78,13 +79,13 @@ static uint8_t _http_request_parse_uri(http_request_s *req){
 
 		ret = 1;
 
-		if(params_start != NULL){
+		if(params != NULL){
 
-			params_start++;
+			params++;
 
 			do{
 
-				arg_start = params_start;
+				arg_start = params;
 				val_start = strnstr(arg_start, STR_COMMON_EQUL, params_len);
 				val_end	  = strnstr(val_start, STR_COMMON_AMPR, params_len);
 				if(val_end == NULL){ val_end = uri_end; }
@@ -105,7 +106,7 @@ static uint8_t _http_request_parse_uri(http_request_s *req){
 					req->params[req->param_count-1].arg[arg_len - 1] = 0;	//Terminating string
 					req->params[req->param_count-1].val[val_len - 1] = 0;	//Terminating string
 
-					params_start = val_end + 1;
+					params = val_end + 1;
 
 				}
 
