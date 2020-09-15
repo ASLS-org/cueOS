@@ -113,7 +113,7 @@ static char *const http_header_field_str[] = {
 static char *const http_content_types_str[] = {
   "text/plain",
   "text/html",
-  "text/json",
+  "application/json; charset=UTF8",
 };
 
 /**
