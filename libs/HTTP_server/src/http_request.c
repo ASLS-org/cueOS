@@ -56,27 +56,28 @@ static uint8_t _http_request_parse_uri(http_request_s *req){
 
 	req->param_count = 0;
 
-	char *params_start = lwip_strnstr(req->raw_data, STR_COMMON_QMRK, req->raw_len);
-	char *params_end   = lwip_strnstr(req->raw_data + 1, STR_COMMON_SP, req->raw_len);
+	char *uri_end = lwip_strnstr(req->raw_data + 1, STR_COMMON_SP, req->raw_len);
 	char *arg_start    = NULL;
 	char *val_start    = NULL;
 	char *val_end 	   = NULL;
 
-	if(params_end != NULL){
+	uint8_t uri_len = uri_end - req->raw_data;
+
+	req->uri = pvPortMalloc(uri_len + 1);
+	memmove(req->uri, req->raw_data, uri_len);
+	req->uri[uri_len] = 0;
+
+	char *params_start = lwip_strnstr(req->uri, STR_COMMON_QMRK, uri_len);
+
+	uint16_t params_len = strlen(params_start) - 1;
+
+	req->raw_data = uri_end + 1;
+	req->raw_len -= uri_len + params_len + 1;
+
+	if(uri_end != NULL){ //TODO: Is this really useful ?
 
 		ret = 1;
 
-		uint8_t uri_len 	= params_start != NULL ? params_start - req->raw_data : params_end - req->raw_data;
-		uint16_t params_len = params_end - params_start - 1;
-
-		req->uri = pvPortMalloc(uri_len + 1);
-		memmove(req->uri, req->raw_data, uri_len);
-		req->uri[uri_len] = 0;
-
-		req->raw_data = params_end + 1;
-		req->raw_len -= uri_len + params_len + 1;
-
-		//TODO: put this in separate function for cleanliness ?
 		if(params_start != NULL){
 
 			params_start++;
@@ -86,7 +87,7 @@ static uint8_t _http_request_parse_uri(http_request_s *req){
 				arg_start = params_start;
 				val_start = strnstr(arg_start, STR_COMMON_EQUL, params_len);
 				val_end	  = strnstr(val_start, STR_COMMON_AMPR, params_len);
-				if(val_end == NULL){ val_end = params_end; }
+				if(val_end == NULL){ val_end = uri_end; }
 
 				if(arg_start != NULL && val_start != NULL){
 
@@ -271,6 +272,8 @@ void http_request_free(http_request_s *req){
 	req->retry_count 	= 0;
 	req->param_count 	= 0;
 	req->content_length = 0;
+	req->raw_len		= 0;
+	req->raw_data		= NULL;
 
 	vPortFree(req);
 
@@ -301,7 +304,7 @@ uint8_t http_request_parse(http_request_s *req, struct pbuf *p){
 		}else if(!_http_request_parse_headers(req)){
 		}else if(!_http_request_parse_content(req)){
 		}else{
-			ret = 1;
+			ret = 1; //TODO: maybe use error handler to handle internal errors
 		}
 	}
 
