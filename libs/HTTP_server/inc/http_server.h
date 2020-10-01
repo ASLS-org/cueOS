@@ -7,8 +7,8 @@
  * @{
  */
 
-#ifndef HTTP_H_
-#define HTTP_H_
+#ifndef HTTP_SERVER_H_
+#define HTTP_SERVER_H_
 
 #include <stdint.h>
 #include <stdlib.h>
