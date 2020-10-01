@@ -12,13 +12,11 @@
  * maybe this can move right into the card driver ?
  */
 
+SD_HandleTypeDef hsd;
 DMA_HandleTypeDef hdma_sdio_rx;
 DMA_HandleTypeDef hdma_sdio_tx;
-SD_HandleTypeDef hsd;
 
 /**
- * @ingroup mmc_driver
- * @fn mmc_init
  * @brief initialises SDIO to be used for communication
  * 		  with SD an SD card
  */
@@ -29,5 +27,5 @@ void mmc_init(void){
 	  hsd.Init.ClockPowerSave = SDIO_CLOCK_POWER_SAVE_DISABLE;
 	  hsd.Init.BusWide = SDIO_BUS_WIDE_1B;
 	  hsd.Init.HardwareFlowControl = SDIO_HARDWARE_FLOW_CONTROL_DISABLE;
-	  hsd.Init.ClockDiv = 0;
+	  hsd.Init.ClockDiv = SDIO_TRANSFER_CLK_DIV;
 }

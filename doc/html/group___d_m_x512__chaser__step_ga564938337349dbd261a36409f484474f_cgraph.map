@@ -1,4 +1,0 @@
-<map id="DMX512_chaser_step_stop" name="DMX512_chaser_step_stop">
-<area shape="rect" id="node1" title="Stops a chaser step by assigning it to its idle state." alt="" coords="5,13,188,39"/>
-<area shape="rect" id="node2" href="$group__mschronometer.html#ga1388d95d740fcaa0e663bba0864b1f9b" title="Resets an mschronometer instance time delta to zero." alt="" coords="236,5,437,47"/>
-</map>

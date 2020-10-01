@@ -36,11 +36,11 @@ fs_err_e fs_init(void){
 
 	mmc_init();
 
-	this._link_status = !FATFS_LinkDriver(&SD_Driver, (char *)_path);
+	this._link_status = FATFS_LinkDriver(&SD_Driver, (char *)_path);
 
 	if(this._mount_status == FS_MOUNTED){
 		err = FS_OK;
-	}else if(this._link_status == FS_LINKSTATUS_LINKED){
+	}else if(this._link_status == FS_LINKSTATUS_UNLINKED){
 		err = FS_CANNOT_LINK_SD;
 	}else if(f_mount(&_fatfs, _path, 0) != FR_OK){
 		err = FS_CANNOT_MOUNT_SD;

@@ -1,4 +1,0 @@
-<map id="Web Application" name="Web Application">
-<area shape="rect" id="node1" href="$group__cueos__apps.html" title="High layer user&#45;defined user applications." alt="" coords="5,5,99,31"/>
-<area shape="rect" id="node2" title="Serves web&#45;base user interface static files over HTTP to a remote device." alt="" coords="147,5,264,31"/>
-</map>

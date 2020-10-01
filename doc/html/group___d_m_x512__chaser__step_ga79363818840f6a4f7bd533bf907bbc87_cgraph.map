@@ -1,4 +1,0 @@
-<map id="_DMX512_step_hold" name="_DMX512_step_hold">
-<area shape="rect" id="node1" title="Holds a chaser step&#39;s faded in values during a certain amount of time." alt="" coords="5,13,148,39"/>
-<area shape="rect" id="node2" href="$group__mschronometer.html#ga62473952fd29ca3c8fbc766107af9f29" title="Returns elapsed time in milliseconds since last reset." alt="" coords="196,5,397,47"/>
-</map>

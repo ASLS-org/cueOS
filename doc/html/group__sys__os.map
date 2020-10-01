@@ -1,8 +1,0 @@
-<map id="OS abstraction layer" name="OS abstraction layer">
-<area shape="rect" id="node1" href="$group__sys__mbox.html" title=" " alt="" coords="432,5,513,31"/>
-<area shape="rect" id="node2" href="$group__sys__mutex.html" title=" " alt="" coords="437,55,509,80"/>
-<area shape="rect" id="node3" href="$group__sys__layer.html" title=" " alt="" coords="5,73,188,113"/>
-<area shape="rect" id="node4" title=" " alt="" coords="236,80,377,105"/>
-<area shape="rect" id="node5" href="$group__sys__sem.html" title=" " alt="" coords="425,104,520,129"/>
-<area shape="rect" id="node6" href="$group__sys__misc.html" title=" " alt="" coords="447,153,498,179"/>
-</map>

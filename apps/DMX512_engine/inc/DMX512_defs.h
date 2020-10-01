@@ -19,6 +19,7 @@
  *
  * Series of pre-defined constant error values to be used
  * throughout the whole DMX512 engine lifecycle.
+ * TODO: Very important !! UPDATE Erro enumerations and error strings to avoid confusion !!!!
  */
 typedef enum{
 	DMX512_ENGINE_OK,							/**< No error*/
@@ -35,6 +36,7 @@ typedef enum{
 /**
  * @brief DMX512 engine error strings constants
  * TODO: this should be put into DMX512 API
+ * TODO: largely extend set of error messages to offer ease of debugging
  */
 static char *const DMX512_engine_errs_str[] = {
 	"Success",
@@ -43,6 +45,7 @@ static char *const DMX512_engine_errs_str[] = {
 	"Ressource id not found",
 	"Load config error",
 	"Save config error",
+	"mem overflow",
 	"API endoint doesn't exist",
 	"Unauthorised method",
 };

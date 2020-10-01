@@ -1,4 +1,0 @@
-<map id="Chaser Step" name="Chaser Step">
-<area shape="rect" id="node1" title="A chaser step represents a scene with additional information regarding its timing...." alt="" coords="176,5,271,31"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__chaser.html" title="In a DMX lightshow, scenes may be chained and played back in a sequence called chaser...." alt="" coords="5,5,128,31"/>
-</map>

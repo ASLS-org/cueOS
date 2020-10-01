@@ -1,5 +1,0 @@
-<map id="DMX512_engine_patch_add" name="DMX512_engine_patch_add">
-<area shape="rect" id="node1" title="Wrapper for &quot;DMX512_fixture_pool_add&quot; function. Provides context to the specified function using DMX5..." alt="" coords="5,31,191,57"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__fixture.html#ga7cbd975b79b365bac8ca193d48819957" title="Creates a new scene fixture instance." alt="" coords="253,5,399,32"/>
-<area shape="rect" id="node3" href="$_d_m_x512__fixture__pool_8h.html#a9c98ee96d0e79d2a2ad1ad3cee8b9222" title="Adds a fixture instance into the pool." alt="" coords="239,56,413,83"/>
-</map>

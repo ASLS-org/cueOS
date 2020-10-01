@@ -1,9 +1,0 @@
-<map id="DMX512_chaser_pool_s" name="DMX512_chaser_pool_s">
-<area shape="rect" id="node1" title="Defines a DMX512 chaser pool object." alt="" coords="191,452,355,479"/>
-<area shape="rect" id="node2" href="$struct_d_m_x512__chaser__s.html" title="DMX512 chaser structure object." alt="" coords="207,363,340,389"/>
-<area shape="rect" id="node3" href="$struct_d_m_x512__chaser__step__s.html" title="DMX512 chaser step structure object." alt="" coords="191,273,356,300"/>
-<area shape="rect" id="node4" href="$struct_d_m_x512__scene__s.html" title="DMX512 scene structure object." alt="" coords="149,184,278,211"/>
-<area shape="rect" id="node5" href="$struct_d_m_x512__fixture__preset__s.html" title="DMX512 fixture preset structure object." alt="" coords="5,95,179,121"/>
-<area shape="rect" id="node6" href="$struct_d_m_x512__fixture.html" title="DMX512 fixture structure object." alt="" coords="34,5,150,32"/>
-<area shape="rect" id="node7" href="$structms__chronometer__s.html" title="ms_chronometer structure object" alt="" coords="235,95,368,121"/>
-</map>

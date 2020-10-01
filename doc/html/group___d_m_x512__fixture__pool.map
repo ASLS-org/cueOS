@@ -1,5 +1,0 @@
-<map id="Fixture Pool" name="Fixture Pool">
-<area shape="rect" id="node1" title="Fixture pools are used to store a universe&#39;s patch information. A patch is a pool of addressed fixtur..." alt="" coords="171,5,263,31"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__fixture.html" title="Fixtures are machines daisy chained together to form a DMX512 universe. Each fixture is addressed ove..." alt="" coords="311,5,373,31"/>
-<area shape="rect" id="node3" href="$group___d_m_x512__engine.html" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="5,5,123,31"/>
-</map>

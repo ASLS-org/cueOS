@@ -1,8 +1,0 @@
-<map id="DMX512 Engine" name="DMX512 Engine">
-<area shape="rect" id="node1" href="$group___d_m_x512__fixture__pool.html" title="Fixture pools are used to store a universe&#39;s patch information. A patch is a pool of addressed fixtur..." alt="" coords="313,5,405,31"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__defs.html" title="Definition of fundamental constant values to be used by the DMX512 engine." alt="" coords="317,55,401,80"/>
-<area shape="rect" id="node3" href="$group___d_m_x512__chaser__pool.html" title="Chaser pools are used to store and manage a lists of pre&#45;configured chasers. Up to 65535 DMX512 chase..." alt="" coords="312,104,407,129"/>
-<area shape="rect" id="node4" href="$group__cueos__apps.html" title="High layer user&#45;defined user applications." alt="" coords="5,80,99,105"/>
-<area shape="rect" id="node5" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="147,80,264,105"/>
-<area shape="rect" id="node6" href="$group___d_m_x512__scene__pool.html" title="Scene pools are used to store and manage a lists of pre&#45;configured scenes. Up to 65535 DMX512 scenes ..." alt="" coords="315,153,404,179"/>
-</map>

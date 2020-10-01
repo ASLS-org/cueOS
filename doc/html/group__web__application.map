@@ -1,4 +1,0 @@
-<map id="Web_application" name="Web_application">
-<area shape="rect" id="node1" href="$group__apps.html" title="High layer user&#45;defined user applications." alt="" coords="5,5,56,31"/>
-<area shape="rect" id="node2" title="Serves web&#45;base user interface static files over HTTP to a remote device." alt="" coords="104,5,223,31"/>
-</map>

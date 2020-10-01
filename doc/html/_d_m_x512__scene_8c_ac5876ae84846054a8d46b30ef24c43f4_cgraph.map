@@ -1,4 +1,0 @@
-<map id="DMX512_scene_del_preset" name="DMX512_scene_del_preset">
-<area shape="rect" id="node1" title="Deletes a fixture preset instance from the scene." alt="" coords="5,5,188,32"/>
-<area shape="rect" id="node2" href="$_d_m_x512__scene_8c.html#a2b76470c95714d01de0973615737d8d1" title="Finds the array index of a fixture." alt="" coords="236,5,404,32"/>
-</map>

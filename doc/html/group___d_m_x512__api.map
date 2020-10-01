@@ -1,4 +1,0 @@
-<map id="DMX512_api" name="DMX512_api">
-<area shape="rect" id="node1" href="$group___d_m_x512__engine.html" title="The DMX512 engine is in charge of managing the whole DMX show creation and show playback process...." alt="" coords="5,5,124,31"/>
-<area shape="rect" id="node2" title="DMX512 engine HTTP wrapper. Handles manipulation of the DMX512 engine resources over HTTP through a u..." alt="" coords="172,5,269,31"/>
-</map>

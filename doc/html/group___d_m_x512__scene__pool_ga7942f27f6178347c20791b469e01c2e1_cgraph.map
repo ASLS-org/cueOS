@@ -1,4 +1,0 @@
-<map id="DMX512_scene_pool_manage" name="DMX512_scene_pool_manage">
-<area shape="rect" id="node1" title="Manages all scenes contained within the pool." alt="" coords="5,5,204,32"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__scene.html#ga1f3da4003a0770b48407d0384d60afc6" title="State machine to manage scene at a given state." alt="" coords="252,5,420,32"/>
-</map>

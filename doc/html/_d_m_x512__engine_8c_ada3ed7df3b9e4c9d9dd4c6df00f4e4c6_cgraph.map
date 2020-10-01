@@ -1,4 +1,0 @@
-<map id="DMX512_engine_patch_delete" name="DMX512_engine_patch_delete">
-<area shape="rect" id="node1" title="Wrapper for &quot;DMX512_fixture_pool_del&quot; function. Provides context to the specified function using DMX5..." alt="" coords="5,5,163,47"/>
-<area shape="rect" id="node2" href="$_d_m_x512__fixture__pool_8h.html#a2fb160747991b4d38d850ea6ecdc5987" title="Deletes a fixture instance from the pool." alt="" coords="211,13,381,39"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="DMX512_engine_patch_get" name="DMX512_engine_patch_get">
-<area shape="rect" id="node1" title="Wrapper for &quot;DMX512_fixture_pool_get&quot; function. Provides context to the specified function using DMX5..." alt="" coords="5,5,188,32"/>
-<area shape="rect" id="node2" href="$_d_m_x512__fixture__pool_8h.html#aeb1fc47ec330a480a68641e307e34a7e" title="Gets a fixture instance from the pool." alt="" coords="236,5,408,32"/>
-</map>

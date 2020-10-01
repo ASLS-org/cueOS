@@ -1,4 +1,0 @@
-<map id="Q_packet" name="Q_packet">
-<area shape="rect" id="node1" title="Q is an UDP based protocol which aims for a more universal approach of Show Control...." alt="" coords="116,5,195,31"/>
-<area shape="rect" id="node2" href="$group___q__utils.html" title="Useful code snippets to be used within Q server/client implementation." alt="" coords="5,5,68,31"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="Ethernet" name="Ethernet">
-<area shape="rect" id="node1" title="Configuration of LAN8720 PHY and for Ethernet transport." alt="" coords="117,5,188,31"/>
-<area shape="rect" id="node2" href="$group__hl__drivers.html" title="High level system drivers." alt="" coords="5,5,69,31"/>
-</map>

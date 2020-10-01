@@ -1,8 +1,0 @@
-<map id="Network interface (NETIF)" name="Network interface (NETIF)">
-<area shape="rect" id="node1" href="$group__netif__mib2.html" title=" " alt="" coords="203,5,313,31"/>
-<area shape="rect" id="node2" href="$group__netif__cd.html" title="Store data (void*) on a netif for application usage." alt="" coords="189,55,327,80"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,97,135,137"/>
-<area shape="rect" id="node4" href="$group__netif__ip4.html" title=" " alt="" coords="183,104,333,129"/>
-<area shape="rect" id="node5" href="$group__netif__ip6.html" title=" " alt="" coords="183,153,333,179"/>
-<area shape="rect" id="node6" href="$group__netif__flags.html" title=" " alt="" coords="231,203,285,228"/>
-</map>

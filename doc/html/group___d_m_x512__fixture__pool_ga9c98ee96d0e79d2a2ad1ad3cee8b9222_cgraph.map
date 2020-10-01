@@ -1,5 +1,0 @@
-<map id="DMX512_fixture_pool_add" name="DMX512_fixture_pool_add">
-<area shape="rect" id="node1" title="Adds a fixture instance into the pool." alt="" coords="5,13,180,39"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__fixture__pool.html#gaec798cedaca16da072118f84e0b4b94b" title="Checks if a fixture can be added into the pool." alt="" coords="228,5,383,47"/>
-<area shape="rect" id="node3" href="$group___d_m_x512__fixture__pool.html#gaf090f5b2bf3ea4aaeeab2de32f256812" title="Finds the array index of a fixture." alt="" coords="431,5,585,47"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="http_request" name="http_request">
-<area shape="rect" id="node1" title="HTTP request object." alt="" coords="75,95,170,121"/>
-<area shape="rect" id="node2" href="$structhttp__param__s.html" title="HTTP uri parameter object." alt="" coords="5,5,107,32"/>
-<area shape="rect" id="node3" href="$structhttp__response__s.html" title="HTTP response structure object." alt="" coords="131,5,250,32"/>
-</map>

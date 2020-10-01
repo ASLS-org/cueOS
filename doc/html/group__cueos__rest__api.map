@@ -1,5 +1,0 @@
-<map id="REST APIs" name="REST APIs">
-<area shape="rect" id="node1" title="REST API web services enabling configuration of the system through HTTP requests over pre&#45;defined spe..." alt="" coords="147,5,237,31"/>
-<area shape="rect" id="node3" href="$group__cueos___d_m_x512__rest__api.html" title="DMX512 engine HTTP wrapper. Handles manipulation of the DMX512 engine resources over HTTP through a u..." alt="" coords="285,5,424,31"/>
-<area shape="rect" id="node2" href="$group__cueos__apps.html" title="High layer user&#45;defined user applications." alt="" coords="5,5,99,31"/>
-</map>

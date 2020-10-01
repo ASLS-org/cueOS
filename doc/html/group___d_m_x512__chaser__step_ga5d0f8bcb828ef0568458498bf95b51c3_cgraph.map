@@ -1,4 +1,0 @@
-<map id="_DMX512_step_fadein" name="_DMX512_step_fadein">
-<area shape="rect" id="node1" title="Sets a chaser step&#39;s fixtures channel values to their predefined preset values according to time." alt="" coords="5,13,160,39"/>
-<area shape="rect" id="node2" href="$group__mschronometer.html#ga62473952fd29ca3c8fbc766107af9f29" title="Returns elapsed time in milliseconds since last reset." alt="" coords="208,5,409,47"/>
-</map>

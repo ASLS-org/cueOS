@@ -243,7 +243,7 @@ static void _http_prepare_pcb(http_server_s *server){
 /***============================================================================================================================
  * Public functions definitions
  * These functions can be accessed outside of the file's scope
- * @see DMX512_chaser_pool.h for declarations
+ * @see HTTP_server.h for declarations
  *=============================================================================================================================*/
 
 /**

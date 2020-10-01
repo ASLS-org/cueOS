@@ -1,8 +1,0 @@
-<map id="Porting (system abstraction layer)" name="Porting (system abstraction layer)">
-<area shape="rect" id="node1" href="$group__sys__nonstandard.html" title=" " alt="" coords="254,5,411,31"/>
-<area shape="rect" id="node2" href="$group__compiler__abstraction.html" title=" " alt="" coords="236,55,429,80"/>
-<area shape="rect" id="node3" href="$group__sys__prot.html" title=" " alt="" coords="275,104,391,129"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,97,188,137"/>
-<area shape="rect" id="node5" href="$group__sys__os.html" title=" " alt="" coords="262,153,403,179"/>
-<area shape="rect" id="node6" href="$group__sys__time.html" title=" " alt="" coords="307,203,358,228"/>
-</map>

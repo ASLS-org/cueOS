@@ -1,8 +1,0 @@
-<map id="HTTP" name="HTTP">
-<area shape="rect" id="node1" title="Handles HTTP packet transactions." alt="" coords="155,80,212,105"/>
-<area shape="rect" id="node3" href="$group___h_t_t_p__response.html" title="Handles generation of both static and dynamic HTTP repsponse frames. Currently supported HTTP version..." alt="" coords="260,5,377,31"/>
-<area shape="rect" id="node4" href="$group___h_t_t_p__defs.html" title="Definition of fundamental constant values to be used within the HTTP module." alt="" coords="274,55,363,80"/>
-<area shape="rect" id="node5" href="$group___h_t_t_p__server.html" title="Handles the creation of an HTTP server instance. This http server module is able to serve both static..." alt="" coords="269,104,369,129"/>
-<area shape="rect" id="node6" href="$group___h_t_t_p__request.html" title="An HTTP request contains information relative to a received HTTP frame such as its method,..." alt="" coords="265,153,372,179"/>
-<area shape="rect" id="node2" href="$group__webapp__utils.html" title="Tools and helpers to be used by the webapp module." alt="" coords="5,80,107,105"/>
-</map>

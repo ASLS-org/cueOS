@@ -1,4 +1,0 @@
-<map id="DMX512_scene_pool_get" name="DMX512_scene_pool_get">
-<area shape="rect" id="node1" title="Gets a scene instance from the pool." alt="" coords="5,13,176,39"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__scene__pool.html#gacf44a6c7f851ecd906d1b11599db28a1" title="Finds the array index of a scene." alt="" coords="224,5,377,47"/>
-</map>

@@ -11,11 +11,30 @@
 #include "json_parser.h"
 #include "DMX512_rest_api.h"
 
+//TODO: Maybe migrate to third party JSON parsing tool JSMN (https://zerge.com/jsmn)
+//For ease of use and efficiency ?
+//MEH.. TBD JSMN doesn't allow for json string generation which wa the point of migrating...
 
 /***============================================================================================================================
  * Private functions definitions
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
+
+//TODO: comment this !!
+static void _DMX512_rest_api_404(http_request_s *req){
+	json_parser_json_string_s *res_body = json_parser_json_string_new();
+	json_parser_json_string_put_str_pair(res_body, "msg", http_status_codes_str[HTTP_STATUS_CODE_404], 1, 1);
+	http_response_prepare_dynamic(req->res, HTTP_STATUS_CODE_404, HTTP_CONTENT_TYPE_JSON, res_body->data);
+	json_parser_free_json_string(res_body);
+}
+
+//TODO: comment this !!
+static void _DMX512_rest_api_405(http_request_s *req){
+	json_parser_json_string_s *res_body = json_parser_json_string_new();
+	json_parser_json_string_put_str_pair(res_body, "msg", http_status_codes_str[HTTP_STATUS_CODE_405], 1, 1);
+	http_response_prepare_dynamic(req->res, HTTP_STATUS_CODE_405, HTTP_CONTENT_TYPE_JSON, res_body->data);
+	json_parser_free_json_string(res_body);
+}
 
 /**
  * @brief Retrieves one or many fixture patched within the DMX512 engine's
@@ -68,11 +87,9 @@ static void _DMX512_rest_api_get_fixtures(http_request_s *req){
 		uint16_t stop = 0;
 
 		for(uint8_t i=0; i<req->param_count; i++){
-			if(!strncmp(req->params[i].arg, DMX512_rest_api_args_str[DMX512_API_PARAM_START],
-				strlen(DMX512_rest_api_args_str[DMX512_API_PARAM_START]))){
+			if(!strcmp(req->params[i].arg, DMX512_rest_api_args_str[DMX512_API_PARAM_START])){
 				start = atoi(req->params[i].val);
-			}else if(!strncmp(req->params[i].arg, DMX512_rest_api_args_str[DMX512_API_PARAM_STOP],
-				strlen(DMX512_rest_api_args_str[DMX512_API_PARAM_STOP]))){
+			}else if(!strcmp(req->params[i].arg, DMX512_rest_api_args_str[DMX512_API_PARAM_STOP])){
 				stop = atoi(req->params[i].val);
 			}
 		}
@@ -98,7 +115,6 @@ static void _DMX512_rest_api_get_fixtures(http_request_s *req){
 					json_parser_free_json_string(json_fixture);
 				}
 			}
-
 			json_parser_json_string_nest(res_body, "fixtures", json_fixture_array, 1, 0);
 			json_parser_free_json_string(json_fixture_array);
 			json_parser_json_string_put_int_pair(res_body, "errcode", -DMX512_ENGINE_OK, 0, 1);
@@ -106,7 +122,6 @@ static void _DMX512_rest_api_get_fixtures(http_request_s *req){
 			json_parser_free_json_string(res_body);
 
 		}else{
-
 			json_parser_json_string_put_str_pair(res_body, "msg", DMX512_engine_errs_str[-DMX512_ENGINE_INSTANCE_INVALID], 1, 0);
 			json_parser_json_string_put_int_pair(res_body, "errcode", -DMX512_ENGINE_INSTANCE_INVALID, 0, 1);
 			http_response_prepare_dynamic(req->res, HTTP_STATUS_CODE_400, HTTP_CONTENT_TYPE_JSON, res_body->data);
@@ -124,6 +139,7 @@ static void _DMX512_rest_api_get_fixtures(http_request_s *req){
  * @param *req pointer to the http request instance for retrieving uri parameters
  * @see http_server.h for further information relative to http requests parameter
  * 		parsing and retrieval.
+ * TODO: Implement autopatch functionnalities (no addr if "autopatch" parameter is set to true)
  */
 static void _DMX512_rest_api_add_fixture(http_request_s *req){
 
@@ -376,23 +392,24 @@ void DMX512_rest_api_router(http_request_s *req){
 			switch(req->method){
 				case HTTP_GET: 	_DMX512_rest_api_get_fixtures(req); break;
 				case HTTP_POST: _DMX512_rest_api_add_fixture(req);	break;
-				default:											break;
+				default: 		_DMX512_rest_api_405(req);			break;
 			}
 			break;
 		case DMX512_API_ENDPOINT_SCENES:
 			switch(req->method){
-			case HTTP_GET: 	_DMX512_rest_api_get_scenes(req); 		break;
-			case HTTP_POST: _DMX512_rest_api_add_scene(req);		break;
-				default:											break;
+				case HTTP_GET: 	_DMX512_rest_api_get_scenes(req); 		break;
+				case HTTP_POST: _DMX512_rest_api_add_scene(req);		break;
+				default:  		_DMX512_rest_api_405(req);				break;
 			}
 			break;
 		case DMX512_API_ENDPOINT_CONFIGURE:
 			switch(req->method){
 				case HTTP_POST: _DMX512_rest_api_configure(req);	break;
-				default:											break;
+				default:  		_DMX512_rest_api_405(req);			break;
 			}
 			break;
 		default:
+			_DMX512_rest_api_404(req);
 			break;
 	}
 }

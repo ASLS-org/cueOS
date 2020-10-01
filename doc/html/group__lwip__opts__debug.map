@@ -1,8 +1,0 @@
-<map id="Debugging" name="Debugging">
-<area shape="rect" id="node1" href="$group__lwip__opts__debugmsg.html" title=" " alt="" coords="327,5,451,31"/>
-<area shape="rect" id="node2" href="$group__lwip__opts.html" title=" " alt="" coords="5,80,144,105"/>
-<area shape="rect" id="node3" title=" " alt="" coords="192,80,276,105"/>
-<area shape="rect" id="node4" href="$group__lwip__opts__perf.html" title=" " alt="" coords="341,55,437,80"/>
-<area shape="rect" id="node5" href="$group__lwip__opts__stats.html" title=" " alt="" coords="350,104,427,129"/>
-<area shape="rect" id="node6" href="$group__lwip__assertions.html" title=" " alt="" coords="324,153,453,179"/>
-</map>

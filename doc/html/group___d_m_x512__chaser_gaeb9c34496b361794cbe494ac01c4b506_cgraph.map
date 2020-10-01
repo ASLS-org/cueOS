@@ -1,4 +1,0 @@
-<map id="DMX512_chaser_add_step" name="DMX512_chaser_add_step">
-<area shape="rect" id="node1" title="Adds a scene preset instance into the chaser." alt="" coords="5,5,184,32"/>
-<area shape="rect" id="node2" href="$group___d_m_x512__chaser.html#gaba9d0d3bb55567eb3bc98b27234b1e15" title="Finds the array index of a fixture preset." alt="" coords="232,5,404,32"/>
-</map>

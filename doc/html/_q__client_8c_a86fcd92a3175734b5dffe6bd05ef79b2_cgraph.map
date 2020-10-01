@@ -1,5 +1,0 @@
-<map id="_Q_UDP_client_poll_reply" name="_Q_UDP_client_poll_reply">
-<area shape="rect" id="node1" title="Sends a Q poll reply packet over UDP stream." alt="" coords="5,27,145,69"/>
-<area shape="rect" id="node2" href="$_q__client_8c.html#a94b117979dedfa3266809ee5eb983978" title=" " alt="" coords="211,5,317,32"/>
-<area shape="rect" id="node3" href="$_q__packet_8h.html#acc5716d9b13390f846f0d87b354b44e3" title=" " alt="" coords="193,57,335,98"/>
-</map>

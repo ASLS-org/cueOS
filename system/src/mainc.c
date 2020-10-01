@@ -5,7 +5,8 @@
 
 #include "main.h"
 #include "cueos.h"
-
+#include "DMX512_engine.h"
+#include "QLSF_manager.h"
 
 /**============================================================================================================================
  * Public functions definitions
@@ -19,6 +20,8 @@
  * @brief Main function called at device startup
  */
 int main(void){
+	osKernelInitialize();
 	cueos_start();
+	osKernelStart();
 	for(;;); //Mandatory. this should never be reached
 }

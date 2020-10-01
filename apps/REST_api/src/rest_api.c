@@ -16,7 +16,7 @@
 
 /**
  * @brief routes HTTP requests received on API port
-
+ *
  * @param req the request to be routed
  */
 static void _rest_api_router(http_request_s *req){
