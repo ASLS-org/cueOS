@@ -44,7 +44,7 @@ static void _net_set_ip(void *arg){
 		gnetif = this.mode == NET_MODE_ETHERNET ? this.ethernetif : this.wirelessif;
 
 		if(this.bound_state == NET_UNBOUND){
-			if(netif_is_link_up(&gnetif) && dhcp_supplied_address(&gnetif)){
+			if(netif_is_link_up(&gnetif) && (dhcp_supplied_address(&gnetif))){
 				this.ip_addr = gnetif.ip_addr;
 				this.gateway = gnetif.gw;
 				this.netmask = gnetif.netmask;
@@ -95,7 +95,9 @@ static void _net_setup_ethernetif(void){
 	dhcp_start(&this.ethernetif);
 #endif
 
-	ethernetif_notify_conn_changed(&this.ethernetif);
+	//ethernetif_notify_conn_changed(&this.ethernetif);
+	this.bound_state = NET_UNBOUND;
+	this.link_state = netif_is_link_up(&this.ethernetif) ? NET_LINK_UP : NET_LINK_DOWN;
 
 }
 
@@ -215,10 +217,11 @@ void ethernetif_notify_conn_changed(struct netif *netif){
 #if cueOS_CONFIG_NET_USE_DHCP
 	dhcp_network_changed(netif);
 #else
+	//TODO: maybe use a single function to establish link state for both static and DHCP mode @see _net_set_ip
 	if(this.link_state == NET_LINK_UP){
-		this.net_ready_callback();
 		this.bound_state = NET_BOUND;
 		leds_driver_set(LED_NETWORK, LED_BLINK);
+		this.net_ready_callback();
 	}else{
 		this.bound_state = NET_UNBOUND;
 		leds_driver_set(LED_NETWORK, LED_OFF);
