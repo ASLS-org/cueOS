@@ -14,25 +14,33 @@
 #include "device.h"
 #include "cueos_config.h"
 #include "cueos.h"
+#include "Q_client.h"
+#include "keys_driver.h"
 
 
 osThreadId_t cueos_thread_id = NULL;
+
+static void test(void){
+	osDelay(250);
+	osc_packet_send(1,2,3,256);
+}
+
 
 //TODO: node type configuration here is quite a bit confusing. Clean this whole file.
 static void _cueos_thread(void *arg){
 
 	fs_init();
-	net_init(NET_MODE_ETHERNET, osc_server_init);
+	net_init(NET_MODE_ETHERNET, test);
 	leds_driver_init();
 	rest_api_start();
 	web_application_start();
+	//keys_init();
 
 #if cueOS_CONFIG_NODETYPE   == cueOS_NODETYPE_MASTER
 	Q_server_init();
 	webapp_static_start();
 #elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_DMX
-	//Q_client_init();
-	//osc_server_init();
+	osc_server_init();
 	DMX512_engine_init();
 #elif cueOS_CONFIG_NODETYPE == cueOS_NODETYPE_SLAVE_PYRO
 	Q_client_init();
