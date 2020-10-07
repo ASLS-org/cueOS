@@ -9,7 +9,7 @@
 #include "lwip/udp.h"
 #include "ip.h"
 #include <string.h>
-
+#include <math.h>
 
 OSC_server_s osc_server = {
 	.is_initialised = 0
@@ -20,43 +20,28 @@ OSC_server_s osc_server = {
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
-/**
- * @brief Appends a new path to the URI string buffer
- *
- *TODO: this is a bit dodgy,find a better way to forge URI string.
- *
- * @param **osc_packt_uri pointer to the URI string buffer
- * @param *uri_path string path to be appended to the URI string buffer
- *
- */
-static void _osc_server_uri_append(char **osc_packt_uri, char *uri_path){
-	memmove(*osc_packt_uri + strlen(*osc_packt_uri), "/", 1);
-	memmove(*osc_packt_uri + strlen(*osc_packt_uri), uri_path, strlen(uri_path));
+
+static uint8_t _i_to_len(uint16_t i){
+	return floor(log10((double)i) + 1);
 }
 
-/**
- * @brief Rounds up packet length to a multiple of 4 by appending NULL bytes.
- *
- * @param **osc_packet pointer to packet to be rounded up
- * @param osc_packet_len length of the packet in bytes
- * @return uint8_t new length of the packet in bytes
- */
-static uint8_t _osc_server_roundup_packet(char **osc_packet, uint8_t osc_packet_len){
+static uint8_t _roundup_4(uint8_t len){
+	return ((len + 4 - 1) / 4) * 4;
+}
 
+static void _osc_packet_cat(OSC_packet_s *osc_packet, const void *data, size_t size){
+	memmove(osc_packet->sp, data, size);
+	osc_packet->sp += size;
+}
 
-	/*
-	 * FIXME!! Buffer may be overflowing here...
-	 */
+static void _osc_packet_roundup4(OSC_packet_s *osc_packet){
 
-	uint8_t rounded_packet_len = ((osc_packet_len + 4 - 1) / 4) * 4;
+	uint8_t cur_size = osc_packet->sp - osc_packet->data;
+	uint8_t new_size = _roundup_4(cur_size);
 
-	*osc_packet = pvPortRealloc(*osc_packet, rounded_packet_len * sizeof(uint8_t));
-
-	for(uint8_t i=0; i<rounded_packet_len - osc_packet_len; i++){
-		memmove(*osc_packet + osc_packet_len + i, '\0', 1);
+	for(size_t i=0; i<(new_size - cur_size);i++){
+		_osc_packet_cat(osc_packet, OSC_PACKET_NULL_CHAR, 1);
 	}
-
-	return rounded_packet_len;
 
 }
 
@@ -85,59 +70,64 @@ void osc_server_init(void){
 	udp_recv(osc_server._pcb, _osc_server_receive, NULL);
 }
 
-/**
- * @brief Brodcasts an OSC control command over UDP
- *
- * @param media_type Type of media to be controlled @see osc_media_type_e.
- * @param osc_control_type_e Type of control to be modified @see osc_control_type_e.
- * @param ctrl_id Identifier of the control to be modified.
- * @param ctrl_val value to be applied
- */
-void osc_server_control(osc_media_type_e media_type, osc_control_type_e ctrl_type, uint16_t ctrl_id, uint32_t ctrl_val){
+void osc_packet_send(osc_media_type_e media_type, osc_control_type_e ctrl_type, uint16_t ctrl_id, uint32_t ctrl_val){
 
-	uint32_t swapped_ctrl_val = ((ctrl_val>>24)&0xff) | ((ctrl_val<<8)&0xff0000) | ((ctrl_val>>8)&0xff00) | ((ctrl_val<<24)&0xff000000);
+	OSC_packet_s osc_packet;
 
-	char media_type_buf[1];
-	char ctrl_type_buf[1];
-	char ctrl_id_buf[5];
+	uint32_t swapped_ctrl_val 	= ((ctrl_val>>24)&0xff) | ((ctrl_val<<8)&0xff0000) | ((ctrl_val>>8)&0xff00) | ((ctrl_val<<24)&0xff000000);
+	uint8_t uri_len 			= _i_to_len(media_type) +  _i_to_len(ctrl_type) + _i_to_len(ctrl_id) + 3;
+	uint8_t tot_len 			= OSC_PACKET_PAYLOAD_LEN + _roundup_4(uri_len);
 
-	itoa(media_type, media_type_buf, 10);
-	itoa(ctrl_type, ctrl_type_buf, 10);
-	itoa(ctrl_id, ctrl_id_buf, 10);
+	osc_packet.data	= pvPortMalloc(tot_len * sizeof(uint8_t));
+	osc_packet.sp 	= osc_packet.data;
 
-	char *osc_packet_uri = pvPortMalloc(OSC_MAX_URI_LEN * sizeof(uint8_t));
-	char *osc_packet_payload = pvPortMalloc(OSC_MAX_PAYLOAD_LEN * sizeof(uint8_t));
-
-	/*
-	 * TODO: Create function to handle URI string creation
+	/**
+	 * WARNING: the use of sprintf tends to cause memory leaks...
+	 * THIS IS A POC, TRY AT YOUR OWN RISKS
+	 * FIXED by implementing thread-safe printf-stdarg library
 	 */
-	_osc_server_uri_append(&osc_packet_uri, media_type_buf);
-	_osc_server_uri_append(&osc_packet_uri, ctrl_type_buf);
-	_osc_server_uri_append(&osc_packet_uri, ctrl_id_buf);
+	osc_packet.sp += sprintf(osc_packet.sp,OSC_PACKET_URI_FORMAT, media_type, ctrl_type, ctrl_id);
+	_osc_packet_roundup4(&osc_packet);
+	_osc_packet_cat(&osc_packet, ",i", 2);
+	_osc_packet_cat(&osc_packet, &swapped_ctrl_val, 4);
+	_osc_packet_roundup4(&osc_packet);
 
-	/*
-	 * TODO: Create function to handle payload creation
-	 */
-	memmove(osc_packet_payload,",i", 2);
-	memmove(osc_packet_payload + 2,&swapped_ctrl_val, 4);
-
-	uint8_t raw_uri_len = strlen(osc_packet_uri);
-	uint8_t uri_len = _osc_server_roundup_packet(&osc_packet_uri, raw_uri_len);
-	uint8_t payload_len = _osc_server_roundup_packet(&osc_packet_payload,6);
-	uint8_t packet_len = uri_len + payload_len;
-
-	char osc_packet[packet_len];
-
-	memmove(osc_packet, osc_packet_uri, uri_len);
-	memmove(osc_packet + uri_len, osc_packet_payload, payload_len);
-
-	osc_server._p_tx = pbuf_alloc(PBUF_TRANSPORT, packet_len, PBUF_POOL);
-	pbuf_take(osc_server._p_tx, osc_packet, packet_len);
+	osc_server._p_tx = pbuf_alloc(PBUF_TRANSPORT, tot_len, PBUF_POOL);
+	pbuf_take(osc_server._p_tx, osc_packet.data, tot_len);
 	udp_sendto(osc_server._pcb, osc_server._p_tx, IP_ADDR_BROADCAST, cueOS_CONFIG_OSC_OUT_PORT);
 
-	vPortFree(osc_packet_uri);
-	vPortFree(osc_packet_payload);
+	vPortFree(osc_packet.data);
+
 	pbuf_free(osc_server._p_tx);
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

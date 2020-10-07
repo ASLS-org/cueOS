@@ -12,9 +12,16 @@
 #include <stdlib.h>
 #include "lwip/api.h"
 
-#define OSC_MAX_URI_LEN 12
-#define OSC_MAX_PAYLOAD_LEN 8
-#define OSC_MAX_PACKET_LEN OSC_MAX_URI_LEN + OSC_MAX_PAYLOAD_LEN
+#define OSC_PACKET_URI_PATH_DELIMITOR 	'/'
+#define OSC_PACKET_MESSAGE_DELIMITOR 	','
+#define OSC_PACKET_DATA_TYPE_INTEGER 	'i'
+#define OSC_PACKET_DATA_TYPE_FLOAT		'f'
+#define OSC_PACKET_DATA_TYPE_STTRING	's'
+#define OSC_PACKET_NULL_CHAR	 		'\0'
+#define OSC_PACKET_URI_FORMAT			"/%d/%d/%d"
+
+#define OSC_PACKET_PAYLOAD_LEN 			8
+#define OSC_PACKET_URI_BASEPATH_LEN 	4
 
 /**
  * @ingroup OSC_server
@@ -39,6 +46,16 @@ typedef enum{
 
 
 /**
+ * @brief DEfines en OSC packet instance.
+ * TODO: this is not a RAM-efficient implementation... EIther leave packet data as raw or slice it in URI/Payload but not both.
+ */
+typedef struct{
+	char *data;							/**< Packet data buffer*/
+	char *sp;							/**< String pointer */
+}OSC_packet_s;
+
+
+/**
  * @brief Defines an OSC server instance. Open Sound Control (OSC) is a protocol
  * for networking sound synthesizers, computers, and other multimedia devices for
  * purposes such as musical performance or show control.
@@ -51,7 +68,7 @@ typedef struct{
 
 
 void osc_server_init(void);
-void osc_server_control(osc_media_type_e media_type, osc_control_type_e ctrl_type, uint16_t ctrl_id, uint32_t ctrl_val);
+void osc_server_control(char *media_type, char *ctrl_type, char *ctrl_id, uint32_t ctrl_val);
 
 
 /**
