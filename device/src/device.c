@@ -12,6 +12,7 @@
  * These functions are only accessible from within the file's scope
  *=============================================================================================================================*/
 
+I2C_HandleTypeDef hi2c3;
 SD_HandleTypeDef hsd;
 DMA_HandleTypeDef hdma_sdio_rx;
 DMA_HandleTypeDef hdma_sdio_tx;
@@ -34,8 +35,11 @@ void _device_config_clock(void){
 	RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
 	RCC_OscInitStruct.PLL.PLLM = 8;
 	RCC_OscInitStruct.PLL.PLLN = 72;
+
+
 	RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
 	RCC_OscInitStruct.PLL.PLLQ = 3;
+
 
 	HAL_RCC_OscConfig(&RCC_OscInitStruct);
 
@@ -46,9 +50,23 @@ void _device_config_clock(void){
 	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
 	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-	HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2);
+
+	/** ====================
+	 *
+	 */
+//	__HAL_RCC_SYSCFG_CLK_ENABLE();
+//	__HAL_RCC_PWR_CLK_ENABLE();
+	/**
+	 * ====================
+	 */
 
 }
+
+/**
+ * TODO: mauybe put ll_drivers into device folder ? Seems to make more sense ?
+ * TODO: init DMX512 serial peripheral here$
+ * TODO: implement error handling
+ */
 
 /**
  * @brief initialises SDIO to be used for communication
@@ -63,6 +81,7 @@ static void _mmc_init(void){
 	  hsd.Init.HardwareFlowControl = SDIO_HARDWARE_FLOW_CONTROL_DISABLE;
 	  hsd.Init.ClockDiv = 0;
 }
+
 
 /**
  * Configure system GPIO clocks
@@ -110,6 +129,8 @@ void _device_config_dma(void){
 /**
  * InitialisesHardware Abstraction Layer drivers defined within driver/ll_drivers folder
  * and configures system clocks and ll peripherals
+ * TODO: peripheral configuration should be handled at HL driver initialisation. Not within
+ * Device configuration file.
  */
 void device_init(void){
 
