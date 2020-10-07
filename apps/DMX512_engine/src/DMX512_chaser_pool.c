@@ -115,6 +115,7 @@ DMX512_engine_err_e DMX512_chaser_pool_get(DMX512_chaser_pool_s *chaser_pool, ui
 		err = DMX512_ENGINE_OK;
 	}
 
+	//TODO: return error here
 
 }
 
