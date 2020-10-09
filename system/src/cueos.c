@@ -14,7 +14,6 @@
 #include "device.h"
 #include "cueos_config.h"
 #include "cueos.h"
-#include "Q_client.h"
 #include "keys_driver.h"
 
 
