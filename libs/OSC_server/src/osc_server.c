@@ -21,19 +21,44 @@ OSC_server_s osc_server = {
  *=============================================================================================================================*/
 
 
+/**
+ * @brief Determines an integer's digit count.
+ *
+ * @param i Integer which digit count needs to be determinated.
+ * @return uint8_t digit count
+ */
 static uint8_t _i_to_len(uint16_t i){
 	return floor(log10((double)i) + 1);
 }
 
-static uint8_t _roundup_4(uint8_t len){
-	return ((len + 4 - 1) / 4) * 4;
+/**
+ * @brief Rounds up a predetermined value to its closest multiple of 4
+ *
+ * @param val value to be rounded up.
+ * @return uint8_t rouded up value.
+ */
+static uint8_t _roundup_4(uint8_t val){
+	return ((val + 4 - 1) / 4) * 4;
 }
 
+/**
+ * @brief Appends data to an OSC packet's data buffer
+ *
+ * @param *osc_packet Pointer to an OSC packet instance.
+ * @param *data Data to be appended to the packet buffer.
+ * @param size Size of the data to be appended to the buffer.
+ */
 static void _osc_packet_cat(OSC_packet_s *osc_packet, const void *data, size_t size){
 	memmove(osc_packet->sp, data, size);
 	osc_packet->sp += size;
 }
 
+/**
+ * @brief Rounds up an OSC packet's data buffer size to a multiple of 4
+ * by appending NULL characters if needed.
+ *
+ * @param *osc_packet Pointer to an OSC packet instance.
+ */
 static void _osc_packet_roundup4(OSC_packet_s *osc_packet){
 
 	uint8_t cur_size = osc_packet->sp - osc_packet->data;
@@ -45,6 +70,15 @@ static void _osc_packet_roundup4(OSC_packet_s *osc_packet){
 
 }
 
+/**
+ * @brief OSC packet reception handler.
+ *
+ * @param arg user supplied argument (udp_pcb.recv_arg)
+ * @param pcb the udp_pcb which received data
+ * @param p the packet buffer that was received
+ * @param addr the remote IP address from which the packet was received
+ * @param port the remote port from which the packet was received
+ */
 static void _osc_server_receive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port){
 	if(p!=NULL){
 		pbuf_free(p);
@@ -70,6 +104,14 @@ void osc_server_init(void){
 	udp_recv(osc_server._pcb, _osc_server_receive, NULL);
 }
 
+/**
+ * @brief Prepares and send an OSC packet over UDP.
+ *
+ * @param media_type Type of media to be controlled over OSC @see osc_server.h for further informations.
+ * @param ctrl_type Type of control to be modified over OSC @see osc_server.h for further informations.
+ * @param ctrl_id Identifier of the control to be modified OSC @see osc_server.h for further informations.
+ * @param ctrl_val Value of the control to be modified.
+ */
 void osc_packet_send(osc_media_type_e media_type, osc_control_type_e ctrl_type, uint16_t ctrl_id, uint32_t ctrl_val){
 
 	OSC_packet_s osc_packet;
@@ -83,8 +125,7 @@ void osc_packet_send(osc_media_type_e media_type, osc_control_type_e ctrl_type, 
 
 	/**
 	 * WARNING: the use of sprintf tends to cause memory leaks...
-	 * THIS IS A POC, TRY AT YOUR OWN RISKS
-	 * FIXED by implementing thread-safe printf-stdarg library
+	 * FIXED by implementing thread-safe printf-stdarg library.
 	 */
 	osc_packet.sp += sprintf(osc_packet.sp,OSC_PACKET_URI_FORMAT, media_type, ctrl_type, ctrl_id);
 	_osc_packet_roundup4(&osc_packet);
