@@ -68,7 +68,7 @@ typedef struct{
 
 
 void osc_server_init(void);
-void osc_server_control(char *media_type, char *ctrl_type, char *ctrl_id, uint32_t ctrl_val);
+void osc_packet_send(osc_media_type_e media_type, osc_control_type_e ctrl_type, uint16_t ctrl_id, uint32_t ctrl_val);
 
 
 /**
