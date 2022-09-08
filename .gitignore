@@ -1,4 +1,4 @@
 #Comment-generated documentation
-doc/
+doc/html
 #WEBApp files
 apps/WEB_application/src/dist
