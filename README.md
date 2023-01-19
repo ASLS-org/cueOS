@@ -1,3 +1,13 @@
-# cueOS
+# What is CueOS ?
 
-cueOS is an ARM Operating System dedicated to provide new solutions for Show Control. Based around ASLS' "Q solutions" it aims to ease synchronisation of various elements of a sound and light show such as intelligent stage equipment, pyrotechnics and many others through the use of a single UDP Show Control protocol "Q". 
+ASLS' CueOS designed for Arm® Cortex-M4 Microcontrollers provides built-in show control features such as multi-protocol Cue triggering, diverse control outputs and show programmation through web interface.
+
+    ‍Warning: The current distribution of ASLS' CueOS is in alpha state. Listed features are provided as-is, without any guarantee. Please report any issue over the project's repository.
+
+# Motivation
+
+Part of ASLS (Autonomous Stage Lighting Systems) development, it was originally created to offer new simple ways to synchronize the many aspects of complex lightshows (Stage lighting, pyrotechnics, medai servers...). Following the end of the project, it was decided to release the project as an open-source, free to use platform for anyone to enjoy. 
+
+# Documentation
+
+CueOS' documentation is avilable at https://cueos.asls.timekadel.com
